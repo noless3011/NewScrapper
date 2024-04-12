@@ -1,0 +1,68 @@
+.news-card{
+	-fx-padding: 10; 
+	-fx-background-color: #333333;
+    -fx-background-radius: 5px;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+
+.news-card:hover{
+	-fx-background-color: #353535;
+}
+
+.root{
+    -fx-background-color: #242424;
+    -fx-alignment:center;
+}
+
+.search-bar-and-news-list{
+	-fx-alignment:baseline-center;
+	-fx-border-width: 3px;
+	-fx-background-color: #242424;
+}
+
+.label-color {
+	-fx-alignment:baseline-center;
+    -fx-text-fill: #ffffff; /* Red text */
+}
+
+.search-bar{
+	-fx-background-color: #2C2C2C;
+    -fx-text-fill: white;
+    -fx-border-radius: 15px;
+    -fx-background-radius: 15px;
+    -fx-padding: 10px 20px;
+    -fx-prompt-text-fill: gray;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0.0 , 0 ,1);
+}
+
+.scroll-pane {
+    -fx-background-color: #2C2C2C;
+    -fx-background-radius: 10px; /* Adjust the radius as needed */
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .scroll-bar:vertical,
+.scroll-pane .scroll-bar:horizontal {
+    -fx-background-radius: 5px; /* Adjust the radius as needed */
+    -fx-background-color: #2C2C2C;
+}
+
+.scroll-pane .scroll-bar .thumb {
+    -fx-background-color: derive(#2C2C2C, 20%);
+    -fx-background-radius: 4px; /* Adjust the radius as needed */
+}
+
+.advance-search-button{
+	-fx-background-color: #2C2C2C;
+    -fx-text-fill: white;
+    -fx-border-radius: 9px;
+    -fx-background-radius: 9px;
+    -fx-prompt-text-fill: gray;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0.0 , 0 ,1);
+}
+
+

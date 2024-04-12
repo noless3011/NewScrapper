@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="newsPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" styleClass="news-pane" stylesheets="@../CSS/NewsCard.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NewsCardController">
+   <children>
+      <ImageView fx:id="newsImage" fitHeight="200.0" fitWidth="300.0" pickOnBounds="true" styleClass="image">
+         <image>
+            <Image url="@../CSS/20221127_085314.jpg" />
+         </image></ImageView>
+      <Pane prefHeight="200.0" prefWidth="300.0" styleClass="gradient-pane" stylesheets="@../CSS/NewsCard.css" />
+      <Pane prefHeight="200.0" prefWidth="300.0" styleClass="gradient-pane" stylesheets="@../CSS/NewsCard.css" />
+      <TextArea fx:id="titleText" layoutY="50.0" prefHeight="100.0" prefWidth="300.0" styleClass="text-area" stylesheets="@../CSS/NewsCard.css" text="This is the title">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="infoText" layoutY="150.0" prefHeight="50.0" prefWidth="300.0" styleClass="text-area-info" stylesheets="@../CSS/NewsCard.css" text="This contain the info of the news" />
+   </children>
+</Pane>
