@@ -107,7 +107,7 @@ public class TwitterCrawler {
 	//Tìm kiếm các thông tin về tác giả, thời gian, url của các tweet
 	
 	public void CrawlArticleList() {
-		int i = 0, k = 1;
+		int i = 0;
 		HashSet<String> uniqueTweets = new HashSet<>(); // HashSet để kiểm tra xem tweet đã có trong danh sách chưa để tránh crawl hai bài giống nhau
 		while(tweetList.size() < 70) {
 			i++;
@@ -164,8 +164,6 @@ public class TwitterCrawler {
 							tweetList.add(test);
 							test.setContent(CrawlArticleContent(tweet));
 							uniqueTweets.add(sourceUrl);	
-							System.out.println(k+ "\n"); k++;
-							System.out.println(test.toString());
 						}
 					}
 				}catch (org.openqa.selenium.NoSuchElementException e) {
