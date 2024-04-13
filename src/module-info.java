@@ -1,4 +1,4 @@
-module NewsScrapper {
+module NewScrapper {
 	exports model;
 	exports controller;
 	exports main;
