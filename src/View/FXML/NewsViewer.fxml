@@ -8,11 +8,19 @@
 <?import javafx.scene.layout.VBox?>
 
 
+<<<<<<< HEAD
 <AnchorPane styleClass="root" stylesheets="@../CSS/NewsViewer.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21">
    <children>
       <VBox prefHeight="800.0" prefWidth="700.0">
          <children>
             <TextArea fx:id="title" prefHeight="100.0" prefWidth="200.0" styleClass="text-area" text="safdfsdh" />
+=======
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21">
+   <children>
+      <VBox prefHeight="800.0" prefWidth="700.0">
+         <children>
+            <TextArea fx:id="title" prefHeight="100.0" prefWidth="200.0" />
+>>>>>>> 7639dc6 (new commit)
             <HBox prefHeight="50.0" prefWidth="200.0">
                <children>
                   <TextArea fx:id="author" prefHeight="50.0" prefWidth="200.0" />
