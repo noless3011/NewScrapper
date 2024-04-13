@@ -1,6 +1,9 @@
-package model;
+package crawler;
 
 import java.util.List;
+
+import model.Content;
+import model.Article;
 
 public abstract class ICrawler {
 	//This function will be called prediodically

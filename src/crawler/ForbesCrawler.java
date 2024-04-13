@@ -1,6 +1,9 @@
-package model;
+package crawler;
 
 import java.util.List;
+
+import model.Content;
+import model.Article;
 
 public class ForbesCrawler extends ICrawler {
 
