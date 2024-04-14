@@ -34,7 +34,7 @@ public class TwitterCrawler {
 	private final static WebDriver driver = new ChromeDriver();
 	private final static JavascriptExecutor js = (JavascriptExecutor) driver;
 	private final String USER_NAME = "Hoang583899460";
-	private final String PASSWORD = "ngocha2007";
+	private final String PASSWORD = "ngocha3792";
 	
 	//Delay
 	public void threadsleep(int miliseconds) {
@@ -70,7 +70,7 @@ public class TwitterCrawler {
 		// Click vào nút next
 		WebElement next_button = driver.findElement(By.xpath("//span[contains(text(),'Next')]"));
 		next_button.click();
-		Thread.sleep(20000);
+		Thread.sleep(5000);
 		
 		// Chờ cho tới khi trường nhập mật khẩu xuất hiện và nhập mật khẩu
 		WebElement passwordInput = driver.findElement(By.xpath("//input[@name='password']"));
@@ -92,7 +92,7 @@ public class TwitterCrawler {
 		//Search từ khóa Blockchain
 		WebElement search_button = driver.findElement(By.xpath("//input[@data-testid='SearchBox_Search_Input']"));
 		search_button.sendKeys("blockchain" + Keys.ENTER);
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		WebElement latest_button = driver.findElement(By.xpath("//span[contains(text(), 'Latest')]"));
 		latest_button.click();
 		Thread.sleep(5000);
@@ -103,16 +103,16 @@ public class TwitterCrawler {
 	        long previousPageHeight = (long) js.executeScript("return document.body.scrollHeight");
 	        js.executeScript("window.scrollBy(0, 1000);");
 	        long currentPageHeight = (long) js.executeScript("return document.body.scrollHeight");
-	        threadsleep(2000);
+	        threadsleep(3000);
 	        return currentPageHeight == previousPageHeight;
 	    }
 	
 	//Tìm kiếm các thông tin về tác giả, thời gian, url của các tweet
 	
 	public void CrawlArticleList() {
-		int i = 0;
+		int i = 0, k = 1;
 		HashSet<String> uniqueTweets = new HashSet<>(); // HashSet để kiểm tra xem tweet đã có trong danh sách chưa để tránh crawl hai bài giống nhau
-		while(tweetList.size() < 200) {
+		while(!isElementPresent(driver, By.xpath("//span[contains(text(), 'Something went wrong. Try reloading.')]"))) {
 			i++;
 			if (i > 2) {
 				i = 0;
@@ -121,7 +121,7 @@ public class TwitterCrawler {
 					js.executeScript("window.scrollBy(0, -4000);");//document.body.scrollHeight
 					js.executeScript("window.scrollBy(0, 5000);");//document.body.scrollHeight
 				}
-				threadsleep(2000);
+				threadsleep(3000);
 				}
 			try {
 				// Truy nhập vào từng đối tượng bài viết
@@ -170,6 +170,7 @@ public class TwitterCrawler {
 							tweetList.add(test);
 							test.setContent(CrawlArticleContent(tweet));
 							uniqueTweets.add(sourceUrl);	
+							System.out.println(k);k++;
 						}
 					}
 				}catch (org.openqa.selenium.NoSuchElementException e) {
@@ -180,7 +181,7 @@ public class TwitterCrawler {
 					js.executeScript("window.scrollBy(0, -4000);");//document.body.scrollHeight
 					js.executeScript("window.scrollBy(0, 5000);");//document.body.scrollHeight
 				}
-				threadsleep(2000);
+				threadsleep(3000);
 			}	catch (org.openqa.selenium.NoSuchElementException e) {
 				continue;
 				}
