@@ -92,6 +92,9 @@ public class TwitterCrawler {
 		//Search từ khóa Blockchain
 		WebElement search_button = driver.findElement(By.xpath("//input[@data-testid='SearchBox_Search_Input']"));
 		search_button.sendKeys("blockchain" + Keys.ENTER);
+		Thread.sleep(1000);
+		WebElement latest_button = driver.findElement(By.xpath("//span[contains(text(), 'Latest')]"));
+		latest_button.click();
 		Thread.sleep(5000);
 		return driver;
 	}
@@ -107,9 +110,9 @@ public class TwitterCrawler {
 	//Tìm kiếm các thông tin về tác giả, thời gian, url của các tweet
 	
 	public void CrawlArticleList() {
-		int i = 0;
+		int i = 0,k=0;
 		HashSet<String> uniqueTweets = new HashSet<>(); // HashSet để kiểm tra xem tweet đã có trong danh sách chưa để tránh crawl hai bài giống nhau
-		while(tweetList.size() < 70) {
+		while(tweetList.size() < 200) {
 			i++;
 			if (i > 2) {
 				i = 0;
@@ -135,13 +138,16 @@ public class TwitterCrawler {
 				
 						//Lấy số reply
 						String number_of_comment = tweet.findElement(By.xpath(".//div[@data-testid='reply']")).getText();
-					
+						if (number_of_comment.equals("")) number_of_comment = "0";
+						
 						//Lấy số lượt thích
 						String number_of_liked = tweet.findElement(By.xpath(".//div[@data-testid='like']")).getText();
-
+						if (number_of_liked.equals("")) number_of_liked = "0";
+						
 						// Lấy số lượt xem
 						String number_of_view = tweet.findElement(By.xpath(".//a[@class='css-175oi2r r-1777fci r-bt1l66 r-bztko3 r-lrvibr r-1ny4l3l r-1loqt21']")).getText();
-					
+						if (number_of_view.equals("")) number_of_view = "0";
+						
 						//Lấy list HashTag
 						List <WebElement> findHashTag = tweet.findElements(By.xpath(".//span[@class='r-18u37iz']"));
 						List <String> hashtags = new ArrayList<>();
@@ -164,6 +170,8 @@ public class TwitterCrawler {
 							tweetList.add(test);
 							test.setContent(CrawlArticleContent(tweet));
 							uniqueTweets.add(sourceUrl);	
+							System.out.println(k + "\n");k++;
+							System.out.println(test.toString());
 						}
 					}
 				}catch (org.openqa.selenium.NoSuchElementException e) {
