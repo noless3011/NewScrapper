@@ -241,5 +241,6 @@ public class TwitterCrawler {
 		twittercrawler.loginTwitter();
 		twittercrawler.CrawlArticleList();
 		twittercrawler.SaveToJson(tweetList);
+		driver.quit();
 	}
 }
