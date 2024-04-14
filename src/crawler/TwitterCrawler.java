@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.HashSet;
 
-public class TwitterCrawler {
+public class TwitterCrawler extends ICrawler {
 	public static List<Tweet> tweetList = new ArrayList();
 	private final static WebDriver driver = new ChromeDriver();
 	private final static JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -108,7 +108,7 @@ public class TwitterCrawler {
 	    }
 	
 	//Tìm kiếm các thông tin về tác giả, thời gian, url của các tweet
-	
+	@Override
 	public void CrawlArticleList() {
 		int i = 0, k = 1;
 		HashSet<String> uniqueTweets = new HashSet<>(); // HashSet để kiểm tra xem tweet đã có trong danh sách chưa để tránh crawl hai bài giống nhau
@@ -189,6 +189,7 @@ public class TwitterCrawler {
 	}
 	
 	// Lấy nội dung của các tweet bao gồm cả ảnh và chữ
+	// Hàm này có thể không phải sử dụng
 	
 	public Content CrawlArticleContent(WebElement tweet) {
 		try {
@@ -210,7 +211,7 @@ public class TwitterCrawler {
 	}
 	
 	// Lưu list gồm các tweet vào file json
-	
+	@Override
 	public void SaveToJson(List<Tweet> tweetList) {
 		Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).setPrettyPrinting().create();
 		try (FileWriter writer = new FileWriter("tweets.json")){
@@ -223,7 +224,7 @@ public class TwitterCrawler {
 	}
 	
 	// Lấy danh sách đối tượng từ file Json
-	
+	@Override
 	public List<Tweet> GetArticlesFromJson(){
 		try (Reader reader = new FileReader("tweets.json")){
 			Type listType = new TypeToken<List<Tweet>>() {}.getType();
