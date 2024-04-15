@@ -109,7 +109,7 @@ public class TwitterCrawler extends ICrawlerTweet {
 	    }
 	
 	//Tìm kiếm các thông tin về tác giả, thời gian, url của các tweet
-	
+	@Override
 	public void CrawlArticleList() {
 		int i = 0;
 		HashSet<String> uniqueTweets = new HashSet<>(); // HashSet để kiểm tra xem tweet đã có trong danh sách chưa để tránh crawl hai bài giống nhau
@@ -189,6 +189,7 @@ public class TwitterCrawler extends ICrawlerTweet {
 	}
 	
 	// Lấy nội dung của các tweet bao gồm cả ảnh và chữ
+	// Hàm này có thể không phải sử dụng
 	
 	public Content CrawlArticleContent(WebElement tweet) {
 		try {
@@ -210,7 +211,7 @@ public class TwitterCrawler extends ICrawlerTweet {
 	}
 	
 	// Lưu list gồm các tweet vào file json
-	
+	@Override
 	public void SaveToJson(List<Tweet> tweetList) {
 		try (FileWriter writer = new FileWriter("tweets.json")){
 			gson.toJson(tweetList, writer);
@@ -222,7 +223,7 @@ public class TwitterCrawler extends ICrawlerTweet {
 	}
 	
 	// Lấy danh sách đối tượng từ file Json
-	
+	@Override
 	public List<Tweet> GetArticlesFromJson(){
 		List <Tweet> tweets = null;
 		try (Reader reader = new FileReader("tweets.json")){
