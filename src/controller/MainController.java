@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+
+import crawler.CNBCCrawler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -42,6 +44,9 @@ public class MainController{
 ;		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		CNBCCrawler crawler = new CNBCCrawler();
+		crawler.crawlArticleList();
 				
 	}
 	

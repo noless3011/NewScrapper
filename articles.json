@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1033414372,
+    "title": "Over 60% of illegal crypto activity is reportedly tied to sanctioned groups or terrorist organizations",
+    "sourceUrl": "https://www.cnbc.com/2024/02/29/sanctioned-and-terrorist-entities-receive-most-global-illicit-crypto.html",
+    "author": "Dylan Butts",
+    "content": {
+      "elements": [
+        "Sanctioned entities, like those linked to North Korean hacking groups and U.S.-designated terrorist organizations such as Lebanon’s Hezbollah, continue to rely on cryptocurrency for fundraising, according to a new report from Chainalysis.",
+        "The American blockchain analysis firm’s “2024 Crypto Crime Report” found that $24.2 billion of illicit cryptocurrency was transferred in 2023, based on already identified illicit crypto wallets. Chainalysis retroactively updates its yearly crypto figures when new illicit wallets come to light.",
+        "While last year’s numbers currently represent a drop from the previous year, Chainalysis noted a much higher proportion of the funds were attributed to sanctioned or terrorist-linked recipients, accounting for about 61.5% of total illicit transaction volume in 2023.",
+        "“Actors subject to sanctions are often cut off from international traditional financial systems, and crypto can become an attempted alternative mechanism to store, send, and receive funds,” Andrew Fierman, head of sanctions strategy at Chainalysis, told CNBC on Thursday.",
+        "Entities like the crypto “mixer” Tornado Cash and Garantex took the lion’s share of illicit funds in 2023. Tornado Cash was sanctioned in August 2022 for its role in laundering crypto stolen by the North Korean hacking organization Lazarus Group. Russian-based exchange Garantex was sanctioned in April 2022 for its affiliation with illicit actors, including ransomware groups.",
+        "Crypto mixers are software that obscure the history and origin of digital assets sent through them.",
+        "The amount of crypto transferred to sanctioned entities has climbed in recent years in tandem with a greater share of new trade restrictions specifying crypto wallets.",
+        "In 2023, the U.S. Office of Foreign Assets Control sanctions list imposed a total of 18 new sanctions on individuals and entities, including their associated crypto wallets.",
+        "At least nine of the new sanctions were against individuals and entities across China and Latin America for their alleged role in fentanyl manufacturing and trafficking. Meanwhile, five of the sanctions targeted entities deemed to have violated sanctions on North Korea.",
+        "The top crypto recipient added to the sanctions list last year was Sinbad.io — a bitcoin mixer that was shut down in November of 2023 — which received $665.4 million in crypto from the Lazarus Group.",
+        "Still, sanctions have shown the ability to slow the flow of crypto funds to their targets. Tornado Cash’s monthly inflows dropped by as much as 93% immediately following its placement on the U.S. list, according to Chainalysis. Though the firm noted inflows slowly rebounded from that low in the following months.",
+        "Of sanctioned countries, Iran was a major recipient of illicit funds, with 73.3% of inflows coming from international mainstream exchanges indicating the services might be used to subvert sanctions, Chainalysis said.",
+        "Illicit crypto volume identified by Chainalysis as terrorist financing accounted for a much smaller proportion than that of transactions to sanctioned entities in 2022.",
+        "Chainalysis argued that, contrary to popular belief, cryptocurrency is not an effective tool for terrorism funding because blockchain allows funds to be traced at a level of detail not typically available in traditional finance.",
+        "“The transparent nature of cryptocurrency combined with blockchain analytics provides an invaluable forensic tool that empowers governments to identify, trace, and disrupt the flow of funds – something that isn’t possible with other forms of value transfer, especially cash,” said Chanalysis’s Fierman.",
+        "Despite these obstacles, terrorist organizations have continued to try to utilize cryptocurrencies for fundraising, deploying intricate networks of crypto exchanges and service providers, the report said.",
+        "Last year, tracing efforts resulted in the seizure of millions in funds. In one such case, Israel’s National Bureau for Counter Terror Financing said in June that it had seized $1.7 million of cryptocurrency linked to Hezbollah and Iran’s Quds Force through a Syria-based financial facilitator named Tawfiq Muhammad Said Al-Law.",
+        "Chainalysis’s report outlined how Al-Law’s relied on a network of legitimate mainstream exchanges and an extensive network of wallets for cryptocurrency transactions to aid Hezbollah’s cryptocurrency financing infrastructure.",
+        "The wallets linked to Al-Law collectively received funds ranging from millions to over $1 billion in cryptocurrency, involving up to tens of thousands of transfers.",
+        "Meanwhile, entities and individuals linked to designated terrorist groups, such as ISIS and Hayat Tahrir Al-Sham, have continued to solicit cryptocurrency through crowdfunding efforts.",
+        "However, according to Fierman, efforts in tracing and seizing these funds have become increasingly sophisticated.",
+        "“The data also shows that as crypto adoption by illicit actors continues to grow, sanctioning bodies like OFAC are continually evolving their methods to identify these actors and disrupt their activities,” he added.",
+        "In another example cited in the Chainalysis report, Al-Qassam Brigades, the military wing of Hamas, announced their decision to stop accepting crypto donations last year due to the risk of potential donors being traced. This followed reports that Hamas had received large amounts of cryptocurrencies in the lead up to its attack on Israel on Oct. 7.",
+        "Although terrorism financing is a “small share” of illicit crypto activity, it still presents an “ever-present concern” in the ecosystem, said Chainalysis in its report.",
+        "Strengthened public and private partnerships are needed to help bolster these efforts and to decipher between illicit actors and funds sent to conflict zones for legitimate causes, it added."
+      ]
+    },
+    "publishedDate": "2024-02-29T00:00:00"
+  }
+]
