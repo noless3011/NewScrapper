@@ -29,12 +29,13 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.HashSet;
 
-public class TwitterCrawler {
+public class TwitterCrawler extends ICrawlerTweet {
 	public static List<Tweet> tweetList = new ArrayList();
 	private final static WebDriver driver = new ChromeDriver();
 	private final static JavascriptExecutor js = (JavascriptExecutor) driver;
 	private final String USER_NAME = "Hoang583899460";
 	private final String PASSWORD = "ngocha3792";
+	Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).setPrettyPrinting().create();
 	
 	//Delay
 	public void threadsleep(int miliseconds) {
@@ -70,7 +71,7 @@ public class TwitterCrawler {
 		// Click vào nút next
 		WebElement next_button = driver.findElement(By.xpath("//span[contains(text(),'Next')]"));
 		next_button.click();
-		Thread.sleep(5000);
+		Thread.sleep(30000);
 		
 		// Chờ cho tới khi trường nhập mật khẩu xuất hiện và nhập mật khẩu
 		WebElement passwordInput = driver.findElement(By.xpath("//input[@name='password']"));
@@ -110,7 +111,7 @@ public class TwitterCrawler {
 	//Tìm kiếm các thông tin về tác giả, thời gian, url của các tweet
 	
 	public void CrawlArticleList() {
-		int i = 0, k = 1;
+		int i = 0;
 		HashSet<String> uniqueTweets = new HashSet<>(); // HashSet để kiểm tra xem tweet đã có trong danh sách chưa để tránh crawl hai bài giống nhau
 		while(!isElementPresent(driver, By.xpath("//span[contains(text(), 'Something went wrong. Try reloading.')]"))) {
 			i++;
@@ -170,7 +171,6 @@ public class TwitterCrawler {
 							tweetList.add(test);
 							test.setContent(CrawlArticleContent(tweet));
 							uniqueTweets.add(sourceUrl);	
-							System.out.println(k);k++;
 						}
 					}
 				}catch (org.openqa.selenium.NoSuchElementException e) {
@@ -212,7 +212,6 @@ public class TwitterCrawler {
 	// Lưu list gồm các tweet vào file json
 	
 	public void SaveToJson(List<Tweet> tweetList) {
-		Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).setPrettyPrinting().create();
 		try (FileWriter writer = new FileWriter("tweets.json")){
 			gson.toJson(tweetList, writer);
 			writer.close();
@@ -225,9 +224,10 @@ public class TwitterCrawler {
 	// Lấy danh sách đối tượng từ file Json
 	
 	public List<Tweet> GetArticlesFromJson(){
+		List <Tweet> tweets = null;
 		try (Reader reader = new FileReader("tweets.json")){
 			Type listType = new TypeToken<List<Tweet>>() {}.getType();
-            List<Tweet> tweets = new Gson().fromJson(reader, listType);
+			tweets = gson.fromJson(reader, listType);
             return tweets;
 		} catch (IOException e) {
 			e.printStackTrace();

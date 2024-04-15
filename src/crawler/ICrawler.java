@@ -5,7 +5,7 @@ import java.util.List;
 import model.Content;
 import model.Article;
 
-public abstract class ICrawler {
+public abstract interface ICrawler {
 	//This function will be called prediodically
 	public abstract void CrawlArticleList();
 	//The content will be crawl when the user click on the news to save resources
