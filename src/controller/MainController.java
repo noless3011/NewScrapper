@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import crawler.CNBCCrawler;
 import javafx.event.ActionEvent;
@@ -15,6 +16,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import model.Article;
 
 public class MainController{
 	@FXML
@@ -46,8 +48,8 @@ public class MainController{
 		}
 		
 		CNBCCrawler crawler = new CNBCCrawler();
-		crawler.crawlArticleList();
-				
+		//crawler.crawlArticleList();
+		List<Article> articles = crawler.getArticlesFromJson();
 	}
 	
     
