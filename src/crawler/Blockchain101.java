@@ -55,7 +55,7 @@ public class Blockchain101 extends ICrawler{
 					// Get date and time
 					// Get date and time
 					String dateTimeString = element.select("p").text();
-					DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+					DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d");
 					LocalDateTime dateTime = LocalDateTime.parse(dateTimeString, formatter);
 					
 					// Get tag
