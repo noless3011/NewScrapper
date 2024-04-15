@@ -98,7 +98,7 @@ public class FacebookCrawler extends ICrawler {
     //Truy cap va lay ma nguon trang web
     public static WebDriver getPageSource(int numScroll) {
         //Khoi  tao Webdriver
-        System.setProperty("webdriver.chrome.driver", "src/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         WebDriver driver = new ChromeDriver();
 
         //Truy cap trang web
