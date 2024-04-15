@@ -12,7 +12,7 @@ public class Article {
     private String sourceName;
     private String author;
     private String tags;
-    private Content content;
+    protected Content content;
     private LocalDateTime publishedDate;
 
     // Constructor
