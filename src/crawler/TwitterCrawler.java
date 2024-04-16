@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.HashSet;
 
-public class TwitterCrawler extends ICrawlerTweet {
+public class TwitterCrawler implements ICrawlerTweet {
 	public static List<Tweet> tweetList = new ArrayList();
 	private final static WebDriver driver = new ChromeDriver();
 	private final static JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -38,7 +38,7 @@ public class TwitterCrawler extends ICrawlerTweet {
 	Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).setPrettyPrinting().create();
 	
 	//Delay
-	public void threadsleep(int miliseconds) {
+	public void threadSleep(int miliseconds) {
 		try {
 			Thread.sleep(miliseconds);
 		} catch (InterruptedException e) {
@@ -104,13 +104,13 @@ public class TwitterCrawler extends ICrawlerTweet {
 	        long previousPageHeight = (long) js.executeScript("return document.body.scrollHeight");
 	        js.executeScript("window.scrollBy(0, 1000);");
 	        long currentPageHeight = (long) js.executeScript("return document.body.scrollHeight");
-	        threadsleep(3000);
+	        threadSleep(3000);
 	        return currentPageHeight == previousPageHeight;
 	    }
 	
 	//Tìm kiếm các thông tin về tác giả, thời gian, url của các tweet
-	@Override
-	public void CrawlArticleList() {
+	
+	public void crawlTweetList() {
 		int i = 0;
 		HashSet<String> uniqueTweets = new HashSet<>(); // HashSet để kiểm tra xem tweet đã có trong danh sách chưa để tránh crawl hai bài giống nhau
 		while(!isElementPresent(driver, By.xpath("//span[contains(text(), 'Something went wrong. Try reloading.')]"))) {
@@ -122,7 +122,7 @@ public class TwitterCrawler extends ICrawlerTweet {
 					js.executeScript("window.scrollBy(0, -4000);");//document.body.scrollHeight
 					js.executeScript("window.scrollBy(0, 5000);");//document.body.scrollHeight
 				}
-				threadsleep(3000);
+				threadSleep(3000);
 				}
 			try {
 				// Truy nhập vào từng đối tượng bài viết
@@ -169,7 +169,7 @@ public class TwitterCrawler extends ICrawlerTweet {
 						if (!uniqueTweets.contains(sourceUrl)) {
 							Tweet test = new Tweet(author, content, publishedAt, sourceUrl, hashtags, number_of_comment, number_of_liked, number_of_view);
 							tweetList.add(test);
-							test.setContent(CrawlArticleContent(tweet));
+							test.setContent(crawlTweetContent(tweet));
 							uniqueTweets.add(sourceUrl);	
 						}
 					}
@@ -181,7 +181,7 @@ public class TwitterCrawler extends ICrawlerTweet {
 					js.executeScript("window.scrollBy(0, -4000);");//document.body.scrollHeight
 					js.executeScript("window.scrollBy(0, 5000);");//document.body.scrollHeight
 				}
-				threadsleep(3000);
+				threadSleep(3000);
 			}	catch (org.openqa.selenium.NoSuchElementException e) {
 				continue;
 				}
@@ -191,7 +191,7 @@ public class TwitterCrawler extends ICrawlerTweet {
 	// Lấy nội dung của các tweet bao gồm cả ảnh và chữ
 	// Hàm này có thể không phải sử dụng
 	
-	public Content CrawlArticleContent(WebElement tweet) {
+	public Content crawlTweetContent(WebElement tweet) {
 		try {
 		// Lấy chữ
 		Content content = new Content();
@@ -211,8 +211,8 @@ public class TwitterCrawler extends ICrawlerTweet {
 	}
 	
 	// Lưu list gồm các tweet vào file json
-	@Override
-	public void SaveToJson(List<Tweet> tweetList) {
+	
+	public void saveToJson(List<Tweet> tweetList) {
 		try (FileWriter writer = new FileWriter("tweets.json")){
 			gson.toJson(tweetList, writer);
 			writer.close();
@@ -223,8 +223,8 @@ public class TwitterCrawler extends ICrawlerTweet {
 	}
 	
 	// Lấy danh sách đối tượng từ file Json
-	@Override
-	public List<Tweet> GetArticlesFromJson(){
+	
+	public List<Tweet> getTweetFromJson(){
 		List <Tweet> tweets = null;
 		try (Reader reader = new FileReader("tweets.json")){
 			Type listType = new TypeToken<List<Tweet>>() {}.getType();
@@ -241,8 +241,8 @@ public class TwitterCrawler extends ICrawlerTweet {
 		TwitterCrawler twittercrawler = new TwitterCrawler();
 		// Tạo trình duyệt chromedriver và mở trang twitter
 		twittercrawler.loginTwitter();
-		twittercrawler.CrawlArticleList();
-		twittercrawler.SaveToJson(tweetList);
+		twittercrawler.crawlTweetList();
+		twittercrawler.saveToJson(tweetList);
 		driver.quit();
 	}
 }
