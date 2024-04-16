@@ -5,37 +5,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84382b4b-c4f5-4d48-802f-6256ca3f5a19" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jsoup_1_17_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chromedriver.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/crawler/ICrawlerFacebook.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Facebook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/gson_2_10_1.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/selenium_java_4_19_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/src.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resource/image/Screenshot 2024-04-19 221147.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resource/image/Screenshot 2024-04-20 064320.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resource/image/Screenshot 2024-04-20 065310.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resource/image/Screenshot 2024-04-20 090059.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resource/image/cmt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resource/image/ic_angry.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resource/image/ic_care.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resource/image/ic_comment.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resource/image/ic_friend.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resource/image/ic_haha.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resource/image/ic_like.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resource/image/ic_like_outline.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resource/image/ic_love_.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resource/image/ic_more.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resource/image/ic_public.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resource/image/ic_sad.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resource/image/ic_share.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resource/image/ic_verified.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resource/image/ic_wow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resource/image/img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resource/image/user.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resource/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/FXML/facebookpost.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/PostController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NewScrapper.iml" beforeDir="false" afterPath="$PROJECT_DIR$/NewScrapper.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/crawler/FacebookCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawler/FacebookCrawler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/crawler/facebook.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawler/facebook.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/adapter/LocalDateTimeAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Facebook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Facebook.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-        <option value="Interface" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="pre-master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -51,29 +67,36 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "truong-branch",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/javaLib/selenium-server-4.18.1.jar",
+    "last_opened_file_path": "D:/Work2/NewScrapper/resource",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Libraries",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.20689656",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "settings.sync",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Work2\NewScrapper\resource" />
+      <recent name="D:\Work2\NewScrapper\src\View\CSS" />
+      <recent name="D:\Work2\NewScrapper\src\View\FXML" />
       <recent name="D:\Work2\NewScrapper\src" />
-      <recent name="D:\Work2\NewScrapper\src\crawler" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Work2\NewScrapper\resource" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="controller" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -84,8 +107,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1712632922085</updated>
-      <workItem from="1713018760380" duration="464000" />
-      <workItem from="1713228070349" duration="5452000" />
+      <workItem from="1713767611877" duration="1004000" />
     </task>
     <servers />
   </component>

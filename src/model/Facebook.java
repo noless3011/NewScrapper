@@ -6,6 +6,7 @@ public class Facebook extends Article{
     private String number_of_comment;
     private String number_of_reaction;
     private String number_of_share;
+    private String imgUrl;
 
     //Khởi tạo đối tượng tweet
     public Facebook(String author, Content content, LocalDateTime publishedAt, String sourceUrl, String number_of_reaction, String number_of_comment, String number_of_share) {
@@ -41,6 +42,14 @@ public class Facebook extends Article{
 
     public void setNumber_of_share(String number_of_view) {
         this.number_of_share = number_of_view;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
     @Override
