@@ -31,7 +31,7 @@ import java.time.LocalDateTime;
 import model.Content;
 import model.Article;
 
-public class CNBCCrawler extends ICrawler {
+public class CNBCCrawler implements ICrawlerArticle {
 	private static final Map<String, Integer> STRING_TO_MONTH = new HashMap<>(){{
         put("JAN", 1);
         put("FEB", 2);
