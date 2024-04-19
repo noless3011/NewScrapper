@@ -36,20 +36,23 @@ public class MainController{
     
     
 
-	public void refresh(ActionEvent event) throws IOException {
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/FXML/NewsCard.fxml"));
+	public void openCrawlersManager(ActionEvent event) throws IOException {
 		try {
-			Pane cardRoot = fxmlLoader.load();
-			NewsCardController cardController = fxmlLoader.getController();
-			cardController.setTitle("abc");
-			newsVBox.getChildren().add(cardRoot);
-;		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		CNBCCrawler crawler = new CNBCCrawler();
-		//crawler.crawlArticleList();
-		List<Article> articles = crawler.getArticlesFromJson();
+            // Load the FXML file for the new window
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/CrawlerManager.fxml"));
+            Parent root = loader.load();
+
+            // Create a new stage
+            Stage newStage = new Stage();
+
+            // Set the scene of the new stage with the loaded FXML
+            newStage.setScene(new Scene(root));
+
+            // Show the new stage
+            newStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 	}
 	
     

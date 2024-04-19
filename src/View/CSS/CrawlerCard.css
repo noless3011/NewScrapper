@@ -1,0 +1,48 @@
+.root{
+    -fx-background-color: transparent;
+    -fx-alignment:center;
+}
+
+.article-number{
+	-fx-background-color: #3C3C3C;
+    -fx-text-fill: white;
+    -fx-border-radius: 15px;
+    -fx-background-radius: 15px;
+    -fx-padding: 10px 20px;
+    -fx-prompt-text-fill: gray;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0.0 , 0 ,1);
+}
+
+
+.label{
+	-fx-text-fill: #CCCCCC;
+}
+.pane{
+	-fx-background-color: #1A1A1A;
+    -fx-border-radius: 15px;
+    -fx-background-radius: 15px;
+}
+
+.run-button{
+	-fx-background-color: #3C3C3C;
+    -fx-text-fill: white;
+    -fx-border-radius: 9px;
+    -fx-background-radius: 9px;
+    -fx-prompt-text-fill: gray;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0.0 , 0 ,1);
+}
+.run-button:hover {
+    -fx-background-color: #292929; /* Example: Change background color on hover */
+}
+
+
+.thin-progress-bar {
+    -fx-accent: purple;
+    -fx-pref-height: 10px;
+    -fx-background-color: transparent;
+    -fx-border-width: 0px;
+}
+
+.thin-progress-bar .track {
+    -fx-background-color: transparent;
+}
