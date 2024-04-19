@@ -22,23 +22,7 @@ public class CrawlerManagerController {
 	
 	@FXML
 	VBox crawlerVBox;
-	/*
-	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/FXML/NewsCard.fxml"));
-	 
-	try {
-		Pane cardRoot = fxmlLoader.load();
-		NewsCardController cardController = fxmlLoader.getController();
-		cardController.setTitle("abc");
-		newsVBox.getChildren().add(cardRoot);
-;		} catch (IOException e) {
-		e.printStackTrace();
-	}
 	
-	CNBCCrawler crawler = new CNBCCrawler();
-	//crawler.crawlArticleList();
-	List<Article> articles = crawler.getArticlesFromJson();
-}
-*/
 	public void addCrawler(ActionEvent event) throws IOException{
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/CrawlerCard.fxml"));
 		
@@ -49,6 +33,8 @@ public class CrawlerManagerController {
 			cardController.setManager(this);
 			String indexString = Integer.toString(cardController.counter);
 			cardController.setLabel("Crawler " + indexString);
+			CNBCCrawler cnbcCrawler = new CNBCCrawler();
+			cardController.setCrawler(cnbcCrawler);
 			crawlerVBox.getChildren().add(0, root);
 		} catch (IOException e) {
 			e.printStackTrace();

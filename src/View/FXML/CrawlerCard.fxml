@@ -19,7 +19,7 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <ProgressBar prefHeight="9.0" prefWidth="200.0" progress="0.0" styleClass="thin-progress-bar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <ProgressBar fx:id="progressBar" prefHeight="9.0" prefWidth="200.0" progress="0.0" styleClass="thin-progress-bar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <Button fx:id="runButton" onAction="#runCrawlerPress" mnemonicParsing="false" prefHeight="40.0" prefWidth="70.0" styleClass="run-button" text="Run" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="100.0" />
       <Button fx:id="deleteButton" onAction="#deleteCrawlerPress" mnemonicParsing="false" prefHeight="40.0" prefWidth="70.0" styleClass="run-button" text="Delete" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="20.0" />
       <TextField fx:id="articleNumberField" prefHeight="40.0" prefWidth="70.0" styleClass="article-number" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="180.0" />

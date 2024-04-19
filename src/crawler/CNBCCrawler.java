@@ -57,8 +57,6 @@ public class CNBCCrawler implements ICrawlerArticle {
 	private WebDriverWait articleWaiter;
 	private ChromeOptions articleOptions;
 	public CNBCCrawler(){
-		setUpMainDriver("https://www.cnbc.com/blockchain/");
-		setUpArticleDriver();
 	}
 	
 	public void setUpArticleDriver() {
@@ -102,6 +100,9 @@ public class CNBCCrawler implements ICrawlerArticle {
 	
 	@Override
 	public void crawlArticleList() {
+
+		setUpMainDriver("https://www.cnbc.com/blockchain/");
+		setUpArticleDriver();
 		WebElement loadmoreButton = mainDriver.findElement(By.className("LoadMoreButton-loadMore"));
 		for(int i = 0; i < 1; i++) {
 			loadmoreButton.click();

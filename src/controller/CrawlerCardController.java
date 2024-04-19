@@ -2,10 +2,13 @@ package controller;
 
 import java.io.IOException;
 
+import crawler.ICrawlerArticle;
+import crawler.ICrawlerTweet;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 
 public class CrawlerCardController {
@@ -15,6 +18,8 @@ public class CrawlerCardController {
 	
 	
 	private CrawlerManagerController managerController;
+	private ICrawlerArticle crawler;
+	private ICrawlerTweet crawlerTweet;
 	
 	@FXML
 	private Button runButton;
@@ -28,6 +33,9 @@ public class CrawlerCardController {
 	@FXML
 	private Label crawlerLabel;
 	
+	@FXML
+	private ProgressBar progressBar;
+	
 	public CrawlerCardController() {
 		this.id = ++counter;
 	}
@@ -40,9 +48,18 @@ public class CrawlerCardController {
 	}
 	
 	public void runCrawlerPress(ActionEvent event) throws IOException{
+		crawler.crawlArticleList();
+	}
+	
+	public void setCrawler(ICrawlerArticle crawlerArticle) {
+		crawler = crawlerArticle;
 		
 	}
 	
+	public void setCrawler(ICrawlerTweet crawlerTweet) {
+		this.crawlerTweet = crawlerTweet;
+	}
+
 	public void setLabel(String s) {
 		crawlerLabel.setText(s);
 	}
