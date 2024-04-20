@@ -10,5 +10,5 @@ public interface ICrawlerTweet {
 	public abstract void crawlTweetList();
 	//Need to check if the tweet already exist to not have to store a duplicate using the id of the article
 	public abstract void saveToJson(List<Tweet> list);
-	public abstract List<Tweet> getTweetFromJson();
+	public abstract List<Article> getTweetFromJson();
 }

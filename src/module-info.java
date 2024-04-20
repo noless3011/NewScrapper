@@ -17,5 +17,7 @@ module NewScrapper {
 	requires com.google.gson;
 	requires com.google.common;
 	opens model to com.google.gson;
+	requires org.apache.lucene.core;
+	requires org.apache.lucene.queryparser;
 	
 }

@@ -163,10 +163,9 @@ public class TwitterCrawler implements ICrawlerTweet {
 						LocalDateTime publishedAt = LocalDateTime.parse(timeStringFromTwitter, formatter);
 				
 						// Lấy nội dung content
-						Content content = null;
-				
 						//Kiểm tra xem nội dung có bị trùng lặp không
 						if (!uniqueTweets.contains(sourceUrl)) {
+							Content content = null;
 							Tweet test = new Tweet(author, content, publishedAt, sourceUrl, hashtags, number_of_comment, number_of_liked, number_of_view);
 							tweetList.add(test);
 							test.setContent(crawlTweetContent(tweet));
@@ -224,10 +223,10 @@ public class TwitterCrawler implements ICrawlerTweet {
 	
 	// Lấy danh sách đối tượng từ file Json
 	
-	public List<Tweet> getTweetFromJson(){
-		List <Tweet> tweets = null;
-		try (Reader reader = new FileReader("tweets.json")){
-			Type listType = new TypeToken<List<Tweet>>() {}.getType();
+	public List<Article> getTweetFromJson(){
+		List <Article> tweets = null;
+		try (Reader reader = new FileReader("articles.json")){
+			Type listType = new TypeToken<List<Article>>() {}.getType();
 			tweets = gson.fromJson(reader, listType);
             return tweets;
 		} catch (IOException e) {
@@ -243,6 +242,10 @@ public class TwitterCrawler implements ICrawlerTweet {
 		twittercrawler.loginTwitter();
 		twittercrawler.crawlTweetList();
 		twittercrawler.saveToJson(tweetList);
+//		List <Tweet> tweets = twittercrawler.getTweetFromJson();
+//		for (Tweet tweet: tweets) {
+//			System.out.println(tweet);
+//		}
 		driver.quit();
 	}
 }
