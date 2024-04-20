@@ -18,6 +18,8 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import adapter.LocalDateTimeAdapter;
+import adapter.ProgressCallback;
+import javafx.concurrent.Task;
 import javafx.util.Pair;
 
 import java.io.FileReader;
@@ -30,6 +32,7 @@ import java.time.LocalDateTime;
 
 import model.Content;
 import model.Article;
+import javafx.concurrent.Task;
 
 public class CNBCCrawler implements ICrawlerArticle {
 	private static final Map<String, Integer> STRING_TO_MONTH = new HashMap<>(){{
@@ -47,32 +50,35 @@ public class CNBCCrawler implements ICrawlerArticle {
         put("DEC", 12);
     }};
 	private static List<Article> articles = new ArrayList<Article>();
+	//Các thành phần của driver để truy cập trang chính
 	private WebDriver mainDriver;
 	private JavascriptExecutor mainJsExecutor;
 	private WebDriverWait mainWaiter;
 	private ChromeOptions mainOptions;
-	
+	//Các thành phần của driver để truy cập vào từng bài viết
 	private WebDriver articleDriver;
 	private JavascriptExecutor articleJsExecutor;
 	private WebDriverWait articleWaiter;
 	private ChromeOptions articleOptions;
 	public CNBCCrawler(){
 	}
-	
+	//Hàm này setup các thành phần cần thiết của driver từng bài viết
 	public void setUpArticleDriver() {
 		articleOptions = new ChromeOptions();
 		//Added options for the driver here ->
-		
+		//option này để chạy mà không mở 1 cửa số chrome
+		articleOptions.addArguments("--headless");
 		
 		articleDriver = new ChromeDriver(articleOptions);
 		try {
+			//Các waiter này tạm thời không dùng đến
 			articleWaiter = new WebDriverWait(mainDriver, Duration.ofSeconds(10));
 			articleJsExecutor = (JavascriptExecutor)articleDriver;
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+	//Hàm này để chuyển driver của từng bài sang bài mới
 	public void updateArticleDriver(String url) {
 		try {
 			articleDriver.get(url);
@@ -82,11 +88,11 @@ public class CNBCCrawler implements ICrawlerArticle {
 			e.printStackTrace();
 		}
 	}
-	
+	//TƯơng tư với driver của từng bài
 	public void setUpMainDriver(String url) {
 		mainOptions = new ChromeOptions();
 		//Added options for the driver here ->
-		
+		mainOptions.addArguments("--headless");
 		
 		mainDriver = new ChromeDriver(mainOptions);
 		try {
@@ -99,16 +105,20 @@ public class CNBCCrawler implements ICrawlerArticle {
 	}
 	
 	@Override
-	public void crawlArticleList() {
-
+	public void crawlArticleList(int amount, ProgressCallback callback) {
+		
 		setUpMainDriver("https://www.cnbc.com/blockchain/");
 		setUpArticleDriver();
+		//Tìm nút loadmore
 		WebElement loadmoreButton = mainDriver.findElement(By.className("LoadMoreButton-loadMore"));
-		for(int i = 0; i < 1; i++) {
-			loadmoreButton.click();
-		}
-		
 		List<WebElement> newsList = mainDriver.findElements(By.xpath("//div[@data-test='Card']"));
+		//Click vào nút loadmore đến khi đủ amount bài viết
+		while(newsList.size() < amount) {
+			loadmoreButton.click();
+			newsList = mainDriver.findElements(By.xpath("//div[@data-test='Card']"));
+		}
+		//Biến index để theo dõi progress của crawler
+		int index = 0;
 		for(WebElement news : newsList) {
 			Article article;
 			String title = news.findElement(By.className("Card-title")).getText();
@@ -129,16 +139,19 @@ public class CNBCCrawler implements ICrawlerArticle {
 			
 			String author = contentAndAuthor.getValue();
 			
+			
 			article = new Article(title, author, content, publishedDateTime, sourcesURL);
 			articles.add(article);
-		}
-		for(Article a : articles) {
-			System.out.println(a.toString());
+			//Đoạn này để update progress
+			index++;
+			callback.updateProgress(index);
+			//Đủ ảticle thì ngắt
+			if(index == amount) break;
 		}
 		mainDriver.close();
 		articleDriver.close();
 		saveToJson(articles);
-		
+		articles.clear();
 	}
 
 	@Override
@@ -164,7 +177,9 @@ public class CNBCCrawler implements ICrawlerArticle {
 			return null;
 		}
 	}
-
+	
+	
+	
 	private Pair<Content, String> crawlContentAndAuthor(String url) {
 		Content content = new Content();
 		String author = "";
@@ -181,5 +196,7 @@ public class CNBCCrawler implements ICrawlerArticle {
 		
 		return new Pair<Content, String>(content,author);
 	}
+
+
 
 }

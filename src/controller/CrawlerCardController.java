@@ -4,8 +4,11 @@ import java.io.IOException;
 
 import crawler.ICrawlerArticle;
 import crawler.ICrawlerTweet;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -48,7 +51,35 @@ public class CrawlerCardController {
 	}
 	
 	public void runCrawlerPress(ActionEvent event) throws IOException{
-		crawler.crawlArticleList();
+		runCrawler();
+	}
+	
+	void runCrawler() {
+		int amount;
+		try {
+			amount = Integer.parseInt(articleNumberField.getText()); 
+		} catch (NumberFormatException e) {
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.setTitle("Warning");
+	        alert.setContentText("Please enter a number");
+	        alert.showAndWait();
+	        return;
+		}
+		
+		Task<Void> task = new Task<Void>() {
+			
+			@Override
+			protected Void call() throws Exception {
+				crawler.crawlArticleList(amount, progress ->{
+					updateProgress(progress, amount);
+				});
+				return null;
+			}
+			
+			
+		};
+		progressBar.progressProperty().bind(task.progressProperty());
+		new Thread(task).start();
 	}
 	
 	public void setCrawler(ICrawlerArticle crawlerArticle) {
