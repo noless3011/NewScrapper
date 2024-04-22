@@ -15,6 +15,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -35,6 +36,7 @@ public class FacebookCrawler implements ICrawlerFacebook {
         articles = crawlData(posts,articles);
         System.out.println(articles.size());
         saveToJson(articles);
+        driver.quit();
     }
 
     //Lưu object vào json
@@ -53,6 +55,7 @@ public class FacebookCrawler implements ICrawlerFacebook {
                 ngNode.put("Reaction",post.getNumber_of_reaction());
                 ngNode.put("Comment",post.getNumber_of_comment());
                 ngNode.put("Share",post.getNumber_of_share());
+                ngNode.put("ImgUrl", post.getImgUrl());
                 ngNodes.add(ngNode);
             }
             ObjectNode root = mapper.createObjectNode();
@@ -85,7 +88,8 @@ public class FacebookCrawler implements ICrawlerFacebook {
             String like = node.get("Reaction").asText();
             String cmt = node.get("Comment").asText();
             String share = node.get("Share").asText();
-            articles.add(new Facebook(author,content,prettyTime,sourceUrl,like, cmt, share));
+            String img = node.get("imgUrl").asText();
+            articles.add(new Facebook(author,content,prettyTime,sourceUrl,like, cmt, share,img));
         }
         return articles;
 
@@ -94,10 +98,15 @@ public class FacebookCrawler implements ICrawlerFacebook {
 
 
     //Truy cap va lay ma nguon trang web
-    public static WebDriver getPageSource(int numScroll) {
+    private WebDriver getPageSource(int numScroll) {
+        // Khởi tạo ChromeOptions
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--lang=en");
+        // Ẩn cửa sổ Chrome
+
         //Khoi  tao Webdriver
         System.setProperty("webdriver.chrome.driver", "src/chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
+        WebDriver driver = new ChromeDriver(options);
 
         //Truy cap trang web
         String url = "https://www.facebook.com/blockchain";
@@ -138,7 +147,7 @@ public class FacebookCrawler implements ICrawlerFacebook {
 
 
 
-    public List<Facebook> crawlData(List<WebElement> posts, List<Facebook> articles){
+    private List<Facebook> crawlData(List<WebElement> posts, List<Facebook> articles){
         for(WebElement post : posts){
             //Lay link bai viet
             WebElement links = post.findElement(By.xpath(".//span[@class='x4k7w5x x1h91t0o x1h9r5lt x1jfb8zj xv2umb2 x1beo9mf xaigb6o x12ejxvf x3igimt xarpa2k xedcshv x1lytzrv x1t2pt76 x7ja8zs x1qrby5j']//a"));
@@ -150,13 +159,14 @@ public class FacebookCrawler implements ICrawlerFacebook {
             LocalDateTime prettyTime = parseDateTime(time);
 
             //Lay noi dung
-            Content content =new Content(post.findElement(By.xpath(".//div[@dir='auto']")).getText());
+            String cnt =post.findElement(By.xpath(".//div[@dir='auto']")).getText();
+            Content content = new Content(cnt.replace(" \n "," "));
 
             //Lay hinh anh
             WebElement images = post.findElement(By.xpath("//div[@class='x10l6tqk x13vifvy']//img"));
+            String img = null;
             if(images != null){
-                Image image = new Image(images.getAttribute("src"));
-                content.AddElement(image);
+                img = images.getAttribute("src");
             }
 
             //Lay luong tuong tac
@@ -172,7 +182,7 @@ public class FacebookCrawler implements ICrawlerFacebook {
             System.out.println(share);
 
             //Them object vao list
-            articles.add(new Facebook("Blockchain.com",content,prettyTime,link,like,cmt,share));
+            articles.add(new Facebook("Blockchain.com",content,prettyTime,link,like,cmt,share,img));
         }
         return articles;
     }
@@ -180,7 +190,7 @@ public class FacebookCrawler implements ICrawlerFacebook {
 
 
     //Chinh sua chuoi
-    public static String extractSubstring(String originalString, String index) {
+    private String extractSubstring(String originalString, String index) {
         int endIndex = originalString.indexOf(index);
         if (endIndex != -1) {
             return originalString.substring(0, endIndex);
@@ -192,7 +202,7 @@ public class FacebookCrawler implements ICrawlerFacebook {
 
 
     //Chinh sua thoi gian
-    public static LocalDateTime parseDateTime(String input) {
+    private LocalDateTime parseDateTime(String input) {
         LocalDateTime dateTime = null;
 
         if (input.contains("d")) {
