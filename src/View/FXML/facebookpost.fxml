@@ -73,7 +73,7 @@
             <Insets left="10.0" right="10.0" />
          </VBox.margin>
          <image>
-            <Image url="@../image/img2.jpg" />
+            <Image url="@../image/hinhnen.jpg" />
          </image>
       </ImageView>
       <StackPane prefHeight="50.0" prefWidth="450.0">

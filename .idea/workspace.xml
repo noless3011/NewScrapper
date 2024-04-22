@@ -4,47 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84382b4b-c4f5-4d48-802f-6256ca3f5a19" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/View/CSS/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/image/Screenshot 2024-04-19 221147.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/image/Screenshot 2024-04-20 064320.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/image/Screenshot 2024-04-20 065310.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/image/Screenshot 2024-04-20 090059.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/image/cmt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/image/ic_angry.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/image/ic_care.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/image/ic_comment.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/image/ic_friend.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/image/ic_haha.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/image/ic_like.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/image/ic_like_outline.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/image/ic_love_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/image/ic_more.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/image/ic_public.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/image/ic_sad.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/image/ic_share.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/image/ic_verified.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/image/ic_wow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/image/img2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/image/user.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/gson_2_10_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jsoup_1_17_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/selenium_java_4_19_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/selenium_server_4_18_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/src.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_21_2024_9_03_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_21_2024_9_03_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_21_2024_9_03_PM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_21_2024_9_03_PM__Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_21_2024_9_08_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_21_2024_9_08_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewScrapper.iml" beforeDir="false" afterPath="$PROJECT_DIR$/NewScrapper.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/FXML/facebookpost.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/FXML/facebookpost.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="84382b4b-c4f5-4d48-802f-6256ca3f5a19" name="Changes" comment="Merge remote-tracking branch 'origin/truong-branch' into truong-branch&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewScrapper.iml&#10;#&#9;src/module-info.java" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -110,11 +70,40 @@
       <option name="presentableId" value="Default" />
       <updated>1712632922085</updated>
       <workItem from="1713767611877" duration="1004000" />
-      <workItem from="1713769800447" duration="219000" />
+      <workItem from="1713769800447" duration="595000" />
     </task>
+    <task id="LOCAL-00001" summary="Merge remote-tracking branch 'origin/truong-branch' into truong-branch&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewScrapper.iml&#10;#&#9;src/module-info.java">
+      <option name="closed" value="true" />
+      <created>1713770124690</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1713770124690</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Merge remote-tracking branch 'origin/truong-branch' into truong-branch&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewScrapper.iml&#10;#&#9;src/module-info.java">
+      <option name="closed" value="true" />
+      <created>1713770178029</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1713770178029</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Merge remote-tracking branch 'origin/truong-branch' into truong-branch&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewScrapper.iml&#10;#&#9;src/module-info.java">
+      <option name="closed" value="true" />
+      <created>1713770379052</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1713770379052</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Merge remote-tracking branch 'origin/truong-branch' into truong-branch&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewScrapper.iml&#10;#&#9;src/module-info.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/truong-branch' into truong-branch&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewScrapper.iml&#10;#&#9;src/module-info.java" />
   </component>
 </project>
