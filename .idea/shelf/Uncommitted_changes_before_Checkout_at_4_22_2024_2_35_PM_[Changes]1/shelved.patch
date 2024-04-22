@@ -1,0 +1,296 @@
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_20\" default=\"true\" project-jdk-name=\"20\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/classes\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision bd60dc1f0b1d6a382d35dfb4a13ad33560c1e5b5)
++++ b/.idea/misc.xml	(date 1713771334931)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_20" default="true" project-jdk-name="20" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="20" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/classes" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: NewScrapper.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/NewScrapper.iml b/NewScrapper.iml
+new file mode 100644
+--- /dev/null	(date 1713771138786)
++++ b/NewScrapper.iml	(date 1713771138786)
+@@ -0,0 +1,11 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+--- /dev/null	(date 1713771138786)
++++ b/.idea/modules.xml	(date 1713771138786)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/NewScrapper.iml" filepath="$PROJECT_DIR$/NewScrapper.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/libraries/lib1.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/lib1.xml b/.idea/libraries/lib1.xml
+new file mode 100644
+--- /dev/null	(date 1713771138801)
++++ b/.idea/libraries/lib1.xml	(date 1713771138801)
+@@ -0,0 +1,16 @@
++<component name="libraryTable">
++  <library name="lib1">
++    <CLASSES>
++      <root url="jar://$PROJECT_DIR$/lib/jackson-core-2.17.0.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/jackson-annotations-2.17.0.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/byte-buddy-1.14.9.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/jsoup-1.17.2.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/gson-2.10.1.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/failsafe-3.3.2.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/guava-33.1.0-jre.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/jackson-databind-2.17.0.jar!/" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES />
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/lib2.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/lib2.xml b/.idea/libraries/lib2.xml
+new file mode 100644
+--- /dev/null	(date 1713771138801)
++++ b/.idea/libraries/lib2.xml	(date 1713771138801)
+@@ -0,0 +1,16 @@
++<component name="libraryTable">
++  <library name="lib2">
++    <CLASSES>
++      <root url="jar://$PROJECT_DIR$/lib/javafx-sdk-21.0.2/lib/javafx.graphics.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/javafx-sdk-21.0.2/lib/javafx.fxml.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/javafx-sdk-21.0.2/lib/javafx.media.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/javafx-sdk-21.0.2/lib/javafx-swt.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/javafx-sdk-21.0.2/lib/javafx.swing.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/javafx-sdk-21.0.2/lib/javafx.base.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/javafx-sdk-21.0.2/lib/javafx.web.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/javafx-sdk-21.0.2/lib/javafx.controls.jar!/" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES />
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/lib.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/lib.xml b/.idea/libraries/lib.xml
+new file mode 100644
+--- /dev/null	(date 1713771138801)
++++ b/.idea/libraries/lib.xml	(date 1713771138801)
+@@ -0,0 +1,32 @@
++<component name="libraryTable">
++  <library name="lib">
++    <CLASSES>
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/lib/byte-buddy-1.14.12.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/lib/opentelemetry-sdk-extension-autoconfigure-1.36.0.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/lib/opentelemetry-api-1.36.0.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/lib/failureaccess-1.0.2.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/lib/j2objc-annotations-3.0.0.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/lib/opentelemetry-sdk-metrics-1.36.0.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/lib/opentelemetry-exporter-logging-1.36.0.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/lib/opentelemetry-sdk-1.36.0.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/lib/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/lib/opentelemetry-api-events-1.36.0-alpha.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/lib/failsafe-3.3.2.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/lib/checker-qual-3.42.0.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/lib/opentelemetry-sdk-trace-1.36.0.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/lib/opentelemetry-sdk-logs-1.36.0.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/lib/opentelemetry-sdk-common-1.36.0.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/lib/commons-exec-1.3.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/lib/jsr305-3.0.2.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/lib/opentelemetry-semconv-1.23.1-alpha.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/lib/guava-33.1.0-jre.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/lib/error_prone_annotations-2.26.1.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/lib/opentelemetry-extension-incubator-1.36.0-alpha.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/lib/auto-service-annotations-1.1.1.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/lib/opentelemetry-context-1.36.0.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/lib/opentelemetry-sdk-extension-autoconfigure-spi-1.36.0.jar!/" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES />
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"84382b4b-c4f5-4d48-802f-6256ca3f5a19\" name=\"Changes\" comment=\"\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\"><![CDATA[{\r\n  \"associatedIndex\": 6\r\n}]]></component>\r\n  <component name=\"ProjectId\" id=\"2eqX8QPd81o8eTTrjl0wjB2k1np\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"git-widget-placeholder\": \"master\",\r\n    \"ignore.virus.scanning.warn.message\": \"true\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"D:/Programming Projects/Java/NewsScrapper/.project\",\r\n    \"settings.editor.selected.configurable\": \"settings.sync\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"84382b4b-c4f5-4d48-802f-6256ca3f5a19\" name=\"Changes\" comment=\"\" />\r\n      <created>1712632922085</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1712632922085</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision bd60dc1f0b1d6a382d35dfb4a13ad33560c1e5b5)
++++ b/.idea/workspace.xml	(date 1713771334931)
+@@ -1,19 +1,31 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="AutoImportSettings">
++    <option name="autoReloadType" value="SELECTIVE" />
++  </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="84382b4b-c4f5-4d48-802f-6256ca3f5a19" name="Changes" comment="" />
++    <list default="true" id="84382b4b-c4f5-4d48-802f-6256ca3f5a19" name="Changes" comment="">
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+   </component>
+   <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="pre-master" />
++      </map>
++    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+-  <component name="ProjectColorInfo"><![CDATA[{
+-  "associatedIndex": 6
+-}]]></component>
++  <component name="ProjectColorInfo">{
++  &quot;associatedIndex&quot;: 6
++}</component>
+   <component name="ProjectId" id="2eqX8QPd81o8eTTrjl0wjB2k1np" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+@@ -21,10 +33,15 @@
+   <component name="PropertiesComponent"><![CDATA[{
+   "keyToString": {
+     "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "git-widget-placeholder": "master",
++    "git-widget-placeholder": "thinh-branch",
+     "ignore.virus.scanning.warn.message": "true",
+     "kotlin-language-version-configured": "true",
+-    "last_opened_file_path": "D:/Programming Projects/Java/NewsScrapper/.project",
++    "last_opened_file_path": "D:/Work2/NewScrapper",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "project.structure.last.edited": "Modules",
++    "project.structure.proportion": "0.0",
++    "project.structure.side.proportion": "0.0",
+     "settings.editor.selected.configurable": "settings.sync"
+   }
+ }]]></component>
+Index: .idea/libraries/selenium_java_4_19_1.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/selenium_java_4_19_1.xml b/.idea/libraries/selenium_java_4_19_1.xml
+new file mode 100644
+--- /dev/null	(date 1713771138817)
++++ b/.idea/libraries/selenium_java_4_19_1.xml	(date 1713771138817)
+@@ -0,0 +1,44 @@
++<component name="libraryTable">
++  <library name="selenium-java-4.19.1">
++    <CLASSES>
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-http-4.19.1-sources.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-remote-driver-4.19.1-sources.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-remote-driver-4.19.1.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-chromium-driver-4.19.1.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-api-4.19.1.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-json-4.19.1-sources.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-support-4.19.1-sources.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-devtools-v121-4.19.1.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-devtools-v85-4.19.1-sources.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-ie-driver-4.19.1-sources.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-ie-driver-4.19.1.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-devtools-v122-4.19.1-sources.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-devtools-v123-4.19.1-sources.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-devtools-v121-4.19.1-sources.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-chrome-driver-4.19.1-sources.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-edge-driver-4.19.1.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-json-4.19.1.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-java-4.19.1.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-devtools-v85-4.19.1.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-java-4.19.1-sources.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-chromium-driver-4.19.1-sources.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-manager-4.19.1.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-safari-driver-4.19.1.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-http-4.19.1.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-firefox-driver-4.19.1-sources.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-manager-4.19.1-sources.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-api-4.19.1-sources.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-firefox-driver-4.19.1.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-devtools-v123-4.19.1.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-os-4.19.1-sources.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-chrome-driver-4.19.1.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-os-4.19.1.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-support-4.19.1.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-safari-driver-4.19.1-sources.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-edge-driver-4.19.1-sources.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.19.1/selenium-devtools-v122-4.19.1.jar!/" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES />
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/src.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/src.xml b/.idea/libraries/src.xml
+new file mode 100644
+--- /dev/null	(date 1713771138817)
++++ b/.idea/libraries/src.xml	(date 1713771138817)
+@@ -0,0 +1,9 @@
++<component name="libraryTable">
++  <library name="src">
++    <CLASSES>
++      <root url="jar://$PROJECT_DIR$/lib/javafx-sdk-21.0.2/src.zip!/" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES />
++  </library>
++</component>
+\ No newline at end of file
