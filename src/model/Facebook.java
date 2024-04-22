@@ -9,11 +9,12 @@ public class Facebook extends Article{
     private String imgUrl;
 
     //Khởi tạo đối tượng tweet
-    public Facebook(String author, Content content, LocalDateTime publishedAt, String sourceUrl, String number_of_reaction, String number_of_comment, String number_of_share) {
+    public Facebook(String author, Content content, LocalDateTime publishedAt, String sourceUrl, String number_of_reaction, String number_of_comment, String number_of_share, String imgUrl) {
         super(null, author, content, publishedAt, sourceUrl);
         this.number_of_reaction = number_of_reaction;
         this.number_of_comment = number_of_comment;
         this.number_of_share = number_of_share;
+        this.imgUrl = imgUrl;
     }
 
     public Facebook(String title, String author, Content content, LocalDateTime publishedAt, String sourceUrl) {
