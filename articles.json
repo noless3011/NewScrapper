@@ -1,25 +1,370 @@
 [
   {
-    "id": 1062061362,
-    "title": "Why spot ETFs may be a game changer for bitcoin",
-    "sourceUrl": "https://www.cnbc.com/2024/01/13/why-spot-etfs-may-be-a-game-changer-for-bitcoin-.html",
-    "author": "Emily Glass",
+    "id": -728912806,
+    "title": "Singapore to pilot use of wholesale central bank digital currencies in 2024",
+    "sourceUrl": "https://www.cnbc.com/2023/11/17/singapore-to-pilot-wholesale-central-bank-digital-currencies-in-2024.html",
+    "author": "Sheila Chiang",
     "content": {
       "elements": [
-        "The Securities and Exchange Commission’s approval of 11 spot bitcoin ETFs this week could be a turning point for cryptocurrency investing.",
-        "Ark Invest CEO and Chief Investment Officer Cathie Wood is behind one of the new ETFs. Her firm partnered with 21Shares to launch the ARK 21Shares Bitcoin ETF.",
-        "“We really believe this is an important moment for us to help with the democratization of bitcoin access, giving more people access,” Wood told “ETF Edge” on Monday.",
-        "The first-ever batch of spot ETFs began trading Thursday. Investor interest in bitcoin\nleading up to the historic ETF approvals has been on the upswing. As of Friday, the cryptocurrency is up more than 125% in the past 12 months.",
-        "As financial firms begin to get more exposure through the new instruments, Wood said, the impact on bitcoin prices will be noticeable. ",
-        "“If institutions with trillions of dollars under management just put 0.2[%] or 0.5% in, that could really move the needle,” Wood said.",
-        "Ophelia Snyder’s firm 21.co is heavily involved in the cryptocurrency space. According to its website, the firm “bridges traditional finance and decentralized finance for easy crypto access.”",
-        "“It’s also very much part of a new wave of disruptive technology,” the firm’s president and co-founder told “ETF Edge.”",
-        "Snyder contended that bitcoin goes beyond being just a new asset class.",
-        "“There’s still quite a ways to go in terms of how this actually will interact both with the world at large and sort of our economic systems, as well as, quite frankly, how it will end up interacting with your portfolio,” she said. ",
-        "Snyder also said the impact that wider bitcoin access could have on the broader market “can’t be underestimated.”",
-        "Disclaimer"
+        "SINGAPORE — Come 2024, Singapore will pilot the live issuance and use of wholesale central bank digital currencies, said Ravi Menon, managing director of the Monetary Authority of Singapore.",
+        "“We will take our experiments a step further next year,” said Menon at Singapore FinTech Festival 2023 on Thursday, without specifying more details on the timeframe.",
+        "“I’m pleased to announce that MAS will pilot the live issuance of wholesale CBDCs to instantaneously support payments across commercial banks here,” Menon said. MAS is the city-state’s central bank and financial regulator.",
+        "Wholesale CBDC is a digital currency issued by a central bank, that’s used exclusively by central banks, commercial banks or other financial institutions to settle large-value interbank transactions. It’s unlike retail CBDCs which cater to individuals and businesses, facilitating everyday transactions.",
+        "“Since 2016, the MAS has conducted many experiments with other central banks and the financial industry to explore the use of wholesale CBDCs on distributed ledgers to facilitate real time cross border payments and settlements,” said Menon, referring to the database spread across a network that is accessible from several geographical locations.",
+        "One such pilot project is Project Ubin, which was started in 2016 to explore the use of blockchain and digital ledger technology for the clearing and settlement of payments and securities.",
+        "Project Ubin was successfully completed in 2021 after five phases of experimentation. Some of the partners included Singapore’s largest bank DBS and sovereign wealth fund Temasek.",
+        "MAS announced Ubin+ in November last year to advance cross-border connectivity with wholesale CBDCs through collaborations with international partners.",
+        "During the pilot, Singapore’s central bank will partner with local banks to test the use of wholesale CBDCs to facilitate domestic payments, said Menon.",
+        "Banks will issue tokenized bank liabilities in the form of claims in balance sheets. Retail customers can then use the tokenized bank liabilities in transactions with merchants, who will then credit these bank liabilities with their respective banks. Tokenization refers to the process of issuing a digital form of an asset on a blockchain.",
+        "The CBDC will then be automatically transferred to the merchant as a form of payment during the transaction.",
+        "“So clearing and settlement occurs in a single step on the same infrastructure, unlike the current system in which clearing and settlement take place on different systems and settlement occurs with a lag,” said Menon.",
+        "On Wednesday, the International Monetary Fund’s managing director urged the public sector to keep preparing to deploy CBDCs and related payment platforms in the future.",
+        "“We have not yet reached land. There is so much more space for innovation and so much uncertainty over use-cases,” said Kristalina Georgieva.",
+        "Menon is set to retire from public service and step down as managing director of MAS on Dec. 31 since being appointed to the position in 2011. He will be succeeded by Chia Der Jiun who previously spent 18 years at MAS."
       ]
     },
-    "publishedDate": "2024-01-24T00:00:00"
+    "publishedDate": "2023-11-16T00:00:00"
+  },
+  {
+    "id": 1267711851,
+    "title": "IMF says central bank digital currencies can replace cash",
+    "sourceUrl": "https://www.cnbc.com/2023/11/15/imf-says-central-bank-digital-currencies-can-replace-cash.html",
+    "author": "Sheila Chiang",
+    "content": {
+      "elements": [
+        "SINGAPORE — Central bank digital currencies have the potential to replace cash, but adoption could take time, said Kristalina Georgieva, managing director of the International Monetary Fund on Wednesday.",
+        "“CBDCs can replace cash which is costly to distribute in island economies,” she said Wednesday at the Singapore FinTech Festival. “They can offer resilience in more advanced economies. And they can improve financial inclusion where few hold bank accounts.”",
+        "CBDCs are the digital form of a country’s fiat currency, which are regulated by the country’s central bank. They are powered by blockchain technology, allowing central banks to channel government payments directly to households.",
+        "“CBDCs would offer a safe and low-cost alternative [to cash]. They would also offer a bridge to go between private monies and a yardstick to measure their value, just like cash today which we can withdraw from our banks,” the IMF chief said.",
+        "The IMF has said that more than 100 countries are exploring CBDCs – or approximately 60% of countries in the world.",
+        "“The level of global interest in CBDCs is unprecedented. Several central banks have already launched pilots or even issued a CBDC,” the IMF said in a September report.",
+        "According to a 2022 survey conducted by the Bank for International Settlements, of the 86 central banks surveyed, 93% said they were exploring CBDCs, while 58% said they were likely to or may possibly issue a retail CBDC in either the short or medium term.",
+        "But as of June, only 11 countries have adopted CBDCs, with an additional 53 in advanced planning stages and 46 researching the topic, according to data from the Atlantic Council.",
+        "Referring to a 2018 speech by her predecessor Christine Lagarde, when the former IMF chief encouraged policymakers to follow the “winds of change” and explore the use of CBDCs, Georgieva said: “Five years on, I’m here to provide an update on that voyage.”",
+        "“First, countries did set sail. Many are investigating CBDCs and are developing regulation to guide digital money developments,” said Georgieva referring to the speech.",
+        "On Wednesday, the fund launched a CBDC handbook as a reference guide for policymakers around the world. Georgieva said many countries are investigating CBDCs and developing regulation to guide digital money developments.",
+        "“Second, we have not yet reached land. There is so much more space for innovation and so much uncertainty over use-cases,” Georgieva told an audience which included industry experts, investors and journalists.",
+        "“In some countries the case seems dim today, but even they should remain open to potentially deploy CBDCs tomorrow. Why?” said Georgieva. “This is not the time to turn back.”",
+        "“The public sector should keep preparing to deploy CBDCs and related payment platforms in the future. Fourth, these platforms should be designed from the start to facilitate cross-border payments, including with CBDCs,” the managing director said.",
+        "Countries that have issued retail CBDC include the Bahamas, Jamaica and Nigeria.",
+        "Singapore’s Monetary Authority of Singapore has said that cash is “generally incompatible” with the digital economy. In a 2021 report, the country’s central bank said the demand for cash as a means of payment is set to decline further.",
+        "According to the BIS, using CBDCs for cross-border payments could lower the costs of obtaining, storing and spending foreign currency, depending on design and regulations.",
+        "Georgieva also said that artificial intelligence “could amplify some of the benefits of CBDCs” by providing accurate credit scoring and personalized support.",
+        "Demand for generative AI has boomed following the release of OpenAI’s ChatGPT in November last year, which was estimated to have reached 100 million monthly active users within two months after launch.",
+        "“It could improve financial inclusion by providing rapid, accurate credit scoring based on various data. It could provide personalized support to people with low financial literacy,” said Georgieva.",
+        "“To be sure, we need to protect personal privacy and data security, and avoid embedded biases so we don’t perpetuate inequality but aim to reduce it. Managed prudently, AI could help,” she added."
+      ]
+    },
+    "publishedDate": "2023-11-16T00:00:00"
+  },
+  {
+    "id": -646399574,
+    "title": "‘No question’ that decarbonization of shipping will contribute to inflation: CEO",
+    "sourceUrl": "https://www.cnbc.com/2023/10/18/shipping-going-green-will-add-to-inflation-no-question-says-ceo.html",
+    "author": "Lucy Handley",
+    "content": {
+      "elements": [
+        "The cost of decarbonizing the shipping industry will have a knock-on effect on consumers, according to a CEO in the maritime industry.",
+        "“There will be an inflationary impact coming from [the] decarbonization of shipping … there is no question of it,” Bertrand Chen, CEO of the Global Shipping Business Network, told CNBC’s East Tech West conference in the Nansha district of Guangzhou, China.",
+        "New European rules that effectively tax shipping lines for their emissions would push up costs, Chen added.",
+        "“The EU government is imposing this cost to the shipping line … But now what that means is the shipping has to take action to decarbonize and naturally that will impact all the consumer. So, I think it’s just a trade-off people will have to live with.”",
+        "The European Union’s Emissions Trading System (ETS) is set to be extended to the shipping industry starting in January 2024, meaning that large ships entering EU ports will be charged for their carbon dioxide emissions.",
+        "The ETS currently covers sectors like mining and aviation and is designed to put a cost on carbon for the region’s most polluting industries.",
+        "Chen described the EU initiative as “a natural action that will lead to some interesting effects.”",
+        "“Suddenly you need to be able to prove that indeed you’re taking the right action [to decarbonize] and you can see in the shipping line industry some people … are investing in the methanol ships, who are setting up investment funds to go buy those resources, because it’s really hard to buy the alternative fuel. Some are more passive [and] are waiting to see,” he said.",
+        "Shipping line Maersk\nlaunched its first vessel with an engine fueled by green methanol in September, but analysts expressed concerns about supply of the alternative fuel.",
+        "Shoppers may be willing to spend more on items that have been shipped or produced in a way that “doesn’t create greenhouse gas,” but they will require proof because of the high risk of greenwashing, Chen said.",
+        "“Everyone will have to become decarbonized, it’s a question of time. And in that world, what you need is to be able to prove to the end consumer that indeed the action you’re taking is right and that’s something that’s not easy to prove today,” he added.",
+        "Using the blockchain to store and give access to legal and financial documents could help the shipping industry provide that proof, Chen said.",
+        "Maritime nations agreed in July to reduce emissions “by or around 2050,” during a meeting of the United Nations’ International Maritime Organization.",
+        "— CNBC’s Silvia Amaro and Sam Meredith contributed to this report."
+      ]
+    },
+    "publishedDate": "2023-10-18T00:00:00"
+  },
+  {
+    "id": -190837524,
+    "title": "Mastercard ends Binance card partnership in latest blow to crypto giant",
+    "sourceUrl": "https://www.cnbc.com/2023/08/25/mastercard-ends-binance-card-partnership.html",
+    "author": "Ryan Browne",
+    "content": {
+      "elements": [
+        "Embattled cryptocurrency exchange Binance has lost some business with payment card networks Mastercard and Visa.",
+        "The development is a sign of how traditional financial institutions are growing wary of working with the company as it faces intense regulatory scrutiny and wider concerns around financial compliance within the crypto industry.",
+        "Mastercard will soon no longer offer Binance-branded cards in Latin America and the Middle East, which let customers user their crypto to purchase goods, Binance said Thursday via X, the company formerly known as Twitter.",
+        "“The product, like most debit cards, has been utilized by Binance’s users to pay for basic daily expenses but in this case, the cards are funded with crypto assets,” Binance Customer Support said on Twitter.",
+        "“Only a tiny portion of our users (less than 1% of users in the markets mentioned) are impacted by this. Users of this product will have until September 21, 2023, when the card will no longer be available for use.”",
+        "“Binance accounts around the world are not affected. Where available, users can also shop with crypto and send crypto using Binance Pay, a contactless, borderless and secure cryptocurrency payment technology designed by Binance,” the company added.",
+        "Mastercard confirmed that it is ending the partnership, with a spokesperson telling CNBC that, from Sept. 22, four pilot Binance co-branded Mastercard card programs the company had with Binance in Argentina, Brazil, Colombia and Bahrain “will no longer be in use.”",
+        "“This provides cardholders with a wind-down period to convert any holdings in their Binance wallet,” the Mastercard spokesperson said. “There is no impact on any other crypto card program.”",
+        "Visa, meanwhile, also moved to distance itself from Binance. The company ended a similar card tie-up with Binance, as it ceased issuing new co-branded cards with the firm in Europe as of July, a spokesperson for the company told Bloomberg.",
+        "Binance and Visa were not immediately available for comment when contacted by CNBC.",
+        "It’s a sign of how crypto continues to face a broadly tepid response from the financial services industry.",
+        "Mastercard had warmed to crypto in recent years. In Oct. 2021, the firm began allowing any bank or merchant the ability to offer crypto services. Last year, the company launched a product allowing banks to assess the risk of crime posed by crypto merchants, and started letting banks offer crypto trading.",
+        "For its part, Mastercard said its decision to end the tie-up with Binance has “no impact on our wider commitment to enabling and securing digital assets, which we continue to support.”",
+        "Binance faces intense backlash from regulators including the U.S. Securities and Exchange Commission and the Commodity Futures Trading Commission.",
+        "The SEC brought 13 charges against Binance and its CEO Changpeng Zhao accusing the company of commingling billions of dollars in customer money with Binance’s own funds, similar to allegations made against the now bankrupt crypto exchange FTX.",
+        "Binance denies the allegations.",
+        "The firm recently filed a protective order against the SEC, saying the regulator’s requests for information were “over broad” and “unduly burdensome.”",
+        "Last week, Checkout.com reportedly dropped Binance as a customer, citing “reports of regulators actions and orders in relevant jurisdictions,” “inquiries from partners,” and concerns over the firm’s anti-money laundering, sanctions and compliance controls.",
+        "WATCH: How a $60 billion crypto collapse got regulators worried"
+      ]
+    },
+    "publishedDate": "2023-08-25T00:00:00"
+  },
+  {
+    "id": 557536338,
+    "title": "Why big banks want to put Wall Street on a blockchain",
+    "sourceUrl": "https://www.cnbc.com/2023/07/26/why-big-banks-like-jpmorgan-want-put-wall-street-on-a-blockchain.html",
+    "author": "Jordan Smith",
+    "content": {
+      "elements": [
+        "Watch Daily: Monday - Friday, 3 PM ET",
+        "Banking titans such as JPMorgan\nand Citi\nwant to supercharge Wall Street by borrowing a tool from crypto — tokenizing assets on a blockchain.",
+        "“Once you have these assets that are tokenized, there are so many different use cases for them,” said Elliot Han, head of digital assets at Cantor Fitzgerald.",
+        "Bernstein said in an analyst note from June that tokenization could unlock faster settlement times and lower costs. The firm projects $5 trillion in assets could be tokenized on blockchains over the next five years.",
+        "It takes time to transfer ownership of an asset on Wall Street. Investors must use a broker-dealer to buy or sell an asset on an exchange, and they must wait two business days for that transaction to settle — what is known as “T+2,” or trade plus two days. Banks believe tokenization could cut out those middlemen and allow for near-instant transactions.",
+        "“A traditional stock certificate is nothing more than a token that represents ownership of the keys of a company,” said James Angel, an associate professor at Georgetown University.",
+        "The technology could face regulatory headwinds. U.S. agencies like the Securities and Exchange Commission are cracking down on crypto companies. In May, the agency sued crypto exchanges Binance and Coinbase over alleged securities violations, and Chair Gary Gensler also requested millions of dollars in increased funding to rein in the “Wild West” of crypto.",
+        "Watch the video above to learn why big banks are spending millions on tokenization."
+      ]
+    },
+    "publishedDate": "2023-07-26T00:00:00"
+  },
+  {
+    "id": -1239473874,
+    "title": "Vietnam’s digitalization efforts fuel startup scene",
+    "sourceUrl": "https://www.cnbc.com/2023/07/12/vietnams-digitalization-efforts-fuel-startup-scene.html",
+    "author": "Nyshka Chandran",
+    "content": {
+      "elements": [
+        "Vietnam’s tech startups are reaping the benefits as the country sets its sights on becoming a fully digital society by 2030.",
+        "In 2020, the government announced its national strategy on digital transformation, which aims to increase the digital economy’s share of gross domestic product from 14% currently to 20% by 2025.",
+        "The Southeast Asian nation hopes to become a high-income economy by 2045 by focusing on its digital economy.",
+        "According to the World Bank, “If digital sectors expand by about 10 percent every year, the cumulated monetary gains for the economy will exceed US$200 billion over 2021-45, or about the size of the country’s current GDP.”",
+        "That’s why officials are rolling out the red carpet for tech entrepreneurs.",
+        "In 2021, new startup support centers Hanoi, Da Nang and Ho Chi Minh City were announced. One year later, a roadmap for boosting innovation in science was revealed, with promises to spend 1% of GDP on scientific research.",
+        "Last year, the country pledged to introduce business innovation surveys to monitor the development of startups.",
+        "Vietnam’s start-ups attracted a lot of investor interest in 2022, according to a recent report by venture fund Do Ventures and the National Innovation Center, a government unit under the Ministry of Planning and Investment.",
+        "It ranked third in terms of deal count in Southeast Asia, and fourth in deal value last year, the report said. Notably, domestic funds were the top investors in local startups last year, accounting for 45% of total deal value. ",
+        "However, the total value of investment in Vietnamese startups was only $634 million in 2022 — down 56% year-on-year from the record high of $1.4 billion in 2021, the report noted.",
+        "Fintech, retail, health care and payments were the most in-demand sectors for funding, it said.",
+        "The country’s current tech unicorns include electronic payment solutions provider VNPay, gaming startup-turned-conglomerate VNG, smartphone e-wallet Momo and blockchain player Sky Mavis, the maker of NFT-based game Axie Infinity.",
+        "Other names making waves include M Village, which offers co-living housing for young professionals, and TopCV, which focuses on resume creation tools to job-seekers.",
+        "Digitalization is particularly important for agriculture, one of the country’s most important economic sectors.",
+        "In 2022, the Ministry of Agriculture and Rural Development announced plans to build smart rural areas by 2025, specifically focused on improving production efficiency and introducing specialized digital infrastructure for farmers.",
+        "“Without going digital, transformation in farming activities and integration among stakeholders along the value chain would be a downward spiral for Vietnam agriculture, not only affecting farmers’ lives, but also all others,” said Tran Thi Nguyen, founder of Koima, an agritech startup.",
+        "It helps small-scale farmers increase their income, transform their traditional farm to agroforestry, which improves biodiversity, and gain access to financing without high interest rates through its crowdfunding platform.",
+        "Speaking to CNBC, a number of local investors identified their core areas of focus, which range from retail to logistics.",
+        "Venture capital firm ThinkZone Ventures has invested in 17 local tech-enabled startups with a collective valuation of nearly $200 million since the company was started in 2018. It believes health care, food and logistics, including transportation and delivery solutions, are particularly ripe for technology disruption. Each one boasts compelling growth potential based on soaring consumer activity from Vietnam’s expanding middle class, a company spokesperson said.",
+        "VinaCapital calls itself one of the first venture capital investors in Vietnam. It’s invested in 18 early-stage tech startups through its $100 million platform, VinaCapital Ventures, as well as maintaining 58 direct investments through its portfolio companies. It prioritizes startups that provide tech-enabled solutions to improve existing systems in agriculture, financial services, logistics, media and retail. Emerging technologies such as blockchain, AI, and electric vehicle infrastructure are some areas it believes will drive economic transformation going forward.",
+        "VIC Partners said it has invested in about 15 innovative companies since 2017, injecting around $100,000 to $200,000 for the first check in each deal, followed by another $100,000 to $200,000 in the following round.",
+        "Managing director Tung A. Tran said VIC is particularly bullish about ecommerce.",
+        "“We have invested in B2B SaaS companies that enable ecommerce businesses in recruitment, sales, marketing, payment, customer care, logistics and fulfilment,” he said, referring to cloud-based software programs that service the corporate world.",
+        "“We also invest in innovative ecommerce companies that sell directly to consumers through social media and implement technology in seamless business operations.” ",
+        "Despite the influx of capital entering the digital tech field, investors warn of several structural obstacles that could limit growth going forward.",
+        "At the top of the list was regulatory framework such as tax, intellectual property rights and data protection required to create the most conducive environment for tech.",
+        "“The absence of global-class human resources is also a prevailing issue,” ThinkZone noted. “While Vietnam possesses skilled and seasoned professionals in programming, development, design, and various other roles, they have yet to reach the pinnacle of excellence.”",
+        "“Limited investment in research and development by large corporations is a significant obstacle for Vietnamese startups,” according to VinaCapital.",
+        "“It limits the potential for cross-industry collaboration and innovation, making it more difficult for startups to find potential acquirers or partners who are interested in their products or services.”",
+        "VIC Partners is most concerned about the global economic downturn. The firm expects cash flow issues to wipe out many tech startups in 2023 and 2024 while pushing more young people to pursue traditional business models, which would deprive the startup market of new ideas.",
+        "Once capital inflows are injected again into the developed market, it will take some time to trickle down to emerging countries like Vietnam, and then from the listed market to private equity and venture capital players, said Tran from VIC Partners.",
+        "“I predict 2023 and 2024 to be very good years for pre-IPO and [private equity] opportunities. Then from 2025-2026, the VC market in Vietnam may flourish again with another batch of great companies.”"
+      ]
+    },
+    "publishedDate": "2023-07-20T00:00:00"
+  },
+  {
+    "id": 1075383717,
+    "title": "Binance to exit the Netherlands after failing to obtain regulatory approval",
+    "sourceUrl": "https://www.cnbc.com/2023/06/16/binance-to-exit-the-netherlands-as-it-fails-to-get-regulatory-approval.html",
+    "author": "Ryan Browne",
+    "content": {
+      "elements": [
+        "Watch Daily: Monday - Friday, 3 PM ET",
+        "Cryptocurrency exchange Binance said it will leave the Netherlands after the company’s application to register under the Dutch crypto authorization regime was rejected.",
+        "Referring to a virtual asset service provider, Binance on Friday said that it could no longer serve Dutch clients “as we have been unable to register as a VASP with the Dutch regulator.”",
+        "The company didn’t give a reason for why it was unable to receive a license from regulators.",
+        "Starting Friday, no new Binance users will be accepted onto the platform. From July 17, Binance said it will cease allowing users to buy tokens, trade, or make deposits, although its withdrawal function remains active.",
+        "Binance recommended that users withdraw their assets from their accounts.",
+        "The Dutch central bank, which is responsible for authorizing new virtual asset services providers, was not immediately available for comment.",
+        "Under the current regulatory regime, Binance can only get approval to operate in an EU country by registering under its money laundering prevention rules.",
+        "The firm has so far received such approvals in France, Italy, Spain, Poland, Sweden and Lithuania. This is set to change once the EU approves its Markets in Crypto Assets (MiCA) regulation.",
+        "MiCA aims to harmonize crypto regulation across the bloc and to prevent bad actors from harming consumers, particularly in the wake of the shock bankruptcy of FTX in November.",
+        "Once MiCA comes into force, crypto firms with registration in one EU country will be able to then use that to offer their services across other member states.",
+        "Binance said it remains “committed to working collaboratively with regulators around the world and are additionally focused on getting our business ready to be fully MiCA compliant.”",
+        "“Existing Dutch resident users are being sent an email with comprehensive information about what this means for their accounts and any assets they currently have on the Binance platform, alongside any steps they will need to take,” a Binance spokesperson told CNBC.",
+        "“While Binance is disappointed that this has become necessary, it will continue to engage productively and transparently with Dutch regulators.”",
+        "The latest blow to the crypto giant follows a tumultuous few months for the broader cryptocurrency industry. Last week, the U.S. Securities and Exchange Commission sued Binance and CEO Changpeng Zhao, alleging that they engaged in the unregistered offer and sale of securities and commingled investor funds with their own.",
+        "WATCH: How a $60 billion crypto collapse got regulators worried"
+      ]
+    },
+    "publishedDate": "2023-06-16T00:00:00"
+  },
+  {
+    "id": -1703491814,
+    "title": "Coinbase CEO says SEC is on ‘lone crusade,’ dials back on suggestion exchange may relocate",
+    "sourceUrl": "https://www.cnbc.com/2023/05/08/coinbase-ceo-on-us-crypto-regulation-sec-lawsuit-international-plans.html",
+    "author": "Ryan Browne",
+    "content": {
+      "elements": [
+        "The CEO of cryptocurrency exchange Coinbase\n, Brian Armstrong, doubled down on his criticisms of the U.S. Securities and Exchange Commission chief Gary Gensler Monday, but added the exchange would not leave the U.S. despite the regulatory uncertainty the company is facing in the country.",
+        "Coinbase has been under intense regulatory scrutiny in the U.S. lately following a grim year for the crypto industry which saw major companies like FTX and Terra fail, prices plunge, and investors lose billions of dollars in the process.",
+        "The SEC earlier this year served Coinbase with a Wells Notice, a letter that the regulator sends to a company or firm at the conclusion of an SEC investigation that states the SEC is planning to bring an enforcement action against them.",
+        "At the heart of the regulator’s dispute with Coinbase, and a host of other crypto companies, is the allegation that it is selling unregistered securities to investors. Coinbase disputes this.",
+        "“The SEC is a bit of an outlier here,” Armstrong told CNBC’s Dan Murphy in an interview in Dubai Monday. “There’s kind of a lone crusade, if you will, with Gary Gensler, the chair there, and he has taken a more anti-crypto view for some reason.”",
+        "“I don’t think he’s necessarily trying to regulate the industry as much as maybe curtail it. But he’s created some lawsuits, and I think it’s quite unhelpful for the industry in the U.S. writ large, but it also is an opportunity for Coinbase to go get that clarity from the courts that we feel will really benefit the crypto industry and also the U.S. more broadly.”",
+        "The SEC declined to comment when contacted by CNBC.",
+        "Armstrong also rowed back on a suggestion he made last month that the company may be forced to move its headquarters overseas.",
+        "“Coinbase is not going to relocate overseas,” Armstrong said. “We’re always going to have a U.S. presence ... But the U.S. is a little bit behind right now.”",
+        "“I would say we’re seeing more thoughtful approaches, for instance, in the EU [European Union], they’ve actually already passed comprehensive crypto legislation, the U.K. has been incredibly welcoming, and for us there, and that’s been a hub where we’ve decided to serve the U.K. market.”",
+        "At a fintech conference in London in April, Armstrong said that Coinbase may consider relocating outside the U.S. if the current regulatory headwinds persist. He said the U.S. “has the potential to be an important market in crypto” but right now is not delivering regulatory clarity.",
+        "If this goes on, he said, then Coinbase would consider options of investing more abroad, including relocating from the U.S. to elsewhere.",
+        "Still, Armstrong said Monday that Coinbase was looking to increase its international investments, stating it is “very interested” in the United Arab Emirates as a country to do more investment in. Dubai has been a notably favorable regulator when it comes to crypto, courting business from the likes of Binance and Kraken.",
+        "Noting that it was his first visit to the UAE, Armstrong said: “I’m here to learn and listen and meet with the relevant regulators both in Abu Dhabi and here in Dubai and decide if this is a good place for us to serve a large region of the world.”"
+      ]
+    },
+    "publishedDate": "2023-05-08T00:00:00"
+  },
+  {
+    "id": 151784441,
+    "title": "Crypto has ‘lost its shine’ for institutional investors, says Northern Trust executive",
+    "sourceUrl": "https://www.cnbc.com/2023/05/04/crypto-has-lost-its-shine-for-institutional-investors-says-northern-trust-executive.html",
+    "author": "Tanaya Macheel",
+    "content": {
+      "elements": [
+        "Watch Daily: Monday - Friday, 3 PM ET",
+        "Institutional investors lost interest in crypto after 2022 and even with this year’s uptrend, their appetite for it hasn’t come back yet, according to Northern Trust’s head of digital assets and financial markets.",
+        "Justin Chapman told CNBC’s “Crypto World” at the Digital Assets Week conference in San Francisco that institutions have shifted their focus to cryptocurrencies’ underlying blockchain technology, but that his firm “has capabilities” in place should client interest in crypto assets rebound.",
+        "“Just after March the crypto market went off a cliff… the client interest has definitely gone off the same cliff in terms of institutional interest in in cryptocurrencies,” he said.",
+        "“It’s definitely quiet now, since 2022, from the institutional side,” he continued. “Before that, we were seeing traditional fund managers looking to launch crypto funds, ETPs in Europe, which is the equivalent of ETFs in the U.S. — that’s really gone quiet. Even the hedge funds, who are pretty active in the markets, have certainly reduced their exposure within that particular space.”",
+        "Meanwhile, leaders from the biggest financial institutions gathered at the San Francisco conference were energized when it came to the blockchain technology – specifically its potential to help tokenize real-world assets like gold for clients.",
+        "The “evolution of the technology” is moving into a “better place” in terms of support from market participants, Chapman said.",
+        "“As a firm, we have capabilities that sit there to administer [crypto trading] functions, but it’s a pretty quiet market at the moment and [after] most of the issues we had last year, we haven’t seen a rebound at all on the institutional side yet,” he said.",
+        "Specifically, Northern Trust partnered with Standard Chartered in 2020 to launch Zodia, a crypto custodian for institutional investors.",
+        "Bitcoin\nhas gained almost 75% this year after losing 64% in 2022. Trading was still to begin the year, with volatility falling to historic lows. The regulatory crackdown in the U.S. been a dark cloud over the industry while the banking crisis has helped push bitcoin’s price higher. Both have brought volatility back to the market. Even as bitcoin currently struggles to break above the $30,000 level, investors agree it remains in a long-term uptrend.",
+        "“We’re not focused that much on the asset class because the client isn’t at the moment,” Chapman said. “So we’re not seeing that appetite to have that within their portfolios. If that changes, as a firm, we can account for those capabilities. But it’s certainly lost its shine from the institutional perspective.”"
+      ]
+    },
+    "publishedDate": "2023-05-04T00:00:00"
+  },
+  {
+    "id": 1561501692,
+    "title": "XRP cryptocurrency jumps as investors hope Ripple will win SEC legal battle",
+    "sourceUrl": "https://www.cnbc.com/2023/03/22/xrp-cryptocurrency-jumps-as-investors-hope-ripple-will-win-sec-case.html",
+    "author": "Ryan Browne",
+    "content": {
+      "elements": [
+        "The XRP\ncryptocurrency soared on Wednesday as investors grew hopeful that Ripple, a company closely associated with the token, would win its prolonged legal battle with the U.S. Securities and Exchange Commission.",
+        "The token was worth around 45 cents at about 8 a.m. ET, according to data from CoinGecko, up over 11% in the last 24 hours. It was earlier trading up as much as 20%.",
+        "Traders pointed to a supplemental notice submitted by Ripple on Monday which pointed to a ruling in a separate case concerning Binance.US’ rescue plan for collapsed crypto lender Voyager Digital. Under the plan, Binance’s U.S. unit was to buy all of Voyager’s assets, including its native VGX token, in a $1.3 billion deal.",
+        "The SEC rejected the plan, arguing VGX was akin to a security and calling Binance an unregistered securities exchange, according to the notice from Ripple.",
+        "However, the judge rejected the SEC’s objections and approved the bankruptcy plan citing what he called the “vagueness” of the regulator’s arguments and stating the SEC had not “offered any guidance at all as to just what it was that the Debtors allegedly were supposed to prove” to demonstrate VGX was not a security, according to the Ripple letter.",
+        "The SEC wasn’t immediately available for comment when contacted by CNBC.",
+        "The SEC accuses Ripple, CEO Brad Garlinghouse and co-founder Chris Larsen of breaching U.S. securities laws by selling XRP without first registering it with the regulator. Ripple contests the SEC’s allegations, maintaining the view that XRP should be considered a digital currency rather than a security.",
+        "Monica Long, president of Ripple, told CNBC Wednesday morning that she was “very hopeful” about achieving a positive resolution to the SEC battle, adding she thinks it will reach a conclusion sometime this year.",
+        "Long said she thinks it’s “very unlikely” the judge will rule in favor of the SEC “considering by our view both the facts and the law are on our side.”",
+        "If XRP were to be deemed a security, it could have huge ramifications for the digital currency industry.",
+        "Floods of tokens may end up falling into the same category, making them regulated financial instruments that would need SEC supervision and frequent transparency disclosures.",
+        "Ripple and the SEC have now both submitted their final round of briefs seeking a summary judgment to the case. The case now rests with Judge Analisa Torres of the Southern District of New York, who is expected to issue a verdict soon.",
+        "It is not clear when she will make her decision. However, some crypto investors believe an outcome will arrive in the coming days.",
+        "XRP “is being bolstered by a potential positive outcome in the SEC case,” Vijay Ayyar, vice president of international at crpyto exchange Luno, told CNBC via email Wednesday.",
+        "The token, which is the sixth-largest globally by market value, is also being boosted by the broader crypto market sentiment, Ayyar said.",
+        "Bitcoin\nis up 70% since the start of the year and is currently trading above $28,000 for the first time in nine months. Ether\n, the second-biggest token, has risen 50% year-to-date.",
+        "“Overall, crypto markets have rallied in the past week or so, given the anticipation of a pause or slow down in interest rates and the slowdown in inflation,” according to Ayyar.",
+        "Ripple’s Long said she believed the SEC was regulating through enforcement rather than establishing clear regulations for the sector. Europe is more advanced in its treatment of crypto, she argued, highlighting the bloc’s Markets in Crypto Assets regulation as an example.",
+        "“We’re seeing action through enforcement vs. setting clear rules and regulation which is what all of us in the industry desire,” Long said.",
+        "“Europe is really emerging as a leader in setting really clear regulations and rules that allow crypto companies and also traditional finance to embrace crypto.”",
+        "For its part, the SEC has said it wants all crypto companies and projects to bring their operations into compliance with federal securities laws.",
+        "In an interview with CNBC in February after a crackdown on the crypto exchange Kraken, SEC Chair Gary Gensler said, “There’s a handful of tokens that have actually registered. The intermediaries, the storefronts if you wish, the casinos that people are investing in and investing at need to properly comply and disentangle these bundled products.”",
+        "“If this field has any chance of survival and success, it’s time-tested rules and laws to protect the investing public.”",
+        "In recent weeks, the regulator has taken aim at numerous crypto firms alleging they are engaged in illegal securities offerings.",
+        "Stablecoin issuer Paxos said the SEC served it with a notice threatening legal action over claims that BUSD, the native stablecoin of crypto exchange Binance, was a security that should have been registered with the regulator.",
+        "The regulator also hit crypto lender Genesis and exchange Gemini with charges alleging a high-yield investment product offered by the two companies should have been treated as a security.",
+        "WATCH: Bitcoin at $10,000 — or $250,000? Investors are sharply divided on 2023"
+      ]
+    },
+    "publishedDate": "2023-03-22T00:00:00"
+  },
+  {
+    "id": 166606441,
+    "title": "Web inventor thinks we’re all going to have our own A.I. assistants like ChatGPT",
+    "sourceUrl": "https://www.cnbc.com/2023/02/17/tim-berners-lee-thinks-we-will-have-our-own-ai-assistants-like-chatgpt.html",
+    "author": "Arjun Kharpal",
+    "content": {
+      "elements": [
+        "More control over your data. No blockchain. And your own personal artificial intelligence assistant, like ChatGPT.",
+        "These are all part of the vision of the future of the web, according to internet inventor Sir Tim Berners-Lee and CEO of Inrupt John Bruce, who spoke on CNBC’s Beyond The Valley podcast published Friday.",
+        "Inrupt is a company they co-founded which aims to deliver the web inventors’ original vision of the way the internet should work.",
+        "Berners-Lee said that when he invented the web in 1989, “if you were sufficiently switched on geeky, you could get yourself a computer. And you could put a web server on it, you could plug it into the internet. And you could have a website.”",
+        "“The spirit of the web was incredibly empowering to individuals,” he said.",
+        "But in his view, something has gone wrong since, with the concentration of power now in the hands of large internet companies.",
+        "“Well, everybody’s on Facebook\n, so they don’t have the website. They all use Mark Zuckerberg’s website,” Berners-Lee said.",
+        "“When people look you up on Facebook, you don’t control actually what they see ... Mark Zuckerberg’s algorithms control what news gets fed to them as they’re looking at your stuff,” he told CNBC.",
+        "“That’s very disempowering. It is very useful to Facebook. They have a lot of data about people that they they use for targeting them with advertisements ... but what we’ve lost is the ability for individuals to have power.”",
+        "His solution? A product that allows users to control their data and how it’s used. Currently, internet companies collect data on users by default, as a way of using their services.",
+        "But Berners-Lee and Bruce’s start-up Inrupt is working on a different way forward. The aim is for users to have a single sign-on across different products and services on the internet.",
+        "Data will be stored in so-called “pods,” which are basically a person’s personal data online storage container. Individuals can grant a website or service access to their pod, or silo of data, rather than websites taking data by default.",
+        "The system is built on an open protocol on the internet called Solid.",
+        "“And that’s the ‘yin’ and the ‘yang’ of Inrupt, which is the personal empowerment. And the opportunity for individuals to take more command over their role on the web,” Bruce told CNBC’s Beyond The Valley.",
+        "Such an idea would require buy-in from large internet players. But Bruce said there is an “endless trudge” from companies to get more data on users, so they can target them with products and services. But the endeavour is showing diminishing returns for companies, he said.",
+        "“The other way of doing it is instead of, you know, figuring out blindly ‘Are you the likely candidate for my product or service?’ How about I just ask you in a legitimate way? And you tell me,” Bruce said, referencing the idea that users would be able to share the data that they want with companies from their pod.",
+        "Users will also need to change their behavior, and there needs to be a desire to control their data in this way. Berners-Lee admitted this change wouldn’t come overnight but instead “bit by bit.”",
+        "In the wide-ranging Beyond The Valley episode, Bruce and Berners-Lee also addressed new artificial intelligence product ChatGPT which was developed by OpenAI.",
+        "Backed by Microsoft, ChatGPT is an AI-powered chatbot, that responds to questions from users.",
+        "Berners-Lee said that users can run their own AI, much like their own personal version of Amazon’s Alexa or Apple’s Siri, when they have their own data pods.",
+        "That’s because in the future that Berners-Lee sees, users will have all sorts of data stored in their pods — from fitness information to online shopping habits. The AI could use all that data to learn and be able to assist a user.",
+        "“Sometimes you have the whole data spectrum — all of the data to do with your collaborations and your coffees and your projects and your dreams. And the books you’re reading and ... all of your life, then that is in your pod. You run AI on that. That could be sweet,” Berners-Lee said.",
+        "What Berners-Lee and Bruce are working on at Inrupt is all part of the future of the internet.",
+        "Some have termed it Web3, which proponents say will be a decentralized version of the internet — one that is not dominated by a handful of powerful players such as Amazon, Microsoft and Google.",
+        "Many Web3 advocates suggest it will be built on some sort of blockchain technology. Blockchain is the technology that first came to light with bitcoin but has since evolved.",
+        "But Berners-Lee is keen to call the next generation of the internet Web 3.0, emphasizing the dot.",
+        "“It’s not blockchain,” he said.",
+        "Web3 proponents suggest blockchain could be used to underpin the future of the internet. But Berners-Lee said the technology is not fast enough nor does it afford enough privacy.",
+        "He also said cryptocurrencies like bitcoin are “only speculative.”",
+        "Gavin Wood, founder of blockchain infrastructure company Parity Technologies, coined the term “Web3.”",
+        "Wood spoke to CNBC last year about his vision for the future of the web in a previous episode of Beyond the Valley. He advocated blockchain technology as part of the future web make-up."
+      ]
+    },
+    "publishedDate": "2023-02-20T00:00:00"
+  },
+  {
+    "id": -1859309655,
+    "title": "$1.4 trillion wipeout hits crypto industry at Davos — except for a flashy bitcoin car",
+    "sourceUrl": "https://www.cnbc.com/2023/01/18/davos-1point4-trillion-wipeout-hits-crypto-industry-at-wef.html",
+    "author": "Arjun Kharpal",
+    "content": {
+      "elements": [
+        "DAVOS, Switzerland — Over the past few years at the World Economic Forum in Davos, Switzerland, the number of cryptocurrency industry attendees has boomed.",
+        "But after a near $1.4 trillion wipeout in 2022, the crypto industry is being a bit more reserved with how it splashes the cash and several companies spotted last year are not in attendance. 2022 was marked by failed crypto projects, liquidity issues and bankruptcies, topped off by the collapse of major exchange FTX.",
+        "When the World Economic Forum was held last May, bitcoin\nwas hovering around $30,000, after having already fallen more than 50% from its all-time high hit in November 2021. More pain followed with bitcoin dipping as low as $15,480.",
+        "The Promenade is the main street in Davos where companies and governments take over shops and cafes for the week. Last year, crypto firms from all walks of life took over the place. But since the market slide, there are far fewer crypto firms with flashy store fronts at Davos.",
+        "One shop selling non-fungible tokens, or NFTs, has disappeared. Prices of NFTs, which are digital collectibles, also plunged last year. What’s left are companies that survived the bear market and that are looking to expand their businesses.",
+        "“It’s very clear that the speculation period is drawing to a close and every company that you see featured … is really focused on real-world use cases,” said Teana Baker-Taylor, vice-president of policy and regulatory strategy at Circle, the company behind the USDC stablecoin.",
+        "This self-driving car technology stock could pop by more than 400%, say three analysts",
+        "Looking for alternatives to Nvidia? Futurum CEO names 3 he’s bullish on for 2024",
+        "Bernstein tech analyst’s best idea for 2024 is to short Tesla",
+        "Morgan Stanley picks ‘alpha’ opportunities in China tech - giving one 52% upside",
+        "This self-driving car technology stock could pop by more than 400%, say three analysts",
+        "Looking for alternatives to Nvidia? Futurum CEO names 3 he’s bullish on for 2024",
+        "Bernstein tech analyst’s best idea for 2024 is to short Tesla",
+        "Morgan Stanley picks ‘alpha’ opportunities in China tech - giving one 52% upside",
+        "A stablecoin is a type of digital currency that is supposed to be pegged one-to-one with a fiat currency. USDC is pegged to the U.S. dollar. Circle says it is backed with real-world assets such as U.S. Treasurys so that one USDC can be redeemed for $1.",
+        "Casper Labs, a company that has built a blockchain designed to be used by businesses, is running a space on the Promenade called the Blockchain Lab. Casper Labs was also present last year in Davos.",
+        "Cliff Sarkin, chief of strategic relations at Casper Labs, said he’s “cautiously optimistic” that the crypto market has bottomed.",
+        "“So we’re over a year into the bear market, so I think the shock of that is settled in and for those of us that have been in the space for years … we feel like this is the time to build,” Sarkin told CNBC.",
+        "He added that the crypto firms that have remained at Davos are “substantiative projects” and “the real deals” versus things like NFTs.",
+        "There were also those in traditional finance who welcomed fewer crypto firms.",
+        "Mark Haefele, chief investment officer at UBS Global Wealth Management, was asked during an event hosted by the Swiss bank what he would like to see in Davos this year. He said he had seen it already: “It’s less crypto on the main street.”",
+        "On Monday, a flashy bright orange Mercedes-Benz car was parked outside of the Blockchain Hub on the Promenade.",
+        "A coin that represented a bitcoin was placed where the Mercedes-Benz logo would usually be. On the tires and the licenses plate, the words “in crypto we trust” were printed. The license plate had the Ukrainian flag on it and the name Kuna, which is the company behind a cryptocurrency exchange of the same name.",
+        "Kuna also set up the “reserve fund of Ukraine” after the war with Russia began where people could donate crypto to Ukraine.",
+        "People in the vicinity that CNBC spoke to could not verify who parked the car there.",
+        "However, two crypto executives who spoke to CNBC did not welcome the orange car, particularly after the market crash and the excesses of the industry were exposed. One remarked that the presence of such a car was not helpful for the industry’s reputation which took a hit last year.",
+        "CNBC reached out to Semen Kaploushenko, CEO of the Kuna exchange, via LinkedIn, but is yet to receive a response.",
+        "CNBC also reached out to the Blockchain Association of Ukraine which Kuna founder Michael Chobanian is the president of, but is yet to receive a response."
+      ]
+    },
+    "publishedDate": "2023-01-18T00:00:00"
   }
 ]

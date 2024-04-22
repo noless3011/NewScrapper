@@ -29,7 +29,6 @@ public class CrawlerManagerController {
 	@FXML
 	Button addButton;
 	
-	
 	@FXML
 	VBox crawlerVBox;
 	

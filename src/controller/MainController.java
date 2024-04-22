@@ -3,6 +3,8 @@ package controller;
 import java.io.IOException;
 import java.util.List;
 
+import com.google.gson.annotations.Expose;
+
 import crawler.CNBCCrawler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -34,8 +37,33 @@ public class MainController{
     @FXML
     private VBox newsVBox;
     
+    @FXML
+    private Button advanceSearchButton;
     
+    @FXML
+    private Button refreshButton;
 
+    public void refresh(ActionEvent event) throws IOException{
+    	List<Article> articles = CNBCCrawler.getArticlesFromJsonTest();
+    	newsVBox.getChildren().clear();
+    	try {
+    		
+    		
+    		for(Article article : articles) {
+    			FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/NewsCard.fxml"));
+    			AnchorPane newsCardPane = loader.load();
+        		NewsCardController controller = loader.getController();
+    			controller.setImage("");
+    			controller.setArticle(article);
+        		newsVBox.getChildren().add(newsCardPane);
+    		}
+    		
+    	}catch (Exception e) {
+            e.printStackTrace();
+        }
+    	
+    }
+    
 	public void openCrawlersManager(ActionEvent event) throws IOException {
 		try {
             // Load the FXML file for the new window

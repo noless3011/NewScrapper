@@ -168,9 +168,10 @@ public class CNBCCrawler implements ICrawlerArticle {
 
 	@Override
 	public List<Article> getArticlesFromJson() {
+		Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).setPrettyPrinting().create();
 		try (Reader reader = new FileReader("articles.json")){
 			Type listType = new TypeToken<List<Article>>() {}.getType();
-            List<Article> tweets = new Gson().fromJson(reader, listType);
+            List<Article> tweets = gson.fromJson(reader, listType);
             return tweets;
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -178,7 +179,17 @@ public class CNBCCrawler implements ICrawlerArticle {
 		}
 	}
 	
-	
+	public static List<Article> getArticlesFromJsonTest() {
+		Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).setPrettyPrinting().create();
+		try (Reader reader = new FileReader("articles.json")){
+			Type listType = new TypeToken<List<Article>>() {}.getType();
+            List<Article> tweets = gson.fromJson(reader, listType);
+            return tweets;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 	
 	private Pair<Content, String> crawlContentAndAuthor(String url) {
 		Content content = new Content();

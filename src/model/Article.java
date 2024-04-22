@@ -43,8 +43,8 @@ public class Article {
         this.author = author;
     }
 
-    public String getContent() {
-        return content.toString();
+    public Content getContent() {
+        return content;
     }
 
     public void setContent(Content content) {
