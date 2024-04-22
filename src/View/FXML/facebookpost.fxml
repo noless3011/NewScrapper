@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="450.0" styleClass="facebook_post" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PostController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="450.0" styleClass="facebook_post" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PostController">
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="600.0">
          <children>
@@ -130,7 +130,7 @@
                         </Label>
                         <ImageView fitHeight="30.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../Screenshot%202024-04-19%20221147.pngimage/" />
+                              <Image url="@../image/share.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="5.0" />
@@ -141,50 +141,6 @@
                         <Insets right="10.0" />
                      </HBox.margin>
                   </HBox>
-               </children>
-            </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0" visible="false">
-               <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="reaction-bar" stylesheets="@../style.css">
-                     <children>
-                        <ImageView fitHeight="42.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../image/ic_like.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="42.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../image/ic_love_.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="42.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../image/ic_care.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="42.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../image/ic_haha.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="42.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../image/ic_wow.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="42.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../image/ic_sad.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="42.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../image/ic_angry.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </HBox>
-                  <Pane prefHeight="200.0" prefWidth="200.0" />
                </children>
             </HBox>
          </children>
