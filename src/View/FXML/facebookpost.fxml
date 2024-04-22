@@ -130,7 +130,7 @@
                         </Label>
                         <ImageView fitHeight="30.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../image/Screenshot%202024-04-19%20221147.png" />
+                              <Image url="@../Screenshot%202024-04-19%20221147.pngimage/" />
                            </image>
                            <HBox.margin>
                               <Insets left="5.0" />
