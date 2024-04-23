@@ -1,10 +1,15 @@
 package crawler;
 
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Reader;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Year;
 import java.time.format.DateTimeFormatter;
 
 import org.jsoup.Jsoup;
@@ -14,14 +19,17 @@ import org.jsoup.select.Elements;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
+import adapter.LocalDateTimeAdapter;
+import adapter.ProgressCallback;
 import model.Article;
 import model.Content;
 
-public class Blockchain101 extends ICrawler{
+public class Blockchain101 implements ICrawlerArticle{
 	
 	private static final String WEB_URL = "https://101blockchains.com/blog/";
-	static List <Article> articles = new ArrayList<>();
+	private static List <Article> articles = new ArrayList<>();
 	
 	// Connect to Web, prepare to crawl
 	public Document accessPage(int page) {
@@ -38,13 +46,19 @@ public class Blockchain101 extends ICrawler{
 		return null;
 	}
 	
-	// Crawl, get title author and time of all page
-		public List<Article> crawlPage(int page){
-				Document doc = accessPage(page);
-				Elements accessOutUrl = doc.select("div [class=pho-blog-part-content]");
-				// get title author and time of all article in page
-				for (Element element : accessOutUrl) {
-					// Get URL
+	@Override
+	public void crawlArticleList(int amount, ProgressCallback callback) {
+		int page = 1;
+		int index = 0;
+		while(index < amount){
+			// Crawl, get title author and time of page
+			Document doc = accessPage(page);		    
+		    if (doc != null) {
+		        Elements accessOutUrl = doc.select("div[class=pho-blog-part-content]");
+		        
+		        for (Element element : accessOutUrl) {
+		            // Tiếp tục xử lý các phần tử HTML
+		        	// Get URL
 					String url = element.select("h2 a").attr("href");
 					
 					// Get title
@@ -53,11 +67,16 @@ public class Blockchain101 extends ICrawler{
 					String author = element.select("h5").text();
 					
 					// Get date and time
-					// Get date and time
 					String dateTimeString = element.select("p").text();
-					DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d");
-					LocalDateTime dateTime = LocalDateTime.parse(dateTimeString, formatter);
 					
+					// Specify the format of the date string without the year
+					DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d yyyy");
+	
+					// Parse the date string using the formatter
+					Year currentYear = Year.now();
+					LocalDate publishedDate = LocalDate.parse(dateTimeString + " " + currentYear.getValue(), formatter);
+					// Set the time components to default values
+					LocalDateTime publishedDateTime = publishedDate.atStartOfDay();
 					// Get tag
 					String tag = element.select("a").first().text();
 					
@@ -65,61 +84,59 @@ public class Blockchain101 extends ICrawler{
 					try {
 					Document document = Jsoup.connect(url).timeout(2000).get();
 					Element accessInUrl = document.select("article").first();
-					Elements getAllTextElement = accessInUrl.select("p, h2, h3");
-					StringBuilder text = new StringBuilder();
-					for (Element getText: getAllTextElement) {
-						text.append(getText.text());
-						
+					Elements getElement = accessInUrl.select("p, h2, h3");
+					
+					Content content = new Content();
+					for (Element contentElement: getElement) {
+						content.AddElement(contentElement.text());
+						System.out.println(contentElement.text());
 					}
-					Content content = new Content(text.toString());
 					
 					// Create object is a Article
-					Article article = new Article(title, author, content, dateTime, url);
+					Article article = new Article(title, author, content, publishedDateTime, url);
+					article.setTags(tag);
 					articles.add(article);
+					
+					//Update index and page
+					index++;
+					System.out.println(articles.size() + " index: " + index + " " + amount + " " + page + "\n");
+					callback.updateProgress(index);
+					if (index == amount) break;
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
-				}
-				return articles;
+				}   
+		    } else {
+		        System.out.println("Document is null. Error accessing the page.");
+		    }
+			page++;
 		}
-		
-		public static void main(String [] agrs) throws IOException {
-			Gson gson = new GsonBuilder().setPrettyPrinting().create();
-			FileWriter fileWriter = new FileWriter("Blockchain101_data.json");
-			for (int page = 1; page < 150; page++) {
-				Blockchain101 main = new Blockchain101();
-				main.crawlPage(page);
-				String json = gson.toJson(articles);
-				fileWriter.write(json);
-				
-			}
-			
-			fileWriter.close();
-			System.out.println("Done");
-		}
-	
-	@Override
-	public void CrawlArticleList() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Content CrawlArticleContent(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void SaveToJson(List<Article> list) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public List<Article> GetArticlesFromJson() {
-		// TODO Auto-generated method stub
-		return null;
+		saveToJson(articles);
 	}
 	
+	
+	@Override
+	public void saveToJson(List<Article> list) {
+		Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).setPrettyPrinting().create();
+		try (FileWriter writer = new FileWriter("Blockchain101_data.json")){
+			gson.toJson(list, writer);
+			writer.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		System.out.println("Đã lưu thành công vào file json");
+	}
+	
+	@Override
+	public List<Article> getArticlesFromJson() {
+		Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).setPrettyPrinting().create();
+		try (Reader reader = new FileReader("Blockchain101_data.json")){
+			Type listType = new TypeToken<List<Article>>() {}.getType();
+            List<Article> tweets = gson.fromJson(reader, listType);
+            return tweets;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 }

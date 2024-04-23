@@ -2,13 +2,13 @@ package crawler;
 
 import java.util.List;
 
+import adapter.ProgressCallback;
 import model.Content;
 import model.Article;
 
-public abstract class ICrawler {
-	//This function will be called prediodically
-
-	public abstract void crawlArticleList();
+public abstract interface ICrawlerArticle {
+	//Hàm này sẽ thu thập 1 lượng article mà người dùng nhập vào tron UI
+	public abstract void crawlArticleList(int amount, ProgressCallback callback);
 	//Need to check if the Article already exist to not have to store a duplicate using the id of the article
 	public abstract void saveToJson(List<Article> list);
 	public abstract List<Article> getArticlesFromJson();
