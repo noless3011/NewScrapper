@@ -31,7 +31,7 @@ public class FacebookCrawler implements ICrawlerFacebook {
     @Override
     public void crawlFacebookList() {
         List<Facebook> articles = new ArrayList<>();
-        WebDriver driver = getPageSource(5);
+        WebDriver driver = getPageSource(30);
         List<WebElement> posts = driver.findElements(By.xpath("//div[@class='x1yztbdb x1n2onr6 xh8yej3 x1ja2u2z']"));
         articles = crawlData(posts,articles);
         System.out.println(articles.size());
@@ -133,7 +133,7 @@ public class FacebookCrawler implements ICrawlerFacebook {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
             wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.loading-spinner")));
             try {
-                Thread.sleep(2000);
+                Thread.sleep(4000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
