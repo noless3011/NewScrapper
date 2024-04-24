@@ -2,12 +2,14 @@ package demoapache;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Scanner;
 
 import crawler.TwitterCrawler;
 import model.Article;
 
 public class MainApp {
 	public static void main(String [] args) {
+		
 		String indexPath = "index";
 		TwitterCrawler twittercrawler = new TwitterCrawler();
 		try {
@@ -23,7 +25,11 @@ public class MainApp {
 		}
 		try {
 			Searcher searcher = new Searcher(indexPath);
-			String queryString = "blockchain";
+			Scanner scanner = new Scanner(System.in);
+
+	        System.out.print("Nhập từ cần tìm: ");
+	        String queryString = scanner.next();
+	        
 			try {
 				searcher.searchAndDisplay(queryString);
 			} catch (Exception e) {

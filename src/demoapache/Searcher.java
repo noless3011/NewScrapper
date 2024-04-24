@@ -2,6 +2,10 @@ package demoapache;
 
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.queryparser.classic.MultiFieldQueryParser;
@@ -17,23 +21,21 @@ import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 
 
-
-
 public class Searcher {
 	private IndexSearcher searcher;
 	private QueryParser parser;
 	
 	public Searcher(String indexPath) throws IOException {
-		String [] fields = {"title", "content", "author"};
 		Directory dir = FSDirectory.open(Paths.get(indexPath));
 		IndexReader reader = DirectoryReader.open(dir); 
+		String [] fields = {"title", "content", "author", "entity"};
 		searcher = new IndexSearcher(reader);
 		parser = new MultiFieldQueryParser(fields, new StandardAnalyzer());
 	}
 	
 	public void searchAndDisplay(String queryString) throws Exception {
 		Query query = parser.parse(queryString);
-		TopDocs hits = searcher.search(query, 10);
+		TopDocs hits = searcher.search(query, 100);
 		dislaySearchResults(hits);
 	}
 	
@@ -44,9 +46,19 @@ public class Searcher {
 			System.out.println("Author: " + doc.get("author"));
 			System.out.println("Title: " + doc.get("title"));
 			System.out.println("Content: " + doc.get("content"));
-			System.out.println("--------------------------------------");
+			System.out.print("Entities: ");
+	        List<String> entities = Arrays.asList(doc.getValues("entity"));
+	        Set<String> uniqueEntities = new HashSet<>(entities); // Sử dụng Set để loại bỏ các thực thể trùng lặp
+            boolean firstEntity = true;
+            for (String entity : uniqueEntities) {
+                if (!firstEntity) {
+                    System.out.print(", ");
+                }
+                System.out.print(entity);
+                firstEntity = false;
+            }
+			System.out.println("\n--------------------------------------");
 		}
-		
 	}
 
 	public Document getDocument(ScoreDoc scoreDoc) throws IOException {

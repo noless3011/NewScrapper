@@ -19,5 +19,7 @@ module NewScrapper {
 	opens model to com.google.gson;
 	requires org.apache.lucene.core;
 	requires org.apache.lucene.queryparser;
+	requires org.slf4j;
+	requires org.apache.opennlp.tools;
 	
 }
