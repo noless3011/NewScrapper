@@ -46,8 +46,14 @@ public class Blockchain101 implements ICrawlerArticle{
 		return null;
 	}
 	
+	public static void main(String [] agrs){
+		
+		Blockchain101 test = new Blockchain101();
+		test.crawlArticleList(30);
+	}
+	
 	@Override
-	public void crawlArticleList(int amount, ProgressCallback callback) {
+	public void crawlArticleList(int amount) {
 		int page = 1;
 		int index = 0;
 		while(index < amount){
@@ -89,7 +95,6 @@ public class Blockchain101 implements ICrawlerArticle{
 					Content content = new Content();
 					for (Element contentElement: getElement) {
 						content.AddElement(contentElement.text());
-						System.out.println(contentElement.text());
 					}
 					
 					// Create object is a Article
@@ -99,8 +104,7 @@ public class Blockchain101 implements ICrawlerArticle{
 					
 					//Update index and page
 					index++;
-					System.out.println(articles.size() + " index: " + index + " " + amount + " " + page + "\n");
-					callback.updateProgress(index);
+					//callback.updateProgress(index);
 					if (index == amount) break;
 					} catch (IOException e) {
 						e.printStackTrace();
