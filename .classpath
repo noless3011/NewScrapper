@@ -241,7 +241,7 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="lib/failsafe-3.3.2.jar">
+	<classpathentry kind="lib" path="C:/Users/trant/eclipse-workspace/NewScrapper/lib/selenium-java-4.19.1/lib/failsafe-3.3.2.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
