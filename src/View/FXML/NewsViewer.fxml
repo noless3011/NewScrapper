@@ -1,34 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane styleClass="root" stylesheets="@../CSS/NewsViewer.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21">
+<AnchorPane stylesheets="@../CSS/NewsViewer.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NewsViewerController">
    <children>
-      <VBox prefHeight="800.0" prefWidth="700.0">
+      <VBox prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <TextArea fx:id="title" prefHeight="100.0" prefWidth="200.0" styleClass="text-area" text="safdfsdh" />
-            <HBox prefHeight="50.0" prefWidth="200.0">
+            <AnchorPane>
                <children>
-                  <TextArea fx:id="author" prefHeight="50.0" prefWidth="200.0" />
-                  <Pane prefHeight="50.0" prefWidth="300.0" />
-                  <TextArea fx:id="publishDate" prefHeight="200.0" prefWidth="200.0" />
+                  <Label fx:id="titleLabel" prefHeight="159.0" prefWidth="681.0" styleClass="title-label" text="Label lorem lorem lorem lorem lorem lorem lorem lorem loreml oem lorem lorme" wrapText="true" AnchorPane.leftAnchor="10.0">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
                </children>
-            </HBox>
-            <ScrollPane prefHeight="650.0" prefWidth="200.0" styleClass="content-scrollpane">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="650.0" prefWidth="700.0" styleClass="anchor-pane">
+            </AnchorPane>
+            <AnchorPane>
+               <children>
+                  <HBox prefHeight="30.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0">
                      <children>
-                        <VBox fx:id="content" prefHeight="200.0" prefWidth="100.0" styleClass="content-vbox" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <Label fx:id="authorLabel" styleClass="author-label" text="Author" />
+                        <Label fx:id="dateLabel" styleClass="date-label" text="dd/mm/yyyy">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </Label>
                      </children>
-                  </AnchorPane>
-              </content>
-            </ScrollPane>
+                  </HBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane>
+               <children>
+                  <ScrollPane prefHeight="708.0" prefWidth="700.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0">
+                           <children>
+                              <VBox fx:id="paragraphsVBox" layoutY="-6.0" prefWidth="685.0" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
          </children>
       </VBox>
    </children>

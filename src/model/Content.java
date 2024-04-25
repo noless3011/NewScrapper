@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Content {
 	private ArrayList<Object> elements;
@@ -22,6 +23,17 @@ public class Content {
 			return true;
 		}
 		return false;
+	}
+	
+	public List<String> getParagraphList(){
+		List<String> paragraphs = new ArrayList<>();
+		for(Object element : elements) {
+			if(element instanceof String) {
+				
+				paragraphs.add((String) element);
+			}
+		}
+		return paragraphs;
 	}
 	
 	public void AddElement(Object element) {

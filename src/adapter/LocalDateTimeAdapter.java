@@ -1,6 +1,7 @@
 package adapter;
 
 
+
 import com.google.gson.*;
 import java.lang.reflect.Type;
 import java.time.LocalDateTime;
@@ -29,7 +30,7 @@ public class LocalDateTimeAdapter extends TypeAdapter<LocalDateTime> implements 
             out.nullValue();
         }
     }
-    
+
     private static final DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
 
     @Override
