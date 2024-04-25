@@ -116,7 +116,7 @@ public class TwitterCrawler implements ICrawlerTweet {
 	
 	//Tìm kiếm các thông tin về tác giả, thời gian, url của các tweet
 	
-	public void crawlTweetList(int amount) {
+	public void crawlTweetList(int amount, ProgressCallback callback) {
 		int i = 0, index = 0;
 		HashSet<String> uniqueTweets = new HashSet<>(); // HashSet để kiểm tra xem tweet đã có trong danh sách chưa để tránh crawl hai bài giống nhau
 		while (tweetList.size() < amount) {
@@ -175,8 +175,9 @@ public class TwitterCrawler implements ICrawlerTweet {
 							Content content = null;
 							Tweet test = new Tweet(author, content, publishedAt, sourceUrl, hashtags, number_of_comment, number_of_liked, number_of_view);
 							tweetList.add(test);
+							
 							test.setContent(crawlTweetContent(tweet));
-							System.out.println(index++);
+							callback.updateProgress(index);
 							uniqueTweets.add(sourceUrl);
 						}
 					}
@@ -220,7 +221,7 @@ public class TwitterCrawler implements ICrawlerTweet {
 	
 	// Lưu list gồm các tweet vào file json
 	
-	public void saveToJson(List<Tweet> tweetList) {
+	public void saveToJson() {
 		try (FileWriter writer = new FileWriter("tweets.json")){
 			gson.toJson(tweetList, writer);
 			writer.close();
@@ -232,10 +233,10 @@ public class TwitterCrawler implements ICrawlerTweet {
 	
 	// Lấy danh sách đối tượng từ file Json
 	
-	public List<Article> getTweetFromJson(){
-		List <Article> tweets = null;
-		try (Reader reader = new FileReader("articles.json")){
-			Type listType = new TypeToken<List<Article>>() {}.getType();
+	public List<Tweet> getTweetFromJson(){
+		List <Tweet> tweets = null;
+		try (Reader reader = new FileReader("tweets.json")){
+			Type listType = new TypeToken<List<Tweet>>() {}.getType();
 			tweets = gson.fromJson(reader, listType);
             return tweets;
 		} catch (IOException e) {
@@ -243,7 +244,7 @@ public class TwitterCrawler implements ICrawlerTweet {
 			return null;
 		}
 	}
-	
+	/*
 	public static void main(String [] agrs) throws InterruptedException {
 		//Tạo đối tượng TwitterCrawler để truyền thông điệp thực hiện các hành vi
 		TwitterCrawler twittercrawler = new TwitterCrawler();
@@ -257,4 +258,5 @@ public class TwitterCrawler implements ICrawlerTweet {
 //		}
 		
 	}
+	*/
 }
