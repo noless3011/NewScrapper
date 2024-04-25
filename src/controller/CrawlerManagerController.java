@@ -1,29 +1,15 @@
 package controller;
 
-import java.awt.event.FocusEvent;
-import java.awt.event.WindowEvent;
 import java.io.IOException;
-import java.util.List;
-
-import crawler.CNBCCrawler;
 import javafx.event.ActionEvent;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Popup;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import model.Article;
 
 public class CrawlerManagerController {
 	@FXML

@@ -1,0 +1,19 @@
+<changelist name="Uncommitted_changes_before_Checkout_at_4_21_2024_9_03_PM_[Changes]1" date="1713708255485" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_21_2024_9_03_PM_[Changes]1/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 4/21/2024 9:03 PM [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="classes/production/NewScrapper/crawler/FacebookCrawler$1.class" />
+    <option name="AFTER_PATH" value="classes/production/NewScrapper/crawler/FacebookCrawler$1.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_21_2024_9_03_PM_[Changes]1/FacebookCrawler$1.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="classes/production/NewScrapper/model/Facebook.class" />
+    <option name="AFTER_PATH" value="classes/production/NewScrapper/model/Facebook.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_21_2024_9_03_PM_[Changes]1/Facebook.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="classes/production/NewScrapper/crawler/FacebookCrawler.class" />
+    <option name="AFTER_PATH" value="classes/production/NewScrapper/crawler/FacebookCrawler.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_21_2024_9_03_PM_[Changes]1/FacebookCrawler.class" />
+  </binary>
+</changelist>

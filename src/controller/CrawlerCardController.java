@@ -2,8 +2,7 @@ package controller;
 
 import java.io.IOException;
 
-import crawler.ICrawlerArticle;
-import crawler.ICrawlerTweet;
+import crawler.ICrawler;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,8 +20,7 @@ public class CrawlerCardController {
 	
 	
 	private CrawlerManagerController managerController;
-	private ICrawlerArticle crawler;
-	private ICrawlerTweet crawlerTweet;
+	private ICrawler crawler;
 	
 	@FXML
 	private Button runButton;
@@ -70,7 +68,7 @@ public class CrawlerCardController {
 			
 			@Override
 			protected Void call() throws Exception {
-				crawler.crawlArticleList(amount, progress ->{
+				crawler.crawlList(amount, progress ->{
 					updateProgress(progress, amount);
 				});
 				return null;
@@ -82,13 +80,9 @@ public class CrawlerCardController {
 		new Thread(task).start();
 	}
 	
-	public void setCrawler(ICrawlerArticle crawlerArticle) {
-		crawler = crawlerArticle;
+	public void setCrawler(ICrawler crawler ) {
+		this.crawler = crawler;
 		
-	}
-	
-	public void setCrawler(ICrawlerTweet crawlerTweet) {
-		this.crawlerTweet = crawlerTweet;
 	}
 
 	public void setLabel(String s) {

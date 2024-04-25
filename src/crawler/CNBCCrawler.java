@@ -19,7 +19,6 @@ import com.google.gson.reflect.TypeToken;
 
 import adapter.LocalDateTimeAdapter;
 import adapter.ProgressCallback;
-import javafx.concurrent.Task;
 import javafx.util.Pair;
 
 import java.io.FileReader;
@@ -32,9 +31,8 @@ import java.time.LocalDateTime;
 
 import model.Content;
 import model.Article;
-import javafx.concurrent.Task;
 
-public class CNBCCrawler implements ICrawlerArticle {
+public class CNBCCrawler implements ICrawler<Article> {
 	private static final Map<String, Integer> STRING_TO_MONTH = new HashMap<>(){{
         put("JAN", 1);
         put("FEB", 2);
@@ -105,7 +103,7 @@ public class CNBCCrawler implements ICrawlerArticle {
 	}
 	
 	@Override
-	public void crawlArticleList(int amount, ProgressCallback callback) {
+	public void crawlList(int amount, ProgressCallback callback) {
 		
 		setUpMainDriver("https://www.cnbc.com/blockchain/");
 		setUpArticleDriver();
@@ -167,7 +165,7 @@ public class CNBCCrawler implements ICrawlerArticle {
 	}
 
 	@Override
-	public List<Article> getArticlesFromJson() {
+	public List<Article> getListFromJson() {
 		Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).setPrettyPrinting().create();
 		try (Reader reader = new FileReader("articles.json")){
 			Type listType = new TypeToken<List<Article>>() {}.getType();
