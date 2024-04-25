@@ -16,6 +16,7 @@ module NewsScrapper {
 	requires dev.failsafe.core;
 	requires com.google.gson;
 	requires com.google.common;
+	requires com.fasterxml.jackson.databind;
 	opens model to com.google.gson;
 	
 }

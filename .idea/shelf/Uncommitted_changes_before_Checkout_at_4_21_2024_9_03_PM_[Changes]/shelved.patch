@@ -1,0 +1,962 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"84382b4b-c4f5-4d48-802f-6256ca3f5a19\" name=\"Changes\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/libraries/jsoup_1_17_2.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/libraries/lib.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/libraries/lib1.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/uiDesigner.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/chromedriver.exe\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/crawler/ICrawlerFacebook.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/model/Facebook.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/gson_2_10_1.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/NewScrapper.iml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/NewScrapper.iml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/crawler/FacebookCrawler.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/crawler/FacebookCrawler.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/crawler/facebook.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/crawler/facebook.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/module-info.java\" beforeDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n        <option value=\"Interface\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 6\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2eqX8QPd81o8eTTrjl0wjB2k1np\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"git-widget-placeholder\": \"truong-branch\",\r\n    \"ignore.virus.scanning.warn.message\": \"true\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"D:/javaLib/selenium-server-4.18.1.jar\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"project.structure.last.edited\": \"Libraries\",\r\n    \"project.structure.proportion\": \"0.15\",\r\n    \"project.structure.side.proportion\": \"0.20689656\",\r\n    \"settings.editor.selected.configurable\": \"settings.sync\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\Work2\\NewScrapper\\src\" />\r\n      <recent name=\"D:\\Work2\\NewScrapper\\src\\crawler\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"84382b4b-c4f5-4d48-802f-6256ca3f5a19\" name=\"Changes\" comment=\"\" />\r\n      <created>1712632922085</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1712632922085</updated>\r\n      <workItem from=\"1713018760380\" duration=\"464000\" />\r\n      <workItem from=\"1713228070349\" duration=\"5452000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,20 +4,15 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="84382b4b-c4f5-4d48-802f-6256ca3f5a19" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jsoup_1_17_2.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib1.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/chromedriver.exe" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/crawler/ICrawlerFacebook.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/model/Facebook.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/gson_2_10_1.xml" beforeDir="false" />
++    <list default="true" id="84382b4b-c4f5-4d48-802f-6256ca3f5a19" name="Changes" comment="new commit">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/NewScrapper.iml" beforeDir="false" afterPath="$PROJECT_DIR$/NewScrapper.iml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/FacebookCrawler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/FacebookCrawler$1.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/FacebookCrawler.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/FacebookCrawler.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/facebook.json" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/facebook.json" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/model/Facebook.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/NewScrapper/model/Facebook.class" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/crawler/FacebookCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawler/FacebookCrawler.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/crawler/facebook.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawler/facebook.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/module-info.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/model/Facebook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Facebook.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -33,12 +28,20 @@
+     </option>
+   </component>
+   <component name="Git.Settings">
++    <option name="PREVIOUS_COMMIT_AUTHORS">
++      <list>
++        <option value="noless3011 &lt;botay301104@gmail.com&gt;" />
++      </list>
++    </option>
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+         <entry key="$PROJECT_DIR$" value="master" />
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="ProblemsViewState">
++    <option name="selectedTabId" value="CurrentFile" />
+   </component>
+   <component name="ProjectColorInfo">{
+   &quot;associatedIndex&quot;: 6
+@@ -49,27 +52,26 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "WebServerToolWindowFactoryState": "false",
+-    "git-widget-placeholder": "truong-branch",
+-    "ignore.virus.scanning.warn.message": "true",
+-    "kotlin-language-version-configured": "true",
+-    "last_opened_file_path": "D:/javaLib/selenium-server-4.18.1.jar",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "project.structure.last.edited": "Libraries",
+-    "project.structure.proportion": "0.15",
+-    "project.structure.side.proportion": "0.20689656",
+-    "settings.editor.selected.configurable": "settings.sync",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;truong-branch&quot;,
++    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
++    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;D:/javaLib/selenium-server-4.18.1.jar&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
++    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
++    &quot;project.structure.side.proportion&quot;: &quot;0.20689656&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="D:\Work2\NewScrapper\src" />
+@@ -85,11 +87,39 @@
+       <option name="presentableId" value="Default" />
+       <updated>1712632922085</updated>
+       <workItem from="1713018760380" duration="464000" />
+-      <workItem from="1713228070349" duration="5452000" />
++      <workItem from="1713228070349" duration="6420000" />
++      <workItem from="1713271149752" duration="229000" />
++      <workItem from="1713274855654" duration="710000" />
++      <workItem from="1713278966223" duration="517000" />
++      <workItem from="1713338398230" duration="1053000" />
++      <workItem from="1713407010988" duration="111000" />
++      <workItem from="1713514474769" duration="3806000" />
++      <workItem from="1713529385648" duration="9014000" />
++    </task>
++    <task id="LOCAL-00001" summary="new commit">
++      <option name="closed" value="true" />
++      <created>1713233690785</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1713233690785</updated>
++    </task>
++    <task id="LOCAL-00002" summary="new commit">
++      <option name="closed" value="true" />
++      <created>1713233695723</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1713233695723</updated>
+     </task>
++    <option name="localTasksCounter" value="3" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
+   </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="new commit" />
++    <option name="LAST_COMMIT_MESSAGE" value="new commit" />
++  </component>
+ </project>
+\ No newline at end of file
+Index: src/model/Facebook.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package model;\r\n\r\nimport java.time.LocalDateTime;\r\n\r\npublic class Facebook extends Article{\r\n    private String number_of_comment;\r\n    private String number_of_reaction;\r\n    private String number_of_share;\r\n\r\n    //Khởi tạo đối tượng tweet\r\n    public Facebook(String author, Content content, LocalDateTime publishedAt, String sourceUrl, String number_of_reaction, String number_of_comment, String number_of_share) {\r\n        super(null, author, content, publishedAt, sourceUrl);\r\n        this.number_of_reaction = number_of_reaction;\r\n        this.number_of_comment = number_of_comment;\r\n        this.number_of_share = number_of_share;\r\n    }\r\n\r\n    public Facebook(String title, String author, Content content, LocalDateTime publishedAt, String sourceUrl) {\r\n        super(title, author, content, publishedAt, sourceUrl);\r\n    }\r\n\r\n    public String getNumber_of_comment() {\r\n        return number_of_comment;\r\n    }\r\n\r\n    public void setNumber_of_comment(String number_of_comment) {\r\n        this.number_of_comment = number_of_comment;\r\n    }\r\n\r\n    public String getNumber_of_reaction() {\r\n        return number_of_reaction;\r\n    }\r\n\r\n    public void setNumber_of_reaction(String number_of_liked) {\r\n        this.number_of_reaction = number_of_liked;\r\n    }\r\n\r\n    public String getNumber_of_share() {\r\n        return number_of_share;\r\n    }\r\n\r\n    public void setNumber_of_share(String number_of_view) {\r\n        this.number_of_share = number_of_view;\r\n    }\r\n\r\n    @Override\r\n    public String toString() {\r\n        return \"Author: \" + getAuthor() +\r\n                \"\\nContent: \" + content +\r\n                \"\\nPublished At: \" + getPublishedAt() +\r\n                \"\\nSource URL: \" + getSourceUrl() +\r\n                \"\\nNumber of comment: \" + number_of_comment +\r\n                \"\\nNumber of liked: \" + number_of_reaction +\r\n                \"\\nNumber of View: \" + number_of_share;\r\n    }\r\n\r\n\r\n}\r\n\r\n
+===================================================================
+diff --git a/src/model/Facebook.java b/src/model/Facebook.java
+--- a/src/model/Facebook.java	
++++ b/src/model/Facebook.java	
+@@ -3,16 +3,19 @@
+ import java.time.LocalDateTime;
+ 
+ public class Facebook extends Article{
++
++    private String imgURL;
+     private String number_of_comment;
+     private String number_of_reaction;
+     private String number_of_share;
+ 
+     //Khởi tạo đối tượng tweet
+-    public Facebook(String author, Content content, LocalDateTime publishedAt, String sourceUrl, String number_of_reaction, String number_of_comment, String number_of_share) {
++    public Facebook(String author, Content content, LocalDateTime publishedAt, String sourceUrl, String number_of_reaction, String number_of_comment, String number_of_share,String imgURL) {
+         super(null, author, content, publishedAt, sourceUrl);
+         this.number_of_reaction = number_of_reaction;
+         this.number_of_comment = number_of_comment;
+         this.number_of_share = number_of_share;
++        this.imgURL = imgURL;
+     }
+ 
+     public Facebook(String title, String author, Content content, LocalDateTime publishedAt, String sourceUrl) {
+@@ -43,6 +46,14 @@
+         this.number_of_share = number_of_view;
+     }
+ 
++    public String getImgURL() {
++        return imgURL;
++    }
++
++    public void setImgURL(String imgURL) {
++        this.imgURL = imgURL;
++    }
++
+     @Override
+     public String toString() {
+         return "Author: " + getAuthor() +
+@@ -54,6 +65,5 @@
+                 "\nNumber of View: " + number_of_share;
+     }
+ 
+-
+ }
+ 
+Index: src/crawler/FacebookCrawler.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package crawler;\r\n\r\nimport model.*;\r\n\r\nimport com.fasterxml.jackson.core.type.TypeReference;\r\nimport com.fasterxml.jackson.databind.JsonNode;\r\nimport com.fasterxml.jackson.databind.ObjectMapper;\r\nimport com.fasterxml.jackson.databind.ObjectReader;\r\nimport com.fasterxml.jackson.databind.node.ArrayNode;\r\nimport com.fasterxml.jackson.databind.node.ObjectNode;\r\n\r\n\r\nimport org.openqa.selenium.By;\r\nimport org.openqa.selenium.JavascriptExecutor;\r\nimport org.openqa.selenium.WebDriver;\r\nimport org.openqa.selenium.WebElement;\r\nimport org.openqa.selenium.chrome.ChromeDriver;\r\nimport org.openqa.selenium.support.ui.ExpectedConditions;\r\nimport org.openqa.selenium.support.ui.WebDriverWait;\r\n\r\nimport java.io.File;\r\nimport java.io.IOException;\r\nimport java.time.Duration;\r\nimport java.time.LocalDateTime;\r\nimport java.time.format.DateTimeFormatter;\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\npublic class FacebookCrawler implements ICrawlerFacebook {\r\n    @Override\r\n    public void crawlFacebookList() {\r\n        List<Facebook> articles = new ArrayList<>();\r\n        WebDriver driver = getPageSource(2);\r\n        List<WebElement> posts = driver.findElements(By.xpath(\"//div[@class='x1yztbdb x1n2onr6 xh8yej3 x1ja2u2z']\"));\r\n        articles = crawlData(posts,articles);\r\n        System.out.println(articles.size());\r\n        saveToJson(articles);\r\n    }\r\n\r\n    //Lưu object vào json\r\n    @Override\r\n    public void saveToJson(List<Facebook> list) {\r\n        try{\r\n            ObjectMapper mapper = new ObjectMapper();\r\n            ArrayNode ngNodes =mapper.createArrayNode();\r\n            for(Facebook post : list){\r\n                ObjectNode ngNode =mapper.createObjectNode();\r\n                ngNode.put(\"id\", post.getID());\r\n                ngNode.put(\"sourceUrl\", post.getSourceUrl());\r\n                ngNode.put(\"author\", post.getAuthor());\r\n                ngNode.put(\"content\", post.getContent());\r\n                ngNode.put(\"publishedDate\", String.valueOf(post.getPublishedAt()));\r\n                ngNode.put(\"Reaction\",post.getNumber_of_reaction());\r\n                ngNode.put(\"Comment\",post.getNumber_of_comment());\r\n                ngNode.put(\"Share\",post.getNumber_of_share());\r\n                ngNodes.add(ngNode);\r\n            }\r\n            ObjectNode root = mapper.createObjectNode();\r\n            root.set(\"FacebookPost\",ngNodes);\r\n            mapper.writerWithDefaultPrettyPrinter().writeValue(new File(\"src/crawler/facebook.json\"),root);\r\n        } catch (Exception e) {\r\n            throw new RuntimeException(e);\r\n        }\r\n    }\r\n    //Lấy object từ file json\r\n    @Override\r\n    public List<Facebook> getFacebookFromJson() {\r\n        List<Facebook> articles = new ArrayList<>();\r\n        ObjectMapper mapper = new ObjectMapper();\r\n        ObjectReader reader = mapper.reader();\r\n        ObjectNode fbObject;\r\n        try {\r\n            fbObject = reader.forType(new TypeReference<ObjectNode>() {\r\n            }).readValue(new File(\"src/Storage/facebook.json\"));\r\n        } catch (IOException e) {\r\n            throw new RuntimeException(e);\r\n        }\r\n        ArrayNode arrayNode = fbObject.withArray(\"FacebookPost\");\r\n        for(JsonNode node : arrayNode){\r\n            String sourceUrl = node.get(\"sourceUrl\").asText();\r\n            String author = node.get(\"author\").asText();\r\n            Content content = new Content(node.get(\"content\").asText());\r\n            String time = node.get(\"publishedDate\").asText().substring(0,16);\r\n            LocalDateTime prettyTime = parseDateTime(time);\r\n            String like = node.get(\"Reaction\").asText();\r\n            String cmt = node.get(\"Comment\").asText();\r\n            String share = node.get(\"Share\").asText();\r\n            articles.add(new Facebook(author,content,prettyTime,sourceUrl,like, cmt, share));\r\n        }\r\n        return articles;\r\n\r\n    }\r\n\r\n\r\n\r\n    //Truy cap va lay ma nguon trang web\r\n    public static WebDriver getPageSource(int numScroll) {\r\n        //Khoi  tao Webdriver\r\n        System.setProperty(\"webdriver.chrome.driver\", \"src/chromedriver.exe\");\r\n        WebDriver driver = new ChromeDriver();\r\n\r\n        //Truy cap trang web\r\n        String url = \"https://www.facebook.com/blockchain\";\r\n        driver.get(url);\r\n        try {\r\n            Thread.sleep(2000);\r\n        } catch (InterruptedException e) {\r\n            throw new RuntimeException(e);\r\n        }\r\n        WebElement button = driver.findElement(By.xpath(\"//div[@class='x92rtbv x10l6tqk x1tk7jg1 x1vjfegm']\"));\r\n        button.click();\r\n\r\n        //Cuon trang\r\n        JavascriptExecutor js = (JavascriptExecutor) driver;\r\n        for (int i = 0; i < numScroll; i++) {\r\n            long initialHeight = (long) js.executeScript(\"return document.body.scrollHeight\");\r\n\r\n            // Thực hiện lăn chuột với JavaScript Executor\r\n            js.executeScript(\"window.scrollTo(0, document.body.scrollHeight)\");\r\n\r\n            // Sử dụng Selenium Wait để đợi đến khi trang đã hoàn tất tải thêm tweet mới\r\n            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));\r\n            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(\"div.loading-spinner\")));\r\n            try {\r\n                Thread.sleep(2000);\r\n            } catch (InterruptedException e) {\r\n                throw new RuntimeException(e);\r\n            }\r\n        }\r\n        try {\r\n            Thread.sleep(1000);\r\n        } catch (InterruptedException e) {\r\n            throw new RuntimeException(e);\r\n        }\r\n        return driver;\r\n    }\r\n\r\n\r\n\r\n\r\n    public List<Facebook> crawlData(List<WebElement> posts, List<Facebook> articles){\r\n        for(WebElement post : posts){\r\n            //Lay link bai viet\r\n            WebElement links = post.findElement(By.xpath(\".//span[@class='x4k7w5x x1h91t0o x1h9r5lt x1jfb8zj xv2umb2 x1beo9mf xaigb6o x12ejxvf x3igimt xarpa2k xedcshv x1lytzrv x1t2pt76 x7ja8zs x1qrby5j']//a\"));\r\n            String link = extractSubstring(links.getAttribute(\"href\"),\"?__cft__\");\r\n            System.out.println(link);\r\n\r\n            //Lay thoi gian\r\n            String time = extractSubstring(links.getText(), \"Shared\");\r\n            LocalDateTime prettyTime = parseDateTime(time);\r\n\r\n            //Lay noi dung\r\n            Content content =new Content(post.findElement(By.xpath(\".//div[@dir='auto']\")).getText());\r\n\r\n            //Lay hinh anh\r\n            WebElement images = post.findElement(By.xpath(\"//div[@class='x10l6tqk x13vifvy']//img\"));\r\n            if(images != null){\r\n                Image image = new Image(images.getAttribute(\"src\"));\r\n                content.AddElement(image);\r\n            }\r\n\r\n            //Lay luong tuong tac\r\n            WebElement likes = post.findElement(By.xpath(\".//div[@class='x6s0dn4 x78zum5 x1iyjqo2 x6ikm8r x10wlt62']\"));\r\n            String[] parts = likes.getText().split(\"\\\\s*\\\\n\\\\s*\");\r\n            String like = parts[1];\r\n            System.out.println(like);\r\n            WebElement cmt_share = post.findElement(By.xpath(\".//div[@class='x9f619 x1n2onr6 x1ja2u2z x78zum5 x2lah0s x1qughib x1qjc9v5 xozqiw3 x1q0g3np xykv574 xbmpl8g x4cne27 xifccgj']\"));\r\n            String[] numbers = cmt_share.getText().split(\"\\\\s*\\\\n\\\\s*\");\r\n            String cmt = numbers[0];\r\n            String share = numbers[1];\r\n            System.out.println(cmt);\r\n            System.out.println(share);\r\n\r\n            //Them object vao list\r\n            articles.add(new Facebook(\"Blockchain.com\",content,prettyTime,link,like,cmt,share));\r\n        }\r\n        return articles;\r\n    }\r\n\r\n\r\n\r\n    //Chinh sua chuoi\r\n    public static String extractSubstring(String originalString, String index) {\r\n        int endIndex = originalString.indexOf(index);\r\n        if (endIndex != -1) {\r\n            return originalString.substring(0, endIndex);\r\n        } else {\r\n            return originalString; // Trả về chuỗi ban đầu nếu không tìm thấy chuỗi index\r\n        }\r\n    }\r\n\r\n\r\n\r\n    //Chinh sua thoi gian\r\n    public static LocalDateTime parseDateTime(String input) {\r\n        LocalDateTime dateTime = null;\r\n\r\n        if (input.contains(\"d\")) {\r\n            // Xử lý trường hợp \"n d\" là n ngày trước\r\n            int daysAgo = Integer.parseInt(input.split(\" \")[0]);\r\n            dateTime = LocalDateTime.now().minusDays(daysAgo);\r\n        }else {\r\n            if (input.contains(\"h\") || input.contains(\"m\")) {\r\n                dateTime = LocalDateTime.now();\r\n            } else {\r\n                if (input.contains(\"at\")) {\r\n                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern(\"d MMMM 'at' HH:mm yyyy\");\r\n                    dateTime = LocalDateTime.parse(input + \" \" + LocalDateTime.now().getYear(), formatter);\r\n                }else{\r\n                    if (input.contains(\",\")) {\r\n                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(\"d MMMM,yyyy HH:mm\");\r\n                        dateTime = LocalDateTime.parse(input + \" 00:00\", formatter);\r\n                    }else{\r\n                        if(input.contains(\"-\")){\r\n                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern(\"yyyy-MM-dd'T'HH:mm\");\r\n                            dateTime = LocalDateTime.parse(input,formatter);\r\n                        }else{\r\n                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(\"d MMMM yyyy HH:mm\");\r\n                        dateTime = LocalDateTime.parse(input + \" \" + LocalDateTime.now().getYear() + \" 00:00\", formatter);\r\n                        }\r\n                    }\r\n                }\r\n            }\r\n        }\r\n        return dateTime;\r\n    }\r\n\r\n\r\n\r\n    public static void main(String[] args) {\r\n        FacebookCrawler a = new FacebookCrawler();\r\n        a.crawlFacebookList();\r\n    }\r\n}\r\n\r\n\r\n\r\n
+===================================================================
+diff --git a/src/crawler/FacebookCrawler.java b/src/crawler/FacebookCrawler.java
+--- a/src/crawler/FacebookCrawler.java	
++++ b/src/crawler/FacebookCrawler.java	
+@@ -30,7 +30,7 @@
+     @Override
+     public void crawlFacebookList() {
+         List<Facebook> articles = new ArrayList<>();
+-        WebDriver driver = getPageSource(2);
++        WebDriver driver = getPageSource(5);
+         List<WebElement> posts = driver.findElements(By.xpath("//div[@class='x1yztbdb x1n2onr6 xh8yej3 x1ja2u2z']"));
+         articles = crawlData(posts,articles);
+         System.out.println(articles.size());
+@@ -48,8 +48,9 @@
+                 ngNode.put("id", post.getID());
+                 ngNode.put("sourceUrl", post.getSourceUrl());
+                 ngNode.put("author", post.getAuthor());
+-                ngNode.put("content", post.getContent());
+                 ngNode.put("publishedDate", String.valueOf(post.getPublishedAt()));
++                ngNode.put("content", post.getContent());
++                ngNode.put("imgUrl",post.getImgURL());
+                 ngNode.put("Reaction",post.getNumber_of_reaction());
+                 ngNode.put("Comment",post.getNumber_of_comment());
+                 ngNode.put("Share",post.getNumber_of_share());
+@@ -85,7 +86,8 @@
+             String like = node.get("Reaction").asText();
+             String cmt = node.get("Comment").asText();
+             String share = node.get("Share").asText();
+-            articles.add(new Facebook(author,content,prettyTime,sourceUrl,like, cmt, share));
++            String imgUrl = node.get("imgUrl").asText();
++            articles.add(new Facebook(author,content,prettyTime,sourceUrl,like, cmt, share,imgUrl));
+         }
+         return articles;
+ 
+@@ -122,13 +124,13 @@
+             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+             wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.loading-spinner")));
+             try {
+-                Thread.sleep(2000);
++                Thread.sleep(4000);
+             } catch (InterruptedException e) {
+                 throw new RuntimeException(e);
+             }
+         }
+         try {
+-            Thread.sleep(1000);
++            Thread.sleep(2000);
+         } catch (InterruptedException e) {
+             throw new RuntimeException(e);
+         }
+@@ -138,7 +140,7 @@
+ 
+ 
+ 
+-    public List<Facebook> crawlData(List<WebElement> posts, List<Facebook> articles){
++    private List<Facebook> crawlData(List<WebElement> posts, List<Facebook> articles){
+         for(WebElement post : posts){
+             //Lay link bai viet
+             WebElement links = post.findElement(By.xpath(".//span[@class='x4k7w5x x1h91t0o x1h9r5lt x1jfb8zj xv2umb2 x1beo9mf xaigb6o x12ejxvf x3igimt xarpa2k xedcshv x1lytzrv x1t2pt76 x7ja8zs x1qrby5j']//a"));
+@@ -150,13 +152,17 @@
+             LocalDateTime prettyTime = parseDateTime(time);
+ 
+             //Lay noi dung
+-            Content content =new Content(post.findElement(By.xpath(".//div[@dir='auto']")).getText());
++            Content content = new Content();
++            WebElement contentElements = post.findElement(By.xpath(".//div[@dir='auto']"));
++            System.out.println(contentElements.getText());
++
++            content.AddElement(contentElements.getText().replace(" \n ", " "));
+ 
+             //Lay hinh anh
+             WebElement images = post.findElement(By.xpath("//div[@class='x10l6tqk x13vifvy']//img"));
++            String imgUrl = null;
+             if(images != null){
+-                Image image = new Image(images.getAttribute("src"));
+-                content.AddElement(image);
++                imgUrl = images.getAttribute("src");
+             }
+ 
+             //Lay luong tuong tac
+@@ -172,7 +178,7 @@
+             System.out.println(share);
+ 
+             //Them object vao list
+-            articles.add(new Facebook("Blockchain.com",content,prettyTime,link,like,cmt,share));
++            articles.add(new Facebook("Blockchain.com",content,prettyTime,link,like,cmt,share,imgUrl));
+         }
+         return articles;
+     }
+Index: src/crawler/facebook.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n  \"FacebookPost\" : [ {\r\n    \"id\" : -2009917829,\r\n    \"sourceUrl\" : \"https://www.facebook.com/blockchain/posts/pfbid0Q2DVMoXYD6WjLNsnbrwBwpjpXxM6ukeMt6kg5kA1LeSx5BAoVdXtz82xYcvBsyWRl\",\r\n    \"author\" : \"Blockchain.com\",\r\n    \"content\" : \"Enable \\n two \\n factor \\n authentication\\nProtecting your online accounts is crucial. Set up 2FA to add an extra layer of security \\n https://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101\",\r\n    \"publishedDate\" : \"2024-04-16T09:13:52.718282600\",\r\n    \"Reaction\" : \"29\",\r\n    \"Comment\" : \"51\",\r\n    \"Share\" : \"5\"\r\n  }, {\r\n    \"id\" : 2093406604,\r\n    \"sourceUrl\" : \"https://www.facebook.com/blockchain/posts/pfbid0kE9coPwxhp2uNSncAjAR6SFemfe9sPPpdzQGK7iBCUnZe9giNkHBrhCAck7yXA34l\",\r\n    \"author\" : \"Blockchain.com\",\r\n    \"content\" : \"what emerging crypto projects are you most excited about?https://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101\",\r\n    \"publishedDate\" : \"2024-04-15T09:13:52.838551600\",\r\n    \"Reaction\" : \"188\",\r\n    \"Comment\" : \"221\",\r\n    \"Share\" : \"13\"\r\n  }, {\r\n    \"id\" : 858520505,\r\n    \"sourceUrl\" : \"https://www.facebook.com/blockchain/posts/pfbid02mF83UrFCRuxn6tc12D6PGak6f3u7oe3bwP4Cdh67QP4W2X7UwvRRb2gXXUnh7Bjjl\",\r\n    \"author\" : \"Blockchain.com\",\r\n    \"content\" : \"what is your favorite thing about crypto?https://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101\",\r\n    \"publishedDate\" : \"2024-04-14T09:13:52.935875500\",\r\n    \"Reaction\" : \"250\",\r\n    \"Comment\" : \"241\",\r\n    \"Share\" : \"25\"\r\n  }, {\r\n    \"id\" : -313889827,\r\n    \"sourceUrl\" : \"https://www.facebook.com/blockchain/posts/pfbid02SHhnnbL2Y3FvtueBup1XLKnfxa1rUXTBsFtieUXQBxKZKXy8fdeR3msmogihyqbDl\",\r\n    \"author\" : \"Blockchain.com\",\r\n    \"content\" : \"The freshest merch you've seen this week...\\nBlockchain.com x MetaMaskhttps://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101\",\r\n    \"publishedDate\" : \"2024-04-13T09:13:53.027901900\",\r\n    \"Reaction\" : \"341\",\r\n    \"Comment\" : \"324\",\r\n    \"Share\" : \"22\"\r\n  }, {\r\n    \"id\" : 755524183,\r\n    \"sourceUrl\" : \"https://www.facebook.com/blockchain/posts/pfbid02kEUav1xDttjZuFQ3HL3YqJxM9dh4Hd7uzBfs4qmJ9Wj7CzvXbfDkSHWJvCtuFb8Sl\",\r\n    \"author\" : \"Blockchain.com\",\r\n    \"content\" : \" Stay ahead of the curve with real-time prices, tracking and insights on the Blockchain.com Explorer\\n blockchain.com/explorerhttps://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101\",\r\n    \"publishedDate\" : \"2024-04-12T09:13:53.125005700\",\r\n    \"Reaction\" : \"187\",\r\n    \"Comment\" : \"226\",\r\n    \"Share\" : \"40\"\r\n  }, {\r\n    \"id\" : 858853083,\r\n    \"sourceUrl\" : \"https://www.facebook.com/blockchain/posts/pfbid03169KF4p2jYXvS4pHfCasGSrHhXEDQekmKSX5ehZfJRtj5CSbSkcpFhLFbJenx2MYl\",\r\n    \"author\" : \"Blockchain.com\",\r\n    \"content\" : \"hey, cool shirt \\nBlockchain.com x MetaMaskhttps://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101\",\r\n    \"publishedDate\" : \"2024-04-11T09:13:53.218705\",\r\n    \"Reaction\" : \"250\",\r\n    \"Comment\" : \"303\",\r\n    \"Share\" : \"19\"\r\n  }, {\r\n    \"id\" : -1500393049,\r\n    \"sourceUrl\" : \"https://www.facebook.com/blockchain/posts/pfbid0LeHxcDXriRnpjjEc6wJSfDfAgRCgoTPf52g7uZGwMmsRD2mLYWBGT25fPS3jZjxkl\",\r\n    \"author\" : \"Blockchain.com\",\r\n    \"content\" : \"Last month NEAR Protocol experienced a significant boost, attributed to the participation of its creator, Illia Polosukhin at Nvidia's conference focused on \\\"Transforming AI\\\". \\nThis event showcased NEAR's commitment to integrating artificial intelligence (AI) technologies into its ecosystem, culminating in the launch of \\\"NEAR Tasks\\\", an AI initiative within the platform.\\nThis development had a positive impact on NEAR's price, soaring to $8.60, its highest level since May 20… See morehttps://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101\",\r\n    \"publishedDate\" : \"2024-04-11T09:13:53.332677100\",\r\n    \"Reaction\" : \"130\",\r\n    \"Comment\" : \"158\",\r\n    \"Share\" : \"32\"\r\n  }, {\r\n    \"id\" : -350821358,\r\n    \"sourceUrl\" : \"https://www.facebook.com/blockchain/posts/pfbid02jCC7c9LdSKbRm974W7aQq8Nx7M4zD7bG84MopvzPcnxJJhMHwyNXcM5T9m7u7u2rl\",\r\n    \"author\" : \"Blockchain.com\",\r\n    \"content\" : \"SPOTTED: Blockchain.com x MetaMask merch at Paris Blockchain Week https://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101\",\r\n    \"publishedDate\" : \"2024-04-11T09:13:53.445107100\",\r\n    \"Reaction\" : \"193\",\r\n    \"Comment\" : \"143\",\r\n    \"Share\" : \"17\"\r\n  }, {\r\n    \"id\" : 896931525,\r\n    \"sourceUrl\" : \"https://www.facebook.com/blockchain/posts/pfbid0cjVag1k3djRCaquVRV29hHzqWcfHqYaV3xiUj7R3CXnR5fWT5iMgFxDsS2zCwFMBl\",\r\n    \"author\" : \"Blockchain.com\",\r\n    \"content\" : \"Less than 10 days to go until Bitcoin's fourth halving...\\nAll eyes on Block 840,000  \\nAre you counting down with us? … See morehttps://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101\",\r\n    \"publishedDate\" : \"2024-04-11T09:13:53.552312700\",\r\n    \"Reaction\" : \"151\",\r\n    \"Comment\" : \"130\",\r\n    \"Share\" : \"48\"\r\n  }, {\r\n    \"id\" : -516851460,\r\n    \"sourceUrl\" : \"https://www.facebook.com/blockchain/posts/pfbid02ucTAfWHe77SX3vJD11ex7d6ewDosbtd1yaQubaZkwhGzqnaQGY37Eo1c3nswE6vDl\",\r\n    \"author\" : \"Blockchain.com\",\r\n    \"content\" : \"Claim \\n your \\n share \\nWe’re paying daily bonuses for users who buy, swap, or hold Mavia with Blockchain.com. The more you trade, the bigger your bonus \\nblockchain.com/maviahttps://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101\",\r\n    \"publishedDate\" : \"2024-04-10T09:13:53.679497800\",\r\n    \"Reaction\" : \"96\",\r\n    \"Comment\" : \"187\",\r\n    \"Share\" : \"29\"\r\n  } ]\r\n}
+===================================================================
+diff --git a/src/crawler/facebook.json b/src/crawler/facebook.json
+--- a/src/crawler/facebook.json	
++++ b/src/crawler/facebook.json	
+@@ -1,93 +1,313 @@
+ {
+   "FacebookPost" : [ {
+-    "id" : -2009917829,
+-    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0Q2DVMoXYD6WjLNsnbrwBwpjpXxM6ukeMt6kg5kA1LeSx5BAoVdXtz82xYcvBsyWRl",
++    "id" : 1815636691,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0dJaxqbdG8PCaShhvZ9gtpHywDh84T9ja8EfktpPvoGZjkufxuxae4WxjHE5pLagCl",
++    "author" : "Blockchain.com",
++    "publishedDate" : "2024-04-19T21:54:28.255833400",
++    "content" : "!!!!!!!\nblockchain.com/explorer/assets/btc",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "288",
++    "Comment" : "176",
++    "Share" : "34"
++  }, {
++    "id" : 1954600001,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid02Zo1xPNG6NbJid53mMjLCjEAmnCKwBRPTp5bs4L3YrjACY26krs4rFzg6dX3XWeuvl",
++    "author" : "Blockchain.com",
++    "publishedDate" : "2024-04-18T21:54:28.376359100",
++    "content" : "Now available in your Blockchain.com DeFi Wallet: Solana Network \nSolana Network offers a high-speed, cost-effective blockchain solution designed for efficient transactions.\nLearn more https://www.blockchain.com/blog/posts/solana-explained",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "154",
++    "Comment" : "216",
++    "Share" : "18"
++  }, {
++    "id" : -91158206,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid022RuSSmHEMuh43ScWoBKNoJojwBhM2qoYvfwd8rHrjqQ8va5ozGxKkovzQNSdVgfXl",
++    "author" : "Blockchain.com",
++    "publishedDate" : "2024-04-17T21:54:28.486143300",
++    "content" : "2 days to go \nHow are we feeling bc fam?\nblockchain.com/explorer/assets/btc",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "205",
++    "Comment" : "176",
++    "Share" : "36"
++  }, {
++    "id" : -526964038,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0thpGoDbwG9gw7djqkq6Kt2oq6izfUxwcj8a1u9ANg8xdsjahF2JymqA1Xb2rzejRl",
+     "author" : "Blockchain.com",
+-    "content" : "Enable \n two \n factor \n authentication\nProtecting your online accounts is crucial. Set up 2FA to add an extra layer of security \n https://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101",
+-    "publishedDate" : "2024-04-16T09:13:52.718282600",
+-    "Reaction" : "29",
+-    "Comment" : "51",
+-    "Share" : "5"
++    "publishedDate" : "2024-04-17T21:54:28.595928",
++    "content" : "Don't miss out on claiming your Mavia bonus \nGet a daily Mavia Bonus with Blockchain.com based on the amount of Mavia you buy, swap, or hold.\n blockchain.com/mavia",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "114",
++    "Comment" : "159",
++    "Share" : "18"
+   }, {
+-    "id" : 2093406604,
+-    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0kE9coPwxhp2uNSncAjAR6SFemfe9sPPpdzQGK7iBCUnZe9giNkHBrhCAck7yXA34l",
++    "id" : -614377771,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid02JmXB3K7fppSXPDeQLs1gEyPH1f8zuSrnQXa8zAMhB5mEjw6cjP6GBVbCFJ9snYB6l",
+     "author" : "Blockchain.com",
+-    "content" : "what emerging crypto projects are you most excited about?https://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101",
+-    "publishedDate" : "2024-04-15T09:13:52.838551600",
+-    "Reaction" : "188",
+-    "Comment" : "221",
++    "publishedDate" : "2024-04-16T21:54:28.705706900",
++    "content" : "The countdown is on... \nblockchain.com/explorer/assets/btc",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "301",
++    "Comment" : "210",
++    "Share" : "52"
++  }, {
++    "id" : -1616487665,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid02ThWCFLBdF1K58oqkMwzr5DgDTYE4XxmMkqn6bWsBoZR8V8eLZ9qJJi2RxprkiqfKl",
++    "author" : "Blockchain.com",
++    "publishedDate" : "2024-04-16T21:54:28.815883800",
++    "content" : "Enable two factor authentication\nProtecting your online accounts is crucial. Set up 2FA to add an extra layer of security ",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "65",
++    "Comment" : "142",
+     "Share" : "13"
+   }, {
+-    "id" : 858520505,
+-    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid02mF83UrFCRuxn6tc12D6PGak6f3u7oe3bwP4Cdh67QP4W2X7UwvRRb2gXXUnh7Bjjl",
++    "id" : 1146535746,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0kMo8mkygtSvGM6EgXBGTs8iJaFGPxKzFuaKHfAtpd9dP4dpzNYuuxxSFAfk1A98Dl",
++    "author" : "Blockchain.com",
++    "publishedDate" : "2024-04-14T21:54:28.925706800",
++    "content" : "what emerging crypto projects are you most excited about?",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "209",
++    "Comment" : "253",
++    "Share" : "16"
++  }, {
++    "id" : -37467866,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid02mNmZTDGvcbr31e2wvi6JQcD5SLKkKsWu3wqT9q1RpRKzSWZ48WLA382NiREnBxqKl",
++    "author" : "Blockchain.com",
++    "publishedDate" : "2024-04-13T21:54:29.035486200",
++    "content" : "what is your favorite thing about crypto?",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "257",
++    "Comment" : "253",
++    "Share" : "30"
++  }, {
++    "id" : 179470879,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0NZubaHRvsAke5Zg9bBKoyZdhFV4aaYQ3H5EcfxTVKg6QokRzg2CVVEzZmw66hgdkl",
++    "author" : "Blockchain.com",
++    "publishedDate" : "2024-04-13T21:54:29.129641400",
++    "content" : "The freshest merch you've seen this week...\nBlockchain.com x MetaMask",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "360",
++    "Comment" : "334",
++    "Share" : "29"
++  }, {
++    "id" : -731164349,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid02kN86tNyx5k8FccG2cBR8HVAJcJcvCWGPuCvR6SwmzWvWwWtP7y63jib4SMPsuDbYl",
+     "author" : "Blockchain.com",
+-    "content" : "what is your favorite thing about crypto?https://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101",
+-    "publishedDate" : "2024-04-14T09:13:52.935875500",
+-    "Reaction" : "250",
+-    "Comment" : "241",
+-    "Share" : "25"
++    "publishedDate" : "2024-04-11T21:50",
++    "content" : " Stay ahead of the curve with real-time prices, tracking and insights on the Blockchain.com Explorer\n blockchain.com/explorer",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "193",
++    "Comment" : "238",
++    "Share" : "52"
+   }, {
+-    "id" : -313889827,
+-    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid02SHhnnbL2Y3FvtueBup1XLKnfxa1rUXTBsFtieUXQBxKZKXy8fdeR3msmogihyqbDl",
++    "id" : 1342535063,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0wNM82kuw4mJxgaSBH4KDev3iCEYSeJC5Y4JrPjGPo97p9TVZYkgQsPgGbqW82DQpl",
+     "author" : "Blockchain.com",
+-    "content" : "The freshest merch you've seen this week...\nBlockchain.com x MetaMaskhttps://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101",
+-    "publishedDate" : "2024-04-13T09:13:53.027901900",
+-    "Reaction" : "341",
+-    "Comment" : "324",
++    "publishedDate" : "2024-04-10T21:10",
++    "content" : "hey, cool shirt \nBlockchain.com x MetaMask",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "262",
++    "Comment" : "312",
+     "Share" : "22"
+   }, {
+-    "id" : 755524183,
+-    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid02kEUav1xDttjZuFQ3HL3YqJxM9dh4Hd7uzBfs4qmJ9Wj7CzvXbfDkSHWJvCtuFb8Sl",
++    "id" : 1374585604,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid02QKafVkBwkF1KZs3h2JZHP9jo9hfRzR4n5aj1tpx3kMYya82LnAv9UQzbpPwv8cryl",
++    "author" : "Blockchain.com",
++    "publishedDate" : "2024-04-10T20:05",
++    "content" : "Last month NEAR Protocol experienced a significant boost, attributed to the participation of its creator, Illia Polosukhin at Nvidia's conference focused on \"Transforming AI\". \nThis event showcased NEAR's commitment to integrating artificial intelligence (AI) technologies into its ecosystem, culminating in the launch of \"NEAR Tasks\", an AI initiative within the platform.\nThis development had a positive impact on NEAR's price, soaring to $8.60, its highest level since May 20… See more",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "135",
++    "Comment" : "163",
++    "Share" : "39"
++  }, {
++    "id" : -1503671340,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0fUPvPqSXmUEMfEyeRJMZwwTJQup4A7cZgHWTjJpGube3CjCkSrbT9BRdfMg7T7Qdl",
+     "author" : "Blockchain.com",
+-    "content" : " Stay ahead of the curve with real-time prices, tracking and insights on the Blockchain.com Explorer\n blockchain.com/explorerhttps://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101",
+-    "publishedDate" : "2024-04-12T09:13:53.125005700",
+-    "Reaction" : "187",
+-    "Comment" : "226",
++    "publishedDate" : "2024-04-10T18:15",
++    "content" : "SPOTTED: Blockchain.com x MetaMask merch at Paris Blockchain Week ",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "196",
++    "Comment" : "148",
++    "Share" : "17"
++  }, {
++    "id" : 1018600438,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0cs96eNmmpFEboHuqvd5EvUHSJw4QbFh2nnXR63rk4rX6Cmktpk3Jr9UQt9B3m4UNl",
++    "author" : "Blockchain.com",
++    "publishedDate" : "2024-04-10T16:55",
++    "content" : "Less than 10 days to go until Bitcoin's fourth halving...\nAll eyes on Block 840,000  \nAre you counting down with us? … See more",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "156",
++    "Comment" : "139",
++    "Share" : "59"
++  }, {
++    "id" : 426254980,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0qteyTCPYSFqBZbtdCBYLjtHdpEn6C8C2rFjH69UrCT1QSCiVnWkQ9xQ5rpdCjWUZl",
++    "author" : "Blockchain.com",
++    "publishedDate" : "2024-04-09T21:25",
++    "content" : "Claim your share \nWe’re paying daily bonuses for users who buy, swap, or hold Mavia with Blockchain.com. The more you trade, the bigger your bonus \nblockchain.com/mavia",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "97",
++    "Comment" : "189",
++    "Share" : "33"
++  }, {
++    "id" : -1198152287,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid034i7vHXSf1xHqUQpo8qE1qbjBnYg3yh7XViSq3JqifKubxdjaVnFmKE3Pv2WB4oNl",
++    "author" : "Blockchain.com",
++    "publishedDate" : "2024-04-08T22:10",
++    "content" : "March was big for Maker \nThe Maker token (MKR) is the governance token associated with MakerDAO and the Maker Protocol, known for its role in decentralized governance and platform stability. \nIn March, Maker experienced an increase of +76.89%, reaching $4,000 on March 24th. This value had not been seen since May 2021. … See more",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "214",
++    "Comment" : "329",
++    "Share" : "68"
++  }, {
++    "id" : 1135231723,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0Kwn5Ky5seYxb42JtzDjzLWSUpG8cqW5R2FHJYrGcjv9sdb9aq498GbRepyD1vfQkl",
++    "author" : "Blockchain.com",
++    "publishedDate" : "2024-04-07T21:45",
++    "content" : "have you checked the price of Bitcoin today?",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "310",
++    "Comment" : "314",
++    "Share" : "53"
++  }, {
++    "id" : -420346550,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid02mCq9cmbS8hba72BT6y4hR3pofQBnP6rB14uXB6CpVeF49CTiStBr4HcrQ25s4JSYl",
++    "author" : "Blockchain.com",
++    "publishedDate" : "2024-04-06T21:05",
++    "content" : "what sparked your interest in crypto?",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "255",
++    "Comment" : "329",
++    "Share" : "24"
++  }, {
++    "id" : -1082772455,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid037ahiL3LSx38uYXnn1TuhBpzXAyCR3qwbq7R9y6ApseJAQreBQZyFn3ABMyCD8A3Rl",
++    "author" : "Blockchain.com",
++    "publishedDate" : "2024-04-05T21:25",
++    "content" : "March's top moving tokens Maker reached $4k, marking a remarkable +457% surge this year\n Near surged to $8.60, showcasing a significant +49.05% increase\n… See more",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "215",
++    "Comment" : "321",
++    "Share" : "71"
++  }, {
++    "id" : -1324473916,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0tKRjtSF378hmiij2VPEPtU9qokZBWa38nTghj6iRkifv1J9ijXqts99vdgsfa4H2l",
++    "author" : "Blockchain.com",
++    "publishedDate" : "2024-04-05T00:15",
++    "content" : "We’re paying daily bonuses for users who buy, swap, or hold Mavia with Blockchain.com. \nThe more you trade, the bigger your bonus \nblockchain.com/mavia",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "180",
++    "Comment" : "313",
++    "Share" : "56"
++  }, {
++    "id" : -1913401087,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid02ahmPiVSLco2LenaJWU41MM8kbe1ijbp8tfgQGVfHDTX6hmuLvQ1Mvgo7fHYqXjvHl",
++    "author" : "Blockchain.com",
++    "publishedDate" : "2024-04-04T22:03",
++    "content" : "Soon™",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "308",
++    "Comment" : "247",
+     "Share" : "40"
+   }, {
+-    "id" : 858853083,
+-    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid03169KF4p2jYXvS4pHfCasGSrHhXEDQekmKSX5ehZfJRtj5CSbSkcpFhLFbJenx2MYl",
++    "id" : 279317982,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid02KPZRvxYCLzkQJvvYpHem8CWsiJhTPKFAadYVAPbngdrtqdgnJar1ALZz3pWDdoL3l",
+     "author" : "Blockchain.com",
+-    "content" : "hey, cool shirt \nBlockchain.com x MetaMaskhttps://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101",
+-    "publishedDate" : "2024-04-11T09:13:53.218705",
+-    "Reaction" : "250",
+-    "Comment" : "303",
+-    "Share" : "19"
++    "publishedDate" : "2024-04-03T20:50",
++    "content" : "Starknet (STRK) is here \nStarknet is a layer-2 scaling solution for Ethereum that uses zk-STARKs, a form of cryptographic proofs, to achieve scalability and security. STRK, the governance token of Starknet, allows holders to participate in the network's decision-making process.",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "195",
++    "Comment" : "292",
++    "Share" : "41"
+   }, {
+-    "id" : -1500393049,
+-    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0LeHxcDXriRnpjjEc6wJSfDfAgRCgoTPf52g7uZGwMmsRD2mLYWBGT25fPS3jZjxkl",
++    "id" : 404016410,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0aJwcBMbc2ArkVnTjz2LCvHQZQ8smTdJHECQyPkNQYkybPb6EGp6nnqizPmCuHpgpl",
+     "author" : "Blockchain.com",
+-    "content" : "Last month NEAR Protocol experienced a significant boost, attributed to the participation of its creator, Illia Polosukhin at Nvidia's conference focused on \"Transforming AI\". \nThis event showcased NEAR's commitment to integrating artificial intelligence (AI) technologies into its ecosystem, culminating in the launch of \"NEAR Tasks\", an AI initiative within the platform.\nThis development had a positive impact on NEAR's price, soaring to $8.60, its highest level since May 20… See morehttps://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101",
+-    "publishedDate" : "2024-04-11T09:13:53.332677100",
+-    "Reaction" : "130",
+-    "Comment" : "158",
+-    "Share" : "32"
++    "publishedDate" : "2024-04-02T22:05",
++    "content" : "Happy April \nIt's an exciting month for the crypto world as Bitcoin approaches it's fourth halving event (block 840,000)! Who else is counting down with us? \nTrack it with each block on the Blockchain.com Explorer blockchain.com/explorer/assets/btc",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "180",
++    "Comment" : "335",
++    "Share" : "35"
+   }, {
+-    "id" : -350821358,
+-    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid02jCC7c9LdSKbRm974W7aQq8Nx7M4zD7bG84MopvzPcnxJJhMHwyNXcM5T9m7u7u2rl",
++    "id" : 1997178799,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0yJWLAu2UVx5NChYJmtbgLNuh8vRvTPSD9QSC9HLDHmyY4N3dK1pGFB8PHyxLu47ul",
+     "author" : "Blockchain.com",
+-    "content" : "SPOTTED: Blockchain.com x MetaMask merch at Paris Blockchain Week https://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101",
+-    "publishedDate" : "2024-04-11T09:13:53.445107100",
+-    "Reaction" : "193",
+-    "Comment" : "143",
+-    "Share" : "17"
++    "publishedDate" : "2024-04-01T22:35",
++    "content" : "Hear from Co-Founder and Vice Chairman of Blockchain.com, Nicolas Cary at Paris Blockchain Week. \nNicolas will join the Master Stage panel on 9 April to discuss the latest breakthroughs in financial innovation ",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "208",
++    "Comment" : "339",
++    "Share" : "53"
++  }, {
++    "id" : -1782469982,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0PxBDwFAHDbnLLK1kYSQWfeXyaX1f66F3e9Bevj7XKyat72541Y93t6GQJ3Nz7nwDl",
++    "author" : "Blockchain.com",
++    "publishedDate" : "2024-04-01T20:05",
++    "content" : "ICYMI: ONDO is here! \nOndo is a decentralized finance (DeFi) platform that allows users to earn interest on their crypto holdings. ONDO, the platform's native token, is used for governance and staking.\n Buy, sell, swap, and hold at Blockchain.com",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "192",
++    "Comment" : "248",
++    "Share" : "45"
+   }, {
+-    "id" : 896931525,
+-    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0cjVag1k3djRCaquVRV29hHzqWcfHqYaV3xiUj7R3CXnR5fWT5iMgFxDsS2zCwFMBl",
++    "id" : -644117618,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid02dJasw95zrZQuW3k54BKJM3R2rEDwC7ZHHdgkZk8EEafPSmmS7t7uvq9Uk7SC2F3Yl",
++    "author" : "Blockchain.com",
++    "publishedDate" : "2024-04-19T21:54:31.088322600",
++    "content" : "thoughts on meme coins?",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "156",
++    "Comment" : "330",
++    "Share" : "8"
++  }, {
++    "id" : -375914561,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid02KRCSfzrpGm3ajZWYASk2RViPmCXX4pX7uou9kaew6oPWcfeuyWzM9Pvc9nVHmZ6dl",
+     "author" : "Blockchain.com",
+-    "content" : "Less than 10 days to go until Bitcoin's fourth halving...\nAll eyes on Block 840,000  \nAre you counting down with us? … See morehttps://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101",
+-    "publishedDate" : "2024-04-11T09:13:53.552312700",
+-    "Reaction" : "151",
+-    "Comment" : "130",
+-    "Share" : "48"
++    "publishedDate" : "2024-04-19T21:54:31.199670100",
++    "content" : "what upcoming crypto projects should we be keeping an eye on?",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "264",
++    "Comment" : "320",
++    "Share" : "31"
+   }, {
+-    "id" : -516851460,
+-    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid02ucTAfWHe77SX3vJD11ex7d6ewDosbtd1yaQubaZkwhGzqnaQGY37Eo1c3nswE6vDl",
++    "id" : -1702398585,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0WDX4XXATuRTzPrg9VcmRbubLLf5CP82mL6WcFhY9FTG7c593NubRNWf9Z3DWhZwdl",
+     "author" : "Blockchain.com",
+-    "content" : "Claim \n your \n share \nWe’re paying daily bonuses for users who buy, swap, or hold Mavia with Blockchain.com. The more you trade, the bigger your bonus \nblockchain.com/maviahttps://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101",
+-    "publishedDate" : "2024-04-10T09:13:53.679497800",
+-    "Reaction" : "96",
+-    "Comment" : "187",
+-    "Share" : "29"
++    "publishedDate" : "2024-04-19T21:54:31.310956200",
++    "content" : "Don't miss out! \nClaim your share of MAVIA. \nBuy, swap, and hold with Blockchain.com to get a daily bonus. … See more",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "171",
++    "Comment" : "287",
++    "Share" : "38"
++  }, {
++    "id" : 1003663307,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0oy9o3WSkQraZ1gDh1iWcKcAbCupn3Pf5iX4b6B2UHvcoATEJbTfLiZC7CKVmzxupl",
++    "author" : "Blockchain.com",
++    "publishedDate" : "2024-04-19T21:54:31.429260700",
++    "content" : "We're heading to Paris Blockchain Week next month! \nWill we see you there? ",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "141",
++    "Comment" : "254",
++    "Share" : "33"
++  }, {
++    "id" : -953008703,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid02TRZRnyddYLrJSAJW427LHUzZ1XHGqJKfWuMN2Twib8WVB9g5nU4H6sSYmYD8to7pl",
++    "author" : "Blockchain.com",
++    "publishedDate" : "2024-04-19T21:54:31.533194900",
++    "content" : "Were you keeping an eye on Stacks last month?\nThe prominent Layer 2 scaling solution was close to reaching its all-time high, hitting $3.34 by the end of February. The STX token saw significant gains, +89% from the January closing price, buoyed by the upward momentum of Bitcoin.\n blockchain.com/explorer/assets/stx",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "191",
++    "Comment" : "231",
++    "Share" : "91"
++  }, {
++    "id" : -2105542195,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0XjekT5Eb6fed1jgPhDakz1RbhTZGoFoFMwzn6Qn7MZVnFjAjhPWYRbRSYqTYBYgtl",
++    "author" : "Blockchain.com",
++    "publishedDate" : "2024-04-19T21:54:31.661089900",
++    "content" : "**Big News! Two New Crypto Assets Land on Blockchain.com!**\nWe're excited to announce that Blockchain.com just got even better!  We've added two new, in-demand crypto assets to our platform, giving you more choice and flexibility when building your crypto portfolio:\nOndo (ONDO): The DeFi platform allowing you to earn interest on your crypto holdings. … See more",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "237",
++    "Comment" : "342",
++    "Share" : "50"
+   } ]
+ }
+\ No newline at end of file
+Index: classes/production/NewScrapper/crawler/facebook.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n  \"FacebookPost\" : [ {\r\n    \"id\" : -183166925,\r\n    \"sourceUrl\" : \"https://www.facebook.com/blockchain/posts/pfbid0Q2DVMoXYD6WjLNsnbrwBwpjpXxM6ukeMt6kg5kA1LeSx5BAoVdXtz82xYcvBsyWRl\",\r\n    \"sourceName\" : null,\r\n    \"author\" : \"Blockchain.com\",\r\n    \"content\" : \"Enable \\n two \\n factor \\n authentication\\nProtecting your online accounts is crucial. Set up 2FA to add an extra layer of security \\n https://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101\",\r\n    \"publishedDate\" : \"2024-04-16T09:13:22.414047900\",\r\n    \"Reaction\" : \"29\",\r\n    \"Comment\" : \"51\",\r\n    \"Share\" : \"5\"\r\n  }, {\r\n    \"id\" : 1756836430,\r\n    \"sourceUrl\" : \"https://www.facebook.com/blockchain/posts/pfbid0kE9coPwxhp2uNSncAjAR6SFemfe9sPPpdzQGK7iBCUnZe9giNkHBrhCAck7yXA34l\",\r\n    \"sourceName\" : null,\r\n    \"author\" : \"Blockchain.com\",\r\n    \"content\" : \"what emerging crypto projects are you most excited about?https://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101\",\r\n    \"publishedDate\" : \"2024-04-15T09:13:22.529832800\",\r\n    \"Reaction\" : \"188\",\r\n    \"Comment\" : \"221\",\r\n    \"Share\" : \"13\"\r\n  }, {\r\n    \"id\" : -1732594041,\r\n    \"sourceUrl\" : \"https://www.facebook.com/blockchain/posts/pfbid02mF83UrFCRuxn6tc12D6PGak6f3u7oe3bwP4Cdh67QP4W2X7UwvRRb2gXXUnh7Bjjl\",\r\n    \"sourceName\" : null,\r\n    \"author\" : \"Blockchain.com\",\r\n    \"content\" : \"what is your favorite thing about crypto?https://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101\",\r\n    \"publishedDate\" : \"2024-04-14T09:13:22.626172700\",\r\n    \"Reaction\" : \"250\",\r\n    \"Comment\" : \"241\",\r\n    \"Share\" : \"25\"\r\n  }, {\r\n    \"id\" : -2146375129,\r\n    \"sourceUrl\" : \"https://www.facebook.com/blockchain/posts/pfbid02SHhnnbL2Y3FvtueBup1XLKnfxa1rUXTBsFtieUXQBxKZKXy8fdeR3msmogihyqbDl\",\r\n    \"sourceName\" : null,\r\n    \"author\" : \"Blockchain.com\",\r\n    \"content\" : \"The freshest merch you've seen this week...\\nBlockchain.com x MetaMaskhttps://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101\",\r\n    \"publishedDate\" : \"2024-04-13T09:13:22.727804\",\r\n    \"Reaction\" : \"341\",\r\n    \"Comment\" : \"324\",\r\n    \"Share\" : \"22\"\r\n  }, {\r\n    \"id\" : 604032231,\r\n    \"sourceUrl\" : \"https://www.facebook.com/blockchain/posts/pfbid02kEUav1xDttjZuFQ3HL3YqJxM9dh4Hd7uzBfs4qmJ9Wj7CzvXbfDkSHWJvCtuFb8Sl\",\r\n    \"sourceName\" : null,\r\n    \"author\" : \"Blockchain.com\",\r\n    \"content\" : \" Stay ahead of the curve with real-time prices, tracking and insights on the Blockchain.com Explorer\\n blockchain.com/explorerhttps://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101\",\r\n    \"publishedDate\" : \"2024-04-12T09:13:22.849262500\",\r\n    \"Reaction\" : \"187\",\r\n    \"Comment\" : \"226\",\r\n    \"Share\" : \"40\"\r\n  }, {\r\n    \"id\" : -1366225807,\r\n    \"sourceUrl\" : \"https://www.facebook.com/blockchain/posts/pfbid03169KF4p2jYXvS4pHfCasGSrHhXEDQekmKSX5ehZfJRtj5CSbSkcpFhLFbJenx2MYl\",\r\n    \"sourceName\" : null,\r\n    \"author\" : \"Blockchain.com\",\r\n    \"content\" : \"hey, cool shirt \\nBlockchain.com x MetaMaskhttps://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101\",\r\n    \"publishedDate\" : \"2024-04-11T09:13:22.954795\",\r\n    \"Reaction\" : \"250\",\r\n    \"Comment\" : \"303\",\r\n    \"Share\" : \"19\"\r\n  }, {\r\n    \"id\" : 1877154909,\r\n    \"sourceUrl\" : \"https://www.facebook.com/blockchain/posts/pfbid0LeHxcDXriRnpjjEc6wJSfDfAgRCgoTPf52g7uZGwMmsRD2mLYWBGT25fPS3jZjxkl\",\r\n    \"sourceName\" : null,\r\n    \"author\" : \"Blockchain.com\",\r\n    \"content\" : \"Last month NEAR Protocol experienced a significant boost, attributed to the participation of its creator, Illia Polosukhin at Nvidia's conference focused on \\\"Transforming AI\\\". \\nThis event showcased NEAR's commitment to integrating artificial intelligence (AI) technologies into its ecosystem, culminating in the launch of \\\"NEAR Tasks\\\", an AI initiative within the platform.\\nThis development had a positive impact on NEAR's price, soaring to $8.60, its highest level since May 20… See morehttps://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101\",\r\n    \"publishedDate\" : \"2024-04-11T09:13:23.049556500\",\r\n    \"Reaction\" : \"130\",\r\n    \"Comment\" : \"158\",\r\n    \"Share\" : \"32\"\r\n  }, {\r\n    \"id\" : -1171896684,\r\n    \"sourceUrl\" : \"https://www.facebook.com/blockchain/posts/pfbid02jCC7c9LdSKbRm974W7aQq8Nx7M4zD7bG84MopvzPcnxJJhMHwyNXcM5T9m7u7u2rl\",\r\n    \"sourceName\" : null,\r\n    \"author\" : \"Blockchain.com\",\r\n    \"content\" : \"SPOTTED: Blockchain.com x MetaMask merch at Paris Blockchain Week https://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101\",\r\n    \"publishedDate\" : \"2024-04-11T09:13:23.147439300\",\r\n    \"Reaction\" : \"193\",\r\n    \"Comment\" : \"143\",\r\n    \"Share\" : \"17\"\r\n  }, {\r\n    \"id\" : 33427001,\r\n    \"sourceUrl\" : \"https://www.facebook.com/blockchain/posts/pfbid0cjVag1k3djRCaquVRV29hHzqWcfHqYaV3xiUj7R3CXnR5fWT5iMgFxDsS2zCwFMBl\",\r\n    \"sourceName\" : null,\r\n    \"author\" : \"Blockchain.com\",\r\n    \"content\" : \"Less than 10 days to go until Bitcoin's fourth halving...\\nAll eyes on Block 840,000  \\nAre you counting down with us? … See morehttps://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101\",\r\n    \"publishedDate\" : \"2024-04-11T09:13:23.235460800\",\r\n    \"Reaction\" : \"151\",\r\n    \"Comment\" : \"130\",\r\n    \"Share\" : \"48\"\r\n  }, {\r\n    \"id\" : -711340150,\r\n    \"sourceUrl\" : \"https://www.facebook.com/blockchain/posts/pfbid02ucTAfWHe77SX3vJD11ex7d6ewDosbtd1yaQubaZkwhGzqnaQGY37Eo1c3nswE6vDl\",\r\n    \"sourceName\" : null,\r\n    \"author\" : \"Blockchain.com\",\r\n    \"content\" : \"Claim \\n your \\n share \\nWe’re paying daily bonuses for users who buy, swap, or hold Mavia with Blockchain.com. The more you trade, the bigger your bonus \\nblockchain.com/maviahttps://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101\",\r\n    \"publishedDate\" : \"2024-04-10T09:13:23.340284\",\r\n    \"Reaction\" : \"96\",\r\n    \"Comment\" : \"187\",\r\n    \"Share\" : \"29\"\r\n  } ]\r\n}
+===================================================================
+diff --git a/classes/production/NewScrapper/crawler/facebook.json b/classes/production/NewScrapper/crawler/facebook.json
+--- a/classes/production/NewScrapper/crawler/facebook.json	
++++ b/classes/production/NewScrapper/crawler/facebook.json	
+@@ -1,103 +1,193 @@
+ {
+   "FacebookPost" : [ {
+-    "id" : -183166925,
+-    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0Q2DVMoXYD6WjLNsnbrwBwpjpXxM6ukeMt6kg5kA1LeSx5BAoVdXtz82xYcvBsyWRl",
+-    "sourceName" : null,
++    "id" : -813646262,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0dJaxqbdG8PCaShhvZ9gtpHywDh84T9ja8EfktpPvoGZjkufxuxae4WxjHE5pLagCl",
++    "author" : "Blockchain.com",
++    "publishedDate" : "2024-04-19T21:38:30.891987100",
++    "content" : "!!!!!!!\nblockchain.com/explorer/assets/btc",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "283",
++    "Comment" : "174",
++    "Share" : "34"
++  }, {
++    "id" : -750488429,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid02Zo1xPNG6NbJid53mMjLCjEAmnCKwBRPTp5bs4L3YrjACY26krs4rFzg6dX3XWeuvl",
++    "author" : "Blockchain.com",
++    "publishedDate" : "2024-04-18T21:38:31.010165700",
++    "content" : "Now available in your Blockchain.com DeFi Wallet: Solana Network \nSolana Network offers a high-speed, cost-effective blockchain solution designed for efficient transactions.\nLearn more \n https://www.blockchain.com/blog/posts/solana-explained",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "153",
++    "Comment" : "215",
++    "Share" : "18"
++  }, {
++    "id" : 1385716987,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid022RuSSmHEMuh43ScWoBKNoJojwBhM2qoYvfwd8rHrjqQ8va5ozGxKkovzQNSdVgfXl",
++    "author" : "Blockchain.com",
++    "publishedDate" : "2024-04-17T21:38:31.104320800",
++    "content" : "2 days to go \nHow are we feeling bc fam?\nblockchain.com/explorer/assets/btc",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "205",
++    "Comment" : "176",
++    "Share" : "36"
++  }, {
++    "id" : -297826986,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0thpGoDbwG9gw7djqkq6Kt2oq6izfUxwcj8a1u9ANg8xdsjahF2JymqA1Xb2rzejRl",
++    "author" : "Blockchain.com",
++    "publishedDate" : "2024-04-17T21:38:31.229238800",
++    "content" : "Don't miss out on claiming your Mavia bonus \nGet a daily Mavia Bonus with Blockchain.com based on the amount of Mavia you buy, swap, or hold.\n blockchain.com/mavia",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "114",
++    "Comment" : "159",
++    "Share" : "18"
++  }, {
++    "id" : -530388482,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid02JmXB3K7fppSXPDeQLs1gEyPH1f8zuSrnQXa8zAMhB5mEjw6cjP6GBVbCFJ9snYB6l",
+     "author" : "Blockchain.com",
+-    "content" : "Enable \n two \n factor \n authentication\nProtecting your online accounts is crucial. Set up 2FA to add an extra layer of security \n https://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101",
+-    "publishedDate" : "2024-04-16T09:13:22.414047900",
+-    "Reaction" : "29",
+-    "Comment" : "51",
+-    "Share" : "5"
++    "publishedDate" : "2024-04-16T21:38:31.337308300",
++    "content" : "The countdown is on... \nblockchain.com/explorer/assets/btc",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "301",
++    "Comment" : "210",
++    "Share" : "52"
+   }, {
+-    "id" : 1756836430,
+-    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0kE9coPwxhp2uNSncAjAR6SFemfe9sPPpdzQGK7iBCUnZe9giNkHBrhCAck7yXA34l",
+-    "sourceName" : null,
++    "id" : 1396989440,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid02ThWCFLBdF1K58oqkMwzr5DgDTYE4XxmMkqn6bWsBoZR8V8eLZ9qJJi2RxprkiqfKl",
+     "author" : "Blockchain.com",
+-    "content" : "what emerging crypto projects are you most excited about?https://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101",
+-    "publishedDate" : "2024-04-15T09:13:22.529832800",
+-    "Reaction" : "188",
+-    "Comment" : "221",
++    "publishedDate" : "2024-04-16T21:38:31.468097600",
++    "content" : "Enable \n two \n factor \n authentication\nProtecting your online accounts is crucial. Set up 2FA to add an extra layer of security \n ",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "65",
++    "Comment" : "142",
+     "Share" : "13"
+   }, {
+-    "id" : -1732594041,
+-    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid02mF83UrFCRuxn6tc12D6PGak6f3u7oe3bwP4Cdh67QP4W2X7UwvRRb2gXXUnh7Bjjl",
+-    "sourceName" : null,
++    "id" : -473202318,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0kMo8mkygtSvGM6EgXBGTs8iJaFGPxKzFuaKHfAtpd9dP4dpzNYuuxxSFAfk1A98Dl",
++    "author" : "Blockchain.com",
++    "publishedDate" : "2024-04-14T21:38:31.577896500",
++    "content" : "what emerging crypto projects are you most excited about?",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "209",
++    "Comment" : "253",
++    "Share" : "16"
++  }, {
++    "id" : -459047542,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid02mNmZTDGvcbr31e2wvi6JQcD5SLKkKsWu3wqT9q1RpRKzSWZ48WLA382NiREnBxqKl",
++    "author" : "Blockchain.com",
++    "publishedDate" : "2024-04-13T21:38:31.692407100",
++    "content" : "what is your favorite thing about crypto?",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "257",
++    "Comment" : "253",
++    "Share" : "30"
++  }, {
++    "id" : -20750799,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0NZubaHRvsAke5Zg9bBKoyZdhFV4aaYQ3H5EcfxTVKg6QokRzg2CVVEzZmw66hgdkl",
+     "author" : "Blockchain.com",
+-    "content" : "what is your favorite thing about crypto?https://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101",
+-    "publishedDate" : "2024-04-14T09:13:22.626172700",
+-    "Reaction" : "250",
+-    "Comment" : "241",
+-    "Share" : "25"
++    "publishedDate" : "2024-04-13T21:38:31.802238300",
++    "content" : "The freshest merch you've seen this week...\nBlockchain.com x MetaMask",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "360",
++    "Comment" : "334",
++    "Share" : "29"
+   }, {
+-    "id" : -2146375129,
+-    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid02SHhnnbL2Y3FvtueBup1XLKnfxa1rUXTBsFtieUXQBxKZKXy8fdeR3msmogihyqbDl",
+-    "sourceName" : null,
++    "id" : -731164349,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid02kN86tNyx5k8FccG2cBR8HVAJcJcvCWGPuCvR6SwmzWvWwWtP7y63jib4SMPsuDbYl",
+     "author" : "Blockchain.com",
+-    "content" : "The freshest merch you've seen this week...\nBlockchain.com x MetaMaskhttps://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101",
+-    "publishedDate" : "2024-04-13T09:13:22.727804",
+-    "Reaction" : "341",
+-    "Comment" : "324",
++    "publishedDate" : "2024-04-11T21:50",
++    "content" : " Stay ahead of the curve with real-time prices, tracking and insights on the Blockchain.com Explorer\n blockchain.com/explorer",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "193",
++    "Comment" : "238",
++    "Share" : "52"
++  }, {
++    "id" : 1342535063,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0wNM82kuw4mJxgaSBH4KDev3iCEYSeJC5Y4JrPjGPo97p9TVZYkgQsPgGbqW82DQpl",
++    "author" : "Blockchain.com",
++    "publishedDate" : "2024-04-10T21:10",
++    "content" : "hey, cool shirt \nBlockchain.com x MetaMask",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "262",
++    "Comment" : "312",
+     "Share" : "22"
+   }, {
+-    "id" : 604032231,
+-    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid02kEUav1xDttjZuFQ3HL3YqJxM9dh4Hd7uzBfs4qmJ9Wj7CzvXbfDkSHWJvCtuFb8Sl",
+-    "sourceName" : null,
++    "id" : 1374585604,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid02QKafVkBwkF1KZs3h2JZHP9jo9hfRzR4n5aj1tpx3kMYya82LnAv9UQzbpPwv8cryl",
++    "author" : "Blockchain.com",
++    "publishedDate" : "2024-04-10T20:05",
++    "content" : "Last month NEAR Protocol experienced a significant boost, attributed to the participation of its creator, Illia Polosukhin at Nvidia's conference focused on \"Transforming AI\". \nThis event showcased NEAR's commitment to integrating artificial intelligence (AI) technologies into its ecosystem, culminating in the launch of \"NEAR Tasks\", an AI initiative within the platform.\nThis development had a positive impact on NEAR's price, soaring to $8.60, its highest level since May 20… See more",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "135",
++    "Comment" : "163",
++    "Share" : "39"
++  }, {
++    "id" : -1503671340,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0fUPvPqSXmUEMfEyeRJMZwwTJQup4A7cZgHWTjJpGube3CjCkSrbT9BRdfMg7T7Qdl",
++    "author" : "Blockchain.com",
++    "publishedDate" : "2024-04-10T18:15",
++    "content" : "SPOTTED: Blockchain.com x MetaMask merch at Paris Blockchain Week ",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "196",
++    "Comment" : "148",
++    "Share" : "17"
++  }, {
++    "id" : 1018600438,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0cs96eNmmpFEboHuqvd5EvUHSJw4QbFh2nnXR63rk4rX6Cmktpk3Jr9UQt9B3m4UNl",
+     "author" : "Blockchain.com",
+-    "content" : " Stay ahead of the curve with real-time prices, tracking and insights on the Blockchain.com Explorer\n blockchain.com/explorerhttps://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101",
+-    "publishedDate" : "2024-04-12T09:13:22.849262500",
+-    "Reaction" : "187",
+-    "Comment" : "226",
+-    "Share" : "40"
++    "publishedDate" : "2024-04-10T16:55",
++    "content" : "Less than 10 days to go until Bitcoin's fourth halving...\nAll eyes on Block 840,000  \nAre you counting down with us? … See more",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "156",
++    "Comment" : "139",
++    "Share" : "59"
+   }, {
+-    "id" : -1366225807,
+-    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid03169KF4p2jYXvS4pHfCasGSrHhXEDQekmKSX5ehZfJRtj5CSbSkcpFhLFbJenx2MYl",
+-    "sourceName" : null,
++    "id" : 1022105348,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0qteyTCPYSFqBZbtdCBYLjtHdpEn6C8C2rFjH69UrCT1QSCiVnWkQ9xQ5rpdCjWUZl",
+     "author" : "Blockchain.com",
+-    "content" : "hey, cool shirt \nBlockchain.com x MetaMaskhttps://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101",
+-    "publishedDate" : "2024-04-11T09:13:22.954795",
+-    "Reaction" : "250",
+-    "Comment" : "303",
+-    "Share" : "19"
++    "publishedDate" : "2024-04-09T21:25",
++    "content" : "Claim \n your \n share \nWe’re paying daily bonuses for users who buy, swap, or hold Mavia with Blockchain.com. The more you trade, the bigger your bonus \nblockchain.com/mavia",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "97",
++    "Comment" : "189",
++    "Share" : "33"
+   }, {
+-    "id" : 1877154909,
+-    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0LeHxcDXriRnpjjEc6wJSfDfAgRCgoTPf52g7uZGwMmsRD2mLYWBGT25fPS3jZjxkl",
+-    "sourceName" : null,
++    "id" : -1198152287,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid034i7vHXSf1xHqUQpo8qE1qbjBnYg3yh7XViSq3JqifKubxdjaVnFmKE3Pv2WB4oNl",
+     "author" : "Blockchain.com",
+-    "content" : "Last month NEAR Protocol experienced a significant boost, attributed to the participation of its creator, Illia Polosukhin at Nvidia's conference focused on \"Transforming AI\". \nThis event showcased NEAR's commitment to integrating artificial intelligence (AI) technologies into its ecosystem, culminating in the launch of \"NEAR Tasks\", an AI initiative within the platform.\nThis development had a positive impact on NEAR's price, soaring to $8.60, its highest level since May 20… See morehttps://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101",
+-    "publishedDate" : "2024-04-11T09:13:23.049556500",
+-    "Reaction" : "130",
+-    "Comment" : "158",
+-    "Share" : "32"
++    "publishedDate" : "2024-04-08T22:10",
++    "content" : "March was big for Maker \nThe Maker token (MKR) is the governance token associated with MakerDAO and the Maker Protocol, known for its role in decentralized governance and platform stability. \nIn March, Maker experienced an increase of +76.89%, reaching $4,000 on March 24th. This value had not been seen since May 2021. … See more",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "214",
++    "Comment" : "329",
++    "Share" : "68"
+   }, {
+-    "id" : -1171896684,
+-    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid02jCC7c9LdSKbRm974W7aQq8Nx7M4zD7bG84MopvzPcnxJJhMHwyNXcM5T9m7u7u2rl",
+-    "sourceName" : null,
++    "id" : 559931543,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0Kwn5Ky5seYxb42JtzDjzLWSUpG8cqW5R2FHJYrGcjv9sdb9aq498GbRepyD1vfQkl",
+     "author" : "Blockchain.com",
+-    "content" : "SPOTTED: Blockchain.com x MetaMask merch at Paris Blockchain Week https://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101",
+-    "publishedDate" : "2024-04-11T09:13:23.147439300",
+-    "Reaction" : "193",
+-    "Comment" : "143",
+-    "Share" : "17"
++    "publishedDate" : "2024-04-07T21:45",
++    "content" : "have you checked the price of Bitcoin today?",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "310",
++    "Comment" : "314 comments",
++    "Share" : "53 shares"
+   }, {
+-    "id" : 33427001,
+-    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid0cjVag1k3djRCaquVRV29hHzqWcfHqYaV3xiUj7R3CXnR5fWT5iMgFxDsS2zCwFMBl",
+-    "sourceName" : null,
++    "id" : 772632238,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid02mCq9cmbS8hba72BT6y4hR3pofQBnP6rB14uXB6CpVeF49CTiStBr4HcrQ25s4JSYl",
+     "author" : "Blockchain.com",
+-    "content" : "Less than 10 days to go until Bitcoin's fourth halving...\nAll eyes on Block 840,000  \nAre you counting down with us? … See morehttps://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101",
+-    "publishedDate" : "2024-04-11T09:13:23.235460800",
+-    "Reaction" : "151",
+-    "Comment" : "130",
+-    "Share" : "48"
++    "publishedDate" : "2024-04-06T21:05",
++    "content" : "what sparked your interest in crypto?",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "255",
++    "Comment" : "329 comments",
++    "Share" : "24 shares"
+   }, {
+-    "id" : -711340150,
+-    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid02ucTAfWHe77SX3vJD11ex7d6ewDosbtd1yaQubaZkwhGzqnaQGY37Eo1c3nswE6vDl",
+-    "sourceName" : null,
++    "id" : 960251243,
++    "sourceUrl" : "https://www.facebook.com/blockchain/posts/pfbid037ahiL3LSx38uYXnn1TuhBpzXAyCR3qwbq7R9y6ApseJAQreBQZyFn3ABMyCD8A3Rl",
+     "author" : "Blockchain.com",
+-    "content" : "Claim \n your \n share \nWe’re paying daily bonuses for users who buy, swap, or hold Mavia with Blockchain.com. The more you trade, the bigger your bonus \nblockchain.com/maviahttps://external.fhan15-1.fna.fbcdn.net/emg1/v/t13/3725985181744016644?url=https%3A%2F%2Fsupport.blockchain.com%2Fhc%2Farticle_attachments%2F9115974328732&fb_obo=1&utld=blockchain.com&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ygq07HqENvxyRhW-eH611MFwPvA4Xb8aypUDPz9e0uw&oe=661FC9C6&_nc_sid=e17101",
+-    "publishedDate" : "2024-04-10T09:13:23.340284",
+-    "Reaction" : "96",
+-    "Comment" : "187",
+-    "Share" : "29"
++    "publishedDate" : "2024-04-05T21:25",
++    "content" : "March's top moving tokens \n Maker reached $4k, marking a remarkable +457% surge this year\n Near surged to $8.60, showcasing a significant +49.05% increase\n… See more",
++    "imgUrl" : "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/436221506_844623791030562_1290633919189998736_n.jpg?stp=dst-jpg_p180x540&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rqtD6EP4UG4Ab7LNHMy&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAT0Xu-ln-Yvu9_ov6gjzNKbskM8_Nr4ZGf37i9f9GyrA&oe=662868A6",
++    "Reaction" : "215",
++    "Comment" : "321 comments",
++    "Share" : "71 shares"
+   } ]
+ }
+\ No newline at end of file

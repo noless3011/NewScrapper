@@ -1,9 +1,6 @@
 package model;
 
 import java.time.LocalDateTime;
-import java.time.Month;
-
-import javafx.util.converter.LocalDateStringConverter;
 
 public class Article {
 	private int id;
@@ -12,7 +9,7 @@ public class Article {
     private String sourceName;
     private String author;
     private String tags;
-    private Content content;
+    protected Content content;
     private LocalDateTime publishedDate;
 
     // Constructor
@@ -46,8 +43,8 @@ public class Article {
         this.author = author;
     }
 
-    public String getContent() {
-        return content.toString();
+    public Content getContent() {
+        return content;
     }
 
     public void setContent(Content content) {

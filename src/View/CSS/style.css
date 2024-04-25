@@ -1,0 +1,19 @@
+.facebook_post{
+    -fx-background-color: #242526;
+    -fx-background-radius: 10;
+}
+.reaction-bar{
+    -fx-background-color: #6D6D6E;
+    -fx-background-radius: 30;
+}
+.facebook{
+    -fx-background-color: #18191A;
+}
+.header_bar{
+    -fx-background-color: #242526;
+}
+.search_bar{
+    -fx-background-color: #3A3B3C;
+    -fx-background-radius: 30;
+    -fx-text-fill: #E4E6EB;
+}

@@ -1,0 +1,38 @@
+.root{
+    -fx-background-color: transparent;
+    -fx-alignment:center;
+    -fx-padding: 0 0 10 0;
+}
+
+.button {
+	-fx-text-fill: #dddddd;
+    -fx-background-color: #3c3c3c;
+    -fx-background-insets: 0;
+    -fx-border-radius: 15px;
+    -fx-background-radius: 15px;
+    -fx-padding: 5px 5px;
+}
+
+.button:hover{
+	-fx-background-color: #777777;
+}
+
+.scroll-pane {
+    -fx-background-color: #3c3c3c;
+    -fx-background-radius: 10px; /* Adjust the radius as needed */
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .scroll-bar:vertical,
+.scroll-pane .scroll-bar:horizontal {
+    -fx-background-radius: 5px; /* Adjust the radius as needed */
+    -fx-background-color: #3c3c3c;
+}
+
+.scroll-pane .scroll-bar .thumb {
+    -fx-background-color: derive(#3c3c3c, 20%);
+    -fx-background-radius: 4px; /* Adjust the radius as needed */
+}
