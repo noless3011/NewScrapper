@@ -57,7 +57,6 @@ public class CrawlerManagerController {
 				popup.setX(addButton.localToScreen(addButton.boundsInLocalProperty().get()).getMinX());
 				popup.setY(addButton.localToScreen(addButton.boundsInLocalProperty().get()).getMaxY());
                 popup.show(addButton.getScene().getWindow());
-                popup = null;
             } else {
                 popup.hide();
                 popup = null;
@@ -80,6 +79,7 @@ public class CrawlerManagerController {
 				Object cardControllerObject = node.getUserData();
 				CrawlerCardController cardController = (CrawlerCardController)cardControllerObject;
 				if(id == cardController.getID()) {
+					cardController.stopThread();
 					break;
 				}
 				nodeIndex++;

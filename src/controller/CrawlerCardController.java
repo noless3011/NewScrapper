@@ -16,6 +16,8 @@ import javafx.scene.control.TextField;
 public class CrawlerCardController {
 	private int id;
 	
+	private Thread thread;
+	
 	public static int counter = 0;
 	
 	
@@ -77,7 +79,8 @@ public class CrawlerCardController {
 			
 		};
 		progressBar.progressProperty().bind(task.progressProperty());
-		new Thread(task).start();
+		thread = new Thread(task);
+		thread.start();
 	}
 	
 	public void setCrawler(ICrawler crawler ) {
@@ -90,5 +93,9 @@ public class CrawlerCardController {
 	}
 	public void setManager(CrawlerManagerController managerController) {
 		this.managerController = managerController;
+	}
+	
+	public void stopThread() {
+		thread.interrupt();
 	}
 }

@@ -58,21 +58,22 @@ public class TwitterCrawler implements ICrawler<Tweet> {
         }
     }
 	
-	public WebDriver loginTwitter() throws InterruptedException {
+	public void loginTwitter() throws InterruptedException {
 		//Truy cập vào trang đăng nhập của twitter
 		driverOptions = new ChromeOptions();
-		driverOptions.addArguments("--headless");
+		//driverOptions.addArguments("--headless");
 		driver = new ChromeDriver(driverOptions);
 		js = (JavascriptExecutor) driver;
+		
 		driver.get("https://twitter.com/i/flow/login");
 		
-		////phóng to màn hình
 		driver.manage().window().maximize();
-		Thread.sleep(5000);
-   
+		System.out.println("get in");
 		// Chờ cho tới khi trường nhập tên người dùng hiển thị và nhập tên đăng nhập 
 		WebElement usernameInput = driver.findElement(By.xpath("//input[@name='text']"));
 		usernameInput.sendKeys(USER_NAME);
+		
+		System.out.println("writed username");
 		
 		// Click vào nút next
 		WebElement next_button = driver.findElement(By.xpath("//span[contains(text(),'Next')]"));
@@ -83,10 +84,14 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 		WebElement passwordInput = driver.findElement(By.xpath("//input[@name='password']"));
 		passwordInput.sendKeys(PASSWORD);
 		
+		System.out.println("writed password");
+		
 		//Click vào nút login
 		WebElement login_button = driver.findElement(By.xpath("//span[contains(text(),'Log in')]"));
 		login_button.click();
 		Thread.sleep(10000);
+		
+		System.out.println("logged in!");
 		//Kiểm tra xem có phải nhập số điện thoại để xác minh không  
 		boolean phoneNumberRequired = isElementPresent(driver, By.xpath("//input[@data-testid='ocfEnterTextTextInput']"));
 		 if (phoneNumberRequired) {
@@ -97,13 +102,14 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 	         Thread.sleep(5000);
 	        }
 		//Search từ khóa Blockchain
+		 System.out.println("start searching");
 		WebElement search_button = driver.findElement(By.xpath("//input[@data-testid='SearchBox_Search_Input']"));
+		System.out.println("searched!");
 		search_button.sendKeys("blockchain" + Keys.ENTER);
 		Thread.sleep(5000);
 //		WebElement latest_button = driver.findElement(By.xpath("//span[contains(text(), 'Latest')]"));
 //		latest_button.click();
 //		Thread.sleep(5000);
-		return driver;
 	}
 	
 	 public boolean isAtEndOfPage() {
@@ -118,6 +124,13 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 	
 	public void crawlList(int amount, ProgressCallback callback) {
 		int i = 0, index = 0;
+		try {
+			loginTwitter();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		HashSet<String> uniqueTweets = new HashSet<>(); // HashSet để kiểm tra xem tweet đã có trong danh sách chưa để tránh crawl hai bài giống nhau
 		while (tweetList.size() < amount) {
 //		while(!isElementPresent(driver, By.xpath("//span[contains(text(), 'Something went wrong. Try reloading.')]"))) {
@@ -177,6 +190,7 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 							tweetList.add(test);
 							
 							test.setContent(crawlTweetContent(tweet));
+							index++;
 							callback.updateProgress(index);
 							uniqueTweets.add(sourceUrl);
 						}
@@ -194,6 +208,7 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 				continue;
 				}
 		}
+		saveToJson(tweetList);
 		driver.quit();
 	}
 	
