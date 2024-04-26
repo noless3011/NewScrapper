@@ -39,6 +39,7 @@ public class Searcher {
 		dislaySearchResults(hits);
 	}
 	
+	@SuppressWarnings("deprecation")
 	private void dislaySearchResults(TopDocs hits)  throws IOException {
 		System.out.println("Found " + hits.totalHits + "document.");
 		for (ScoreDoc scoreDoc : hits.scoreDocs) {
@@ -61,6 +62,7 @@ public class Searcher {
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	public Document getDocument(ScoreDoc scoreDoc) throws IOException {
 		return searcher.doc(scoreDoc.doc);
 	}

@@ -70,6 +70,7 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 		
 		driver.manage().window().maximize();
 		System.out.println("get in");
+		threadSleep(5000);
 		// Chờ cho tới khi trường nhập tên người dùng hiển thị và nhập tên đăng nhập 
 		WebElement usernameInput = driver.findElement(By.xpath("//input[@name='text']"));
 		usernameInput.sendKeys(USER_NAME);
@@ -148,7 +149,6 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 				try {
 					for (WebElement tweet : tweets) {
 						//Lấy tên tác giả
-				
 						String author = tweet.findElement(By.xpath(".//span[@class='css-1qaijid r-bcqeeo r-qvutc0 r-poiln3']")).getText();
 			
 						// Lấy url

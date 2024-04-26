@@ -155,7 +155,7 @@ public class FacebookCrawler implements ICrawler<Facebook> {
 
 
     private List<Facebook> crawlData(int amount, ProgressCallback callback){
-    	
+    	setupDriver();
     	List<WebElement> posts = driver.findElements(By.xpath("//div[@class='x1yztbdb x1n2onr6 xh8yej3 x1ja2u2z']"));
     	while(posts.size() < amount) {
     		scrollPage();

@@ -4,11 +4,10 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
@@ -36,8 +35,8 @@ public class SearchEngine {
 	private static Directory articleIndexDirectory;
 	private static Directory tweetIndexDirectory;
 	private static Directory facebookIndexDirectory;
-	
 	private static TwitterCrawler twittercrawler = new TwitterCrawler();
+	
 	
 	public SearchEngine() {
 		
@@ -48,22 +47,24 @@ public class SearchEngine {
     }
 	public static enum SortOptionTweet {
 	    TIME, RELEVANT, VIEW, LIKE, COMMENT
+	    
 	}
 
 	public static enum SortOptionFacebook {
 	    TIME, RELEVANT, LIKE, SHARE, COMMENT
 	}
 	
+	
 	public static void indexTweet() throws IOException {
 			tweetIndexDirectory = FSDirectory.open(Path.of(TWEET_INDEX_DIR));
 			IndexWriterConfig config = new IndexWriterConfig(analyzer);
 		    config.setOpenMode(IndexWriterConfig.OpenMode.CREATE);
 			IndexWriter writer = new IndexWriter(tweetIndexDirectory, config);
-			List <Tweet> tweets = twittercrawler.getTweetFromJson();
+			List <Tweet> tweets = twittercrawler.getListFromJson();
 			for (Tweet tweet : tweets) {
 				Document doc = new Document();
 				doc.add(new TextField("author", tweet.getAuthor(), Field.Store.YES));
-				doc.add(new TextField("content", tweet.getContent(), Field.Store.YES));
+				doc.add(new TextField("content", tweet.getContent().toString(), Field.Store.YES));
 				doc.add(new TextField("view", tweet.getNumber_of_view(), Field.Store.YES));
 				doc.add(new TextField("like", tweet.getNumber_of_liked(), Field.Store.YES));
 				doc.add(new TextField("comment", tweet.getNumber_of_comment(), Field.Store.YES));
@@ -77,11 +78,11 @@ public class SearchEngine {
 				}
 			writer.close();
 	}
+	
 	public static List<Tweet> searchTweet(String inputTitle, String inputAuthor, DateRange range, String inputContent,List <String> inputHashtag, SortOptionTweet option, boolean direction) throws ParseException {
 		try {
 			IndexSearcher searcher = new IndexSearcher(DirectoryReader.open(tweetIndexDirectory));
 			BooleanQuery.Builder queryBuilder = new BooleanQuery.Builder();
-			
 			inputTitle = inputTitle.toLowerCase();
 		    inputAuthor = inputAuthor.toLowerCase();
 		    inputContent = inputContent.toLowerCase();
@@ -90,9 +91,8 @@ public class SearchEngine {
 		    	for (String hashtag : inputHashtag) {
 		    		normalizedHashtags.add(hashtag.toLowerCase());
 		    	}
-		   }
-		        
-			if (!inputTitle.equals("")) {
+		    }   
+		    if (!inputTitle.equals("")) {
 				queryBuilder.add(new TermQuery(new Term("title", inputTitle)), BooleanClause.Occur.MUST);
 			}
 			if (!inputAuthor.equals("")) {
@@ -107,13 +107,11 @@ public class SearchEngine {
 				}
 			}
 			if (range != null) {
-				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
-                String startRange = range.getStartDate().format(formatter);
+				DateTimeFormatter formatter = new DateTimeFormatterBuilder().appendPattern("yyyy-MM-dd['T'HH:mm[:ss]]").toFormatter();
+				String startRange = range.getStartDate().format(formatter);
                 String endRange = range.getEndDate().format(formatter);
-                String rangeQueryStr = "[" + startRange + " TO " + endRange + "]";
-                QueryParser parser = new QueryParser("date", analyzer);
-                Query dateQuery = parser.parse(rangeQueryStr);
-                queryBuilder.add(dateQuery, BooleanClause.Occur.MUST);
+                Query query = TermRangeQuery.newStringRange("date", startRange, endRange, true, true);
+                queryBuilder.add(query, BooleanClause.Occur.MUST);
 			}
 			Query query = queryBuilder.build();
 			TopDocs topDocs = searcher.search(query, Integer.MAX_VALUE);
@@ -128,9 +126,9 @@ public class SearchEngine {
 		}
 		return new ArrayList<>();
 	}
+	
 	public static Tweet covertToTweet(Document doc) {
 		String author = doc.get("author");
-		
 		//Lưu nội dung
 		Content incres = new Content();
 		String content = doc.get("content");
@@ -144,29 +142,24 @@ public class SearchEngine {
 	    	Image image = new Image(url);
 	        incres.AddElement(image);
 	    }
-	    
 	    // Lấy ngày tháng năm
 	    String publish = doc.get("date");
-	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
-		LocalDateTime publishedAt = LocalDateTime.parse(publish, formatter);
-		
+	    DateTimeFormatter formatter = new DateTimeFormatterBuilder().appendPattern("yyyy-MM-dd['T'HH:mm[:ss]]").toFormatter();
+	    LocalDateTime publishAt = LocalDateTime.parse(publish, formatter);
 		String numberOfView = doc.get("view");
-		
 		String numberOfLiked = doc.get("like");
-		
 		String numberOfComment = doc.get("comment");
-		
 		List<String> hashtags = Arrays.asList(doc.getValues("hashtag"));
-		
 		String sourceUrl = doc.get("url");
-		
-	    return new Tweet(author, incres, publishedAt, sourceUrl, hashtags, numberOfComment, numberOfLiked, numberOfView);
-       
+	    return new Tweet(author, incres, publishAt, sourceUrl, hashtags, numberOfComment, numberOfLiked, numberOfView);
 	}
+	
 	public static void main(String[] args) throws ParseException, IOException {
 	   indexTweet();
-	   List<String> hashtags = Arrays.asList("crypto");
-	   List <Tweet> tweets=searchTweet("", "", null, "", hashtags, null, true);
+	   DateRange daterange = new DateRange();
+	   daterange.setStartDate(LocalDateTime.of(2024, 04, 23, 00, 00,00));
+	   daterange.setEndDate(LocalDateTime.of(2024, 04, 26, 00, 00,00));
+	   List <Tweet> tweets=searchTweet("", "",null , "blockchain",null,null, true);
 	        System.out.println(tweets); // In ra một đối tượng Tweet
 	}
 }

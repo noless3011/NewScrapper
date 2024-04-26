@@ -19,12 +19,7 @@ public class Tweet extends Article{
 		this.number_of_comment = number_of_comment;
 		this.number_of_view = number_of_view;
 	}
-<<<<<<< HEAD
 	
-	
-=======
-
->>>>>>> pre-master
 	public List<String> getHashtags() {
 		return hashtags;
 	}
@@ -60,7 +55,6 @@ public class Tweet extends Article{
 	 @Override
 	    public String toString() {
 	        return "Author: " + getAuthor() +
-<<<<<<< HEAD
 	        		"\nContent: " + getContent() +
 	                "\nPublished At: " + getPublishedAt() +
 	                "\nSource URL: " + getSourceUrl() + 
@@ -68,20 +62,5 @@ public class Tweet extends Article{
 	        		"\nNumber of view: " + getNumber_of_view() + 
 	        		"\nNumber of Liked:" + getNumber_of_liked() + 
 	        		"\nNumber of Comment: " + getNumber_of_comment();
-=======
-	                "\nContent: " + content +
-	                "\nPublished At: " + getPublishedAt() +
-	                "\nSource URL: " + getSourceUrl() + 
-	                "\nHashTag: " + hashtags +
-	                "\nNumber of comment: " + number_of_comment +
-	                "\nNumber of liked: " + number_of_liked + 
-	                "\nNumber of View: " + number_of_view;
->>>>>>> pre-master
-	    }
-
-	
+	    }	
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> pre-master
