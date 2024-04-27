@@ -93,8 +93,12 @@ public class FacebookCrawler implements ICrawler<Facebook> {
             String like = node.get("Reaction").asText();
             String cmt = node.get("Comment").asText();
             String share = node.get("Share").asText();
-            String img = node.get("imgUrl").asText();
-            articles.add(new Facebook(author,content,prettyTime,sourceUrl,like, cmt, share,img));
+            if (node.get("imgUrl") != null) {
+            	String img = node.get("imgUrl").asText();
+            	articles.add(new Facebook(author,content,prettyTime,sourceUrl,like, cmt, share,img));
+            } else {
+            	articles.add(new Facebook(author,content,prettyTime,sourceUrl,like, cmt, share,""));
+            }
         }
         return articles;
 

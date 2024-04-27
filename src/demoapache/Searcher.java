@@ -28,7 +28,7 @@ public class Searcher {
 	public Searcher(String indexPath) throws IOException {
 		Directory dir = FSDirectory.open(Paths.get(indexPath));
 		IndexReader reader = DirectoryReader.open(dir); 
-		String [] fields = {"title", "content", "author", "entity"};
+		String [] fields = {"content", "author", "entity"};
 		searcher = new IndexSearcher(reader);
 		parser = new MultiFieldQueryParser(fields, new StandardAnalyzer());
 	}
@@ -45,7 +45,7 @@ public class Searcher {
 		for (ScoreDoc scoreDoc : hits.scoreDocs) {
 			Document doc = searcher.doc(scoreDoc.doc);
 			System.out.println("Author: " + doc.get("author"));
-			System.out.println("Title: " + doc.get("title"));
+//			System.out.println("Title: " + doc.get("title"));
 			System.out.println("Content: " + doc.get("content"));
 			System.out.print("Entities: ");
 	        List<String> entities = Arrays.asList(doc.getValues("entity"));

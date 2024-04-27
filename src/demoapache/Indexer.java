@@ -47,10 +47,10 @@ public class Indexer {
 	}
 	
 	//Thêm các nội dung các thuộc tính vào trong các trường
-	public void addDocument(String author,String title, String content) throws IOException {
+	public void addDocument(String author, String content) throws IOException {
 		Document doc = new Document();
 		doc.add(new TextField("author" ,author, Field.Store.YES));
-		doc.add(new TextField("title" ,title, Field.Store.YES));
+//		doc.add(new TextField("title" ,title, Field.Store.YES));
 		doc.add(new TextField("content", content, Field.Store.YES));
 		List <String> entities = detectEntities(content);
 		for (String entity: entities) {

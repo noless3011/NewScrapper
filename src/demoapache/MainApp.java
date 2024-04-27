@@ -5,20 +5,22 @@ import java.util.List;
 import java.util.Scanner;
 
 import crawler.CNBCCrawler;
+import crawler.FacebookCrawler;
 import crawler.TwitterCrawler;
 import model.Tweet;
 import model.Article;
+import model.Facebook;
 
 public class MainApp {
 	public static void main(String [] args) {
 		
 		String indexPath = "index";
-		CNBCCrawler twittercrawler = new CNBCCrawler();
+		FacebookCrawler twittercrawler = new FacebookCrawler();
 		try {
 			Indexer indexer = new Indexer(indexPath);
-			List <Article> list = twittercrawler.getListFromJson();
-			for (Article test : list) {
-				indexer.addDocument(test.getAuthor(),test.getTitle(), test.getContent().toString());
+			List <Facebook> list = twittercrawler.getListFromJson();
+			for (Facebook test : list) {
+				indexer.addDocument(test.getAuthor(), test.getContent().toString());
 			}
 			indexer.close();
 			System.out.println("Indexing Complete");
