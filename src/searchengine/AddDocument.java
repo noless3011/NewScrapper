@@ -28,19 +28,24 @@ public class AddDocument {
 		for (String hashtag : hashtags ) {
 			doc.add(new TextField("hashtag", hashtag, Field.Store.YES));
 		}
+		doc.add(new TextField("indexType", "Tweet", Field.Store.YES));
 		writer.addDocument(doc);
 	}
 	
 	public static void article(IndexWriter writer, Article article) throws IOException {
 		Document doc = new Document();
 		doc.add(new TextField("author", article.getAuthor(), Field.Store.YES));
-		doc.add(new TextField("title", article.getTitle(), Field.Store.YES));
+		if (article.getTitle() == null) {
+			doc.add(new TextField("title", "", Field.Store.YES));
+		} else 	doc.add(new TextField("title", article.getTitle(), Field.Store.YES));
 		doc.add(new TextField("content", article.getContent().toString(), Field.Store.YES));
 		long date = DateRange.formatterTimeToEpochSecond(article.getPublishedAt());
 		doc.add(new TextField("date", Long.toString(date), Field.Store.YES));
 		doc.add(new TextField("url", article.getSourceUrl(), Field.Store.YES));
+		doc.add(new TextField("indexType", "Article", Field.Store.YES));
 		writer.addDocument(doc);
 	}
+	
 	public static void facebook(IndexWriter writer, Facebook facebook) throws IOException {
 		Document doc = new Document();
 		doc.add(new TextField("author", facebook.getAuthor(), Field.Store.YES));
@@ -52,6 +57,7 @@ public class AddDocument {
 		doc.add(new TextField("reaction", facebook.getNumber_of_reaction(), Field.Store.YES));
 		doc.add(new TextField("share", facebook.getNumber_of_share(), Field.Store.YES));
 		doc.add(new TextField("urlimg", facebook.getImgUrl(), Field.Store.YES));
+		doc.add(new TextField("indexType", "Facebook", Field.Store.YES));
 		writer.addDocument(doc);
 	}
 }

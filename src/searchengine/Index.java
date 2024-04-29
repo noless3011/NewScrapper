@@ -3,6 +3,7 @@ package searchengine;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
@@ -25,6 +26,7 @@ import model.Tweet;
 
 public class Index {
 	    private static final String ARTICLE_INDEX_DIR = "articles_index";
+	    private static final String ALL_INDEX_DIR = "all_index";
 	    private static final String TWEET_INDEX_DIR = "tweet_index";
 	    private static final String FACEBOOK_INDEX_DIR = "facebook_index";
 	    private static StandardAnalyzer analyzer = new StandardAnalyzer();
@@ -81,5 +83,26 @@ public class Index {
 				}
 				writer.close();
 		}
-		
+		public static void indexAll() throws IOException {
+			Directory dir = FSDirectory.open(Path.of(ALL_INDEX_DIR));
+			IndexWriterConfig config = new IndexWriterConfig(analyzer);
+		    config.setOpenMode(IndexWriterConfig.OpenMode.CREATE);
+			IndexWriter writer = new IndexWriter(dir, config);
+			
+			List<Object> objectList = new ArrayList<>();
+			objectList.addAll(twittercrawler.getListFromJson());
+			objectList.addAll(cnbccrawler.getListFromJson());
+			objectList.addAll(blockchain101crawler.getListFromJson());
+			objectList.addAll(facebookcrawler.getListFromJson());
+			for (Object object: objectList) {
+				if (object instanceof Tweet) {
+					AddDocument.tweet(writer, (Tweet) object);
+				} else if (object instanceof Facebook) {
+					AddDocument.facebook(writer, (Facebook) object);
+				} else  {
+					AddDocument.article(writer, (Article) object);
+				}
+			}
+			writer.close();
+		}
 }
