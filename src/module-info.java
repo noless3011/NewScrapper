@@ -22,4 +22,5 @@ module NewScrapper {
 	requires org.apache.lucene.queryparser;
 	requires org.slf4j;
 	requires org.apache.opennlp.tools;
+	requires java.base;
 }

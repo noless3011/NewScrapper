@@ -92,6 +92,7 @@ public class Article {
     @Override
     public String toString() {
         return "Title: " + title +
+        		"\nContent: " + content.toString() +
                 "\nAuthor: " + author +
                 "\nPublished At: " + publishedDate +
                 "\nSource URL: " + sourceUrl;

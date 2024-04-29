@@ -60,8 +60,8 @@ public class Facebook extends Article{
                 "\nPublished At: " + getPublishedAt() +
                 "\nSource URL: " + getSourceUrl() +
                 "\nNumber of comment: " + number_of_comment +
-                "\nNumber of liked: " + number_of_reaction +
-                "\nNumber of View: " + number_of_share;
+                "\nNumber of reaction: " + number_of_reaction +
+                "\nNumber of share: " + number_of_share;
     }
 
 
