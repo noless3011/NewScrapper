@@ -59,7 +59,7 @@ public class Tweet extends Article{
 	                "\nPublished At: " + getPublishedAt() +
 	                "\nSource URL: " + getSourceUrl() + 
 	                "\nHashTag: " + getHashtags() +
-	        		"\nNumber of view: " + getNumber_of_view() + 
+	        		"\nNumber of View: " + getNumber_of_view() + 
 	        		"\nNumber of Liked:" + getNumber_of_liked() + 
 	        		"\nNumber of Comment: " + getNumber_of_comment();
 	    }	

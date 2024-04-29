@@ -2,6 +2,7 @@ package searchengine;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -43,22 +44,12 @@ import model.Image;
 import model.Tweet;
 import model.Article;
 
-public class SearchEngine {
+public class AdvanceSearch {
 	private static final String ARTICLE_INDEX_DIR = "articles_index";
 	private static final String TWEET_INDEX_DIR = "tweet_index";
 	private static final String FACEBOOK_INDEX_DIR = "facebook_index";
-	private static StandardAnalyzer analyzer = new StandardAnalyzer();
-	private static Directory articleIndexDirectory;
-	private static Directory tweetIndexDirectory;
-	private static Directory facebookIndexDirectory;
-	private static TwitterCrawler twittercrawler = new TwitterCrawler();
-	private static FacebookCrawler facebookcrawler = new FacebookCrawler();
-	private static CNBCCrawler cnbccrawler = new CNBCCrawler();
-	private static Blockchain101Crawler blockchain101crawler = new Blockchain101Crawler();
-	private static CoindeskCrawler coindeskcrawler = new CoindeskCrawler();
 	
-	
-	public SearchEngine() {
+	public AdvanceSearch() {
 		
 	}
 	
@@ -73,89 +64,11 @@ public class SearchEngine {
 	public static enum SortOptionFacebook {
 	    TIME, RELEVANT, REACTION, SHARE, COMMENT
 	}
-	public static void indexTweet() throws IOException {
-		// Khởi tạo index để chuẩn bị
-			tweetIndexDirectory = FSDirectory.open(Path.of(TWEET_INDEX_DIR));
-			IndexWriterConfig config = new IndexWriterConfig(analyzer);
-		    config.setOpenMode(IndexWriterConfig.OpenMode.CREATE);
-			IndexWriter writer = new IndexWriter(tweetIndexDirectory, config);
-			
-			// Thêm các trường vào index
-			List <Tweet> tweets = twittercrawler.getListFromJson();
-			for (Tweet tweet : tweets) {
-				Document doc = new Document();
-				doc.add(new TextField("author", tweet.getAuthor(), Field.Store.YES));
-				doc.add(new TextField("content", tweet.getContent().toString(), Field.Store.YES));
-				doc.add(new TextField("view", tweet.getNumber_of_view(), Field.Store.YES));
-				doc.add(new TextField("like", tweet.getNumber_of_liked(), Field.Store.YES));
-				doc.add(new TextField("comment", tweet.getNumber_of_comment(),Field.Store.YES));
-				long date = DateRange.formatterTimeToEpochSecond(tweet.getPublishedAt());
-				doc.add(new TextField("date", Long.toString(date), Field.Store.YES));
-				doc.add(new TextField("url", tweet.getSourceUrl(), Field.Store.YES));
-				List <String> hashtags = tweet.getHashtags();
-				for (String hashtag : hashtags ) {
-					doc.add(new TextField("hashtag", hashtag, Field.Store.YES));
-				}
-				writer.addDocument(doc);
-				}
-			writer.close();
-	}
 	
-	public static void indexArticle() throws IOException {
-		// Khởi tạo index để chuẩn bị
-			articleIndexDirectory = FSDirectory.open(Path.of(ARTICLE_INDEX_DIR));
-			IndexWriterConfig config = new IndexWriterConfig(analyzer);
-		    config.setOpenMode(IndexWriterConfig.OpenMode.CREATE);
-			IndexWriter writer = new IndexWriter(articleIndexDirectory, config);
-			
-			// Thêm các trường vào index
-			List <Article> articles = cnbccrawler.getListFromJson();
-			articles.addAll(blockchain101crawler.getListFromJson());
-//			articles.addAll(coindeskcrawler.getListFromJson());
-			for (Article article : articles) {
-				Document doc = new Document();
-				doc.add(new TextField("author", article.getAuthor(), Field.Store.YES));
-				doc.add(new TextField("title", article.getTitle(), Field.Store.YES));
-				doc.add(new TextField("content", article.getContent().toString(), Field.Store.YES));
-				long date = DateRange.formatterTimeToEpochSecond(article.getPublishedAt());
-				doc.add(new TextField("date", Long.toString(date), Field.Store.YES));
-				doc.add(new TextField("url", article.getSourceUrl(), Field.Store.YES));
-				writer.addDocument(doc);
-			}
-			writer.close();
-	}
-	
-	public static void indexFacebook() throws IOException {
-		// Khởi tạo index để chuẩn bị
-			facebookIndexDirectory = FSDirectory.open(Path.of(ARTICLE_INDEX_DIR));
-			IndexWriterConfig config = new IndexWriterConfig(analyzer);
-		    config.setOpenMode(IndexWriterConfig.OpenMode.CREATE);
-			IndexWriter writer = new IndexWriter(facebookIndexDirectory, config);
-
-			// Thêm các trường vào index
-			List <Facebook> facebooks = facebookcrawler.getListFromJson();
-			for (Facebook facebook : facebooks) {
-				Document doc = new Document();
-				doc.add(new TextField("author", facebook.getAuthor(), Field.Store.YES));
-				doc.add(new TextField("content", facebook.getContent().toString(), Field.Store.YES));
-				long date = DateRange.formatterTimeToEpochSecond(facebook.getPublishedAt());
-				doc.add(new TextField("date", Long.toString(date), Field.Store.YES));
-				doc.add(new TextField("url", facebook.getSourceUrl(), Field.Store.YES));
-				doc.add(new TextField("comment", facebook.getNumber_of_comment(), Field.Store.YES));
-				doc.add(new TextField("reaction", facebook.getNumber_of_reaction(), Field.Store.YES));
-				doc.add(new TextField("share", facebook.getNumber_of_share(), Field.Store.YES));
-				doc.add(new TextField("urlimg", facebook.getImgUrl(), Field.Store.YES));
-				writer.addDocument(doc);
-			}
-			writer.close();
-	}
-	
-	
-	public static List<Tweet> searchTweet(String inputTitle, String inputAuthor, DateRange range, String inputContent,List <String> inputHashtag, SortOptionTweet option, boolean direction) throws ParseException, IOException {
-		indexTweet();
+	public static List<Tweet> searchAdvanceTweet(String inputTitle, String inputAuthor, DateRange range, String inputContent,List <String> inputHashtag, SortOptionTweet option, boolean direction) throws ParseException, IOException {
 		try {
 			// Khởi tạo bộ truy vấn theo nhiều trường dữ liệu nhập vào
-			IndexSearcher searcher = new IndexSearcher(DirectoryReader.open(tweetIndexDirectory));
+			IndexSearcher searcher = new IndexSearcher(DirectoryReader.open(FSDirectory.open(Paths.get(TWEET_INDEX_DIR))));
 			BooleanQuery.Builder queryBuilder = new BooleanQuery.Builder();
 			
 			//Đổi tất cả chữ hoa thành chữ thường
@@ -260,11 +173,10 @@ public class SearchEngine {
 		return new ArrayList<>();
 	}
 	
-	public static List<Article> searchArticle(String inputTitle, String inputAuthor, DateRange range, String inputContent, SortOptionArticle option, boolean direction) throws ParseException, IOException {
-		indexArticle();
+	public static List<Article> searchAdvanceArticle(String inputTitle, String inputAuthor, DateRange range, String inputContent, SortOptionArticle option, boolean direction) throws ParseException, IOException {
 		try {
 			// Khởi tạo bộ truy vấn theo nhiều trường dữ liệu nhập vào
-			IndexSearcher searcher = new IndexSearcher(DirectoryReader.open(articleIndexDirectory));
+			IndexSearcher searcher = new IndexSearcher(DirectoryReader.open(FSDirectory.open(Paths.get(ARTICLE_INDEX_DIR))));
 			BooleanQuery.Builder queryBuilder = new BooleanQuery.Builder();
 			
 			//Đổi tất cả chữ hoa thành chữ thường
@@ -335,11 +247,10 @@ public class SearchEngine {
 		return new ArrayList<>();
 	}
 	
-	public static List<Facebook> searchFacebook(String inputTitle, String inputAuthor, DateRange range, String inputContent, SortOptionFacebook option, boolean direction) throws ParseException, IOException {
-		indexFacebook();
+	public static List<Facebook> searchAdvanceFacebook(String inputTitle, String inputAuthor, DateRange range, String inputContent, SortOptionFacebook option, boolean direction) throws ParseException, IOException {
 		try {
 			// Khởi tạo bộ truy vấn theo nhiều trường dữ liệu nhập vào
-			IndexSearcher searcher = new IndexSearcher(DirectoryReader.open(facebookIndexDirectory));
+			IndexSearcher searcher = new IndexSearcher(DirectoryReader.open(FSDirectory.open(Paths.get(FACEBOOK_INDEX_DIR))));
 			BooleanQuery.Builder queryBuilder = new BooleanQuery.Builder();
 			
 			//Đổi tất cả chữ hoa thành chữ thường
@@ -435,10 +346,11 @@ public class SearchEngine {
 	}
 	
 	public static void main(String[] args) throws ParseException, IOException {
-	   DateRange daterange = new DateRange();
-	   daterange.setStartDate(LocalDateTime.of(2024, 04, 20, 06, 00,00));
-	   daterange.setEndDate(LocalDateTime.of(2024, 04, 29, 07, 10, 00));
-	   List <Article> tweets = searchArticle("", "", null , "crypto",SortOptionArticle.TIME, false);
-	        System.out.println(tweets); // In ra một đối tượng Tweet
+		Index.indexTweet();
+		DateRange daterange = new DateRange();
+		daterange.setStartDate(LocalDateTime.of(2024, 04, 20, 06, 00,00));
+		daterange.setEndDate(LocalDateTime.of(2024, 04, 29, 07, 10, 00));
+	   	List <Tweet> tweets = searchAdvanceTweet("", "", null , "crypto", null , SortOptionTweet.TIME, false);
+	   		System.out.println(tweets); // In ra một đối tượng Tweet
 	}
 }
