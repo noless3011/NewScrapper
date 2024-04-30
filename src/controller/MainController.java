@@ -1,9 +1,13 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
+import crawler.Blockchain101Crawler;
 import crawler.CNBCCrawler;
+import crawler.FacebookCrawler;
+import crawler.TwitterCrawler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,27 +15,62 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.Article;
+import model.Facebook;
+import model.Tweet;
 
 public class MainController{
+	// News tab elements
+	@FXML
+	private Tab newsTab;
+	
 	@FXML
 	private ScrollPane newsScroll;
-	
-	@FXML
-	private AnchorPane root;
-	
-    @FXML
-    private TextField searchBar;
     
     @FXML
     private AnchorPane newsAnchor;
     
     @FXML
     private VBox newsVBox;
+    
+    // Tweet tab elements
+    @FXML
+	private Tab tweetsTab;
+	
+	@FXML
+	private ScrollPane tweetsScroll;
+    
+    @FXML
+    private AnchorPane tweetsAnchor;
+    
+    @FXML
+    private VBox tweetsVBox;
+    
+    // Facebook post elements
+    @FXML
+	private Tab postsTab;
+	
+	@FXML
+	private ScrollPane postsScroll;
+    
+    @FXML
+    private AnchorPane postsAnchor;
+    
+    @FXML
+    private VBox postsVBox;
+    
+    
+    //root elements
+    @FXML
+	private AnchorPane root;
+	
+    @FXML
+    private TextField searchBar;
     
     @FXML
     private Button advanceSearchButton;
@@ -40,7 +79,15 @@ public class MainController{
     private Button refreshButton;
 
     public void refresh(ActionEvent event) throws IOException{
-    	List<Article> articles = CNBCCrawler.getArticlesFromJsonTest();
+    	CNBCCrawler cnbcCrawler = new CNBCCrawler();
+    	Blockchain101Crawler blockchain101Crawler = new Blockchain101Crawler();
+    	List<Article> articles = new ArrayList<>();
+    	articles.addAll(cnbcCrawler.getListFromJson());
+    	articles.addAll(blockchain101Crawler.getListFromJson());
+    	TwitterCrawler twitterCrawler = new TwitterCrawler();
+    	List<Tweet> tweets = twitterCrawler.getListFromJson();
+    	FacebookCrawler facebookCrawler = new FacebookCrawler();
+    	List<Facebook> posts = facebookCrawler.getListFromJson();
     	newsVBox.getChildren().clear();
     	try {
     		
