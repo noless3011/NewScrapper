@@ -93,8 +93,12 @@ public class FacebookCrawler implements ICrawler<Facebook> {
             String like = node.get("Reaction").asText();
             String cmt = node.get("Comment").asText();
             String share = node.get("Share").asText();
-            String img = node.get("imgUrl").asText();
-            articles.add(new Facebook(author,content,prettyTime,sourceUrl,like, cmt, share,img));
+            if (node.get("imgUrl") != null) {
+            	String img = node.get("imgUrl").asText();
+            	articles.add(new Facebook(author,content,prettyTime,sourceUrl,like, cmt, share,img));
+            } else {
+            	articles.add(new Facebook(author,content,prettyTime,sourceUrl,like, cmt, share,""));
+            }
         }
         return articles;
 
@@ -155,7 +159,7 @@ public class FacebookCrawler implements ICrawler<Facebook> {
 
 
     private List<Facebook> crawlData(int amount, ProgressCallback callback){
-    	
+    	setupDriver();
     	List<WebElement> posts = driver.findElements(By.xpath("//div[@class='x1yztbdb x1n2onr6 xh8yej3 x1ja2u2z']"));
     	while(posts.size() < amount) {
     		scrollPage();

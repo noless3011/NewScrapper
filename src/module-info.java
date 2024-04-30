@@ -1,4 +1,4 @@
-module NewsScrapper {
+module NewScrapper {
 	exports model;
 	exports controller;
 	exports main;
@@ -18,5 +18,9 @@ module NewsScrapper {
 	requires com.google.common;
 	requires com.fasterxml.jackson.databind;
 	opens model to com.google.gson;
-	
+	requires org.apache.lucene.core;
+	requires org.apache.lucene.queryparser;
+	requires org.slf4j;
+	requires org.apache.opennlp.tools;
+	requires java.base;
 }

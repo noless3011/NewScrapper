@@ -35,10 +35,10 @@ public class Blockchain101Crawler implements ICrawler<Article>{
 	public Document accessPage(int page) {
 		try {
 			if (page == 1) {
-				 return Jsoup.connect(WEB_URL).timeout(2000).get();
+				 return Jsoup.connect(WEB_URL).timeout(5000).get();
 			}
 			else {
-				return Jsoup.connect(WEB_URL + "page" + "/" + page + "/"  ).timeout(2000).get();
+				return Jsoup.connect(WEB_URL + "page" + "/" + page + "/"  ).timeout(5000).get();
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -82,7 +82,7 @@ public class Blockchain101Crawler implements ICrawler<Article>{
 					
 					//Get contents
 					try {
-					Document document = Jsoup.connect(url).timeout(2000).get();
+					Document document = Jsoup.connect(url).timeout(5000).get();
 					Element accessInUrl = document.select("article").first();
 					Elements getElement = accessInUrl.select("p, h2, h3");
 					

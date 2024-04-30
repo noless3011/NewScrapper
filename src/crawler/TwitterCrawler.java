@@ -30,6 +30,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.HashSet;
 
+
 public class TwitterCrawler implements ICrawler<Tweet> {
 	private static List<Tweet> tweetList = new ArrayList<Tweet>();
 	private ChromeOptions driverOptions;
@@ -69,11 +70,10 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 		
 		driver.manage().window().maximize();
 		System.out.println("get in");
+		threadSleep(5000);
 		// Chờ cho tới khi trường nhập tên người dùng hiển thị và nhập tên đăng nhập 
 		WebElement usernameInput = driver.findElement(By.xpath("//input[@name='text']"));
 		usernameInput.sendKeys(USER_NAME);
-		
-		System.out.println("writed username");
 		
 		// Click vào nút next
 		WebElement next_button = driver.findElement(By.xpath("//span[contains(text(),'Next')]"));
@@ -83,15 +83,12 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 		// Chờ cho tới khi trường nhập mật khẩu xuất hiện và nhập mật khẩu
 		WebElement passwordInput = driver.findElement(By.xpath("//input[@name='password']"));
 		passwordInput.sendKeys(PASSWORD);
-		
-		System.out.println("writed password");
-		
+
 		//Click vào nút login
 		WebElement login_button = driver.findElement(By.xpath("//span[contains(text(),'Log in')]"));
 		login_button.click();
-		Thread.sleep(10000);
-		
-		System.out.println("logged in!");
+		Thread.sleep(5000);
+
 		//Kiểm tra xem có phải nhập số điện thoại để xác minh không  
 		boolean phoneNumberRequired = isElementPresent(driver, By.xpath("//input[@data-testid='ocfEnterTextTextInput']"));
 		 if (phoneNumberRequired) {
@@ -102,14 +99,15 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 	         Thread.sleep(5000);
 	        }
 		//Search từ khóa Blockchain
-		 System.out.println("start searching");
+
 		WebElement search_button = driver.findElement(By.xpath("//input[@data-testid='SearchBox_Search_Input']"));
-		System.out.println("searched!");
+
 		search_button.sendKeys("blockchain" + Keys.ENTER);
 		Thread.sleep(5000);
 //		WebElement latest_button = driver.findElement(By.xpath("//span[contains(text(), 'Latest')]"));
 //		latest_button.click();
 //		Thread.sleep(5000);
+
 	}
 	
 	 public boolean isAtEndOfPage() {
@@ -130,7 +128,7 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		HashSet<String> uniqueTweets = new HashSet<>(); // HashSet để kiểm tra xem tweet đã có trong danh sách chưa để tránh crawl hai bài giống nhau
 		while (tweetList.size() < amount) {
 //		while(!isElementPresent(driver, By.xpath("//span[contains(text(), 'Something went wrong. Try reloading.')]"))) {
@@ -151,7 +149,6 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 				try {
 					for (WebElement tweet : tweets) {
 						//Lấy tên tác giả
-				
 						String author = tweet.findElement(By.xpath(".//span[@class='css-1qaijid r-bcqeeo r-qvutc0 r-poiln3']")).getText();
 			
 						// Lấy url
@@ -185,11 +182,13 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 						// Lấy nội dung content
 						//Kiểm tra xem nội dung có bị trùng lặp không
 						if (!uniqueTweets.contains(sourceUrl)) {
-							Content content = null;
+							Content content = crawlTweetContent(tweet);
+
 							Tweet test = new Tweet(author, content, publishedAt, sourceUrl, hashtags, number_of_comment, number_of_liked, number_of_view);
 							tweetList.add(test);
 							
 							test.setContent(crawlTweetContent(tweet));
+
 							index++;
 							callback.updateProgress(index);
 							uniqueTweets.add(sourceUrl);
@@ -209,6 +208,7 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 				}
 		}
 		saveToJson(tweetList);
+
 		driver.quit();
 	}
 	
@@ -223,6 +223,7 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 		content.AddElement(text);
 		// Lấy url ảnh
 		List<WebElement> imgElements = tweet.findElements(By.xpath(".//img[@alt='Image' and not(contains(@src,'profile_images'))]"));
+
 		for (WebElement imgElement: imgElements ) {
 			 Image image = new Image(imgElement.getAttribute("src"));
 			 content.AddElement(image);
@@ -235,6 +236,7 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 	}
 	
 	// Lưu list gồm các tweet vào file json
+
 	@Override
 	public void saveToJson(List<Tweet> tweetsList) {
 		try (FileWriter writer = new FileWriter("tweets.json")){
@@ -248,6 +250,7 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 	
 	// Lấy danh sách đối tượng từ file Json
 	
+
 	public List<Tweet> getListFromJson(){
 		List <Tweet> tweets = null;
 		try (Reader reader = new FileReader("tweets.json")){
@@ -259,19 +262,6 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 			return null;
 		}
 	}
-	/*
-	public static void main(String [] agrs) throws InterruptedException {
-		//Tạo đối tượng TwitterCrawler để truyền thông điệp thực hiện các hành vi
-		TwitterCrawler twittercrawler = new TwitterCrawler();
-		// Tạo trình duyệt chromedriver và mở trang twitter
-		twittercrawler.loginTwitter();
-		twittercrawler.crawlTweetList(50);
-		twittercrawler.saveToJson(tweetList);
-//		List <Tweet> tweets = twittercrawler.getTweetFromJson();
-//		for (Tweet tweet: tweets) {
-//			System.out.println(tweet);
-//		}
-		
-	}
-	*/
+	
+	
 }
