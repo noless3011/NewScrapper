@@ -17,12 +17,12 @@ public class Windows extends Application{
     public void start(Stage primaryStage) {
         try {
             // Load the FXML file
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/Main.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/MainWindow.fxml"));
             Parent root = loader.load();
 
             // Create the Scene
             Scene scene = new Scene(root);
-            scene.getStylesheets().add(getClass().getResource("/View/CSS/test.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("/View/CSS/MainWindow.css").toExternalForm());
 
             MainControllerSingleton.setController(loader.getController()); 
             // Set the Scene to the Stage

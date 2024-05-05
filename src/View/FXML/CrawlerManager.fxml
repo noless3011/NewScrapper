@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:controller="controller.CrawlerManagerController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="root" stylesheets="@../CSS/CrawlerManager.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" >
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="root" stylesheets="@../CSS/CrawlerManager.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CrawlerManagerController">
    <children>
       <ScrollPane prefHeight="700.0" prefWidth="800.0" stylesheets="@../CSS/CrawlerManager.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="75.0">
         <content>
@@ -29,6 +29,6 @@
             </AnchorPane>
         </content>
       </ScrollPane>
-      <Button onAction="#runAllPress" layoutX="699.0" layoutY="14.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="90.0" styleClass="run-button" text="Run all" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
+      <Button layoutX="699.0" layoutY="14.0" mnemonicParsing="false" onAction="#runAllPress" prefHeight="45.0" prefWidth="90.0" styleClass="run-button" text="Run all" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
    </children>
 </AnchorPane>

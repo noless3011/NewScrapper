@@ -18,6 +18,9 @@ public class CrawlerManagerController {
 	@FXML
 	VBox crawlerVBox;
 	
+	@FXML
+	AnchorPane root;
+	
 	Popup popup = new Popup();
 	
 	public void runAllPress(ActionEvent event) throws IOException{
@@ -67,5 +70,13 @@ public class CrawlerManagerController {
 			}
 		}
 		crawlerVBox.getChildren().remove(nodeIndex);
+	}
+	
+	public void setWidth(double width) {
+		root.setPrefWidth(width);
+	}
+	
+	public double getWidth() {
+		return root.getWidth();
 	}
 }

@@ -62,8 +62,9 @@ public class CrawlerTypeSelectorController{
 			CrawlerCardController cardController = loader.getController();
 			
 			cardController.setManager(managerController);
+			cardController.setWidth(managerController.getWidth() - 30);
 			String indexString = Integer.toString(CrawlerCardController.counter);
-			cardController.setLabel("Crawler " + indexString);
+			cardController.setLabel("Blockchain101 crawler");
 			Blockchain101Crawler crawler = new Blockchain101Crawler();
 			cardController.setCrawler(crawler);
 			crawlerVBox.getChildren().add(0, root);
@@ -81,8 +82,9 @@ public class CrawlerTypeSelectorController{
 			CrawlerCardController cardController = loader.getController();
 			
 			cardController.setManager(managerController);
+			cardController.setWidth(managerController.getWidth() - 30);
 			String indexString = Integer.toString(CrawlerCardController.counter);
-			cardController.setLabel("Crawler " + indexString);
+			cardController.setLabel("Twitter crawler");
 			TwitterCrawler crawler = new TwitterCrawler();
 			cardController.setCrawler(crawler);
 			crawlerVBox.getChildren().add(0, root);
@@ -100,8 +102,9 @@ public class CrawlerTypeSelectorController{
 			CrawlerCardController cardController = loader.getController();
 			
 			cardController.setManager(managerController);
+			cardController.setWidth(managerController.getWidth() - 30);
 			String indexString = Integer.toString(CrawlerCardController.counter);
-			cardController.setLabel("Crawler " + indexString);
+			cardController.setLabel("Facebook crawler ");
 			FacebookCrawler facebookCrawler = new FacebookCrawler();
 			cardController.setCrawler(facebookCrawler);
 			crawlerVBox.getChildren().add(0, root);
@@ -119,8 +122,9 @@ public class CrawlerTypeSelectorController{
 			CrawlerCardController cardController = loader.getController();
 			
 			cardController.setManager(managerController);
+			cardController.setWidth(managerController.getWidth() - 30);
 			String indexString = Integer.toString(CrawlerCardController.counter);
-			cardController.setLabel("Crawler " + indexString);
+			cardController.setLabel("CNBC crawler ");
 			ICrawler<Article> cnbcCrawler = new CNBCCrawler() ;
 			cardController.setCrawler(cnbcCrawler);
 			crawlerVBox.getChildren().add(0, root);

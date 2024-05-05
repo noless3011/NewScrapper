@@ -31,7 +31,7 @@ public class DisplayList {
 		if(dynamicUpdateToggle) {
 			while(change.next()) {
 				if(change.wasAdded() || change.wasRemoved()) {
-					MainControllerSingleton.getMainController().refreshView();
+					// TODO: implement dynamic reload in the future
 				}
 			}
 		}
