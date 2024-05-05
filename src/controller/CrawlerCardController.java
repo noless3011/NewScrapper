@@ -96,6 +96,8 @@ public class CrawlerCardController {
 	}
 	
 	public void stopThread() {
-		thread.interrupt();
+		if(thread != null) {
+			thread.interrupt();
+		}	
 	}
 }

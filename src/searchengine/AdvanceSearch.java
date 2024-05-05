@@ -346,11 +346,11 @@ public class AdvanceSearch {
 	}
 	
 	public static void main(String[] args) throws ParseException, IOException {
-		Index.indexTweet();
+		Index.indexArticle();
 		DateRange daterange = new DateRange();
-		daterange.setStartDate(LocalDateTime.of(2024, 04, 20, 06, 00,00));
-		daterange.setEndDate(LocalDateTime.of(2024, 04, 29, 07, 10, 00));
-	   	List <Tweet> tweets = searchAdvanceTweet("", "", null , "crypto", null , SortOptionTweet.TIME, false);
-	   		System.out.println(tweets); // In ra một đối tượng Tweet
+		daterange.setStartDate(LocalDateTime.of(2019, 04, 20, 06, 00,00));
+		daterange.setEndDate(LocalDateTime.of(2025, 04, 29, 07, 10, 00));
+	   	List <Article> tweets = searchAdvanceArticle("", "", daterange , "crypto",SortOptionArticle.TIME, false);
+	   	System.out.println(tweets); // In ra một đối tượng Tweet
 	}
 }

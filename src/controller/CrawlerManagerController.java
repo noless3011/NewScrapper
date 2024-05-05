@@ -18,7 +18,7 @@ public class CrawlerManagerController {
 	@FXML
 	VBox crawlerVBox;
 	
-	Popup popup;
+	Popup popup = new Popup();
 	
 	public void runAllPress(ActionEvent event) throws IOException{
 		for(Node node : crawlerVBox.getChildren()) {
@@ -31,37 +31,18 @@ public class CrawlerManagerController {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/CrawlerTypeSelector.fxml"));
 		
 		try {
-			if (popup == null) {
-				popup = new Popup();
-				
-				AnchorPane root = loader.load();
-				CrawlerTypeSelectorController typeController = loader.getController();
-				
-				typeController.createButtons(this, crawlerVBox);
-				popup.getContent().add(root);
-				
-				
-				
-				addButton.getScene().setOnMouseClicked(e -> {
-		            if (popup == null) return;
-					if (!popup.isShowing()) {
-						
-						return;
-					}
-		            Bounds boundsInScreen = root.localToScreen(root.getBoundsInLocal());
-		            if (popup.isShowing() && !boundsInScreen.contains(e.getX(), e.getY())) {
-		            	popup.hide();
-		            }
-		        });
-				
-				popup.setX(addButton.localToScreen(addButton.boundsInLocalProperty().get()).getMinX());
-				popup.setY(addButton.localToScreen(addButton.boundsInLocalProperty().get()).getMaxY());
-                popup.show(addButton.getScene().getWindow());
-            } else {
-                popup.hide();
-                popup = null;
-                return;
-            }
+			AnchorPane root = loader.load();
+			CrawlerTypeSelectorController typeController = loader.getController();
+			
+			typeController.createButtons(this, crawlerVBox);
+			popup.getContent().add(root);
+			
+			popup.setAutoHide(true);
+			
+			popup.setX(addButton.localToScreen(addButton.boundsInLocalProperty().get()).getMinX());
+			popup.setY(addButton.localToScreen(addButton.boundsInLocalProperty().get()).getMaxY());
+            popup.show(addButton.getScene().getWindow());
+      
 			
 			
 			

@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import controller.MainController;
+import controller.MainControllerSingleton;
 
 
 public class Windows extends Application{
@@ -23,7 +24,7 @@ public class Windows extends Application{
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("/View/CSS/test.css").toExternalForm());
 
-            MainController controller = loader.getController();
+            MainControllerSingleton.setController(loader.getController()); 
             // Set the Scene to the Stage
             primaryStage.setScene(scene);
             primaryStage.setTitle("JavaFX Application");

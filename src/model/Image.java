@@ -1,7 +1,11 @@
 package model;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
+
+import javax.imageio.ImageIO;
 
 public class Image {
 	public Image(String url) {
@@ -18,7 +22,6 @@ public class Image {
 
 	private String url;
 	private String description;
-	private static final List<String> IMAGE_EXTENSIONS = Arrays.asList(".jpg", ".jpeg", ".png", ".gif", ".bmp");
 
 	public String getUrl() {
 		return url;
@@ -34,11 +37,15 @@ public class Image {
 	}
 	
     public boolean isImageUrl() {
-        for (String extension : IMAGE_EXTENSIONS) {
-            if (url.toLowerCase().endsWith(extension)) {
-                return true;
-            }
-        }
+    	
+        try {
+			if (ImageIO.read(new URL(url)) == null) {
+			    return true;
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         return false;
     }
 

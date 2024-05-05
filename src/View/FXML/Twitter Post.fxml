@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="450.0" styleClass="facebook_post" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PostController">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="600.0">
+         <children>
+            <ImageView fitHeight="40.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/user.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </ImageView>
+            <VBox prefHeight="50.0" prefWidth="354.0">
+               <children>
+                  <Pane prefHeight="50.0" prefWidth="10.0" />
+                  <HBox prefHeight="46.0" prefWidth="354.0">
+                     <children>
+                        <Label fx:id="authorLabel" prefHeight="20.0" prefWidth="141.0" text="Sience Magazine" textFill="#f2f2f2" wrapText="true">
+                           <font>
+                              <Font name="Arial Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="20.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/ic_verified.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <Label fx:id="timeLabel" prefHeight="0.0" prefWidth="354.0" text="\@SienceMagazine" textFill="#fcfcfc">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <ImageView fitHeight="20.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/ic_more.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <Label fx:id="contentLabel" minWidth="408.0" text="Research involving global audits of plastic pollution from 2018 to 2022 in @ScienceAdvances has revealed that 52% of the nearly 2 million inventoried items had no discernible branding and could not be traced back to producers. https://scim.ag/6Np" textFill="WHITE" wrapText="true">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="10.0" />
+         </VBox.margin>
+      </Label>
+      <ImageView fx:id="image" fitHeight="447.0" fitWidth="430.0" pickOnBounds="true" preserveRatio="true">
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin>
+         <image>
+            <Image url="@../image/Post_picture.jpeg" />
+         </image>
+      </ImageView>
+      <StackPane prefHeight="25.0" prefWidth="450.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="450.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="13.0" prefWidth="450.0">
+                     <children>
+                        <Pane prefHeight="50.0" prefWidth="10.0" />
+                        <Label fx:id="reactionLabel" prefHeight="19.0" prefWidth="131.0" text="1:00 PM · May 1, 2024" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="reactionLabel1" prefHeight="24.0" prefWidth="156.0" text=" · 20K Views" textFill="WHITE">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </StackPane>
+      <Separator maxWidth="508.0" opacity="0.65" prefHeight="5.0" prefWidth="508.0">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Separator>
+      <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="442.0">
+         <children>
+            <Pane prefHeight="50.0" prefWidth="10.0" />
+            <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/Twitter%20reply-96.png" />
+               </image>
+            </ImageView>
+            <Label prefHeight="16.0" prefWidth="135.0" text="7" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Label>
+            <ImageView fitHeight="28.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/twiter%20repost.png" />
+               </image>
+            </ImageView>
+            <Label prefHeight="16.0" prefWidth="130.0" text="6" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="17.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/twitter%20like.png" />
+               </image>
+            </ImageView>
+            <Label prefHeight="16.0" prefWidth="84.0" text="32" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <Separator maxWidth="508.0" opacity="0.65" prefHeight="5.0" prefWidth="508.0">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Separator>
+   </children>
+</VBox>
