@@ -127,7 +127,7 @@ public class MainController{
     			VBox newPost = loader.load();
         		PostController controller = loader.getController();
     			controller.setData(post);
-    			System.out.println(post.getImgUrl());
+    			System.out.println(post.getContent().toString());
         		postsVBox.getChildren().add(newPost);
         		count++;
         		if(count == 10) break;
