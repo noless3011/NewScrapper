@@ -11,6 +11,7 @@ public class DisplayList {
 	private static ObservableList<Article> articleList = FXCollections.observableArrayList();
 	private static ObservableList<Tweet> tweetList = FXCollections.observableArrayList();
 	private static ObservableList<Facebook> postList = FXCollections.observableArrayList();
+	private static ObservableList<Object> searchResultList = FXCollections.observableArrayList();
 	static {
 		new DisplayList();
 	}
@@ -25,9 +26,12 @@ public class DisplayList {
 		postList.addListener((ListChangeListener.Change<? extends Article> change) -> {
 			refreshView(change);
 		});
+		searchResultList.addListener((ListChangeListener.Change<? extends Object> change) -> {
+			refreshView(change);
+		});
 	}
 	
-	private void refreshView(ListChangeListener.Change<? extends Article> change) {
+	private void refreshView(ListChangeListener.Change<? extends Object> change) {
 		if(dynamicUpdateToggle) {
 			while(change.next()) {
 				if(change.wasAdded() || change.wasRemoved()) {
@@ -46,6 +50,10 @@ public class DisplayList {
 	public static ObservableList<Facebook> getPostList(){
 		return postList;
 	}
+	public static ObservableList<Object> getSearchResultList() {
+		return searchResultList;
+	}
+
 	public static void toggleDynamicUpdate(boolean state) {
 		dynamicUpdateToggle = state;
 	}

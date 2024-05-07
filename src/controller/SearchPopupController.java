@@ -51,6 +51,9 @@ public class SearchPopupController {
 	@FXML
 	private DatePicker endDatePicker;
 	
+	@FXML
+	private Button indexButton;
+	
 	
 	private Map<Field, SearchCardController> controllers = new HashMap<>();
 	
@@ -72,6 +75,20 @@ public class SearchPopupController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+	}
+	
+	public void indexPress(ActionEvent event) {
+		try {
+			Index.indexAll();
+			Index.indexArticle();
+			Index.indexFacebook();
+			Index.indexTweet();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 	}
 	
@@ -108,18 +125,14 @@ public class SearchPopupController {
 				end = ldEnd.atStartOfDay();
 			}
 			DateRange dateRange = new DateRange(start, end);
-			System.out.println(dateRange.getStartDate());
-			System.out.println(dateRange.getEndDate());
 			try {
 				
-				DisplayList.getArticleList().setAll(AdvanceSearch.searchAdvanceArticle(
+				DisplayList.getSearchResultList().setAll(AdvanceSearch.searchAdvanceArticle(
 						searchTokenTitle,searchTokenAuthor, 
 						dateRange , searchTokenContent,
 						SortOptionArticle.RELEVANT, false)); 
-				System.out.println(DisplayList.getArticleList());
-				System.out.println(searchTokenTitle);
-				System.out.println(searchTokenAuthor);
-				System.out.println(searchTokenContent);
+				MainControllerSingleton.getMainController().showSearchResult(MainControllerSingleton.getMainController().searchResultToParents(DisplayList.getSearchResultList()));
+				MainControllerSingleton.getMainController().reloadView();
 				
 			} catch (ParseException | IOException e) {
 				e.printStackTrace();

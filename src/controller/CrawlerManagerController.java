@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
@@ -20,6 +21,12 @@ public class CrawlerManagerController {
 	
 	@FXML
 	AnchorPane root;
+	
+	@FXML
+	AnchorPane crawlersAnchor;
+	
+	@FXML
+	AnchorPane addButtonAnchor;
 	
 	Popup popup = new Popup();
 	
@@ -72,8 +79,10 @@ public class CrawlerManagerController {
 		crawlerVBox.getChildren().remove(nodeIndex);
 	}
 	
-	public void setWidth(double width) {
-		root.setPrefWidth(width);
+	public void setWidth(ScrollPane scrollPane) {
+		root.prefWidthProperty().bind(scrollPane.widthProperty().subtract(15));
+		crawlersAnchor.prefWidthProperty().bind(root.widthProperty().subtract(25));
+		addButtonAnchor.prefWidthProperty().bind(crawlersAnchor.widthProperty());
 	}
 	
 	public double getWidth() {

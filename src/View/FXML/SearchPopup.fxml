@@ -8,57 +8,35 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane styleClass="root" stylesheets="@../CSS/SearchPopup.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SearchPopupController">
+<AnchorPane prefWidth="300.0" styleClass="root" stylesheets="@../CSS/SearchPopup.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SearchPopupController">
    <children>
       <VBox fx:id="vBox" alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <AnchorPane prefHeight="50.0" prefWidth="215.0">
                <children>
-                  <VBox alignment="CENTER">
-                     <children>
-                        <HBox alignment="CENTER">
-                           <children>
-                              <Label text="Start">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <DatePicker fx:id="startDatePicker" styleClass="date-picker">
-                                 <HBox.margin>
-                                    <Insets left="7.0" />
-                                 </HBox.margin>
-                              </DatePicker>
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="4.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox alignment="CENTER">
-                           <children>
-                              <Label text="End">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <DatePicker fx:id="endDatePicker" styleClass="date-picker">
-                                 <HBox.margin>
-                                    <Insets left="12.0" />
-                                 </HBox.margin>
-                              </DatePicker>
-                           </children>
-                        </HBox>
-                     </children>
-                  </VBox>
+                  <Label text="Start" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="5.0" />
+                  <Label text="End" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="35.0" />
+                  <DatePicker fx:id="startDatePicker" styleClass="date-picker" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0" />
+                  <DatePicker fx:id="endDatePicker" styleClass="date-picker" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0" />
                </children>
                <VBox.margin>
                   <Insets bottom="4.0" top="4.0" />
                </VBox.margin>
             </AnchorPane>
-            <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchPress" prefHeight="36.0" prefWidth="86.0" styleClass="search-button" text="Search">
-               <VBox.margin>
-                  <Insets bottom="10.0" top="10.0" />
-               </VBox.margin>
-            </Button>
+            <HBox alignment="CENTER">
+               <children>
+                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchPress" prefHeight="36.0" prefWidth="86.0" styleClass="search-button" text="Search">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="indexButton" mnemonicParsing="false" onAction="#indexPress" prefHeight="36.0" prefWidth="86.0" styleClass="search-button" text="Index again">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
          </children>
       </VBox>
    </children>

@@ -2,8 +2,22 @@
     -fx-background-color: black;
 }
 
+.thin-progress-bar {
+    -fx-accent: purple;
+    -fx-pref-height: 10px;
+    -fx-background-color: transparent;
+    -fx-border-width: 0px;
+}
+
+.thin-progress-bar .track {
+    -fx-background-color: transparent;
+}
 .search-more-button{
 	-fx-background-color: transparent;
+}
+
+.search-more-button:hover{
+	-fx-background-color: #393939;
 }
 
 .return-button{
@@ -25,12 +39,22 @@
 	-fx-border-radius: 9px;
     -fx-background-radius: 9px;
     -fx-cursor: HAND;
-	
+	-fx-padding: 5 5 5 5;
+	-fx-alignment: CENTER;
 }
 
 .side-bar-button:hover{
 	-fx-background-color: #393939;
 
+}
+
+.side-bar-button-selected{
+	-fx-background-color: #333333;
+	-fx-border-radius: 9px;
+    -fx-background-radius: 9px;
+    -fx-cursor: HAND;
+	-fx-padding: 5 5 5 5;
+	-fx-alignment: CENTER;
 }
 
 .window-title-button{

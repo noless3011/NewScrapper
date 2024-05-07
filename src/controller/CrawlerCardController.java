@@ -47,8 +47,8 @@ public class CrawlerCardController {
 		this.id = ++counter;
 	}
 	
-	public void setWidth(double width) {
-		root.setPrefWidth(width);
+	public void setWidth(AnchorPane warper) {
+		root.prefWidthProperty().bind(warper.widthProperty());
 	}
 	
 	public int getID(){

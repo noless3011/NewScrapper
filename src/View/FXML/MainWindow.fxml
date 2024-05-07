@@ -11,113 +11,103 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="1000.0" maxWidth="1900.0" styleClass="root" stylesheets="@../CSS/MainWindow.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+<AnchorPane fx:id="root" maxHeight="1000.0" maxWidth="1900.0" styleClass="root" stylesheets="@../CSS/MainWindow.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
    <children>
-      <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="titleBarAnchor" prefHeight="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane prefHeight="50.0">
-               <children>
-                  <TextField fx:id="searchTextField" styleClass="search-bar" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="10.0" />
-                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="10.0">
+            <TextField fx:id="searchTextField" styleClass="search-bar" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="10.0" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="10.0">
+               <image>
+                  <Image url="@../image/icons8-search-50.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="advanceSearchButton" contentDisplay="GRAPHIC_ONLY" ellipsisString="" graphicTextGap="0.0" layoutX="584.0" layoutY="-1.0" mnemonicParsing="false" onAction="#advanceSearchPress" prefHeight="35.0" prefWidth="35.0" styleClass="search-more-button" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="8.0">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../image/icons8-search-50.png" />
+                        <Image url="@../image/icons8-more-30.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="advanceSearchButton" contentDisplay="GRAPHIC_ONLY" ellipsisString="" graphicTextGap="0.0" layoutX="584.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" styleClass="search-more-button" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="8.0">
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="tabsAndContentAnchor" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
+         <children>
+            <AnchorPane maxWidth="85.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Pane styleClass="side-bar-pane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <padding>
+                        <Insets bottom="15.0" />
+                     </padding>
+                  </Pane>
+                  <Button fx:id="articleButton" contentDisplay="GRAPHIC_ONLY" ellipsisString="" graphicTextGap="0.0" mnemonicParsing="false" onAction="#articleTabPress" prefHeight="55.0" styleClass="side-bar-button" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                      <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true">
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true">
                            <image>
-                              <Image url="@../image/icons8-more-30.png" />
+                              <Image url="@../image/icons8-news-50.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="facebookButton" mnemonicParsing="false" onAction="#facebookTabPress" prefHeight="55.0" styleClass="side-bar-button" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="90.0">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../image/icons8-facebook-50.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="twitterButton" mnemonicParsing="false" onAction="#twitterTabPress" prefHeight="55.0" styleClass="side-bar-button" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="165.0">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../image/icons8-twitter-50.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="crawlerManagerButton" mnemonicParsing="false" onAction="#crawlerManagerTabPress" prefHeight="55.0" styleClass="side-bar-button" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="240.0">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../image/icons8-web-crawler-66.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="settingButton" mnemonicParsing="false" onAction="#settingTabPress" prefHeight="55.0" styleClass="side-bar-button" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="315.0">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../image/icons8-setting-50.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
                </children>
             </AnchorPane>
-            <AnchorPane>
+            <AnchorPane fx:id="pageAnchorPane" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="95.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <AnchorPane maxWidth="85.0" HBox.hgrow="ALWAYS">
+                  <ScrollPane fx:id="scrollPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <content>
+                      <AnchorPane fx:id="contentAnchor" minHeight="0.0" minWidth="0.0">
                            <children>
-                              <Pane styleClass="side-bar-pane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <padding>
-                                    <Insets bottom="15.0" />
-                                 </padding>
-                              </Pane>
-                              <Button fx:id="articleButton" contentDisplay="GRAPHIC_ONLY" ellipsisString="" graphicTextGap="0.0" mnemonicParsing="false" onAction="#articleTabPress" prefHeight="55.0" styleClass="side-bar-button" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
-                                 <graphic>
-                                    <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true">
-                                       <image>
-                                          <Image url="@../image/icons8-news-50.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Button>
-                              <Button fx:id="facebookButton" mnemonicParsing="false" onAction="#facebookTabPress" prefHeight="55.0" styleClass="side-bar-button" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="90.0">
-                                 <graphic>
-                                    <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true">
-                                       <image>
-                                          <Image url="@../image/icons8-facebook-50.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Button>
-                              <Button fx:id="twitterButton" mnemonicParsing="false" onAction="#twitterTabPress" prefHeight="55.0" styleClass="side-bar-button" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="165.0">
-                                 <graphic>
-                                    <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true">
-                                       <image>
-                                          <Image url="@../image/icons8-twitter-50.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Button>
-                              <Button fx:id="crawlerManagerButton" mnemonicParsing="false" onAction="#crawlerManagerTabPress" prefHeight="55.0" styleClass="side-bar-button" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="240.0">
-                                 <graphic>
-                                    <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true">
-                                       <image>
-                                          <Image url="@../image/icons8-web-crawler-66.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Button>
-                              <Button fx:id="settingButton" mnemonicParsing="false" onAction="#settingTabPress" prefHeight="55.0" styleClass="side-bar-button" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="315.0">
-                                 <graphic>
-                                    <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true">
-                                       <image>
-                                          <Image url="@../image/icons8-setting-50.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Button>
+                              <HBox alignment="TOP_CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <VBox fx:id="contentVBox" />
+                                 </children>
+                              </HBox>
                            </children>
-                           <HBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </HBox.margin>
                         </AnchorPane>
-                        <AnchorPane fx:id="pageAnchorPane">
-                           <children>
-                              <ScrollPane fx:id="scrollPane" prefHeight="1200.0" prefWidth="2000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0">
-                                       <children>
-                                          <VBox fx:id="contentVBox" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                       </children>
-                                    </AnchorPane>
-                                </content>
-                              </ScrollPane>
-                           </children>
-                           <HBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </HBox.margin>
-                        </AnchorPane>
-                     </children>
-                  </HBox>
+                    </content>
+                  </ScrollPane>
                </children>
             </AnchorPane>
          </children>
-      </VBox>
-      <Button fx:id="backButton" contentDisplay="GRAPHIC_ONLY" ellipsisString="" graphicTextGap="0.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="return-button" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+      </AnchorPane>
+      <Button fx:id="backButton" contentDisplay="GRAPHIC_ONLY" ellipsisString="" graphicTextGap="0.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#backPress" prefHeight="40.0" prefWidth="40.0" styleClass="return-button" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true">
                <image>
@@ -126,7 +116,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="exitButton" contentDisplay="GRAPHIC_ONLY" ellipsisString="" graphicTextGap="0.0" layoutX="604.0" layoutY="19.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" styleClass="window-title-button" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+      <Button fx:id="exitButton" contentDisplay="GRAPHIC_ONLY" ellipsisString="" graphicTextGap="0.0" layoutX="604.0" layoutY="19.0" mnemonicParsing="false" onAction="#closePress" prefHeight="35.0" prefWidth="35.0" styleClass="window-title-button" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true">
                <image>
@@ -135,7 +125,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="restoreButton" contentDisplay="GRAPHIC_ONLY" ellipsisString="" graphicTextGap="0.0" layoutX="604.0" layoutY="19.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" styleClass="window-title-button" AnchorPane.rightAnchor="45.0" AnchorPane.topAnchor="2.0">
+      <Button fx:id="restoreButton" contentDisplay="GRAPHIC_ONLY" ellipsisString="" graphicTextGap="0.0" layoutX="604.0" layoutY="19.0" mnemonicParsing="false" onAction="#restorePress" prefHeight="35.0" prefWidth="35.0" styleClass="window-title-button" AnchorPane.rightAnchor="45.0" AnchorPane.topAnchor="2.0">
          <graphic>
             <ImageView fx:id="restoreButtonIcon" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true">
                <image>
@@ -144,7 +134,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="minimizeButton" contentDisplay="GRAPHIC_ONLY" ellipsisString="" graphicTextGap="0.0" layoutX="604.0" layoutY="19.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" styleClass="window-title-button" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="2.0">
+      <Button fx:id="minimizeButton" contentDisplay="GRAPHIC_ONLY" ellipsisString="" graphicTextGap="0.0" layoutX="604.0" layoutY="19.0" mnemonicParsing="false" onAction="#minimizePress" prefHeight="35.0" prefWidth="35.0" styleClass="window-title-button" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="2.0">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true">
                <image>
@@ -155,12 +145,21 @@
       </Button>
       <Button fx:id="reloadButton" contentDisplay="GRAPHIC_ONLY" ellipsisString="" graphicTextGap="0.0" layoutX="125.0" layoutY="80.0" mnemonicParsing="false" onAction="#reloadPress" prefHeight="40.0" prefWidth="40.0" styleClass="return-button" AnchorPane.leftAnchor="65.0" AnchorPane.topAnchor="5.0">
          <graphic>
-            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true">
+            <ImageView fx:id="reloadImageView" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true">
                <image>
                   <Image url="@../image/icons8-reload-50.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
-   </children>
+      <Button fx:id="forwardButton" contentDisplay="GRAPHIC_ONLY" ellipsisString="" graphicTextGap="0.0" layoutX="15.0" layoutY="15.0" mnemonicParsing="false" onAction="#forwardPress" prefHeight="40.0" prefWidth="40.0" styleClass="return-button" AnchorPane.leftAnchor="125.0" AnchorPane.topAnchor="5.0">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" scaleX="-1.0">
+               <image>
+                  <Image url="@../image/icons8-return-30.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+         </children>
 </AnchorPane>

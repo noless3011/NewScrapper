@@ -62,7 +62,7 @@ public class CrawlerTypeSelectorController{
 			CrawlerCardController cardController = loader.getController();
 			
 			cardController.setManager(managerController);
-			cardController.setWidth(managerController.getWidth() - 30);
+			cardController.setWidth(managerController.crawlersAnchor);
 			String indexString = Integer.toString(CrawlerCardController.counter);
 			cardController.setLabel("Blockchain101 crawler");
 			Blockchain101Crawler crawler = new Blockchain101Crawler();
@@ -82,7 +82,7 @@ public class CrawlerTypeSelectorController{
 			CrawlerCardController cardController = loader.getController();
 			
 			cardController.setManager(managerController);
-			cardController.setWidth(managerController.getWidth() - 30);
+			cardController.setWidth(managerController.crawlersAnchor);
 			String indexString = Integer.toString(CrawlerCardController.counter);
 			cardController.setLabel("Twitter crawler");
 			TwitterCrawler crawler = new TwitterCrawler();
@@ -102,7 +102,7 @@ public class CrawlerTypeSelectorController{
 			CrawlerCardController cardController = loader.getController();
 			
 			cardController.setManager(managerController);
-			cardController.setWidth(managerController.getWidth() - 30);
+			cardController.setWidth(managerController.crawlersAnchor);
 			String indexString = Integer.toString(CrawlerCardController.counter);
 			cardController.setLabel("Facebook crawler ");
 			FacebookCrawler facebookCrawler = new FacebookCrawler();
@@ -122,7 +122,7 @@ public class CrawlerTypeSelectorController{
 			CrawlerCardController cardController = loader.getController();
 			
 			cardController.setManager(managerController);
-			cardController.setWidth(managerController.getWidth() - 30);
+			cardController.setWidth(managerController.crawlersAnchor);
 			String indexString = Integer.toString(CrawlerCardController.counter);
 			cardController.setLabel("CNBC crawler ");
 			ICrawler<Article> cnbcCrawler = new CNBCCrawler() ;

@@ -3,6 +3,9 @@ package controller;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -59,7 +62,6 @@ public class NewsCardController {
 			Image image = new Image(new URI(url).toString());
 			newsImage.setImage(image);
 		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -72,14 +74,10 @@ public class NewsCardController {
 			Parent root = loader.load();
 			NewsViewerController controller = loader.getController();
 			controller.setArticle(article);
-			
-	        // Create a new stage
-	        Stage newStage = new Stage();
-	        // Set the scene of the new stage with the loaded FXML
-	        newStage.setScene(new Scene(root));
-
-	        // Show the new stage
-	        newStage.show();
+			List<Parent> articleElementList = new ArrayList<>();
+			articleElementList.add(root);
+	        MainControllerSingleton.getMainController().loadArticle(articleElementList);
+	        MainControllerSingleton.getMainController().openArticleView();
 		} catch(IOException e) {
 			e.printStackTrace();
 		}
