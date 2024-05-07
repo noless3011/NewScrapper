@@ -378,97 +378,128 @@ public class MainController{
 		}
 	}
 	
+	public class LoadViewTask extends Task<Void>{
+		@Override
+		protected Void call() throws Exception{
+			switch(currentTabState) {
+    		case ARTICLE:{
+    			int count = 0;
+    			List<Parent> newscardPanes = new ArrayList<>();
+    			for(Article article : DisplayList.getArticleList()) {
+    				FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/NewsCard.fxml"));
+        			Parent newsCardPane;
+    				try {
+    					newsCardPane = loader.load();
+    					NewsCardController controller = loader.getController();
+    	    			controller.setImage("");
+    	    			controller.setArticle(article);
+    	    			newscardPanes.add(newsCardPane);
+    	    			count++;
+    	        		if(count == 10) break;
+    				} catch (IOException e) {
+    					e.printStackTrace();
+    				}
+            		
+    			}
+    			tabContents.replace(TabType.ARTICLE, newscardPanes);
+    			break;
+    		}
+    			
+    		case CRAWLERMANAGER:{
+    			try {
+    	            // Load the FXML file for the new window
+    	            FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/CrawlerManager.fxml"));
+    	            Parent root = loader.load();
+    	            CrawlerManagerController controller = loader.getController();
+    	            controller.setWidth(scrollPane);
+    	            List<Parent> roots = new ArrayList<>();
+    	            roots.add(root);
+    	            tabContents.replace(TabType.CRAWLERMANAGER, roots);
+    	        } catch (Exception e) {
+    	            e.printStackTrace();
+    	        }
+    			break;
+    		}
+    		case FACEBOOK:
+    			int count = 0;
+    			List<Parent> posts = new ArrayList<>();
+    			for(Facebook post : DisplayList.getPostList()) {
+    				FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/FacebookPost.fxml"));
+        			Parent postVBox;
+    				try {
+    					postVBox = loader.load();
+    					PostController controller = loader.getController();
+    	    			controller.setData(post);
+    	    			posts.add(postVBox);
+    	    			System.out.println(count);
+    	    			count++;
+
+    	        		if(count == 10) break;
+    				} catch (IOException e) {
+    					e.printStackTrace();
+    				}
+    			}
+    			tabContents.replace(TabType.FACEBOOK, posts);
+    			break;
+    		case SETTING:
+    			break;
+    		case TWITTER:
+    			break;
+    		default:
+    			break;
+    		}
+			return null;
+		}
+	}
+	
+
+	
+	
+	public class LoadListTask extends Task<Void> {
+        @Override
+        protected Void call() throws Exception {
+        	
+        	
+        	switch(currentTabState) {
+    		case ARTICLE:{
+    			DisplayList.toggleDynamicUpdate(false);
+    	    	CNBCCrawler cnbcCrawler = new CNBCCrawler();
+    	    	Blockchain101Crawler blockchain101Crawler = new Blockchain101Crawler();
+    	    	DisplayList.getArticleList().setAll(cnbcCrawler.getListFromJson());
+    	    	DisplayList.getArticleList().addAll(blockchain101Crawler.getListFromJson());
+    	    	DisplayList.toggleDynamicUpdate(true);
+    			break;
+    		}
+    			
+    		case CRAWLERMANAGER:{
+    			break;
+    		}
+    		case FACEBOOK:
+    			DisplayList.toggleDynamicUpdate(false);
+    			FacebookCrawler facebookCrawler = new FacebookCrawler();
+    	    	DisplayList.getPostList().setAll(facebookCrawler.getListFromJson());
+    	    	DisplayList.toggleDynamicUpdate(true);
+    			break;
+    		case SETTING:
+    			break;
+    		case TWITTER:
+    			break;
+    		default:
+    			break;
+    		}
+			return null;
+    		
+        }
+    };
+	
+	
 	public void reload() {
 		playLoadAnimation();
 		contentVBox.getChildren().clear();
-		Task<Void> task = new Task<Void>() {
-            @Override
-            protected Void call() throws Exception {
-            	
-        		switch(currentTabState) {
-        		case ARTICLE:{
-        			DisplayList.toggleDynamicUpdate(false);
-        	    	CNBCCrawler cnbcCrawler = new CNBCCrawler();
-        	    	Blockchain101Crawler blockchain101Crawler = new Blockchain101Crawler();
-        	    	DisplayList.getArticleList().setAll(cnbcCrawler.getListFromJson());
-        	    	DisplayList.getArticleList().addAll(blockchain101Crawler.getListFromJson());
-        	    	DisplayList.toggleDynamicUpdate(true);
-        			int count = 0;
-        			List<Parent> newscardPanes = new ArrayList<>();
-        			for(Article article : DisplayList.getArticleList()) {
-        				FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/NewsCard.fxml"));
-            			Parent newsCardPane;
-        				try {
-        					newsCardPane = loader.load();
-        					NewsCardController controller = loader.getController();
-        	    			controller.setImage("");
-        	    			controller.setArticle(article);
-        	    			newscardPanes.add(newsCardPane);
-        	    			count++;
-        	        		if(count == 10) break;
-        				} catch (IOException e) {
-        					e.printStackTrace();
-        				}
-                		
-        			}
-        			tabContents.replace(TabType.ARTICLE, newscardPanes);
-        			break;
-        		}
-        			
-        		case CRAWLERMANAGER:{
-        			try {
-        	            // Load the FXML file for the new window
-        	            FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/CrawlerManager.fxml"));
-        	            Parent root = loader.load();
-        	            CrawlerManagerController controller = loader.getController();
-        	            controller.setWidth(scrollPane);
-        	            List<Parent> roots = new ArrayList<>();
-        	            roots.add(root);
-        	            tabContents.replace(TabType.CRAWLERMANAGER, roots);
-        	        } catch (Exception e) {
-        	            e.printStackTrace();
-        	        }
-        			break;
-        		}
-        		case FACEBOOK:
-        			DisplayList.toggleDynamicUpdate(false);
-        			FacebookCrawler facebookCrawler = new FacebookCrawler();
-        	    	DisplayList.getPostList().setAll(facebookCrawler.getListFromJson());
-        	    	DisplayList.toggleDynamicUpdate(true);
-        			int count = 0;
-        			List<Parent> posts = new ArrayList<>();
-        			for(Facebook post : DisplayList.getPostList()) {
-        				FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/FacebookPost.fxml"));
-            			Parent postVBox;
-        				try {
-        					postVBox = loader.load();
-        					PostController controller = loader.getController();
-        	    			controller.setData(post);
-        	    			posts.add(postVBox);
-        	    			System.out.println(count);
-        	    			count++;
-
-        	        		if(count == 10) break;
-        				} catch (IOException e) {
-        					e.printStackTrace();
-        				}
-        			}
-        			tabContents.replace(TabType.FACEBOOK, posts);
-        			break;
-        		case SETTING:
-        			break;
-        		case TWITTER:
-        			break;
-        		default:
-        			break;
-        		}
-				return null;
-        		
-            }
-        };
-        Thread thread = new Thread(task);
-        thread.start();
-        task.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
+		
+        LoadViewTask loadViewTask = new LoadViewTask();
+        LoadListTask loadListTask = new LoadListTask();
+        loadViewTask.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
             @Override
             public void handle(WorkerStateEvent event) {
             	Platform.runLater(()->{
@@ -479,6 +510,19 @@ public class MainController{
             }
         });
         
+        loadListTask.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
+			
+			@Override
+			public void handle(WorkerStateEvent arg0) {
+				Thread loadViewThread = new Thread(loadViewTask);
+				loadViewThread.start();
+				
+			}
+		});
+        
+
+        Thread thread = new Thread(loadListTask);
+        thread.start();
 	}
 	
 	public void playLoadAnimation() {

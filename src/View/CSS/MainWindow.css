@@ -24,10 +24,10 @@
 	-fx-background-color: transparent;
     -fx-text-fill: white;
     -fx-background-radius: 50em;
-    -fx-min-width: 50px;
-    -fx-min-height: 50px;
-    -fx-max-width: 50px; 
-    -fx-max-height: 50px;
+    -fx-min-width: 30px;
+    -fx-min-height: 30px;
+    -fx-max-width: 30px; 
+    -fx-max-height: 30px;
 }
 
 .return-button:hover{
