@@ -32,6 +32,9 @@ public class NewsCardController {
 	@FXML
 	private ImageView newsImage;
 	
+	private Image image;
+	private String imageURL;
+	
 	@FXML
 	public void initialize() { 
 		Rectangle clip = new Rectangle(newsImage.getFitWidth(), newsImage.getFitHeight());
@@ -56,16 +59,20 @@ public class NewsCardController {
 	
 	public void setImage(String url) {
 		if(url.isEmpty()) {
-			url = "https://www.musafir.com/SFImage/Images/650x200-rahhalah-2.jpg";
+			imageURL = "https://www.musafir.com/SFImage/Images/650x200-rahhalah-2.jpg";
 		}
+		imageURL = url;
+		
+		
+	}
+	
+	public void loadImage() {
 		try {
-			Image image = new Image(new URI(url).toString());
-			newsImage.setImage(image);
+			image = new Image(new URI(imageURL).toString());
 		} catch (URISyntaxException e) {
 			e.printStackTrace();
 		}
-		
-		
+		newsImage.setImage(image);
 	}
 	
 	public void openArticle(MouseEvent event) {

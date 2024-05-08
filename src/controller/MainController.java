@@ -7,6 +7,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Stack;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.Semaphore;
 
 import org.apache.lucene.queryparser.classic.ParseException;
 
@@ -28,9 +35,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.Pagination;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
@@ -45,6 +54,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import javafx.util.Duration;
 import model.Article;
 import model.DisplayList;
@@ -122,8 +132,8 @@ public class MainController{
 	@FXML
 	private AnchorPane titleBarAnchor;
 	
-	@FXML
-	private VBox contentVBox;
+	
+	private VBox contentVBox = new VBox();
 	
 	@FXML
 	private ScrollPane scrollPane;
@@ -141,8 +151,23 @@ public class MainController{
 	@FXML
 	private Pagination pagination;
 	
+	private int newsPerPage = 13;
+	
 	//Popup
 	private Popup advanceSearchPopup = new Popup();
+	
+	
+	public void setupPagination() {
+		
+		pagination.setPageFactory(new Callback<Integer, Node>() {
+			
+			@Override
+			public Node call(Integer index) {
+				reload(index);
+				return contentVBox;
+			}
+		});
+	}
 	
 	public void setupController(Stage stage) {
 		primaryStage = stage;
@@ -169,6 +194,7 @@ public class MainController{
 		rotateLoadTransition.setByAngle(-360); // Rotate 360 degrees
         rotateLoadTransition.setCycleCount(Animation.INDEFINITE);
         rotateLoadTransition.setInterpolator(Interpolator.LINEAR);
+        
 		titleBarAnchor.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -367,159 +393,172 @@ public class MainController{
 	}
 	
 	public void reloadPress(ActionEvent event) {
-		reload();
+		reload(pagination.getCurrentPageIndex());
 	}
 	
 	public void reloadView() {
 		contentVBox.getChildren().setAll(tabContents.get(undoStack.peek()));
 		if(contentVBox.getChildren().isEmpty()) {
-			reload();
+			reload(pagination.getCurrentPageIndex());
 			return;
 		}
 	}
 	
 	public class LoadViewTask extends Task<Void>{
+		private int startIndex, endIndex;
+		 private final Semaphore semaphore = new Semaphore(1);
+		
+		public LoadViewTask(int start, int end) {
+			startIndex = start;
+			endIndex = end;
+			this.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
+	            @Override
+	            public void handle(WorkerStateEvent event) {
+	            	Platform.runLater(()->{
+	            		stopLoadAnimation();
+	            		
+	            	});
+            		contentVBox.getChildren().setAll(tabContents.get(undoStack.peek()));
+	            }
+	        });
+		}
 		@Override
 		protected Void call() throws Exception{
-			switch(currentTabState) {
-    		case ARTICLE:{
-    			int count = 0;
-    			List<Parent> newscardPanes = new ArrayList<>();
-    			for(Article article : DisplayList.getArticleList()) {
-    				FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/NewsCard.fxml"));
-        			Parent newsCardPane;
-    				try {
-    					newsCardPane = loader.load();
-    					NewsCardController controller = loader.getController();
-    	    			controller.setImage("");
-    	    			controller.setArticle(article);
-    	    			newscardPanes.add(newsCardPane);
-    	    			count++;
-    	        		if(count == 10) break;
-    				} catch (IOException e) {
-    					e.printStackTrace();
-    				}
-            		
-    			}
-    			tabContents.replace(TabType.ARTICLE, newscardPanes);
-    			break;
-    		}
-    			
-    		case CRAWLERMANAGER:{
-    			try {
-    	            // Load the FXML file for the new window
-    	            FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/CrawlerManager.fxml"));
-    	            Parent root = loader.load();
-    	            CrawlerManagerController controller = loader.getController();
-    	            controller.setWidth(scrollPane);
-    	            List<Parent> roots = new ArrayList<>();
-    	            roots.add(root);
-    	            tabContents.replace(TabType.CRAWLERMANAGER, roots);
-    	        } catch (Exception e) {
-    	            e.printStackTrace();
-    	        }
-    			break;
-    		}
-    		case FACEBOOK:
-    			int count = 0;
-    			List<Parent> posts = new ArrayList<>();
-    			for(Facebook post : DisplayList.getPostList()) {
-    				FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/FacebookPost.fxml"));
-        			Parent postVBox;
-    				try {
-    					postVBox = loader.load();
-    					PostController controller = loader.getController();
-    	    			controller.setData(post);
-    	    			posts.add(postVBox);
-    	    			System.out.println(count);
-    	    			count++;
-
-    	        		if(count == 10) break;
-    				} catch (IOException e) {
-    					e.printStackTrace();
-    				}
-    			}
-    			tabContents.replace(TabType.FACEBOOK, posts);
-    			break;
-    		case SETTING:
-    			break;
-    		case TWITTER:
-    			break;
-    		default:
-    			break;
-    		}
+			try {
+				 semaphore.acquire();
+				 switch(currentTabState) {
+		    		case ARTICLE:{
+		    			List<Parent> newscardPanes = new ArrayList<>();
+		    			for(int i = startIndex; i < endIndex; i++) {
+		    				FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/NewsCard.fxml"));
+		        			Parent newsCardPane;
+		    				try {
+		    					newsCardPane = loader.load();
+		    					NewsCardController controller = loader.getController();
+		    	    			controller.setImage("");
+		    	    			controller.setArticle(DisplayList.getArticleList().get(i));
+		    	    			newscardPanes.add(newsCardPane);
+		    				} catch (IOException e) {
+		    					e.printStackTrace();
+		    				}
+		            		
+		    			}
+		    			tabContents.replace(TabType.ARTICLE, newscardPanes);
+		    			break;
+		    		}
+		    			
+		    		case CRAWLERMANAGER:{
+		    			try {
+		    	            // Load the FXML file for the new window
+		    	            FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/CrawlerManager.fxml"));
+		    	            Parent root = loader.load();
+		    	            CrawlerManagerController controller = loader.getController();
+		    	            controller.setWidth(scrollPane);
+		    	            List<Parent> roots = new ArrayList<>();
+		    	            roots.add(root);
+		    	            tabContents.replace(TabType.CRAWLERMANAGER, roots);
+		    	        } catch (Exception e) {
+		    	            e.printStackTrace();
+		    	        }
+		    			break;
+		    		}
+		    		case FACEBOOK:
+		    			int count = 0;
+		    			List<Parent> posts = new ArrayList<>();
+		    			for(int i = startIndex; i < endIndex; i++) {
+		    				FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/FacebookPost.fxml"));
+		        			Parent postVBox;
+		    				try {
+		    					postVBox = loader.load();
+		    					PostController controller = loader.getController();
+		    	    			controller.setData(DisplayList.getPostList().get(i));
+		    	    			posts.add(postVBox);
+		    	    			
+		    				} catch (IOException e) {
+		    					e.printStackTrace();
+		    				}
+		    			}
+		    			tabContents.replace(TabType.FACEBOOK, posts);
+		    			break;
+		    		case SETTING:
+		    			break;
+		    		case TWITTER:
+		    			break;
+		    		default:
+		    			break;
+		    		}
+					return null;
+			}catch (InterruptedException e) {
+	            e.printStackTrace();
+	        } finally {
+	            semaphore.release(); // Release the permit
+	            
+	        }
 			return null;
+			
 		}
 	}
 	
-
-	
 	
 	public class LoadListTask extends Task<Void> {
+		private final Semaphore semaphore = new Semaphore(1);
+		public LoadListTask(LoadViewTask loadViewTask) {
+	        this.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
+				@Override
+				public void handle(WorkerStateEvent arg0) {
+					Thread loadViewThread = new Thread(loadViewTask);
+					loadViewThread.start();
+				}
+			});
+		}
         @Override
         protected Void call() throws Exception {
-        	
-        	
-        	switch(currentTabState) {
-    		case ARTICLE:{
-    			DisplayList.toggleDynamicUpdate(false);
-    	    	CNBCCrawler cnbcCrawler = new CNBCCrawler();
-    	    	Blockchain101Crawler blockchain101Crawler = new Blockchain101Crawler();
-    	    	DisplayList.getArticleList().setAll(cnbcCrawler.getListFromJson());
-    	    	DisplayList.getArticleList().addAll(blockchain101Crawler.getListFromJson());
-    	    	DisplayList.toggleDynamicUpdate(true);
-    			break;
-    		}
-    			
-    		case CRAWLERMANAGER:{
-    			break;
-    		}
-    		case FACEBOOK:
-    			DisplayList.toggleDynamicUpdate(false);
-    			FacebookCrawler facebookCrawler = new FacebookCrawler();
-    	    	DisplayList.getPostList().setAll(facebookCrawler.getListFromJson());
-    	    	DisplayList.toggleDynamicUpdate(true);
-    			break;
-    		case SETTING:
-    			break;
-    		case TWITTER:
-    			break;
-    		default:
-    			break;
-    		}
+        	try {
+        		semaphore.acquire();
+        		switch(currentTabState) {
+        		case ARTICLE:{
+        			DisplayList.toggleDynamicUpdate(false);
+        	    	CNBCCrawler cnbcCrawler = new CNBCCrawler();
+        	    	Blockchain101Crawler blockchain101Crawler = new Blockchain101Crawler();
+        	    	DisplayList.getArticleList().setAll(cnbcCrawler.getListFromJson());
+        	    	DisplayList.getArticleList().addAll(blockchain101Crawler.getListFromJson());
+        	    	DisplayList.toggleDynamicUpdate(true);
+        			break;
+        		}
+        			
+        		case CRAWLERMANAGER:{
+        			break;
+        		}
+        		case FACEBOOK:
+        			DisplayList.toggleDynamicUpdate(false);
+        			FacebookCrawler facebookCrawler = new FacebookCrawler();
+        	    	DisplayList.getPostList().setAll(facebookCrawler.getListFromJson());
+        	    	DisplayList.toggleDynamicUpdate(true);
+        			break;
+        		case SETTING:
+        			break;
+        		case TWITTER:
+        			break;
+        		default:
+        			break;
+        		}
+	        }catch (InterruptedException e) {
+	            e.printStackTrace();
+	        } finally {
+	            semaphore.release(); // Release the permit
+	            
+	        }
 			return null;
-    		
         }
     };
 	
 	
-	public void reload() {
+	public void reload(int index) {
 		playLoadAnimation();
 		contentVBox.getChildren().clear();
 		
-        LoadViewTask loadViewTask = new LoadViewTask();
-        LoadListTask loadListTask = new LoadListTask();
-        loadViewTask.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
-            @Override
-            public void handle(WorkerStateEvent event) {
-            	Platform.runLater(()->{
-            		stopLoadAnimation();
-            		contentVBox.getChildren().setAll(tabContents.get(undoStack.peek()));
-            	});
-            	
-            }
-        });
-        
-        loadListTask.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
-			
-			@Override
-			public void handle(WorkerStateEvent arg0) {
-				Thread loadViewThread = new Thread(loadViewTask);
-				loadViewThread.start();
-				
-			}
-		});
-        
+        LoadViewTask loadViewTask = new LoadViewTask(index * newsPerPage, index * newsPerPage + newsPerPage);
+        LoadListTask loadListTask = new LoadListTask(loadViewTask);
 
         Thread thread = new Thread(loadListTask);
         thread.start();

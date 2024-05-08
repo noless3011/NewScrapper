@@ -30,7 +30,8 @@ public class Windows extends Application{
             MainControllerSingleton.setController(loader.getController());
             MainControllerSingleton.getMainController().setupController(primaryStage);
             System.out.println("start main");
-            MainControllerSingleton.getMainController().reload();
+            //MainControllerSingleton.getMainController().reload();
+            MainControllerSingleton.getMainController().setupPagination();
             // Set the Scene to the Stage
             primaryStage.setScene(scene);
             primaryStage.setTitle("JavaFX Application");
