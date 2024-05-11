@@ -3,9 +3,7 @@ package controller;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.apache.lucene.queryparser.classic.ParseException;
@@ -17,8 +15,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import javafx.util.Pair;
-import model.Article;
 import model.DisplayList;
 import searchengine.AdvanceSearch;
 import searchengine.AdvanceSearch.SortOptionArticle;

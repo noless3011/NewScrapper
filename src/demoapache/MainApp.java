@@ -4,11 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
-import crawler.CNBCCrawler;
 import crawler.FacebookCrawler;
-import crawler.TwitterCrawler;
-import model.Tweet;
-import model.Article;
 import model.Facebook;
 
 public class MainApp {

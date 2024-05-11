@@ -12,7 +12,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -23,7 +22,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
-import com.google.gson.JsonSerializer;
 //TODO: This crawler is absolute unusable, fixing later
 public class CoindeskCrawler{
     private static final String Base_URL = "https://www.coindesk.com/search?s=blockchain";

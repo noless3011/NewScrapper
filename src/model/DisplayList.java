@@ -1,10 +1,8 @@
 package model;
 
-import controller.MainControllerSingleton;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
-import javafx.collections.ObservableListBase;
 //A singleton class of article list to represent all articles that is displaying on the screen
 public class DisplayList {
 	private static boolean dynamicUpdateToggle = true;

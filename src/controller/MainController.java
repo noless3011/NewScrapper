@@ -5,14 +5,7 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Stack;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 import java.util.concurrent.Semaphore;
 
 import org.apache.lucene.queryparser.classic.ParseException;
@@ -22,7 +15,6 @@ import controller.SearchPopupController.SearchOption;
 import crawler.Blockchain101Crawler;
 import crawler.CNBCCrawler;
 import crawler.FacebookCrawler;
-import crawler.TwitterCrawler;
 import javafx.animation.Animation;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
@@ -33,19 +25,11 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Bounds;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.Pagination;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -59,7 +43,6 @@ import javafx.util.Duration;
 import model.Article;
 import model.DisplayList;
 import model.Facebook;
-import model.Tweet;
 import searchengine.DefaultSearch;
 
 public class MainController{
@@ -156,13 +139,14 @@ public class MainController{
 	//Popup
 	private Popup advanceSearchPopup = new Popup();
 	
-	
+	// Hàm này để setup phần chia trang
 	public void setupPagination() {
 		
 		pagination.setPageFactory(new Callback<Integer, Node>() {
 			
 			@Override
 			public Node call(Integer index) {
+				//set element bên trong pagiantion bằng vbox chứa content
 				reload(index);
 				return contentVBox;
 			}
@@ -173,6 +157,8 @@ public class MainController{
 		primaryStage = stage;
 		List<Parent> empty = new ArrayList<>();
 		undoStack.push(currentTabState);
+		
+		//setup bảng để ánh xạ từ element tới loại content
 		tabContents.put(TabType.ARTICLE, empty);
 		tabContents.put(TabType.FACEBOOK, empty);
 		tabContents.put(TabType.TWITTER, empty);
@@ -180,21 +166,24 @@ public class MainController{
 		tabContents.put(TabType.SETTING, empty);
 		tabContents.put(TabType.SEARCHRESULT, empty);
 		tabContents.put(TabType.ARTICLEVIEW, empty);
+		//cố định Anchor pane chứa phần nội dung với cửa sổ
 		contentAnchor.prefWidthProperty().bind(scrollPane.widthProperty().subtract(15));
 		
-		
+		//Setup bảng ánh xạ từ loại nút tới nút
 		buttonTypeHashMap.put(TabType.ARTICLE, articleButton);
 		buttonTypeHashMap.put(TabType.TWITTER, twitterButton);
 		buttonTypeHashMap.put(TabType.FACEBOOK, facebookButton);
 		buttonTypeHashMap.put(TabType.CRAWLERMANAGER, crawlerManagerButton);
 		buttonTypeHashMap.put(TabType.SETTING, settingButton);
 		
-		
+		//setup animation loading
 		rotateLoadTransition = new RotateTransition(Duration.seconds(0.5), reloadImageView);
 		rotateLoadTransition.setByAngle(-360); // Rotate 360 degrees
         rotateLoadTransition.setCycleCount(Animation.INDEFINITE);
         rotateLoadTransition.setInterpolator(Interpolator.LINEAR);
         
+        
+        //Do ứng dụng dùng cửa sổ undecorated và custom title bar nên ta phải tự làm hệ thống di chuyển cửa sổ 
 		titleBarAnchor.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -209,7 +198,7 @@ public class MainController{
                 primaryStage.setY(event.getScreenY() + yOffset);
             }
         });
-		
+		//setup event bấm enter của search field
 		searchTextField.setOnKeyPressed( event -> {
 			  if( event.getCode() == KeyCode.ENTER ) {
 			    try {
@@ -223,11 +212,12 @@ public class MainController{
 	}
 	
 	public void advanceSearchPress(ActionEvent event) {
+		// Load file fxml
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/SearchPopup.fxml"));
 		
 		try {
 			
-			
+			// Ẩn popup advancde search nếu nó đang hiện
 			if(advanceSearchPopup.isShowing()) {
 				advanceSearchPopup.hide();
 				advanceSearchPopup.getContent().clear();
@@ -237,6 +227,8 @@ public class MainController{
 			AnchorPane root = loader.load();
 			SearchPopupController advanceSearchController = loader.getController();
 			List<Field> fields = new ArrayList<>();
+			
+			//Kiểm tra xem đang ở tab nào và hiện phần tìm kiếm tương ứng
 			if(currentTabState == TabType.ARTICLE) {
 				fields.add(Field.TITLE);
 				fields.add(Field.AUTHOR);
@@ -254,6 +246,7 @@ public class MainController{
 				}
 				
 			}
+			// Add các field tìm kiếm vào popup
 			for(Field field : fields) {
 				advanceSearchController.addSearchField(field);
 			}
@@ -262,7 +255,7 @@ public class MainController{
 			advanceSearchPopup.getContent().add(root);
 			
 			advanceSearchPopup.setAutoHide(true);
-			
+			//setup kích thước của popup tìm kiếm
 			advanceSearchPopup.setX(primaryStage.getX() + primaryStage.getWidth()/2 - 100);
 			advanceSearchPopup.setY(primaryStage.getY() + 70);
 			advanceSearchPopup.show(advanceSearchButton.getScene().getWindow());
@@ -275,6 +268,7 @@ public class MainController{
 		}
 	}
 	
+	//Hàm này để chuyển từ list kết quả tìm kiếm sang javafx elements
 	public List<Parent> searchResultToParents(List<Object> searchResult) {
 		int progressCount = 0;
 		List<Parent> elements = new ArrayList<>();
@@ -287,7 +281,6 @@ public class MainController{
 					PostController controller = loader.getController();
 					controller.setData((Facebook)result);
 					elements.add(postVBox);
-					System.out.print("added a facebook");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}

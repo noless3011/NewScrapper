@@ -1,9 +1,7 @@
 package controller;
 
 
-import controller.SearchPopupController.Field;
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
