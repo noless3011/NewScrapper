@@ -54,14 +54,18 @@ public class MainController{
 	public enum TabType{
 		ARTICLE, FACEBOOK, TWITTER, SETTING, CRAWLERMANAGER, SEARCHRESULT, ARTICLEVIEW
 	}
-	
+	// Hash Map này dùng để chứa các nội dung được hiển thị trong phần nội dung để tiết kiệm bộ nhớ
 	private HashMap<TabType, List<Parent>> tabContents = new HashMap<>();
+	// Map dùng để xác định loại tab của nút bấm chuyển tab
 	private HashMap<TabType, Button> buttonTypeHashMap = new HashMap<>();
+	// Stack dùng để implement nút back, forward
 	private Stack<TabType> undoStack = new Stack<TabType>();
 	private Stack<TabType> redoStack = new Stack<TabType>();
-	
+	// Tab đang được hiển thị hiện tai
 	private TabType currentTabState = TabType.ARTICLE;
 	
+	
+	//Vị trí của cửa sổ trên màn hình
 	private double xOffset;
 	private double yOffset;
 	
@@ -308,7 +312,9 @@ public class MainController{
 	}
 	
 	public void showSearchResult(List<Parent> searchResult) {
+		
 		undoStack.push(TabType.SEARCHRESULT);
+		
 		tabContents.replace(TabType.SEARCHRESULT, searchResult);
 		reloadView();
 	}
@@ -369,21 +375,20 @@ public class MainController{
 		tabContents.replace(TabType.ARTICLEVIEW, articleRootList);
 		System.out.println(undoStack);
 	}
-	
+	// Hàm này chạy để kiểm tra xem có bấm lại vào tab cũ không (VD: đang ở tab Article mà lại bấm vào Article tiếp)
 	private void checkToggle(TabType currentTabType) {
+		//Kiểm tra
 		if(currentTabState == currentTabType) return;
+		// Nếu không bấm lại tab cũ thì sẽ chuyển qua tab được truyền vào bên trên
 		redoStack.clear();
 		EnumSet<TabType> clickable = EnumSet.of(TabType.ARTICLE, TabType.TWITTER, TabType.FACEBOOK, TabType.CRAWLERMANAGER, TabType.SETTING);
-		EnumSet<TabType> nonClickable = EnumSet.of(TabType.ARTICLEVIEW, TabType.SEARCHRESULT);
+		// Do kiểu tab còn 2 kiểu không thể vào qua các nút chuyển tab là Article View và Search Result nên ta phải kiểm tra xem 
 		if(clickable.contains(currentTabType) && clickable.contains(currentTabState)) {
 			buttonTypeHashMap.get(currentTabState).getStyleClass().set(0, "side-bar-button");
 			buttonTypeHashMap.get(currentTabType).getStyleClass().set(0, "side-bar-button-selected");
-			currentTabState = currentTabType;
-			undoStack.push(currentTabType);
-		}else {
-			currentTabState = currentTabType;
-			undoStack.push(currentTabType);
 		}
+		currentTabState = currentTabType;
+		undoStack.push(currentTabType);
 		
 		reloadView();
 	}
@@ -516,6 +521,7 @@ public class MainController{
 	
 	
 	public class LoadListTask extends Task<Void> {
+		// Semaphore dùng để đảm bảo chỉ có 1 task load chạy tại 1 thời điểm
 		private final Semaphore semaphore = new Semaphore(1);
 		public LoadListTask(LoadViewTask loadViewTask) {
 	        this.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
