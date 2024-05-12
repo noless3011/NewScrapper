@@ -10,11 +10,13 @@ import java.util.concurrent.Semaphore;
 
 import org.apache.lucene.queryparser.classic.ParseException;
 
+import controller.MainController.TabType;
 import controller.SearchPopupController.Field;
 import controller.SearchPopupController.SearchOption;
 import crawler.Blockchain101Crawler;
 import crawler.CNBCCrawler;
 import crawler.FacebookCrawler;
+import crawler.TwitterCrawler;
 import javafx.animation.Animation;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
@@ -43,6 +45,7 @@ import javafx.util.Duration;
 import model.Article;
 import model.DisplayList;
 import model.Facebook;
+import model.Tweet;
 import searchengine.DefaultSearch;
 
 public class MainController{
@@ -476,6 +479,25 @@ public class MainController{
 		    		case SETTING:
 		    			break;
 		    		case TWITTER:
+		    			int counttwitter = 0;
+		    			List<Parent> twitter_posts = new ArrayList<>();
+		    			for(int i = startIndex; i < endIndex; i++) {
+		    				FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/TwitterPost.fxml"));
+		        			Parent postVBox;
+		    				try {
+		    					postVBox = loader.load();
+		    					PostController controller = loader.getController();
+		    	    			controller.setData(DisplayList.getTweetList().get(i));
+		    	    			twitter_posts.add(postVBox);
+		    	    			System.out.println(counttwitter);
+		    	    			counttwitter++;
+
+		    	        		if(counttwitter == 10) break;
+		    				} catch (IOException e) {
+		    					e.printStackTrace();
+		    				}
+		    			}
+		    			tabContents.replace(TabType.TWITTER, twitter_posts);
 		    			break;
 		    		default:
 		    			break;
@@ -531,6 +553,10 @@ public class MainController{
         		case SETTING:
         			break;
         		case TWITTER:
+        			DisplayList.toggleDynamicUpdate(false);
+        			TwitterCrawler twitterCrawler = new TwitterCrawler();
+        	    	DisplayList.getTweetList().setAll(twitterCrawler.getListFromJson());
+        	    	DisplayList.toggleDynamicUpdate(true);
         			break;
         		default:
         			break;

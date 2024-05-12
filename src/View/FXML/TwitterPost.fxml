@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="450.0" styleClass="facebook_post" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PostController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="450.0" styleClass="twitter_post" stylesheets="@../CSS/TwitterPost.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PostController">
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="600.0">
          <children>
@@ -77,12 +77,12 @@
                   <HBox alignment="CENTER_LEFT" prefHeight="13.0" prefWidth="450.0">
                      <children>
                         <Pane prefHeight="50.0" prefWidth="10.0" />
-                        <Label fx:id="reactionLabel" prefHeight="19.0" prefWidth="131.0" text="1:00 PM · May 1, 2024" textFill="WHITE" wrapText="true">
+                        <Label fx:id="timeLabel" prefHeight="19.0" prefWidth="131.0" text="1:00 PM · May 1, 2024" textFill="WHITE" wrapText="true">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="reactionLabel1" prefHeight="24.0" prefWidth="156.0" text=" · 20K Views" textFill="WHITE">
+                        <Label fx:id="viewLabel" prefHeight="24.0" prefWidth="156.0" text=" · 20K Views" textFill="WHITE">
                            <font>
                               <Font size="13.0" />
                            </font>
@@ -93,7 +93,7 @@
             </HBox>
          </children>
       </StackPane>
-      <Separator maxWidth="508.0" opacity="0.65" prefHeight="5.0" prefWidth="508.0">
+      <Separator maxWidth="508.0" opacity="0.15" prefHeight="5.0" prefWidth="508.0">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -106,7 +106,7 @@
                   <Image url="@../image/Twitter%20reply-96.png" />
                </image>
             </ImageView>
-            <Label prefHeight="16.0" prefWidth="135.0" text="7" textFill="WHITE">
+            <Label fx:id="cmtLabel" prefHeight="16.0" prefWidth="135.0" text="7" textFill="WHITE">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>
@@ -119,7 +119,7 @@
                   <Image url="@../image/twiter%20repost.png" />
                </image>
             </ImageView>
-            <Label prefHeight="16.0" prefWidth="130.0" text="6" textFill="WHITE">
+            <Label fx:id="shareLabel" prefHeight="16.0" prefWidth="130.0" text="6" textFill="WHITE">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>
@@ -129,14 +129,14 @@
                   <Image url="@../image/twitter%20like.png" />
                </image>
             </ImageView>
-            <Label prefHeight="16.0" prefWidth="84.0" text="32" textFill="WHITE" wrapText="true">
+            <Label fx:id="reactionLabel" prefHeight="16.0" prefWidth="84.0" text="32" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>
             </Label>
          </children>
       </HBox>
-      <Separator maxWidth="508.0" opacity="0.65" prefHeight="5.0" prefWidth="508.0">
+      <Separator maxWidth="508.0" opacity="0.65" prefHeight="9.0" prefWidth="450.0">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
