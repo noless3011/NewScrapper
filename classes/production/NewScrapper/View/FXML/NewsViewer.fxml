@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane stylesheets="@../CSS/NewsViewer.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NewsViewerController">
+   <children>
+      <VBox prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <AnchorPane>
+               <children>
+                  <Label fx:id="titleLabel" prefHeight="159.0" prefWidth="681.0" styleClass="title-label" text="Label lorem lorem lorem lorem lorem lorem lorem lorem loreml oem lorem lorme" wrapText="true" AnchorPane.leftAnchor="10.0">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane>
+               <children>
+                  <HBox prefHeight="30.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0">
+                     <children>
+                        <Label fx:id="authorLabel" styleClass="author-label" text="Author" />
+                        <Label fx:id="dateLabel" styleClass="date-label" text="dd/mm/yyyy">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane>
+               <children>
+                  <VBox fx:id="paragraphsVBox" prefWidth="685.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

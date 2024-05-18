@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#openArticle" styleClass="root" stylesheets="@../CSS/NewsCard.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NewsCardController">
+   <children>
+      <Pane fx:id="newsPane" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="650.0" styleClass="news-pane" stylesheets="@../CSS/NewsCard.css">
+         <children>
+            <ImageView fx:id="newsImage" fitHeight="200.0" fitWidth="650.0" pickOnBounds="true" styleClass="image">
+               <image>
+                  <Image url="@../CSS/20221127_085314.jpg" />
+               </image>
+            </ImageView>
+            <Pane prefHeight="200.0" prefWidth="650.0" styleClass="gradient-pane" stylesheets="@../CSS/NewsCard.css" />
+            <Pane prefHeight="200.0" prefWidth="650.0" styleClass="gradient-pane" stylesheets="@../CSS/NewsCard.css" />
+            <Label fx:id="titleText" alignment="TOP_LEFT" layoutX="14.0" layoutY="35.0" prefHeight="105.0" prefWidth="618.0" text="Label" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Label fx:id="infoText" alignment="TOP_LEFT" layoutX="15.0" layoutY="145.0" prefHeight="48.0" prefWidth="618.0" text="Label" textFill="WHITE" wrapText="true" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

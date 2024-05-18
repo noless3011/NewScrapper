@@ -1,0 +1,151 @@
+
+.root{
+    -fx-background-color: transparent;
+    -fx-alignment:center;
+    -fx-padding: 0 0 10 0;
+}
+
+.article-number{
+	-fx-background-color: #3C3C3C;
+    -fx-text-fill: white;
+    -fx-border-radius: 15px;
+    -fx-background-radius: 15px;
+    -fx-padding: 10px 20px;
+    -fx-prompt-text-fill: gray;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0.0 , 0 ,1);
+}
+
+
+.label{
+	-fx-text-fill: #CCCCCC;
+}
+.pane{
+	-fx-background-color: #1A1A1A;
+    -fx-border-radius: 15px;
+    -fx-background-radius: 15px;
+}
+
+.run-button{
+	-fx-background-color: #3C3C3C;
+    -fx-text-fill: white;
+    -fx-border-radius: 9px;
+    -fx-background-radius: 9px;
+    -fx-prompt-text-fill: gray;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0.0 , 0 ,1);
+}
+.run-button:hover {
+    -fx-background-color: #292929; /* Example: Change background color on hover */
+}
+
+
+.thin-progress-bar {
+    -fx-accent: purple;
+    -fx-pref-height: 10px;
+    -fx-background-color: transparent;
+    -fx-border-width: 0px;
+}
+
+.thin-progress-bar .track {
+    -fx-background-color: transparent;
+}
+
+.split-menu-button {
+    -fx-background-color: #3c3c3c;
+    -fx-background-insets: 0;
+    -fx-border-radius: 15px;
+    -fx-background-radius: 15px;
+    -fx-padding: 5px 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0.0 , 0 ,1);
+}
+
+.split-menu-button > .label {
+    -fx-border-color: transparent;
+    -fx-border-width: 2px;
+
+    -fx-text-fill: white;
+
+    -fx-background-color: #3c3c3c;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+.split-menu-button > .arrow-button {
+    -fx-border-color: transparent;
+    -fx-border-width: 2px;
+
+    -fx-background-color: #3c3c3c;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+/* - hover */
+.split-menu-button > .label:hover {
+    -fx-border-color: #555555;
+}
+
+.split-menu-button > .arrow-button:hover {
+    -fx-border-color: #555555;
+}
+
+/* - pressed */
+.split-menu-button > .label:pressed {
+    -fx-border-color: #888888;
+    -fx-background-color: #888888;
+}
+
+.split-menu-button > .arrow-button:pressed {
+    -fx-border-color: #888888;
+    -fx-background-color: #888888;
+}
+
+.menu-item {
+    -fx-text-fill: white;
+    -fx-background-color: #2a2a2a;
+    -fx-padding: 0.583333em 1em 0.583333em 1em;   /*7 12 7 12 */
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0.0 , 0 ,1);
+}
+
+.menu-item > .right-container,
+.menu-item > .left-container {
+    -fx-background-color: #2a2a2a;
+}
+
+.menu-item .label {
+    -fx-padding: 0em 0.3em 0em 0em; /* 0 16 0 0 */
+    -fx-text-fill: white;
+    -fx-font-size: 1em; /* 12 */
+    -fx-background-color: transparent;
+}
+
+.menu-item > .graphic-container {
+	-fx-background-color: transparent;
+    -fx-padding: 0em 0.75em 0em 0em; /* 0 9 0 0 */
+}
+
+/* hover */
+.menu-item:hover,
+.menu-item:focused,
+.menu-item:hover > .right-container,
+.menu-item:hover > .left-container,
+.menu-item:focused > .right-container,
+.menu-item:focused > .left-container {
+    -fx-background-color: #5c5c5c;
+}
+
+/* pressed */
+.menu-item:pressed,
+.menu-item:pressed > .right-container,
+.menu-item:pressed > .left-container {
+    -fx-background-color: #777777;
+}
+
+/* disabled */
+.menu-item:disabled:hover,
+.menu-item:disabled:focused,
+.menu-item:disabled:pressed {
+    -fx-background-color: transparent;
+}
+
+

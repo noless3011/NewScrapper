@@ -1,0 +1,106 @@
+.news-card{
+	-fx-padding: 10; 
+	-fx-background-color: #333333;
+    -fx-background-radius: 5px;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+
+.news-card:hover{
+	-fx-background-color: #353535;
+}
+
+.root{
+    -fx-background-color: #242424;
+    -fx-alignment:center;
+}
+
+.search-bar-and-news-list{
+	-fx-alignment:baseline-center;
+	-fx-border-width: 3px;
+	-fx-background-color: #242424;
+}
+
+.label-color {
+	-fx-alignment:baseline-center;
+    -fx-text-fill: #ffffff; /* Red text */
+}
+
+.search-bar{
+	-fx-background-color: #2C2C2C;
+    -fx-text-fill: white;
+    -fx-border-radius: 15px;
+    -fx-background-radius: 15px;
+    -fx-padding: 10px 20px;
+    -fx-prompt-text-fill: gray;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0.0 , 0 ,1);
+}
+
+.scroll-pane {
+    -fx-background-color: #2C2C2C;
+    -fx-background-radius: 10px; /* Adjust the radius as needed */
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .scroll-bar:vertical,
+.scroll-pane .scroll-bar:horizontal {
+    -fx-background-radius: 5px; /* Adjust the radius as needed */
+    -fx-background-color: #2C2C2C;
+}
+
+.scroll-pane .scroll-bar .thumb {
+    -fx-background-color: derive(#2C2C2C, 20%);
+    -fx-background-radius: 4px; /* Adjust the radius as needed */
+}
+
+.advance-search-button{
+	-fx-background-color: #2C2C2C;
+    -fx-text-fill: white;
+    -fx-border-radius: 9px;
+    -fx-background-radius: 9px;
+    -fx-prompt-text-fill: gray;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0.0 , 0 ,1);
+     -fx-cursor: HAND;
+}
+
+
+.tab-pane{
+    -fx-background-color: transparent;
+    -fx-border-width: 1;
+    -fx-border-color: transparent;
+    -fx-background-insets: 25.5 0 0 0;
+}
+.tab{
+    -fx-background-radius: 10;
+    -fx-padding: 50;
+    -fx-border-width: 0;
+    -fx-border-radius: 10;
+    -fx-background-color: #3E3E40;
+    -fx-text-fill: #AFB1B3;
+    -fx-min-height: 20;
+    -fx-pref-height: 20;
+}
+.tab:selected{
+    -fx-background-color: #4e4e4e;
+}
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    -fx-border-color: transparent;
+}
+.tab .tab-close-button {
+    -fx-shape: "M19,6.41L17.59,5 12,10.59 6.41,5 5,6.41 10.59,12 5,17.59 6.41,19 12,13.41 17.59,19 19,17.59 13.41,12z";
+    -fx-background-color: #AFB1B3;
+    -fx-background-insets: 2;
+    -fx-cursor: HAND;
+}
+.tab .tab-label {
+    -fx-text-fill: #AFB1B3;
+}
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-opacity: 0.0;
+}
+
+
+

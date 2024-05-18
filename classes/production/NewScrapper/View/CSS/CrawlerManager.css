@@ -1,0 +1,49 @@
+.scroll-pane {
+    -fx-background-color: #2C2C2C;
+    -fx-background-radius: 10px; /* Adjust the radius as needed */
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .scroll-bar:vertical,
+.scroll-pane .scroll-bar:horizontal {
+    -fx-background-radius: 5px; /* Adjust the radius as needed */
+    -fx-background-color: #2C2C2C;
+}
+
+.scroll-pane .scroll-bar .thumb {
+    -fx-background-color: derive(#2C2C2C, 20%);
+    -fx-background-radius: 4px; /* Adjust the radius as needed */
+}
+.root{
+    -fx-background-color: transparent;
+    -fx-alignment:center;
+}
+
+.add-button {
+	-fx-background-color: #1C1C1C;
+    -fx-text-fill: white;
+    -fx-background-radius: 50em; /* Use a large enough value to make the button circular */
+    -fx-min-width: 50px; /* Set the minimum width to maintain circular shape */
+    -fx-min-height: 50px; /* Set the minimum height to maintain circular shape */
+    -fx-max-width: 50px; /* Set the maximum width to maintain circular shape */
+    -fx-max-height: 50px; /* Set the maximum height to maintain circular shape */
+}
+
+.add-button:hover {
+    -fx-background-color: #555555; /* Example: Change background color on hover */
+}
+
+.run-button{
+	-fx-background-color: #2C2C2C;
+    -fx-text-fill: white;
+    -fx-border-radius: 9px;
+    -fx-background-radius: 9px;
+    -fx-prompt-text-fill: gray;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0.0 , 0 ,1);
+}
+.run-button:hover {
+    -fx-background-color: #555555; /* Example: Change background color on hover */
+}
