@@ -8,7 +8,7 @@
 <AnchorPane styleClass="root" stylesheets="@../CSS/SearchCard.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SearchCardController">
    <children>
       <Label fx:id="name" styleClass="label" text="Author" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="5.0" />
-      <TextField fx:id="searchField" styleClass="searchField" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0" />
+      <TextField fx:id="searchField" styleClass="searchField" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0" />
    </children>
    <padding>
       <Insets bottom="4.0" top="4.0" />

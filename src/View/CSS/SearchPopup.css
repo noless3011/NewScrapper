@@ -14,6 +14,9 @@
 
 .root{
 	-fx-background-color: #1F1F1F;
+	
+    -fx-border-radius: 12px;
+    -fx-background-radius:12px;
 }
 
 .date-picker{

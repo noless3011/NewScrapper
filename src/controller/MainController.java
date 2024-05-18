@@ -233,6 +233,7 @@ public class MainController{
 			
 			AnchorPane root = loader.load();
 			SearchPopupController advanceSearchController = loader.getController();
+			advanceSearchPopup = new Popup();
 			List<Field> fields = new ArrayList<>();
 			
 			//Kiểm tra xem đang ở tab nào và hiện phần tìm kiếm tương ứng
@@ -383,6 +384,7 @@ public class MainController{
 		redoStack.clear();
 		EnumSet<TabType> clickable = EnumSet.of(TabType.ARTICLE, TabType.TWITTER, TabType.FACEBOOK, TabType.CRAWLERMANAGER, TabType.SETTING);
 		// Do kiểu tab còn 2 kiểu không thể vào qua các nút chuyển tab là Article View và Search Result nên ta phải kiểm tra xem 
+		// Nếu là kiểu tab có nút để chuyển thì highlight nút đó lên
 		if(clickable.contains(currentTabType) && clickable.contains(currentTabState)) {
 			buttonTypeHashMap.get(currentTabState).getStyleClass().set(0, "side-bar-button");
 			buttonTypeHashMap.get(currentTabType).getStyleClass().set(0, "side-bar-button-selected");
@@ -396,7 +398,7 @@ public class MainController{
 	public void reloadPress(ActionEvent event) {
 		reload(pagination.getCurrentPageIndex());
 	}
-	
+	// Đây là hàm đùng để reload view và hiển thị search result
 	public void reloadView() {
 		contentVBox.getChildren().setAll(tabContents.get(undoStack.peek()));
 		if(contentVBox.getChildren().isEmpty()) {
@@ -404,7 +406,7 @@ public class MainController{
 			return;
 		}
 	}
-	
+	// Task dùng để reload view 
 	public class LoadViewTask extends Task<Void>{
 		private int startIndex, endIndex;
 		 private final Semaphore semaphore = new Semaphore(1);
@@ -519,7 +521,7 @@ public class MainController{
 		}
 	}
 	
-	
+	// Task này để load các list từ file json lên các Display list (Display list là list các article, post, tweet để hiển thị lên màn hình)
 	public class LoadListTask extends Task<Void> {
 		// Semaphore dùng để đảm bảo chỉ có 1 task load chạy tại 1 thời điểm
 		private final Semaphore semaphore = new Semaphore(1);
