@@ -5,12 +5,15 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import javafx.scene.layout.VBox;
 import model.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class PostController{
+    @FXML
+    private VBox vBox;
     @FXML
     private Label authorLabel;
 
@@ -40,8 +43,8 @@ public class PostController{
         timeLabel.setText(timeParse(post.getPublishedAt()));
         contentLabel.setText(post.getContent().toString());
         String imgURL = post.getImgUrl();
-        if(imgURL.isEmpty()) {
-        	image.setImage(new Image("https://i.pinimg.com/564x/eb/c9/af/ebc9afde8c2b05bbf639cfc1c56dc59a.jpg"));
+        if(imgURL.equals("null")) {
+        	vBox.getChildren().remove(image);
         }else {
             image.setImage(new Image(imgURL));
         }
