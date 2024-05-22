@@ -3,13 +3,22 @@ package controller;
 import java.time.LocalDateTime;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import model.Article;
 import model.Content;
 
 public class NewsViewerController {
+	
+    @FXML
+    private ImageView image;
+	
 	@FXML
 	private Label titleLabel;
+	
+	@FXML
+	private Label tagLabel;
 	
 	@FXML
 	private Label authorLabel;
@@ -45,9 +54,22 @@ public class NewsViewerController {
 	}
 	
 	void setArticle(Article article) {
+		setTag("    Tag: " + article.getTags());
 		setTitle(article.getTitle());
-		setAuthor(article.getAuthor());
+		setAuthor("  Author: " + article.getAuthor());
 		setDate(article.getPublishedAt());
+		
+		setImg("");
 		setContent(article.getContent());
+	}
+	
+	void setImg(String imgUrl) {
+		if (!imgUrl.isEmpty()) {
+			image.setImage(new Image(imgUrl));	
+		}
+	}
+	
+	void setTag(String tags) {
+		tagLabel.setText(tags);
 	}
 }

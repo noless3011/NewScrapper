@@ -9,6 +9,7 @@ import model.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 public class PostController{
     @FXML
@@ -74,8 +75,6 @@ public class PostController{
         reactionLabel.setText(post.getNumber_of_liked());
         cmtLabel.setText( post.getNumber_of_comment());
         viewLabel.setText("· " + post.getNumber_of_view() + " Views");
-        
-        
     }
     
     private String timeParse(LocalDateTime input){
