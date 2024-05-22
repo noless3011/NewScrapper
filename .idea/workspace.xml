@@ -5,24 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84382b4b-c4f5-4d48-802f-6256ca3f5a19" name="Changes" comment="Merge remote-tracking branch 'origin/truong-branch' into truong-branch&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewScrapper.iml&#10;#&#9;src/module-info.java">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_21_2024_9_03_PM_[Changes]1/Facebook.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_21_2024_9_03_PM_[Changes]1/FacebookCrawler$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_21_2024_9_03_PM_[Changes]1/FacebookCrawler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_21_2024_9_03_PM_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_21_2024_9_03_PM__Changes_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_21_2024_9_08_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_21_2024_9_08_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_22_2024_2_35_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_22_2024_2_35_PM_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_22_2024_2_35_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_22_2024_2_35_PM__Changes_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_21_2024_9_03_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_21_2024_9_03_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chromedriver.exe" beforeDir="false" afterPath="$PROJECT_DIR$/chromedriver.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/chromedriver.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/FacebookCrawler.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/FacebookCrawler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/facebook.json" beforeDir="false" afterPath="$PROJECT_DIR$/facebook.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/chromedriver.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/crawler/FacebookCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawler/FacebookCrawler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/articles.json" beforeDir="false" afterPath="$PROJECT_DIR$/articles.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/CNBCCrawler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/CNBCCrawler$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/CNBCCrawler$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/CNBCCrawler$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/CNBCCrawler$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/CNBCCrawler$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/CNBCCrawler.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/CNBCCrawler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/crawler/CNBCCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawler/CNBCCrawler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,6 +139,7 @@
       <workItem from="1716047457246" duration="1595000" />
       <workItem from="1716081455602" duration="515000" />
       <workItem from="1716104033556" duration="12000" />
+      <workItem from="1716281845460" duration="440000" />
     </task>
     <task id="LOCAL-00001" summary="Merge remote-tracking branch 'origin/truong-branch' into truong-branch&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewScrapper.iml&#10;#&#9;src/module-info.java">
       <option name="closed" value="true" />

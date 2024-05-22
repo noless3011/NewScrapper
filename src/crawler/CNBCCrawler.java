@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -104,14 +106,18 @@ public class CNBCCrawler implements ICrawler<Article> {
 	
 	@Override
 	public void crawlList(int amount, ProgressCallback callback) {
-		
+		articles = getListFromJson();
+		Set<String> linkSet = new HashSet<>();
+		for(Article a : articles){
+			linkSet.add(a.getSourceUrl());
+		}
 		setUpMainDriver("https://www.cnbc.com/blockchain/");
 		setUpArticleDriver();
 		//Tìm nút loadmore
 		WebElement loadmoreButton = mainDriver.findElement(By.className("LoadMoreButton-loadMore"));
 		List<WebElement> newsList = mainDriver.findElements(By.xpath("//div[@data-test='Card']"));
 		//Click vào nút loadmore đến khi đủ amount bài viết
-		while(newsList.size() < amount) {
+		while(newsList.size() - articles.size() < amount) {
 			loadmoreButton.click();
 			newsList = mainDriver.findElements(By.xpath("//div[@data-test='Card']"));
 		}
@@ -130,7 +136,9 @@ public class CNBCCrawler implements ICrawler<Article> {
 			int year = Integer.parseInt(datetimeParts[3]);
 			LocalDateTime publishedDateTime = LocalDateTime.of(year,month,date, 0, 0);			
 			String sourcesURL = news.findElement(By.className("Card-title")).getAttribute("href");
-			
+
+			if(linkSet.contains(sourcesURL)) continue;
+
 			Pair<Content, String> contentAndAuthor = crawlContentAndAuthor(sourcesURL);
 			
 			Content content = contentAndAuthor.getKey();
