@@ -35,7 +35,7 @@ public class FacebookCrawler implements ICrawler<Facebook> {
     public void crawlList(int amount, ProgressCallback callback) {
     	setupDriver();
         
-        articles = crawlData(amount, callback);
+        articles = crawlData(amount,callback);
         System.out.println(articles.size());
         saveToJson(articles);
         driver.quit();
@@ -53,7 +53,7 @@ public class FacebookCrawler implements ICrawler<Facebook> {
                 ngNode.put("id", i);
                 ngNode.put("sourceUrl", post.getSourceUrl());
                 ngNode.put("author", post.getAuthor());
-                ngNode.set("content", mapper.valueToTree(post.getContent().getParagraphList()));
+                ngNode.put("content", post.getContent().toString());
                 
                 ngNode.put("publishedDate", String.valueOf(post.getPublishedAt()));
                 ngNode.put("Reaction",post.getNumber_of_reaction());
@@ -158,7 +158,7 @@ public class FacebookCrawler implements ICrawler<Facebook> {
 
 
 
-    private List<Facebook> crawlData(int amount, ProgressCallback callback){
+    private List<Facebook> crawlData(int amount,ProgressCallback callback){
     	setupDriver();
     	List<WebElement> posts = driver.findElements(By.xpath("//div[@class='x1yztbdb x1n2onr6 xh8yej3 x1ja2u2z']"));
     	while(posts.size() < amount) {
@@ -182,7 +182,7 @@ public class FacebookCrawler implements ICrawler<Facebook> {
 
             //Lay hinh anh
             List<WebElement> images = post.findElements(By.xpath(".//div[@class='x10l6tqk x13vifvy']//img"));
-            String img = null;
+            String img = "null";
             if(images.size() > 0){
                 img = images.get(0).getAttribute("src");
             }
@@ -202,11 +202,11 @@ public class FacebookCrawler implements ICrawler<Facebook> {
             //Them object vao list
             articles.add(new Facebook("Blockchain.com",content,prettyTime,link,like,cmt,share,img));
             index++;
-            callback.updateProgress(index);
+
             if(index == amount) break;
             
     	}
-        
+        callback.updateProgress(index);
         return articles;
     }
 
@@ -257,7 +257,9 @@ public class FacebookCrawler implements ICrawler<Facebook> {
         }
         return dateTime;
     }
+
 }
+
 
 
 
