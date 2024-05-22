@@ -87,7 +87,12 @@ public class FacebookCrawler implements ICrawler<Facebook> {
         for(JsonNode node : arrayNode){
             String sourceUrl = node.get("sourceUrl").asText();
             String author = node.get("author").asText();
-            Content content = new Content(node.get("content").asText());
+            Content content = new Content();
+            JsonNode contentNode = node.get("content");
+            List<String> contentList = mapper.convertValue(contentNode, List.class);
+            for(String element : contentList) {
+            	content.AddElement(element);
+            }
             String time = node.get("publishedDate").asText().substring(0,16);
             LocalDateTime prettyTime = parseDateTime(time);
             String like = node.get("Reaction").asText();
