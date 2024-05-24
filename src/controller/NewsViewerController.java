@@ -59,8 +59,21 @@ public class NewsViewerController {
 		setAuthor("  Author: " + article.getAuthor());
 		setDate(article.getPublishedAt());
 		
-		setImg("");
-		setContent(article.getContent());
+		// Lấy ra content của bài viết
+		Content content = article.getContent();
+    	setContent(content);  
+    	
+    	// Tạo luồng load ảnh
+        Thread thread = new Thread(() -> {
+            String[] parts = content.toString().split("\\{url=");
+        	String imgURL = "";
+        	imgURL = parts[1].split(", description=")[0];
+        	
+            if(!imgURL.isEmpty()) {
+            	setImg(imgURL);
+            }
+        });
+        thread.start();
 	}
 	
 	void setImg(String imgUrl) {
