@@ -62,7 +62,7 @@ public class MainController{
 	private Stack<TabType> undoStack = new Stack<TabType>();
 	private Stack<TabType> redoStack = new Stack<TabType>();
 	// Tab đang được hiển thị hiện tai
-	private TabType currentTabState = TabType.ARTICLE;
+	private TabType currentTabState = TabType.FACEBOOK;
 	
 	
 	//Vị trí của cửa sổ trên màn hình
@@ -302,19 +302,7 @@ public class MainController{
 		List<Parent> elements = new ArrayList<>();
 		for(T result : searchResult) {
 			System.out.println(result.toString());
-			if(result instanceof Article) {
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/NewsCard.fxml"));
-				Parent newsCardPane;
-				try {
-					newsCardPane = loader.load();
-					NewsCardController controller = loader.getController();
-					controller.setArticle((Article) result);
-					elements.add(newsCardPane);
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-				continue;
-			}
+			
 			if(result instanceof Facebook) {
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/facebookpost.fxml"));
 				VBox postVBox;
@@ -339,6 +327,19 @@ public class MainController{
 				} catch (IOException e) {
 					e.printStackTrace();
 				}	
+			}
+			if(result instanceof Article) {
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/NewsCard.fxml"));
+				Parent newsCardPane;
+				try {
+					newsCardPane = loader.load();
+					NewsCardController controller = loader.getController();
+					controller.setArticle((Article) result);
+					elements.add(newsCardPane);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				continue;
 			}
 		}
 		return elements;
@@ -499,12 +500,14 @@ public class MainController{
 		    		case FACEBOOK:
 		    			List<Parent> posts = new ArrayList<>();
 		    			for(int i = startIndex; i < endIndex; i++) {
+		    				System.out.println(i);
 		    				FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/facebookpost.fxml"));
 		        			Parent postVBox;
 		    				try {
 		    					postVBox = loader.load();
 		    					PostController controller = loader.getController();
 		    	    			controller.setData(DisplayList.getPostList().get(i));
+		    	    			System.out.println(DisplayList.getPostList().get(i));
 		    	    			posts.add(postVBox);
 		    	    			
 		    				} catch (IOException e) {

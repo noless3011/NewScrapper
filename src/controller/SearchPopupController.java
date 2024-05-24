@@ -130,16 +130,16 @@ public class SearchPopupController {
 		}
 	}
 	public void searchPress(ActionEvent event) {
-		if(!indexed) {
-			try {
-				Index index = new Index();
-				index.indexAll();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			indexed = true;
-		}
+//		if(!indexed) {
+//			try {
+//				Index index = new Index();
+//				index.indexAll();
+//			} catch (IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//			indexed = true;
+//		}
 		switch(option) {
 		case ARTICLES:{
 			Search(Article.class);
