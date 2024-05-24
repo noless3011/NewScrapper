@@ -129,7 +129,7 @@ public class DefaultSearch {
     	Index index = new Index();
     	index.indexAll();
         DefaultSearch search = new DefaultSearch();
-        List<Object> results = search.searchAll("Georgia");
+        List<Object> results = search.searchAll("blockchain");
         for (Object result : results) {
             Thread.sleep(1000);
             System.out.println(result);

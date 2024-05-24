@@ -112,7 +112,7 @@ public class Blockchain101Crawler implements ICrawler<Article>{
 							uniqueArticles.add(url);
 							//Update index and page
 							index++;
-							callback.updateProgress(index);
+//							callback.updateProgress(index);
 							if (index == amount) break;
 						}
 					} catch (IOException e) {
@@ -149,7 +149,11 @@ public class Blockchain101Crawler implements ICrawler<Article>{
             return tweets;
 		} catch (IOException e) {
 			e.printStackTrace();
-			return null;
+			return new ArrayList<Article>();
 		}
+	}
+	public static void main(String [] args) {
+		Blockchain101Crawler test = new Blockchain101Crawler();
+		test.crawlList(10, null);
 	}
 }

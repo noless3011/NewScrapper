@@ -121,45 +121,54 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 	//Tìm kiếm các thông tin về tác giả, thời gian, url của các tweet
 	
 	public void crawlList(int amount, ProgressCallback callback) {
+		tweetList = getListFromJson();
+		HashSet<String> uniqueTweets = new HashSet<>();
+		for (Tweet tweet : tweetList) {
+			uniqueTweets.add(tweet.getSourceUrl());
+		}
+		
 		int i = 0, index = 0;
+		
 		try {
 			loginTwitter();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		HashSet<String> uniqueTweets = new HashSet<>(); // HashSet để kiểm tra xem tweet đã có trong danh sách chưa để tránh crawl hai bài giống nhau
+		
+		 // HashSet để kiểm tra xem tweet đã có trong danh sách chưa để tránh crawl hai bài giống nhau
 		while (tweetList.size() < amount) {
 //		while(!isElementPresent(driver, By.xpath("//span[contains(text(), 'Something went wrong. Try reloading.')]"))) {
 			i++;
 			if (i > 2) {
 				i = 0;
-				;//document.body.scrollHeight
+				//document.body.scrollHeight
 				if (isAtEndOfPage()) {
 					js.executeScript("window.scrollBy(0, -4000);");//document.body.scrollHeight
 					js.executeScript("window.scrollBy(0, 5000);");//document.body.scrollHeight
 				}
 				threadSleep(2000);
-				}
+			}
+			
 			try {
 				// Truy nhập vào từng đối tượng bài viết
 				List<WebElement> tweets = null;
 				tweets = driver.findElements(By.xpath("//div[@class='css-175oi2r r-1iusvr4 r-16y2uox r-1777fci r-kzbkwu']"));
+				
 				try {
+					
 					for (WebElement tweet : tweets) {
 						//Lấy tên tác giả
-						String author = tweet.findElement(By.xpath(".//span[@class='css-1qaijid r-bcqeeo r-qvutc0 r-poiln3']")).getText();
+						String author = tweet.findElement(By.xpath(".//span[@class='css-1jxf684 r-bcqeeo r-1ttztb7 r-qvutc0 r-poiln3']")).getText();
 			
 						// Lấy url
 						String sourceUrl = tweet.findElement(By.xpath(".//div[@class='css-175oi2r r-18u37iz r-1q142lx']/a")).getAttribute("href");
 				
 						//Lấy số reply
-						String number_of_comment = tweet.findElement(By.xpath(".//div[@data-testid='reply']")).getText();
+						String number_of_comment = tweet.findElement(By.xpath(".//button[@data-testid='reply']")).getText();
 						if (number_of_comment.equals("")) number_of_comment = "0";
 						
 						//Lấy số lượt thích
-						String number_of_liked = tweet.findElement(By.xpath(".//div[@data-testid='like']")).getText();
+						String number_of_liked = tweet.findElement(By.xpath(".//button[@data-testid='like']")).getText();
 						if (number_of_liked.equals("")) number_of_liked = "0";
 						
 						// Lấy số lượt xem
@@ -178,7 +187,6 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 						String timeStringFromTwitter = tweet.findElement(By.xpath(".//div[@class='css-175oi2r r-18u37iz r-1q142lx']//a/time")).getAttribute("datetime");
 						DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
 						LocalDateTime publishedAt = LocalDateTime.parse(timeStringFromTwitter, formatter);
-				
 						// Lấy nội dung content
 						//Kiểm tra xem nội dung có bị trùng lặp không
 						if (!uniqueTweets.contains(sourceUrl)) {
@@ -186,26 +194,28 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 
 							Tweet test = new Tweet(author, content, publishedAt, sourceUrl, hashtags, number_of_comment, number_of_liked, number_of_view);
 							tweetList.add(test);
-							
 							test.setContent(crawlTweetContent(tweet));
-
+							System.out.println(index);
 							index++;
-							callback.updateProgress(index);
+//							callback.updateProgress(index);
 							uniqueTweets.add(sourceUrl);
 						}
 					}
-				}catch (org.openqa.selenium.NoSuchElementException e) {
+					
+				} catch (org.openqa.selenium.NoSuchElementException e) {
+					e.printStackTrace();
 					continue;
-			}	
+				}	
 				
 				if (isAtEndOfPage()) {
 					js.executeScript("window.scrollBy(0, -4000);");//document.body.scrollHeight
 					js.executeScript("window.scrollBy(0, 5000);");//document.body.scrollHeight
 				}
 				threadSleep(2000);
-			}	catch (org.openqa.selenium.NoSuchElementException e) {
+			} catch (org.openqa.selenium.NoSuchElementException e) {
+				e.printStackTrace();
 				continue;
-				}
+			}
 		}
 		saveToJson(tweetList);
 
@@ -259,9 +269,12 @@ public class TwitterCrawler implements ICrawler<Tweet> {
             return tweets;
 		} catch (IOException e) {
 			e.printStackTrace();
-			return null;
+			return new ArrayList<Tweet>();
 		}
 	}
 	
-	
+	public static void main(String [] args) {
+		TwitterCrawler test = new TwitterCrawler();
+		test.crawlList(10, null);
+	}
 }
