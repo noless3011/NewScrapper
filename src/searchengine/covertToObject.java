@@ -20,6 +20,19 @@ import model.Image;
 import model.Tweet;
 
 public class covertToObject {
+	@SuppressWarnings("unchecked")
+	public <T extends Article> T to(Class<T> type, Document doc) {
+		if(type.equals(Article.class)) {
+			return (T) this.toArticle(doc);
+		};
+    	if(type.equals(Tweet.class)) {
+			return (T) this.toTweet(doc);
+		};
+    	if(type.equals(Facebook.class)) {
+			return (T) this.toFacebook(doc);
+		};
+		return null;
+	}
 	public Tweet toTweet(Document doc) {
 		String author = doc.get("author");
 		
@@ -107,13 +120,13 @@ public class covertToObject {
 		
 	}
 	
-	public Content restoreContentFromString(String contentString) {
+	private Content restoreContentFromString(String contentString) {
 	    Content content = new Content();
 	    
 	    // Phân tách chuỗi thành các đoạn văn bản và URL mô tả
 	    String[] parts = contentString.split("\\{url=");
 	    if (parts.length == 1) {
-	    	content.AddElement(parts);
+	    	content.AddElement(contentString);
 	    	return content;
 	    }
 	    for (String part : parts) {

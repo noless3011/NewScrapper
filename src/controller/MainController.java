@@ -264,7 +264,7 @@ public class MainController{
 				advanceSearchController.setSearchOption(SearchOption.ARTICLES);
 			}
 			if(currentTabState == TabType.FACEBOOK || currentTabState == TabType.TWITTER) {
-				fields.add(Field.TITLE);
+				fields.add(Field.CONTENT);
 				fields.add(Field.AUTHOR);
 				if(currentTabState == TabType.FACEBOOK) {
 					advanceSearchController.setSearchOption(SearchOption.FACEBOOK);

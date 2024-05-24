@@ -3,7 +3,9 @@ package controller;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.lucene.queryparser.classic.ParseException;
@@ -17,6 +19,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import model.Article;
 import model.DisplayList;
+import model.Facebook;
+import model.Tweet;
 import searchengine.AdvanceSearch;
 import searchengine.AdvanceSearch.SortOptionArticle;
 import searchengine.DateRange;
@@ -89,7 +93,42 @@ public class SearchPopupController {
 		
 		
 	}
-	
+	private <T extends Article> void Search(Class<T> type) {
+		String searchTokenTitle = controllers.get(Field.TITLE).getSearchToken();
+		String searchTokenAuthor = controllers.get(Field.AUTHOR).getSearchToken();
+		String searchTokenContent = controllers.get(Field.CONTENT).getSearchToken();
+		
+		LocalDateTime start;
+		LocalDateTime end;
+		LocalDate ldStart = startDatePicker.getValue();
+		LocalDate ldEnd = endDatePicker.getValue();
+		if(ldStart == null && ldEnd == null) {
+			start = MINTIME;
+			end = LocalDateTime.now();
+		}else if(ldStart == null && ldEnd != null) {
+			start = MINTIME;
+			end = ldEnd.atStartOfDay();
+		}else if(ldStart != null && ldEnd == null) {
+			start = ldStart.atStartOfDay();
+			end = LocalDateTime.now();
+		}else {
+			start = ldStart.atStartOfDay();
+			end = ldEnd.atStartOfDay();
+		}
+		DateRange dateRange = new DateRange(start, end);
+		List<String> hashtags = new ArrayList<>();
+		try {
+			AdvanceSearch advanceSearch = new AdvanceSearch();
+			DisplayList.getSearchResultList(type).setAll(advanceSearch.searchAdvance(
+					type, searchTokenTitle,searchTokenAuthor, 
+					dateRange , searchTokenContent)); 
+			MainControllerSingleton.getMainController().showSearchResult(MainControllerSingleton.getMainController().searchResultToParents(DisplayList.getSearchResultList(type)));
+			MainControllerSingleton.getMainController().reloadView();
+			
+		} catch (ParseException | IOException e) {
+			e.printStackTrace();
+		}
+	}
 	public void searchPress(ActionEvent event) {
 		if(!indexed) {
 			try {
@@ -103,45 +142,13 @@ public class SearchPopupController {
 		}
 		switch(option) {
 		case ARTICLES:{
-			String searchTokenTitle = controllers.get(Field.TITLE).getSearchToken();
-			String searchTokenAuthor = controllers.get(Field.AUTHOR).getSearchToken();
-			String searchTokenContent = controllers.get(Field.CONTENT).getSearchToken();
-			LocalDateTime start;
-			LocalDateTime end;
-			LocalDate ldStart = startDatePicker.getValue();
-			LocalDate ldEnd = endDatePicker.getValue();
-			if(ldStart == null && ldEnd == null) {
-				start = MINTIME;
-				end = LocalDateTime.now();
-			}else if(ldStart == null && ldEnd != null) {
-				start = MINTIME;
-				end = ldEnd.atStartOfDay();
-			}else if(ldStart != null && ldEnd == null) {
-				start = ldStart.atStartOfDay();
-				end = LocalDateTime.now();
-			}else {
-				start = ldStart.atStartOfDay();
-				end = ldEnd.atStartOfDay();
-			}
-			DateRange dateRange = new DateRange(start, end);
-			try {
-				AdvanceSearch advanceSearch = new AdvanceSearch();
-				DisplayList.getSearchResultList(Article.class).setAll(advanceSearch.searchAdvanceArticle(
-						searchTokenTitle,searchTokenAuthor, 
-						dateRange , searchTokenContent,
-						SortOptionArticle.RELEVANT, false)); 
-				MainControllerSingleton.getMainController().showSearchResult(MainControllerSingleton.getMainController().searchResultToParents(DisplayList.getSearchResultList(Article.class)));
-				MainControllerSingleton.getMainController().reloadView();
-				
-			} catch (ParseException | IOException e) {
-				e.printStackTrace();
-			}
+			Search(Article.class);
 		}
 		case FACEBOOK:{
-			
+			Search(Facebook.class);
 		}
 		case TWITTER:{
-			
+			Search(Tweet.class);
 		}
 		}
 	}
