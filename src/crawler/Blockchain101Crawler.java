@@ -63,11 +63,14 @@ public class Blockchain101Crawler implements ICrawler<Article>{
 		    if (doc != null) {
 		        Elements accessOutUrl = doc.select("div[class=pho-blog-part-content]");
 		        
+		        loop:
 		        for (Element element : accessOutUrl) {
 		            // Tiếp tục xử lý các phần tử HTML
 		        	// Get URL
 					String url = element.select("h2 a").attr("href");
-					
+					if(!uniqueArticles.contains(url)){
+						continue loop;
+					}
 					// Get title
 					String title = element.select("h2 a").text();
 					// Get author
@@ -110,16 +113,14 @@ public class Blockchain101Crawler implements ICrawler<Article>{
 						}
 					
 						// Create object is a Article
-						if(!uniqueArticles.contains(url)){
-							Article article = new Article(title, author, content, publishedDateTime, url);
-							article.setTags(tag);
-							articles.add(article);
-							uniqueArticles.add(url);
-							//Update index and page
-							index++;
-							callback.updateProgress(index);
-							if (index == amount) break;
-						}
+						Article article = new Article(title, author, content, publishedDateTime, url);
+						article.setTags(tag);
+						articles.add(article);
+						uniqueArticles.add(url);
+						//Update index and page
+						index++;
+						callback.updateProgress(index);
+						if (index == amount) break;
 					} catch (IOException e) {
 						e.printStackTrace();
 					}

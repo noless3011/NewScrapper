@@ -46,6 +46,7 @@ public class NewsCardController {
 	public void setDetails() {
 		sourceUrl.setText(article.getSourceUrl());
 		titleText.setText(article.getTitle());
+		
 		contentText.setText(article.getContent().toString());
 		publishedTime.setText("Published at: " + article.getPublishedAt().toString());
 		authorLabel.setText("Author: " + article.getAuthor());

@@ -67,9 +67,12 @@ public class NewsViewerController {
         Thread thread = new Thread(() -> {
             String[] parts = content.toString().split("\\{url=");
         	String imgURL = "";
-        	imgURL = parts[1].split(", description=")[0];
         	
-            if(!imgURL.isEmpty()) {
+        	if(parts.length > 1) {
+            	imgURL = parts[1].split(", description=")[0];
+        	}
+        	
+        	if(!imgURL.isEmpty()) {
             	setImg(imgURL);
             }
         });
