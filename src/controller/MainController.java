@@ -467,7 +467,7 @@ public class MainController{
 		    			int count = 0;
 		    			List<Parent> posts = new ArrayList<>();
 		    			for(int i = startIndex; i < endIndex; i++) {
-		    				FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/FacebookPost.fxml"));
+		    				FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/facebookpost.fxml"));
 		        			Parent postVBox;
 		    				try {
 		    					postVBox = loader.load();
