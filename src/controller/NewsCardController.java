@@ -25,53 +25,32 @@ public class NewsCardController {
 	private Label titleText;
 	
 	@FXML
-	private Label infoText;
+	private Label authorLabel;
 	
 	@FXML
-	private ImageView newsImage;
-	
-	private Image image;
-	private String imageURL;
+	private Label sourceUrl;
 	
 	@FXML
-	public void initialize() { 
-		Rectangle clip = new Rectangle(newsImage.getFitWidth(), newsImage.getFitHeight());
-		clip.setArcWidth(35);
-		clip.setArcHeight(35);
-		newsImage.setClip(clip);
-		
-	}
+	private Label contentText;
+	
+	@FXML
+	private Label publishedTime;
+	
 	
 	public void setArticle(Article article) {
 		this.article = article;
-		setTitle();
+		setDetails();
+		
 	}
 	
-	public void setTitle() {
+	public void setDetails() {
+		sourceUrl.setText(article.getSourceUrl());
 		titleText.setText(article.getTitle());
+		contentText.setText(article.getContent().toString());
+		publishedTime.setText("Published at: " + article.getPublishedAt().toString());
+		authorLabel.setText("Author: " + article.getAuthor());
 	}
-	
-	public void setInfo() {
-		//infoText.setText(article.getContent().toString().substring(0, 100) + "...");
-	}
-	
-	public void setImage(String url) {
-		if(url.isEmpty()) {
-			imageURL = "https://www.musafir.com/SFImage/Images/650x200-rahhalah-2.jpg";
-		}
-		imageURL = url;
 		
-		
-	}
-	
-	public void loadImage() {
-		try {
-			image = new Image(new URI(imageURL).toString());
-		} catch (URISyntaxException e) {
-			e.printStackTrace();
-		}
-		newsImage.setImage(image);
-	}
 	
 	public void openArticle(MouseEvent event) {
 		try {

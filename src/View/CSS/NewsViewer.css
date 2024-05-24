@@ -25,14 +25,17 @@
 
 .title-label{
 	-fx-text-fill:white;
+    -fx-wrap-text: true;
 }
 
 .author-label{
-	-fx-text-fill:white;
+	-fx-text-fill:#9c7000;
+    font-weight: bold;
 }
 
 .date-label{
-	-fx-text-fill:white;
+	-fx-text-fill:#00a4cd;
+    font-weight: bold;
 }
 
 .paragraph-label{

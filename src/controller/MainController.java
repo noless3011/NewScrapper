@@ -300,7 +300,6 @@ public class MainController{
 				try {
 					newsCardPane = loader.load();
 					NewsCardController controller = loader.getController();
-					controller.setImage("");
 					controller.setArticle((Article) result);
 					elements.add(newsCardPane);
 				} catch (IOException e) {
@@ -438,7 +437,6 @@ public class MainController{
 		    				try {
 		    					newsCardPane = loader.load();
 		    					NewsCardController controller = loader.getController();
-		    	    			controller.setImage("");
 		    	    			controller.setArticle(DisplayList.getArticleList().get(i));
 		    	    			newscardPanes.add(newsCardPane);
 		    				} catch (IOException e) {
