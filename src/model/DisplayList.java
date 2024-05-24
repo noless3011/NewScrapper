@@ -9,7 +9,10 @@ public class DisplayList {
 	private static ObservableList<Article> articleList = FXCollections.observableArrayList();
 	private static ObservableList<Tweet> tweetList = FXCollections.observableArrayList();
 	private static ObservableList<Facebook> postList = FXCollections.observableArrayList();
-	private static ObservableList<Object> searchResultList = FXCollections.observableArrayList();
+	private static ObservableList<Article> searchResultArticleList = FXCollections.observableArrayList();
+	private static ObservableList<Tweet> searchResultTweetList = FXCollections.observableArrayList();
+	private static ObservableList<Facebook> searchResultFacebookList = FXCollections.observableArrayList();
+	
 	static {
 		new DisplayList();
 	}
@@ -24,7 +27,13 @@ public class DisplayList {
 		postList.addListener((ListChangeListener.Change<? extends Article> change) -> {
 			refreshView(change);
 		});
-		searchResultList.addListener((ListChangeListener.Change<? extends Object> change) -> {
+		searchResultArticleList.addListener((ListChangeListener.Change<? extends Object> change) -> {
+			refreshView(change);
+		});
+		searchResultTweetList.addListener((ListChangeListener.Change<? extends Object> change) -> {
+			refreshView(change);
+		});
+		searchResultFacebookList.addListener((ListChangeListener.Change<? extends Object> change) -> {
 			refreshView(change);
 		});
 	}
@@ -48,10 +57,19 @@ public class DisplayList {
 	public static ObservableList<Facebook> getPostList(){
 		return postList;
 	}
-	public static ObservableList<Object> getSearchResultList() {
-		return searchResultList;
+	@SuppressWarnings("unchecked")
+	public static <T extends Article> ObservableList<T> getSearchResultList(Class<T> type) {
+		if(Article.class.equals(type)) {
+			return (ObservableList<T>) searchResultArticleList;
+		}
+		if(Tweet.class.equals(type)) {
+			return (ObservableList<T>) searchResultTweetList;
+		}
+		if(Facebook.class.equals(type)) {
+			return (ObservableList<T>) searchResultFacebookList;
+		}
+		return null;
 	}
-
 	public static void toggleDynamicUpdate(boolean state) {
 		dynamicUpdateToggle = state;
 	}

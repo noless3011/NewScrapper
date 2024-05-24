@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import model.Article;
 import model.DisplayList;
 import searchengine.AdvanceSearch;
 import searchengine.AdvanceSearch.SortOptionArticle;
@@ -76,10 +77,11 @@ public class SearchPopupController {
 	
 	public void indexPress(ActionEvent event) {
 		try {
-			Index.indexAll();
-			Index.indexArticle();
-			Index.indexFacebook();
-			Index.indexTweet();
+			Index index = new Index();
+			index.indexAll();
+			index.indexArticle();
+			index.indexFacebook();
+			index.indexTweet();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -91,7 +93,8 @@ public class SearchPopupController {
 	public void searchPress(ActionEvent event) {
 		if(!indexed) {
 			try {
-				Index.indexAll();
+				Index index = new Index();
+				index.indexAll();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -122,12 +125,12 @@ public class SearchPopupController {
 			}
 			DateRange dateRange = new DateRange(start, end);
 			try {
-				
-				DisplayList.getSearchResultList().setAll(AdvanceSearch.searchAdvanceArticle(
+				AdvanceSearch advanceSearch = new AdvanceSearch();
+				DisplayList.getSearchResultList(Article.class).setAll(advanceSearch.searchAdvanceArticle(
 						searchTokenTitle,searchTokenAuthor, 
 						dateRange , searchTokenContent,
 						SortOptionArticle.RELEVANT, false)); 
-				MainControllerSingleton.getMainController().showSearchResult(MainControllerSingleton.getMainController().searchResultToParents(DisplayList.getSearchResultList()));
+				MainControllerSingleton.getMainController().showSearchResult(MainControllerSingleton.getMainController().searchResultToParents(DisplayList.getSearchResultList(Article.class)));
 				MainControllerSingleton.getMainController().reloadView();
 				
 			} catch (ParseException | IOException e) {

@@ -209,7 +209,27 @@ public class MainController{
 		searchTextField.setOnKeyPressed( event -> {
 			  if( event.getCode() == KeyCode.ENTER ) {
 			    try {
-					showSearchResult(searchResultToParents(DefaultSearch.searchDefaultAll(searchTextField.getText())));
+			    	DefaultSearch defaultSearch = new DefaultSearch();
+					//showSearchResult(searchResultToParents(DefaultSearch.searchDefaultAll(searchTextField.getText())));
+			    	switch(currentTabState) {
+					case ARTICLE:
+						showSearchResult(searchResultToParents(defaultSearch.searchArticle(searchTextField.getText())));
+						break;
+					case FACEBOOK:
+						showSearchResult(searchResultToParents(defaultSearch.searchFacebook(searchTextField.getText())));
+						break;
+					case TWITTER:
+						showSearchResult(searchResultToParents(defaultSearch.searchTweet(searchTextField.getText())));
+						break;
+					case ARTICLEVIEW:
+					case SEARCHRESULT:
+					case SETTING:
+					case CRAWLERMANAGER:
+					default:
+						break;
+			    	
+			    	}
+			    	
 				} catch (ParseException e) {
 					e.printStackTrace();
 				}
@@ -277,10 +297,24 @@ public class MainController{
 	}
 	
 	//Hàm này để chuyển từ list kết quả tìm kiếm sang javafx elements
-	public List<Parent> searchResultToParents(List<Object> searchResult) {
+	public <T extends Article> List<Parent> searchResultToParents(List<T> searchResult) {
 		int progressCount = 0;
 		List<Parent> elements = new ArrayList<>();
-		for(Object result : searchResult) {
+		for(T result : searchResult) {
+			System.out.println(result.toString());
+			if(result instanceof Article) {
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/NewsCard.fxml"));
+				Parent newsCardPane;
+				try {
+					newsCardPane = loader.load();
+					NewsCardController controller = loader.getController();
+					controller.setArticle((Article) result);
+					elements.add(newsCardPane);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				continue;
+			}
 			if(result instanceof Facebook) {
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/facebookpost.fxml"));
 				VBox postVBox;
@@ -294,18 +328,17 @@ public class MainController{
 				}
 				continue;
 			}
-			if(result instanceof Article) {
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/NewsCard.fxml"));
-				Parent newsCardPane;
+			if(result instanceof Tweet) {
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/TwitterPost.fxml"));
+    			Parent postVBox;
 				try {
-					newsCardPane = loader.load();
-					NewsCardController controller = loader.getController();
-					controller.setArticle((Article) result);
-					elements.add(newsCardPane);
+					postVBox = loader.load();
+					PostController controller = loader.getController();
+	    			controller.setData((Tweet)result);
+	    			elements.add(postVBox);
 				} catch (IOException e) {
 					e.printStackTrace();
-				}
-				continue;
+				}	
 			}
 		}
 		return elements;
@@ -464,7 +497,6 @@ public class MainController{
 		    			break;
 		    		}
 		    		case FACEBOOK:
-		    			int count = 0;
 		    			List<Parent> posts = new ArrayList<>();
 		    			for(int i = startIndex; i < endIndex; i++) {
 		    				FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/facebookpost.fxml"));
@@ -484,7 +516,6 @@ public class MainController{
 		    		case SETTING:
 		    			break;
 		    		case TWITTER:
-		    			int counttwitter = 0;
 		    			List<Parent> twitter_posts = new ArrayList<>();
 		    			for(int i = startIndex; i < endIndex; i++) {
 		    				FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/TwitterPost.fxml"));
@@ -494,10 +525,6 @@ public class MainController{
 		    					PostController controller = loader.getController();
 		    	    			controller.setData(DisplayList.getTweetList().get(i));
 		    	    			twitter_posts.add(postVBox);
-		    	    			System.out.println(counttwitter);
-		    	    			counttwitter++;
-
-		    	        		if(counttwitter == 10) break;
 		    				} catch (IOException e) {
 		    					e.printStackTrace();
 		    				}
