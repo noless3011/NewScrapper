@@ -478,7 +478,6 @@ public class MainController{
 		    	    			posts.add(postVBox);
 		    	    			
 		    	    			System.out.println(count++);
-		    	    			//if (count == 10) break;
 		    				} catch (IOException e) {
 		    					e.printStackTrace();
 		    				}

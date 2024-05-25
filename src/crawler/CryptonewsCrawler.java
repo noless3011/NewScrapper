@@ -68,7 +68,8 @@ public class CryptonewsCrawler implements ICrawler<Article>{
 			        for (Element element : accessOutUrl) {
 			        	// Get URL
 						String url = element.select(" a").attr("href");
-						if(!uniqueArticles.contains(url)){
+						if(uniqueArticles.contains(url)){
+							System.out.println("Skip");
 							continue loop;
 						}
 						// Get title

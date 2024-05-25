@@ -44,11 +44,14 @@ public class PostController{
         timeLabel.setText(timeParse(post.getPublishedAt()));
         contentLabel.setText(post.getContent().toString());
         String imgURL = post.getImgUrl();
-        if(imgURL.isEmpty()) {
-        	image.setImage(new Image("https://i.pinimg.com/564x/eb/c9/af/ebc9afde8c2b05bbf639cfc1c56dc59a.jpg"));
-        }else {
-            image.setImage(new Image(imgURL));
-        }
+        
+        
+        Thread thread = new Thread(() -> {
+            if(!imgURL.equals("null")) {
+                image.setImage(new Image(imgURL));
+            }
+        });
+        thread.start();
 
         reactionLabel.setText(post.getNumber_of_reaction());
         cmtLabel.setText(post.getNumber_of_comment());
@@ -64,6 +67,7 @@ public class PostController{
         String[] parts = post.getContent().toString().split("\\{url=");
         contentLabel.setText(parts[0]);
         
+        // Tạo luồng load ảnh
         Thread thread = new Thread(() -> {
         	String imgURL = "";
         	for (int i = 1; i < parts.length; i++) {
