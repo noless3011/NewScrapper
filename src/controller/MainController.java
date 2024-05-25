@@ -64,7 +64,7 @@ public class MainController{
 	private Stack<TabType> undoStack = new Stack<TabType>();
 	private Stack<TabType> redoStack = new Stack<TabType>();
 	// Tab đang được hiển thị hiện tai
-	private TabType currentTabState = TabType.ARTICLE;
+	private TabType currentTabState = TabType.TWITTER;
 	
     
 
@@ -327,6 +327,7 @@ public class MainController{
 				} catch (IOException e) {
 					e.printStackTrace();
 				}	
+				continue;
 			}
 			if(result instanceof Article) {
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/NewsCard.fxml"));

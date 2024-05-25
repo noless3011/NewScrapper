@@ -22,7 +22,7 @@ import model.DisplayList;
 import model.Facebook;
 import model.Tweet;
 import searchengine.AdvanceSearch;
-import searchengine.AdvanceSearch.SortOptionArticle;
+import searchengine.Arrange.SortOptionArticle;
 import searchengine.DateRange;
 import searchengine.Index;
 
@@ -81,6 +81,7 @@ public class SearchPopupController {
 	
 	public void indexPress(ActionEvent event) {
 		try {
+			System.out.println("indexing...");
 			Index index = new Index();
 			index.indexAll();
 			index.indexArticle();

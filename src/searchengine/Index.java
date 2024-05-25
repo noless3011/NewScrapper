@@ -97,7 +97,7 @@ public class Index {
             } else if (object instanceof Facebook) {
             	addDocument.facebook(writer, (Facebook) object);
             } else {
-            	addDocument.article(writer, (Article) object);
+				addDocument.article(writer, (Article) object);
             }
         }
         writer.close();
