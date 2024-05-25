@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.HashSet;
 import java.util.Set;
 
+import model.Image;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -126,7 +127,7 @@ public class CNBCCrawler implements ICrawler<Article> {
 		for(WebElement news : newsList) {
 			Article article;
 			String title = news.findElement(By.className("Card-title")).getText();
-			
+			System.out.println(title);
 			String datetimeString = news.findElement(By.className("Card-time")).getText();
 			
 			String[] datetimeParts = datetimeString.split(" ");
@@ -136,8 +137,11 @@ public class CNBCCrawler implements ICrawler<Article> {
 			int year = Integer.parseInt(datetimeParts[3]);
 			LocalDateTime publishedDateTime = LocalDateTime.of(year,month,date, 0, 0);			
 			String sourcesURL = news.findElement(By.className("Card-title")).getAttribute("href");
-
+			List<WebElement> imgElement = news.findElements(By.className("Card-mediaContainer"));
+			if(imgElement.isEmpty()) System.out.println("Ko co hinh anh");
+			else System.out.println("Co hinh anh");
 			if(linkSet.contains(sourcesURL)) continue;
+
 
 			Pair<Content, String> contentAndAuthor = crawlContentAndAuthor(sourcesURL);
 			
@@ -163,7 +167,7 @@ public class CNBCCrawler implements ICrawler<Article> {
 	@Override
 	public void saveToJson(List<Article> list) {
 		Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).setPrettyPrinting().create();
-		try (FileWriter writer = new FileWriter("articles.json")){
+		try (FileWriter writer = new FileWriter("src/database/articles.json")){
 			gson.toJson(articles, writer);
 			writer.close();
 		} catch (IOException e) {
@@ -175,7 +179,7 @@ public class CNBCCrawler implements ICrawler<Article> {
 	@Override
 	public List<Article> getListFromJson() {
 		Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).setPrettyPrinting().create();
-		try (Reader reader = new FileReader("articles.json")){
+		try (Reader reader = new FileReader("src/database/articles.json")){
 			Type listType = new TypeToken<List<Article>>() {}.getType();
             List<Article> tweets = gson.fromJson(reader, listType);
             return tweets;
@@ -213,7 +217,74 @@ public class CNBCCrawler implements ICrawler<Article> {
 		
 		return new Pair<Content, String>(content,author);
 	}
+	public void crawlListTest(int amount) {
+		articles = getListFromJson();
+		Set<String> linkSet = new HashSet<>();
+		if(articles == null) articles = new ArrayList<>();
+		for (Article a : articles) {
+			linkSet.add(a.getSourceUrl());
+		}
+		setUpMainDriver("https://www.cnbc.com/blockchain/");
+		setUpArticleDriver();
+		//Tìm nút loadmore
+		WebElement loadmoreButton = mainDriver.findElement(By.className("LoadMoreButton-loadMore"));
+		List<WebElement> newsList = mainDriver.findElements(By.xpath("//div[@data-test='Card']"));
+		//Click vào nút loadmore đến khi đủ amount bài viết
+		while(newsList.size() - articles.size() < amount) {
+			loadmoreButton.click();
+			newsList = mainDriver.findElements(By.xpath("//div[@data-test='Card']"));
+		}
+		//Biến index để theo dõi progress của crawler
+		int index = 0;
+		for(WebElement news : newsList) {
+			Article article;
+			String title = news.findElement(By.className("Card-title")).getText();
+			System.out.println(title);
+			String datetimeString = news.findElement(By.className("Card-time")).getText();
+
+			String[] datetimeParts = datetimeString.split(" ");
+			int date = Integer.parseInt(datetimeParts[2].replaceAll("[a-zA-Z]", ""));
+
+			int month = STRING_TO_MONTH.get(datetimeParts[1]);
+			int year = Integer.parseInt(datetimeParts[3]);
+			LocalDateTime publishedDateTime = LocalDateTime.of(year,month,date, 0, 0);
+			String sourcesURL = news.findElement(By.className("Card-title")).getAttribute("href");
+
+			if(linkSet.contains(sourcesURL)) continue;
 
 
+			Pair<Content, String> contentAndAuthor = crawlContentAndAuthor(sourcesURL);
 
+			Content content = contentAndAuthor.getKey();
+
+			List<WebElement> imgElement = news.findElements(By.className("Card-mediaContainer"));
+			if(imgElement.isEmpty()) System.out.println("Ko co hinh anh");
+			else {
+				System.out.println("Co hinh anh");
+				String img = imgElement.get(0).findElement(By.tagName("img")).getAttribute("src");
+				System.out.println(img);
+				Image image = new Image(img);
+				content.AddElement(image);
+			}
+
+			String author = contentAndAuthor.getValue();
+
+
+			article = new Article(title, author, content, publishedDateTime, sourcesURL);
+			articles.add(article);
+			//Đoạn này để update progress
+			index++;
+			//Đủ ảticle thì ngắt
+			if(index == amount) break;
+		}
+		mainDriver.close();
+		articleDriver.close();
+		saveToJson(articles);
+		articles.clear();
+	}
+
+	public static void main(String[] args) {
+		CNBCCrawler a = new CNBCCrawler();
+		a.crawlListTest(10);
+	}
 }

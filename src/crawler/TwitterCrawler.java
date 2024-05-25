@@ -239,7 +239,7 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 
 	@Override
 	public void saveToJson(List<Tweet> tweetsList) {
-		try (FileWriter writer = new FileWriter("tweets.json")){
+		try (FileWriter writer = new FileWriter("src/database/tweets.json")){
 			gson.toJson(tweetList, writer);
 			writer.close();
 		} catch (IOException e) {
@@ -253,7 +253,7 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 
 	public List<Tweet> getListFromJson(){
 		List <Tweet> tweets = null;
-		try (Reader reader = new FileReader("tweets.json")){
+		try (Reader reader = new FileReader("src/database/tweets.json")){
 			Type listType = new TypeToken<List<Tweet>>() {}.getType();
 			tweets = gson.fromJson(reader, listType);
             return tweets;

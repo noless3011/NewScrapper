@@ -116,7 +116,7 @@ public class Blockchain101Crawler implements ICrawler<Article>{
 	@Override
 	public void saveToJson(List<Article> list) {
 		Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).setPrettyPrinting().create();
-		try (FileWriter writer = new FileWriter("Blockchain101_data.json")){
+		try (FileWriter writer = new FileWriter("src/database/Blockchain101_data.json")){
 			gson.toJson(list, writer);
 			writer.close();
 		} catch (IOException e) {
@@ -128,7 +128,7 @@ public class Blockchain101Crawler implements ICrawler<Article>{
 	@Override
 	public List<Article> getListFromJson() {
 		Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).setPrettyPrinting().create();
-		try (Reader reader = new FileReader("Blockchain101_data.json")){
+		try (Reader reader = new FileReader("src/database/Blockchain101_data.json")){
 			Type listType = new TypeToken<List<Article>>() {}.getType();
             List<Article> tweets = gson.fromJson(reader, listType);
             return tweets;

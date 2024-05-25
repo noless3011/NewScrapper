@@ -171,11 +171,11 @@ public class FacebookCrawler implements ICrawler<Facebook> {
             WebElement links = post.findElement(By.xpath(".//span[@class='x4k7w5x x1h91t0o x1h9r5lt x1jfb8zj xv2umb2 x1beo9mf xaigb6o x12ejxvf x3igimt xarpa2k xedcshv x1lytzrv x1t2pt76 x7ja8zs x1qrby5j']//a"));
             String link = extractSubstring(links.getAttribute("href"),"?__cft__");
             System.out.println(link);
-
             //Lay thoi gian
+            if(links.getText().indexOf("Shared") == -1) continue;
             String time = extractSubstring(links.getText(), "Shared");
             LocalDateTime prettyTime = parseDateTime(time);
-
+            System.out.println("1");
             //Lay noi dung
             String cnt =post.findElement(By.xpath(".//div[@dir='auto']")).getText();
             Content content = new Content(cnt.replace(" \n "," "));

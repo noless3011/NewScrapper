@@ -5,20 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84382b4b-c4f5-4d48-802f-6256ca3f5a19" name="Changes" comment="Merge remote-tracking branch 'origin/truong-branch' into truong-branch&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewScrapper.iml&#10;#&#9;src/module-info.java">
+      <change afterPath="$PROJECT_DIR$/src/database/facebook.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_21_2024_9_03_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_21_2024_9_03_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/articles.json" beforeDir="false" afterPath="$PROJECT_DIR$/articles.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blockchain101_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/Blockchain101_data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CryptoNews_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/CryptoNews_data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/articles.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/articles.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/Blockchain101Crawler.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/Blockchain101Crawler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/CNBCCrawler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/CNBCCrawler$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/CNBCCrawler$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/CNBCCrawler$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/CNBCCrawler$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/CNBCCrawler$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/CNBCCrawler.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/CNBCCrawler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/FacebookCrawler.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/FacebookCrawler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/TwitterCrawler.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/TwitterCrawler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataCD.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/dataCD.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facebook.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/crawler/Blockchain101Crawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawler/Blockchain101Crawler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/crawler/CNBCCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawler/CNBCCrawler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/crawler/FacebookCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawler/FacebookCrawler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/crawler/TwitterCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawler/TwitterCrawler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tweets.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/tweets.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="D:\Work2\NewScrapper\htmlReport" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -67,6 +83,7 @@
       <recent name="D:\Work2\NewScrapper\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Work2\NewScrapper\src\database" />
       <recent name="D:\Work2\NewScrapper" />
       <recent name="D:\Work2\NewScrapper\resource" />
     </key>
@@ -74,7 +91,20 @@
       <recent name="controller" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Windows">
+  <component name="RunManager" selected="Application.CNBCCrawler">
+    <configuration name="CNBCCrawler" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="crawler.CNBCCrawler" />
+      <module name="NewScrapper" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="crawler.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="FacebookCrawler" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="crawler.FacebookCrawler" />
       <module name="NewScrapper" />
@@ -115,6 +145,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CNBCCrawler" />
         <item itemvalue="Application.FacebookCrawler" />
       </list>
     </recent_temporary>
@@ -206,5 +237,13 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Merge remote-tracking branch 'origin/truong-branch' into truong-branch&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewScrapper.iml&#10;#&#9;src/module-info.java" />
     <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/truong-branch' into truong-branch&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewScrapper.iml&#10;#&#9;src/module-info.java" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/NewScrapper$CNBCCrawler.ic" NAME="CNBCCrawler Coverage Results" MODIFIED="1716608072236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>crawler.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/NewScrapper$Windows.ic" NAME="Windows Coverage Results" MODIFIED="1716606981983" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.*</FILTER>
+    </SUITE>
   </component>
 </project>
