@@ -1,20 +1,33 @@
 package searchengine;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.IndexWriter;
 
+import opennlp.tools.namefind.NameFinderME;
+import opennlp.tools.namefind.TokenNameFinderModel;
+import opennlp.tools.tokenize.SimpleTokenizer;
+import opennlp.tools.tokenize.Tokenizer;
+import opennlp.tools.util.Span;
+
 import model.Article;
 import model.Facebook;
 import model.Tweet;
 
 public class AddDocument {
+	private Tokenizer tokenizer;
+	private TokenNameFinderModel personModel;
 	
-	public static void tweet(IndexWriter writer,Tweet tweet) throws IOException {
+	public void tweet(IndexWriter writer,Tweet tweet) throws IOException {
 		Document doc = new Document();
 		doc.add(new TextField("author", tweet.getAuthor(), Field.Store.YES));
 		doc.add(new TextField("content", tweet.getContent().toString(), Field.Store.YES));
@@ -32,7 +45,7 @@ public class AddDocument {
 		writer.addDocument(doc);
 	}
 	
-	public static void article(IndexWriter writer, Article article) throws IOException {
+	public void article(IndexWriter writer, Article article) throws IOException {
 		Document doc = new Document();
 		doc.add(new TextField("author", article.getAuthor(), Field.Store.YES));
 		if (article.getTitle() == null) {
@@ -46,7 +59,7 @@ public class AddDocument {
 		writer.addDocument(doc);
 	}
 	
-	public static void facebook(IndexWriter writer, Facebook facebook) throws IOException {
+	public void facebook(IndexWriter writer, Facebook facebook) throws IOException {
 		Document doc = new Document();
 		doc.add(new TextField("author", facebook.getAuthor(), Field.Store.YES));
 		doc.add(new TextField("content", facebook.getContent().toString(), Field.Store.YES));
@@ -59,5 +72,27 @@ public class AddDocument {
 		doc.add(new TextField("urlimg", facebook.getImgUrl(), Field.Store.YES));
 		doc.add(new TextField("indexType", "Facebook", Field.Store.YES));
 		writer.addDocument(doc);
+	}
+	
+	private Set <String> detectEntities(String content) throws FileNotFoundException, IOException {
+		tokenizer = SimpleTokenizer.INSTANCE;
+		personModel = new TokenNameFinderModel(new FileInputStream("en-ner-person.bin"));
+		Set <String> entities = new HashSet<>();
+		String[] tokens = tokenizer.tokenize(content);
+		
+		//Thêm thực thể người
+		NameFinderME personFinder = new NameFinderME(personModel);
+	    Span[] personSpans = personFinder.find(tokens);
+	    addEntities(entities, personSpans, tokens);
+		return entities;
+	}
+	private void addEntities(Set <String> entities, Span[] spans, String[] tokens) {
+		 for (Span span : spans) {
+	            StringBuilder entity = new StringBuilder();
+	            for (int i = span.getStart(); i < span.getEnd(); i++) {
+	                entity.append(tokens[i]).append(" ");
+	            }
+	            entities.add(entity.toString().trim());
+	        }
 	}
 }

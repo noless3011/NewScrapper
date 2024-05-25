@@ -22,6 +22,7 @@ import javafx.animation.Animation;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.application.Platform;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
@@ -65,7 +66,8 @@ public class MainController{
 	// Tab đang được hiển thị hiện tai
 	private TabType currentTabState = TabType.ARTICLE;
 	
-	
+    
+
 	//Vị trí của cửa sổ trên màn hình
 	private double xOffset;
 	private double yOffset;
@@ -210,7 +212,27 @@ public class MainController{
 		searchTextField.setOnKeyPressed( event -> {
 			  if( event.getCode() == KeyCode.ENTER ) {
 			    try {
-					showSearchResult(searchResultToParents(DefaultSearch.searchDefaultAll(searchTextField.getText())));
+			    	DefaultSearch defaultSearch = new DefaultSearch();
+					//showSearchResult(searchResultToParents(DefaultSearch.searchDefaultAll(searchTextField.getText())));
+			    	switch(currentTabState) {
+					case ARTICLE:
+						showSearchResult(searchResultToParents(defaultSearch.searchArticle(searchTextField.getText())));
+						break;
+					case FACEBOOK:
+						showSearchResult(searchResultToParents(defaultSearch.searchFacebook(searchTextField.getText())));
+						break;
+					case TWITTER:
+						showSearchResult(searchResultToParents(defaultSearch.searchTweet(searchTextField.getText())));
+						break;
+					case ARTICLEVIEW:
+					case SEARCHRESULT:
+					case SETTING:
+					case CRAWLERMANAGER:
+					default:
+						break;
+			    	
+			    	}
+			    	
 				} catch (ParseException e) {
 					e.printStackTrace();
 				}
@@ -238,23 +260,20 @@ public class MainController{
 			List<Field> fields = new ArrayList<>();
 			
 			//Kiểm tra xem đang ở tab nào và hiện phần tìm kiếm tương ứng
+			
+			fields.add(Field.TITLE);
+			fields.add(Field.CONTENT);
+			fields.add(Field.AUTHOR);
+			if(currentTabState == TabType.FACEBOOK) {
+				advanceSearchController.setSearchOption(SearchOption.FACEBOOK);
+			}
+			if(currentTabState == TabType.TWITTER) {
+				advanceSearchController.setSearchOption(SearchOption.TWITTER);
+			}
 			if(currentTabState == TabType.ARTICLE) {
-				fields.add(Field.TITLE);
-				fields.add(Field.AUTHOR);
-				fields.add(Field.CONTENT);
 				advanceSearchController.setSearchOption(SearchOption.ARTICLES);
 			}
-			if(currentTabState == TabType.FACEBOOK || currentTabState == TabType.TWITTER) {
-				fields.add(Field.TITLE);
-				fields.add(Field.AUTHOR);
-				if(currentTabState == TabType.FACEBOOK) {
-					advanceSearchController.setSearchOption(SearchOption.FACEBOOK);
-				}
-				if(currentTabState == TabType.TWITTER) {
-					advanceSearchController.setSearchOption(SearchOption.TWITTER);
-				}
-				
-			}
+			
 			// Add các field tìm kiếm vào popup
 			for(Field field : fields) {
 				advanceSearchController.addSearchField(field);
@@ -278,10 +297,12 @@ public class MainController{
 	}
 	
 	//Hàm này để chuyển từ list kết quả tìm kiếm sang javafx elements
-	public List<Parent> searchResultToParents(List<Object> searchResult) {
+	public <T extends Article> List<Parent> searchResultToParents(List<T> searchResult) {
 		int progressCount = 0;
 		List<Parent> elements = new ArrayList<>();
-		for(Object result : searchResult) {
+		for(T result : searchResult) {
+			System.out.println(result.toString());
+			
 			if(result instanceof Facebook) {
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/facebookpost.fxml"));
 				VBox postVBox;
@@ -294,6 +315,18 @@ public class MainController{
 					e.printStackTrace();
 				}
 				continue;
+			}
+			if(result instanceof Tweet) {
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/TwitterPost.fxml"));
+    			Parent postVBox;
+				try {
+					postVBox = loader.load();
+					PostController controller = loader.getController();
+	    			controller.setData((Tweet)result);
+	    			elements.add(postVBox);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}	
 			}
 			if(result instanceof Article) {
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/NewsCard.fxml"));
@@ -377,21 +410,23 @@ public class MainController{
 		System.out.println(undoStack);
 	}
 	// Hàm này chạy để kiểm tra xem có bấm lại vào tab cũ không (VD: đang ở tab Article mà lại bấm vào Article tiếp)
-	private void checkToggle(TabType currentTabType) {
-		pagination.setCurrentPageIndex(0);
+	private void checkToggle(TabType newTabType) {
 		//Kiểm tra
-		if(currentTabState == currentTabType) return;
+		if(currentTabState == newTabType) return;
 		// Nếu không bấm lại tab cũ thì sẽ chuyển qua tab được truyền vào bên trên
 		redoStack.clear();
+		EnumSet<TabType> showPagination = EnumSet.of(TabType.ARTICLE, TabType.TWITTER, TabType.FACEBOOK);
 		EnumSet<TabType> clickable = EnumSet.of(TabType.ARTICLE, TabType.TWITTER, TabType.FACEBOOK, TabType.CRAWLERMANAGER, TabType.SETTING);
 		// Do kiểu tab còn 2 kiểu không thể vào qua các nút chuyển tab là Article View và Search Result nên ta phải kiểm tra xem 
 		// Nếu là kiểu tab có nút để chuyển thì highlight nút đó lên
-		if(clickable.contains(currentTabType) && clickable.contains(currentTabState)) {
+		if(clickable.contains(newTabType) && clickable.contains(currentTabState)) {
+
+			pagination.setCurrentPageIndex(0);
 			buttonTypeHashMap.get(currentTabState).getStyleClass().set(0, "side-bar-button");
-			buttonTypeHashMap.get(currentTabType).getStyleClass().set(0, "side-bar-button-selected");
+			buttonTypeHashMap.get(newTabType).getStyleClass().set(0, "side-bar-button-selected");
 		}
-		currentTabState = currentTabType;
-		undoStack.push(currentTabType);
+		currentTabState = newTabType;
+		undoStack.push(newTabType);
 		
 		reloadView();
 	}
@@ -466,18 +501,17 @@ public class MainController{
 		    			break;
 		    		}
 		    		case FACEBOOK:
-		    			int count = 0;
 		    			List<Parent> posts = new ArrayList<>();
 		    			for(int i = startIndex; i < endIndex; i++) {
-		    				FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/FacebookPost.fxml"));
+		    				System.out.println(i);
+		    				FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/facebookpost.fxml"));
 		        			Parent postVBox;
 		    				try {
 		    					postVBox = loader.load();
 		    					PostController controller = loader.getController();
 		    	    			controller.setData(DisplayList.getPostList().get(i));
+		    	    			System.out.println(DisplayList.getPostList().get(i));
 		    	    			posts.add(postVBox);
-		    	    			
-		    	    			System.out.println(count++);
 		    				} catch (IOException e) {
 		    					e.printStackTrace();
 		    				}
@@ -487,7 +521,6 @@ public class MainController{
 		    		case SETTING:
 		    			break;
 		    		case TWITTER:
-		    			int counttwitter = 0;
 		    			List<Parent> twitter_posts = new ArrayList<>();
 		    			for(int i = startIndex; i < endIndex; i++) {
 		    				FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/TwitterPost.fxml"));
@@ -497,18 +530,18 @@ public class MainController{
 		    					PostController controller = loader.getController();
 		    	    			controller.setData(DisplayList.getTweetList().get(i));
 		    	    			twitter_posts.add(postVBox);
-		    	    			System.out.println(counttwitter);
-		    	    			counttwitter++;
-		    	    			
 		    				} catch (IOException e) {
 		    					e.printStackTrace();
 		    				}
 		    			}
 		    			tabContents.replace(TabType.TWITTER, twitter_posts);
 		    			break;
+		    		
 		    		default:
 		    			break;
 		    		}
+				
+					 
 					return null;
 			}catch (InterruptedException e) {
 	            e.printStackTrace();
