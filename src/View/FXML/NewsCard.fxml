@@ -26,7 +26,7 @@
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
-                        <Label fx:id="contentText" alignment="TOP_LEFT" prefHeight="95.0" prefWidth="639.0" text="The blockchain ecosystem has become one of the notable points of discussion for its impressive potential to induce digital transformation. One of the most important ….." wrapText="true">
+                        <Label fx:id="contentText" alignment="TOP_LEFT" prefHeight="95.0" prefWidth="639.0" text="&quot;The blockchain ecosystem has become one of the notable points of discussion for its impressive potential to induce digital transformation. One of the most important ….." textFill="WHITE" wrapText="true">
                            <font>
                               <Font size="14.0" />
                            </font>

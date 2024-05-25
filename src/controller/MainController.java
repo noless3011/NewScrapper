@@ -15,6 +15,7 @@ import controller.SearchPopupController.Field;
 import controller.SearchPopupController.SearchOption;
 import crawler.Blockchain101Crawler;
 import crawler.CNBCCrawler;
+import crawler.CryptonewsCrawler;
 import crawler.FacebookCrawler;
 import crawler.TwitterCrawler;
 import javafx.animation.Animation;
@@ -411,6 +412,7 @@ public class MainController{
 	}
 	// Hàm này chạy để kiểm tra xem có bấm lại vào tab cũ không (VD: đang ở tab Article mà lại bấm vào Article tiếp)
 	private void checkToggle(TabType currentTabType) {
+		pagination.setCurrentPageIndex(0);
 		//Kiểm tra
 		if(currentTabState == currentTabType) return;
 		// Nếu không bấm lại tab cũ thì sẽ chuyển qua tab được truyền vào bên trên
@@ -510,6 +512,8 @@ public class MainController{
 		    	    			System.out.println(DisplayList.getPostList().get(i));
 		    	    			posts.add(postVBox);
 		    	    			
+		    	    			System.out.println(count++);
+		    	    			//if (count == 10) break;
 		    				} catch (IOException e) {
 		    					e.printStackTrace();
 		    				}
@@ -571,7 +575,10 @@ public class MainController{
         			DisplayList.toggleDynamicUpdate(false);
         	    	CNBCCrawler cnbcCrawler = new CNBCCrawler();
         	    	Blockchain101Crawler blockchain101Crawler = new Blockchain101Crawler();
-        	    	DisplayList.getArticleList().setAll(cnbcCrawler.getListFromJson());
+        	    	CryptonewsCrawler cryptonewsCrawler = new CryptonewsCrawler();
+        	    	
+        	    	DisplayList.getArticleList().setAll(cryptonewsCrawler.getListFromJson());
+        	    	DisplayList.getArticleList().addAll(cnbcCrawler.getListFromJson());
         	    	DisplayList.getArticleList().addAll(blockchain101Crawler.getListFromJson());
         	    	DisplayList.toggleDynamicUpdate(true);
         			break;

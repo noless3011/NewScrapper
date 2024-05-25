@@ -62,15 +62,19 @@ public class PostController{
         timeLabel.setText(timeParse(post.getPublishedAt()));
         
         String[] parts = post.getContent().toString().split("\\{url=");
-    	String imgURL = "";
-    	for (int i = 1; i < parts.length; i++) {
-    		imgURL = parts[i].split(", description=")[0];
-    	}
+        contentLabel.setText(parts[0]);
         
-        contentLabel.setText(parts[0]);        
-        if(!imgURL.isEmpty()) {
-        	image.setImage(new Image(imgURL));
-        }
+        Thread thread = new Thread(() -> {
+        	String imgURL = "";
+        	for (int i = 1; i < parts.length; i++) {
+        		imgURL = parts[i].split(", description=")[0];
+        	}
+        	
+            if(!imgURL.isEmpty()) {
+            	image.setImage(new Image(imgURL));
+            }
+        });
+        thread.start();
 
         reactionLabel.setText(post.getNumber_of_liked());
         cmtLabel.setText( post.getNumber_of_comment());

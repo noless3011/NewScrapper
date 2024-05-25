@@ -6,6 +6,7 @@ import java.util.Map;
 
 import crawler.Blockchain101Crawler;
 import crawler.CNBCCrawler;
+import crawler.CryptonewsCrawler;
 import crawler.FacebookCrawler;
 import crawler.ICrawler;
 import crawler.TwitterCrawler;
@@ -36,7 +37,7 @@ public class CrawlerTypeSelectorController{
 		crawlerMap.put("Facebook crawler", this::addFacebookCrawler);
 		crawlerMap.put("Blockchain101 crawler", this::addBlockchain101Crawler);
 		crawlerMap.put("Twitter crawler", this::addTwitterCrawler);
-		//crawlerMap.put(" crawler", this::addCrawler);
+		crawlerMap.put("Cryptonews crawler", this::addCryptonewsCrawler);
 		
 		for(String crawler : crawlerMap.keySet()) {
 			Button button = new Button();
@@ -127,6 +128,26 @@ public class CrawlerTypeSelectorController{
 			cardController.setLabel("CNBC crawler ");
 			ICrawler<Article> cnbcCrawler = new CNBCCrawler() ;
 			cardController.setCrawler(cnbcCrawler);
+			crawlerVBox.getChildren().add(0, root);
+			closeMenu();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void addCryptonewsCrawler(ActionEvent event) {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/CrawlerCard.fxml"));
+		
+		try {
+			AnchorPane root = loader.load();
+			CrawlerCardController cardController = loader.getController();
+			
+			cardController.setManager(managerController);
+			cardController.setWidth(managerController.crawlersAnchor);
+			String indexString = Integer.toString(CrawlerCardController.counter);
+			cardController.setLabel("Cryptonews crawler");
+			CryptonewsCrawler crawler = new CryptonewsCrawler();
+			cardController.setCrawler(crawler);
 			crawlerVBox.getChildren().add(0, root);
 			closeMenu();
 		} catch (IOException e) {

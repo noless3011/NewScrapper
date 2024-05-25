@@ -1,5 +1,5 @@
 .root{
-    -fx-background-color: black;
+    -fx-background-color: #188888;
 }
 
 .thin-progress-bar {
@@ -67,7 +67,7 @@
 }
 
 .side-bar-pane{
-	-fx-background-color: #1d1d1d;
+	-fx-background-color: #e48a29;
 	-fx-border-radius: 12px;
     -fx-background-radius: 12px;
 	
@@ -80,8 +80,8 @@
 }
 
 .search-bar{
-	-fx-background-color: #2C2C2C;
-    -fx-text-fill: white;
+	-fx-background-color: white;
+    -fx-text-fill: black;
     -fx-border-radius: 15px;
     -fx-background-radius: 15px;
     -fx-padding: 10px 20px;

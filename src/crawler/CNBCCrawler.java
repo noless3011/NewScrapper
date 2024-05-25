@@ -167,7 +167,7 @@ public class CNBCCrawler implements ICrawler<Article> {
 	@Override
 	public List<Article> getListFromJson() {
 		Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).setPrettyPrinting().create();
-		try (Reader reader = new FileReader("articles.json")){
+		try (Reader reader = new FileReader("CNBCCrawler_data.json")){
 			Type listType = new TypeToken<List<Article>>() {}.getType();
             List<Article> tweets = gson.fromJson(reader, listType);
             return tweets;
@@ -179,7 +179,7 @@ public class CNBCCrawler implements ICrawler<Article> {
 	
 	public static List<Article> getArticlesFromJsonTest() {
 		Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).setPrettyPrinting().create();
-		try (Reader reader = new FileReader("articles.json")){
+		try (Reader reader = new FileReader("CNBCCrawler_data.json")){
 			Type listType = new TypeToken<List<Article>>() {}.getType();
             List<Article> tweets = gson.fromJson(reader, listType);
             return tweets;
