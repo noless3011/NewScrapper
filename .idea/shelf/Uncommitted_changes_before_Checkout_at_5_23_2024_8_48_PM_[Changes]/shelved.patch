@@ -1,0 +1,196 @@
+Index: src/module-info.java
+===================================================================
+diff --git a/src/module-info.java b/src/module-info.java
+deleted file mode 100644
+--- a/src/module-info.java	(revision 8c6ef17e2cead3d46e3c4db0faa5f15252c33970)
++++ /dev/null	(revision 8c6ef17e2cead3d46e3c4db0faa5f15252c33970)
+@@ -1,28 +0,0 @@
+-module NewsScrapper {
+-	exports model;
+-	exports controller;
+-	exports main;
+-	exports searchengine;
+-	requires transitive javafx.graphics;
+-	opens controller;
+-	
+-	requires org.jsoup;
+-	requires javafx.base;
+-	requires transitive javafx.controls;
+-	requires javafx.fxml;
+-	requires javafx.media;
+-	requires javafx.swing;
+-	requires javafx.web;
+-	requires org.seleniumhq.selenium.chrome_driver;
+-	requires org.seleniumhq.selenium.support;
+-	requires dev.failsafe.core;
+-	requires com.google.gson;
+-	requires com.google.common;
+-	requires com.fasterxml.jackson.databind;
+-	opens model to com.google.gson;
+-	requires org.apache.lucene.core;
+-	requires org.apache.lucene.queryparser;
+-	requires org.slf4j;
+-	requires org.apache.opennlp.tools;
+-	requires java.base;
+-}
+Index: NewScrapper.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module type=\"JAVA_MODULE\" version=\"4\">\r\n  <component name=\"NewModuleRootManager\" inherit-compiler-output=\"true\">\r\n    <exclude-output />\r\n    <content url=\"file://$MODULE_DIR$\">\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src\" isTestSource=\"false\" />\r\n    </content>\r\n    <orderEntry type=\"jdk\" jdkName=\"20\" jdkType=\"JavaSDK\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n    <orderEntry type=\"library\" name=\"lib\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"lib1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"selenium-server-4.18.1\" level=\"project\" />\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/NewScrapper.iml b/NewScrapper.iml
+--- a/NewScrapper.iml	(revision 8c6ef17e2cead3d46e3c4db0faa5f15252c33970)
++++ b/NewScrapper.iml	(date 1716471758296)
+@@ -8,7 +8,7 @@
+     <orderEntry type="jdk" jdkName="20" jdkType="JavaSDK" />
+     <orderEntry type="sourceFolder" forTests="false" />
+     <orderEntry type="library" name="lib" level="project" />
+-    <orderEntry type="library" name="lib1" level="project" />
+     <orderEntry type="library" name="selenium-server-4.18.1" level="project" />
++    <orderEntry type="library" name="lib1" level="project" />
+   </component>
+ </module>
+\ No newline at end of file
+Index: .idea/libraries/lib1.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"lib1\">\r\n    <CLASSES>\r\n      <root url=\"file://$PROJECT_DIR$/../../javaLib/lib/lib\" />\r\n    </CLASSES>\r\n    <JAVADOC />\r\n    <SOURCES />\r\n    <jarDirectory url=\"file://$PROJECT_DIR$/../../javaLib/lib/lib\" recursive=\"false\" />\r\n  </library>\r\n</component>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/lib1.xml b/.idea/libraries/lib1.xml
+--- a/.idea/libraries/lib1.xml	(revision 8c6ef17e2cead3d46e3c4db0faa5f15252c33970)
++++ b/.idea/libraries/lib1.xml	(date 1716471783812)
+@@ -1,10 +1,13 @@
+ <component name="libraryTable">
+   <library name="lib1">
+     <CLASSES>
+-      <root url="file://$PROJECT_DIR$/../../javaLib/lib/lib" />
++      <root url="file://$PROJECT_DIR$/../../javaLib/lib1" />
+     </CLASSES>
+     <JAVADOC />
+-    <SOURCES />
+-    <jarDirectory url="file://$PROJECT_DIR$/../../javaLib/lib/lib" recursive="false" />
++    <SOURCES>
++      <root url="file://$PROJECT_DIR$/../../javaLib/lib1" />
++    </SOURCES>
++    <jarDirectory url="file://$PROJECT_DIR$/../../javaLib/lib1" recursive="false" />
++    <jarDirectory url="file://$PROJECT_DIR$/../../javaLib/lib1" recursive="false" type="SOURCES" />
+   </library>
+ </component>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"84382b4b-c4f5-4d48-802f-6256ca3f5a19\" name=\"Changes\" comment=\"Merge remote-tracking branch 'origin/truong-branch' into truong-branch&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewScrapper.iml&#10;#&#9;src/module-info.java\">\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/libraries/lib1.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/libraries/selenium_server_4_18_1.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]1/shelved.patch\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/classes/production/NewScrapper/crawler/FacebookCrawler$1.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/classes/production/NewScrapper/crawler/FacebookCrawler$1.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/classes/production/NewScrapper/crawler/FacebookCrawler.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/classes/production/NewScrapper/crawler/FacebookCrawler.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/classes/production/NewScrapper/crawler/facebook.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/classes/production/NewScrapper/crawler/facebook.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/classes/production/NewScrapper/model/Facebook.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/classes/production/NewScrapper/model/Facebook.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/crawler/FacebookCrawler.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/crawler/FacebookCrawler.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/crawler/facebook.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/crawler/facebook.json\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"pre-master\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 6\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2eqX8QPd81o8eTTrjl0wjB2k1np\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;truong-branch&quot;,\r\n    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;D:/javaLib/selenium-server-4.18.1.jar&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\Work2\\NewScrapper\\resource\" />\r\n      <recent name=\"D:\\Work2\\NewScrapper\\src\\View\\CSS\" />\r\n      <recent name=\"D:\\Work2\\NewScrapper\\src\\View\\FXML\" />\r\n      <recent name=\"D:\\Work2\\NewScrapper\\src\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\Work2\\NewScrapper\\resource\" />\r\n    </key>\r\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\r\n      <recent name=\"controller\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration default=\"true\" type=\"JetRunConfigurationType\">\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"KotlinStandaloneScriptRunConfigurationType\">\r\n      <option name=\"filePath\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"84382b4b-c4f5-4d48-802f-6256ca3f5a19\" name=\"Changes\" comment=\"\" />\r\n      <created>1712632922085</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1712632922085</updated>\r\n      <workItem from=\"1713767611877\" duration=\"1004000\" />\r\n      <workItem from=\"1713769800447\" duration=\"595000\" />\r\n      <workItem from=\"1713771645123\" duration=\"1125000\" />\r\n      <workItem from=\"1713772792190\" duration=\"1872000\" />\r\n      <workItem from=\"1713832410494\" duration=\"11000\" />\r\n      <workItem from=\"1713841857491\" duration=\"77000\" />\r\n      <workItem from=\"1713963420210\" duration=\"1329000\" />\r\n      <workItem from=\"1713966548548\" duration=\"1160000\" />\r\n      <workItem from=\"1713971433359\" duration=\"1031000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Merge remote-tracking branch 'origin/truong-branch' into truong-branch&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewScrapper.iml&#10;#&#9;src/module-info.java\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1713770124690</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1713770124690</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Merge remote-tracking branch 'origin/truong-branch' into truong-branch&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewScrapper.iml&#10;#&#9;src/module-info.java\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1713770178029</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1713770178029</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Merge remote-tracking branch 'origin/truong-branch' into truong-branch&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewScrapper.iml&#10;#&#9;src/module-info.java\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1713770379052</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1713770379052</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Merge remote-tracking branch 'origin/truong-branch' into truong-branch&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewScrapper.iml&#10;#&#9;src/module-info.java\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1713772712897</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1713772712897</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Merge remote-tracking branch 'origin/truong-branch' into truong-branch&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewScrapper.iml&#10;#&#9;src/module-info.java\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1713774666052</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1713774666052</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"6\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Merge remote-tracking branch 'origin/truong-branch' into truong-branch&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewScrapper.iml&#10;#&#9;src/module-info.java\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Merge remote-tracking branch 'origin/truong-branch' into truong-branch&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewScrapper.iml&#10;#&#9;src/module-info.java\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 8c6ef17e2cead3d46e3c4db0faa5f15252c33970)
++++ b/.idea/workspace.xml	(date 1716471839398)
+@@ -5,17 +5,14 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="84382b4b-c4f5-4d48-802f-6256ca3f5a19" name="Changes" comment="Merge remote-tracking branch 'origin/truong-branch' into truong-branch&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewScrapper.iml&#10;#&#9;src/module-info.java">
+-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib1.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/libraries/selenium_server_4_18_1.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]1/shelved.patch" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib1.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_21_2024_9_03_PM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_21_2024_9_03_PM__Changes_1.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_21_2024_9_08_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_21_2024_9_08_PM__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_22_2024_2_35_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_22_2024_2_35_PM__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_22_2024_2_35_PM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_22_2024_2_35_PM__Changes_1.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/FacebookCrawler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/FacebookCrawler$1.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/FacebookCrawler.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/FacebookCrawler.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/facebook.json" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/facebook.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/model/Facebook.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/NewScrapper/model/Facebook.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/crawler/FacebookCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawler/FacebookCrawler.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/crawler/facebook.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawler/facebook.json" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/NewScrapper.iml" beforeDir="false" afterPath="$PROJECT_DIR$/NewScrapper.iml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/module-info.java" beforeDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -25,7 +22,7 @@
+   <component name="Git.Settings">
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+-        <entry key="$PROJECT_DIR$" value="pre-master" />
++        <entry key="$PROJECT_DIR$" value="truongtruong" />
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+@@ -39,27 +36,27 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;truong-branch&quot;,
+-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;D:/javaLib/selenium-server-4.18.1.jar&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "WebServerToolWindowFactoryState": "false",
++    "git-widget-placeholder": "pre-master",
++    "ignore.virus.scanning.warn.message": "true",
++    "kotlin-language-version-configured": "true",
++    "last_opened_file_path": "D:/javaLib/lib1",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "project.structure.last.edited": "Libraries",
++    "project.structure.proportion": "0.15",
++    "project.structure.side.proportion": "0.2",
++    "settings.editor.selected.configurable": "settings.sync",
++    "vue.rearranger.settings.migration": "true"
+   }
+-}</component>
++}]]></component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="D:\Work2\NewScrapper\resource" />
+@@ -75,6 +72,20 @@
+     </key>
+   </component>
+   <component name="RunManager">
++    <configuration name="Windows" type="Application" factoryName="Application" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="main.Windows" />
++      <module name="NewScrapper" />
++      <option name="VM_PARAMETERS" value="--module-path D:\javaLib\openjfx-21.0.2_windows-x64_bin-sdk\javafx-sdk-21.0.2\lib --add-modules=javafx.controls,javafx.fxml" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="main.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
+     <configuration default="true" type="JetRunConfigurationType">
+       <method v="2">
+         <option name="Make" enabled="true" />

@@ -4,30 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84382b4b-c4f5-4d48-802f-6256ca3f5a19" name="Changes" comment="Merge remote-tracking branch 'origin/truong-branch' into truong-branch&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewScrapper.iml&#10;#&#9;src/module-info.java">
-      <change afterPath="$PROJECT_DIR$/src/database/facebook.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_21_2024_9_03_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_21_2024_9_03_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blockchain101_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/Blockchain101_data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CryptoNews_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/CryptoNews_data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/articles.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/articles.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/Blockchain101Crawler.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/Blockchain101Crawler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/CNBCCrawler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/CNBCCrawler$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/CNBCCrawler$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/CNBCCrawler$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/CNBCCrawler$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/CNBCCrawler$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/CNBCCrawler.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/CNBCCrawler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/FacebookCrawler.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/FacebookCrawler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/TwitterCrawler.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/TwitterCrawler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataCD.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/dataCD.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/facebook.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/crawler/Blockchain101Crawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawler/Blockchain101Crawler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/crawler/CNBCCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawler/CNBCCrawler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/crawler/FacebookCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawler/FacebookCrawler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/crawler/TwitterCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawler/TwitterCrawler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tweets.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/tweets.json" afterDir="false" />
-    </list>
+    <list default="true" id="84382b4b-c4f5-4d48-802f-6256ca3f5a19" name="Changes" comment="Merge remote-tracking branch 'origin/truong-branch' into truong-branch&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewScrapper.iml&#10;#&#9;src/module-info.java" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,7 +68,7 @@
       <recent name="controller" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.CNBCCrawler">
+  <component name="RunManager" selected="Application.Windows">
     <configuration name="CNBCCrawler" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="crawler.CNBCCrawler" />
       <module name="NewScrapper" />
@@ -171,6 +148,7 @@
       <workItem from="1716081455602" duration="515000" />
       <workItem from="1716104033556" duration="12000" />
       <workItem from="1716281845460" duration="440000" />
+      <workItem from="1716620456006" duration="334000" />
     </task>
     <task id="LOCAL-00001" summary="Merge remote-tracking branch 'origin/truong-branch' into truong-branch&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewScrapper.iml&#10;#&#9;src/module-info.java">
       <option name="closed" value="true" />
@@ -228,7 +206,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716047409579</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Merge remote-tracking branch 'origin/truong-branch' into truong-branch&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewScrapper.iml&#10;#&#9;src/module-info.java">
+      <option name="closed" value="true" />
+      <created>1716620707935</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1716620707935</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
