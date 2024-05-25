@@ -378,6 +378,7 @@ public class MainController{
 	}
 	// Hàm này chạy để kiểm tra xem có bấm lại vào tab cũ không (VD: đang ở tab Article mà lại bấm vào Article tiếp)
 	private void checkToggle(TabType currentTabType) {
+		pagination.setCurrentPageIndex(0);
 		//Kiểm tra
 		if(currentTabState == currentTabType) return;
 		// Nếu không bấm lại tab cũ thì sẽ chuyển qua tab được truyền vào bên trên
