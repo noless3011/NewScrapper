@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="root" stylesheets="@../CSS/CrawlerCard.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CrawlerCardController">
-   <userData>
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="root" stylesheets="@../CSS/CrawlerCard.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CrawlerCardController">
+  <userData>
         <fx:reference source="controller" />
-    </userData>
+    </userData> 
    
    <children>
-      <Pane prefHeight="65.0" prefWidth="800.0" styleClass="pane" />
-      <Label fx:id="crawlerLabel" layoutX="14.0" layoutY="14.0" prefHeight="23.0" prefWidth="161.0" text="Crawler" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+      <Pane prefHeight="65.0" prefWidth="800.0" styleClass="pane" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Label fx:id="crawlerLabel" layoutX="14.0" layoutY="14.0" prefHeight="45.0" prefWidth="258.0" text="Crawler" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="450.0" AnchorPane.topAnchor="10.0">
          <font>
             <Font size="30.0" />
          </font>

@@ -3,16 +3,17 @@ package controller;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
-import javafx.stage.Stage;
 import model.Article;
 
 
@@ -24,47 +25,43 @@ public class NewsCardController {
 	private Label titleText;
 	
 	@FXML
-	private Label infoText;
+	private Label authorLabel;
 	
 	@FXML
-	private ImageView newsImage;
+	private Label sourceUrl;
 	
 	@FXML
-	public void initialize() { 
-		Rectangle clip = new Rectangle(newsImage.getFitWidth(), newsImage.getFitHeight());
-		clip.setArcWidth(35);
-		clip.setArcHeight(35);
-		newsImage.setClip(clip);
-		
-	}
+	private Label contentText;
+	
+	@FXML
+	private Label publishedTime;
+	
 	
 	public void setArticle(Article article) {
 		this.article = article;
-		setTitle();
+		setDetails();
+		
 	}
 	
-	public void setTitle() {
+	public void setDetails() {
+		sourceUrl.setText(article.getSourceUrl());
 		titleText.setText(article.getTitle());
-	}
-	
-	public void setInfo() {
-		//infoText.setText(article.getContent().toString().substring(0, 100) + "...");
-	}
-	
-	public void setImage(String url) {
-		if(url.isEmpty()) {
-			url = "https://www.musafir.com/SFImage/Images/650x200-rahhalah-2.jpg";
-		}
-		try {
-			Image image = new Image(new URI(url).toString());
-			newsImage.setImage(image);
-		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
+		// Thêm phần content
+		List<String> contents = article.getContent().getParagraphList();
+		String content = contents.get(0);
+		for (String a : contents){
+			if (!a.isBlank() & a.length() > 200) { 
+				content = a;
+				break;	
+			}
+		}
+		contentText.setText(content);
 		
+		publishedTime.setText("Published at: " + article.getPublishedAt().toString());
+		authorLabel.setText("Author: " + article.getAuthor());
 	}
+		
 	
 	public void openArticle(MouseEvent event) {
 		try {
@@ -72,14 +69,10 @@ public class NewsCardController {
 			Parent root = loader.load();
 			NewsViewerController controller = loader.getController();
 			controller.setArticle(article);
-			
-	        // Create a new stage
-	        Stage newStage = new Stage();
-	        // Set the scene of the new stage with the loaded FXML
-	        newStage.setScene(new Scene(root));
-
-	        // Show the new stage
-	        newStage.show();
+			List<Parent> articleElementList = new ArrayList<>();
+			articleElementList.add(root);
+	        MainControllerSingleton.getMainController().loadArticle(articleElementList);
+	        MainControllerSingleton.getMainController().openArticleView();
 		} catch(IOException e) {
 			e.printStackTrace();
 		}

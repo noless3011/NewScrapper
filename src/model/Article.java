@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 public class Article {
 	private int id;
@@ -11,6 +12,7 @@ public class Article {
     private String tags;
     protected Content content;
     private LocalDateTime publishedDate;
+    private Set <String> entity;
 
     // Constructor
     public Article(String title, String author, Content content, LocalDateTime publishedAt, String sourceUrl) {
@@ -20,6 +22,16 @@ public class Article {
         this.publishedDate = publishedAt;
         this.sourceUrl = sourceUrl;
         this.id = this.toString().hashCode();
+    }
+    
+    public Article(String title, String author, Content content, LocalDateTime publishedAt, String sourceUrl, Set <String> entity) {
+        this.title = title;
+        this.author = author;
+        this.content = content;
+        this.publishedDate = publishedAt;
+        this.sourceUrl = sourceUrl;
+        this.id = this.toString().hashCode();
+        this.entity = entity;
     }
 
     // Getters and setters
@@ -88,13 +100,23 @@ public class Article {
 		this.tags = tags;
 	}
 	
-	  // toString method for printing article details
+	public void setEntity(Set <String> entity) {
+		this.entity = entity;
+	}
+	
+	public Set <String> getEntity(){
+		return entity;
+	}
+	
+	// toString method for printing article details
     @Override
     public String toString() {
         return "Title: " + title +
+        		"\nContent: " + content.toString() +
                 "\nAuthor: " + author +
                 "\nPublished At: " + publishedDate +
-                "\nSource URL: " + sourceUrl;
+                "\nSource URL: " + sourceUrl + 
+                "\nEntities: " + entity;
     }
 
 }

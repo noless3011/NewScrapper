@@ -11,6 +11,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+
+
 public class LocalDateTimeAdapter extends TypeAdapter<LocalDateTime> implements JsonSerializer<LocalDateTime>, JsonDeserializer<LocalDateTime> {
     private final DateTimeFormatter formatter1;
 
@@ -40,7 +42,6 @@ public class LocalDateTimeAdapter extends TypeAdapter<LocalDateTime> implements 
     public LocalDateTime deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         return LocalDateTime.parse(json.getAsString(), formatter);
     }
-
     @Override
     public LocalDateTime read(JsonReader in) throws IOException {
         // Đọc giá trị từ JSON và chuyển đổi thành LocalDateTime

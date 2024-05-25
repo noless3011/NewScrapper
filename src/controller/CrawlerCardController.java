@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 
 public class CrawlerCardController {
 	private int id;
@@ -39,8 +40,15 @@ public class CrawlerCardController {
 	@FXML
 	private ProgressBar progressBar;
 	
+	@FXML
+	private AnchorPane root;
+	
 	public CrawlerCardController() {
 		this.id = ++counter;
+	}
+	
+	public void setWidth(AnchorPane warper) {
+		root.prefWidthProperty().bind(warper.widthProperty());
 	}
 	
 	public int getID(){
@@ -96,6 +104,8 @@ public class CrawlerCardController {
 	}
 	
 	public void stopThread() {
-		thread.interrupt();
+		if(thread != null) {
+			thread.interrupt();
+		}	
 	}
 }

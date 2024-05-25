@@ -18,7 +18,7 @@
     -fx-background-radius: 4px; /* Adjust the radius as needed */
 }
 .root{
-    -fx-background-color: #242424;
+    -fx-background-color: transparent;
     -fx-alignment:center;
 }
 

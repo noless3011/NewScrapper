@@ -2,11 +2,13 @@ module NewsScrapper {
 	exports model;
 	exports controller;
 	exports main;
+	exports searchengine;
 	requires transitive javafx.graphics;
 	opens controller;
+	
 	requires org.jsoup;
 	requires javafx.base;
-	requires javafx.controls;
+	requires transitive javafx.controls;
 	requires javafx.fxml;
 	requires javafx.media;
 	requires javafx.swing;
@@ -18,5 +20,9 @@ module NewsScrapper {
 	requires com.google.common;
 	requires com.fasterxml.jackson.databind;
 	opens model to com.google.gson;
-	
+	requires org.apache.lucene.core;
+	requires org.apache.lucene.queryparser;
+	requires org.slf4j;
+	requires org.apache.opennlp.tools;
+	requires java.base;
 }

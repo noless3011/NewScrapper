@@ -3,13 +3,22 @@ package controller;
 import java.time.LocalDateTime;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import model.Article;
 import model.Content;
 
 public class NewsViewerController {
+	
+    @FXML
+    private ImageView image;
+	
 	@FXML
 	private Label titleLabel;
+	
+	@FXML
+	private Label tagLabel;
 	
 	@FXML
 	private Label authorLabel;
@@ -45,9 +54,38 @@ public class NewsViewerController {
 	}
 	
 	void setArticle(Article article) {
+		setTag("    Tag: " + article.getTags());
 		setTitle(article.getTitle());
-		setAuthor(article.getAuthor());
+		setAuthor("  Author: " + article.getAuthor());
 		setDate(article.getPublishedAt());
-		setContent(article.getContent());
+		
+		// Lấy ra content của bài viết
+		Content content = article.getContent();
+    	setContent(content);  
+    	
+    	// Tạo luồng load ảnh
+        Thread thread = new Thread(() -> {
+            String[] parts = content.toString().split("\\{url=");
+        	String imgURL = "";
+        	
+        	if(parts.length > 1) {
+            	imgURL = parts[1].split(", description=")[0];
+        	}
+        	
+        	if(!imgURL.isEmpty()) {
+            	setImg(imgURL);
+            }
+        });
+        thread.start();
+	}
+	
+	void setImg(String imgUrl) {
+		if (!imgUrl.isEmpty()) {
+			image.setImage(new Image(imgUrl));	
+		}
+	}
+	
+	void setTag(String tags) {
+		tagLabel.setText(tags);
 	}
 }

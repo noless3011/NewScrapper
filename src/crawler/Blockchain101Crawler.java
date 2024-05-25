@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -23,6 +24,7 @@ import com.google.gson.reflect.TypeToken;
 
 import adapter.LocalDateTimeAdapter;
 import adapter.ProgressCallback;
+import model.Image;
 import model.Article;
 import model.Content;
 
@@ -35,10 +37,10 @@ public class Blockchain101Crawler implements ICrawler<Article>{
 	public Document accessPage(int page) {
 		try {
 			if (page == 1) {
-				 return Jsoup.connect(WEB_URL).timeout(2000).get();
+				 return Jsoup.connect(WEB_URL).timeout(5000).get();
 			}
 			else {
-				return Jsoup.connect(WEB_URL + "page" + "/" + page + "/"  ).timeout(2000).get();
+				return Jsoup.connect(WEB_URL + "page" + "/" + page + "/"  ).timeout(5000).get();
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -48,6 +50,11 @@ public class Blockchain101Crawler implements ICrawler<Article>{
 	
 	@Override
 	public void crawlList(int amount, ProgressCallback callback) {
+		articles = getListFromJson();
+		HashSet <String> uniqueArticles = new HashSet<String>();
+		for (Article article: articles) {
+			uniqueArticles.add(article.getSourceUrl());
+		}
 		int page = 1;
 		int index = 0;
 		while(index < amount){
@@ -56,11 +63,15 @@ public class Blockchain101Crawler implements ICrawler<Article>{
 		    if (doc != null) {
 		        Elements accessOutUrl = doc.select("div[class=pho-blog-part-content]");
 		        
+		        loop:
 		        for (Element element : accessOutUrl) {
 		            // Tiếp tục xử lý các phần tử HTML
 		        	// Get URL
 					String url = element.select("h2 a").attr("href");
-					
+					if(uniqueArticles.contains(url)){
+						System.out.println("Skip");
+						continue loop;
+					}
 					// Get title
 					String title = element.select("h2 a").text();
 					// Get author
@@ -82,24 +93,36 @@ public class Blockchain101Crawler implements ICrawler<Article>{
 					
 					//Get contents
 					try {
-					Document document = Jsoup.connect(url).timeout(2000).get();
-					Element accessInUrl = document.select("article").first();
-					Elements getElement = accessInUrl.select("p, h2, h3");
+						Document document = Jsoup.connect(url).timeout(5000).get();
+						Element accessInUrl = document.select("article").first();
+						Elements getElement = accessInUrl.select("p, h2, h3, picture");
 					
-					Content content = new Content();
-					for (Element contentElement: getElement) {
-						content.AddElement(contentElement.text());
-					}
+						Content content = new Content();
+						boolean pic_number = false;
+						for (Element contentElement: getElement) {
+							String tagName = contentElement.tagName().toLowerCase();
+							if (tagName.equals("picture")) {
+								if(!pic_number) {
+									Image image = new Image(contentElement.select("img").attr("src"));
+									content.AddElement(image);
+									pic_number = true;
+								}
+								
+							} else {
+								content.AddElement(contentElement.text() + '\n');
+							}
+						}
 					
-					// Create object is a Article
-					Article article = new Article(title, author, content, publishedDateTime, url);
-					article.setTags(tag);
-					articles.add(article);
-					
-					//Update index and page
-					index++;
-					callback.updateProgress(index);
-					if (index == amount) break;
+						// Create object is a Article
+						Article article = new Article(title, author, content, publishedDateTime, url);
+						article.setTags(tag);
+						articles.add(article);
+						uniqueArticles.add(url);
+						//Update index and page
+						System.out.println(index);
+						index++;
+						callback.updateProgress(index);
+						if (index == amount) break;
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
