@@ -57,9 +57,15 @@ public class AdvanceSearch {
     public <T extends Article> List<T> searchAdvance(Class<T> type,String inputTitle, String inputAuthor, DateRange range, String inputContent) throws ParseException, IOException {
         try {
         	String pathString = "";
-        	if(type.equals(Article.class)) pathString = ARTICLE_INDEX_DIR;
-        	if(type.equals(Tweet.class)) pathString = TWEET_INDEX_DIR;
-        	if(type.equals(Facebook.class)) pathString = FACEBOOK_INDEX_DIR;
+        	if(type.equals(Article.class)) {
+        		pathString = ARTICLE_INDEX_DIR;
+        	}
+        	if(type.equals(Tweet.class)) {
+        		pathString = TWEET_INDEX_DIR;
+        	}
+        	if(type.equals(Facebook.class)) {
+        		pathString = FACEBOOK_INDEX_DIR;
+        	}
         	
             IndexSearcher searcher = new IndexSearcher(DirectoryReader.open(FSDirectory.open(Paths.get(pathString))));
             BooleanQuery.Builder queryBuilder = new BooleanQuery.Builder();

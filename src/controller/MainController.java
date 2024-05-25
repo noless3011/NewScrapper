@@ -22,6 +22,7 @@ import javafx.animation.Animation;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.application.Platform;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
@@ -63,9 +64,10 @@ public class MainController{
 	private Stack<TabType> undoStack = new Stack<TabType>();
 	private Stack<TabType> redoStack = new Stack<TabType>();
 	// Tab đang được hiển thị hiện tai
-	private TabType currentTabState = TabType.FACEBOOK;
+	private TabType currentTabState = TabType.ARTICLE;
 	
-	
+    
+
 	//Vị trí của cửa sổ trên màn hình
 	private double xOffset;
 	private double yOffset;
@@ -258,23 +260,20 @@ public class MainController{
 			List<Field> fields = new ArrayList<>();
 			
 			//Kiểm tra xem đang ở tab nào và hiện phần tìm kiếm tương ứng
+			
+			fields.add(Field.TITLE);
+			fields.add(Field.CONTENT);
+			fields.add(Field.AUTHOR);
+			if(currentTabState == TabType.FACEBOOK) {
+				advanceSearchController.setSearchOption(SearchOption.FACEBOOK);
+			}
+			if(currentTabState == TabType.TWITTER) {
+				advanceSearchController.setSearchOption(SearchOption.TWITTER);
+			}
 			if(currentTabState == TabType.ARTICLE) {
-				fields.add(Field.TITLE);
-				fields.add(Field.AUTHOR);
-				fields.add(Field.CONTENT);
 				advanceSearchController.setSearchOption(SearchOption.ARTICLES);
 			}
-			if(currentTabState == TabType.FACEBOOK || currentTabState == TabType.TWITTER) {
-				fields.add(Field.CONTENT);
-				fields.add(Field.AUTHOR);
-				if(currentTabState == TabType.FACEBOOK) {
-					advanceSearchController.setSearchOption(SearchOption.FACEBOOK);
-				}
-				if(currentTabState == TabType.TWITTER) {
-					advanceSearchController.setSearchOption(SearchOption.TWITTER);
-				}
-				
-			}
+			
 			// Add các field tìm kiếm vào popup
 			for(Field field : fields) {
 				advanceSearchController.addSearchField(field);
@@ -411,21 +410,23 @@ public class MainController{
 		System.out.println(undoStack);
 	}
 	// Hàm này chạy để kiểm tra xem có bấm lại vào tab cũ không (VD: đang ở tab Article mà lại bấm vào Article tiếp)
-	private void checkToggle(TabType currentTabType) {
-		pagination.setCurrentPageIndex(0);
+	private void checkToggle(TabType newTabType) {
 		//Kiểm tra
-		if(currentTabState == currentTabType) return;
+		if(currentTabState == newTabType) return;
 		// Nếu không bấm lại tab cũ thì sẽ chuyển qua tab được truyền vào bên trên
 		redoStack.clear();
+		EnumSet<TabType> showPagination = EnumSet.of(TabType.ARTICLE, TabType.TWITTER, TabType.FACEBOOK);
 		EnumSet<TabType> clickable = EnumSet.of(TabType.ARTICLE, TabType.TWITTER, TabType.FACEBOOK, TabType.CRAWLERMANAGER, TabType.SETTING);
 		// Do kiểu tab còn 2 kiểu không thể vào qua các nút chuyển tab là Article View và Search Result nên ta phải kiểm tra xem 
 		// Nếu là kiểu tab có nút để chuyển thì highlight nút đó lên
-		if(clickable.contains(currentTabType) && clickable.contains(currentTabState)) {
+		if(clickable.contains(newTabType) && clickable.contains(currentTabState)) {
+
+			pagination.setCurrentPageIndex(0);
 			buttonTypeHashMap.get(currentTabState).getStyleClass().set(0, "side-bar-button");
-			buttonTypeHashMap.get(currentTabType).getStyleClass().set(0, "side-bar-button-selected");
+			buttonTypeHashMap.get(newTabType).getStyleClass().set(0, "side-bar-button-selected");
 		}
-		currentTabState = currentTabType;
-		undoStack.push(currentTabType);
+		currentTabState = newTabType;
+		undoStack.push(newTabType);
 		
 		reloadView();
 	}
@@ -511,9 +512,6 @@ public class MainController{
 		    	    			controller.setData(DisplayList.getPostList().get(i));
 		    	    			System.out.println(DisplayList.getPostList().get(i));
 		    	    			posts.add(postVBox);
-		    	    			
-		    	    			System.out.println(count++);
-		    	    			//if (count == 10) break;
 		    				} catch (IOException e) {
 		    					e.printStackTrace();
 		    				}
@@ -538,9 +536,12 @@ public class MainController{
 		    			}
 		    			tabContents.replace(TabType.TWITTER, twitter_posts);
 		    			break;
+		    		
 		    		default:
 		    			break;
 		    		}
+				
+					 
 					return null;
 			}catch (InterruptedException e) {
 	            e.printStackTrace();

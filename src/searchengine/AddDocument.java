@@ -42,10 +42,6 @@ public class AddDocument {
 			doc.add(new TextField("hashtag", hashtag, Field.Store.YES));
 		}
 		doc.add(new TextField("indexType", "Tweet", Field.Store.YES));
-		Set <String> entities = detectEntities(tweet.getContent().toString());
-		for (String entity: entities) {
-			doc.add(new TextField("entity", entity, Field.Store.YES));
-		}
 		writer.addDocument(doc);
 	}
 	
@@ -60,10 +56,6 @@ public class AddDocument {
 		doc.add(new TextField("date", Long.toString(date), Field.Store.YES));
 		doc.add(new TextField("url", article.getSourceUrl(), Field.Store.YES));
 		doc.add(new TextField("indexType", "Article", Field.Store.YES));
-		Set <String> entities = detectEntities(article.getContent().toString());
-		for (String entity: entities) {
-			doc.add(new TextField("entity", entity, Field.Store.YES));
-		}
 		writer.addDocument(doc);
 	}
 	
@@ -79,10 +71,6 @@ public class AddDocument {
 		doc.add(new TextField("share", facebook.getNumber_of_share(), Field.Store.YES));
 		doc.add(new TextField("urlimg", facebook.getImgUrl(), Field.Store.YES));
 		doc.add(new TextField("indexType", "Facebook", Field.Store.YES));
-		Set <String> entities = detectEntities(facebook.getContent().toString());
-		for (String entity: entities) {
-			doc.add(new TextField("entity", entity, Field.Store.YES));
-		}
 		writer.addDocument(doc);
 	}
 	

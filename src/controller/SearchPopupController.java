@@ -122,33 +122,39 @@ public class SearchPopupController {
 			DisplayList.getSearchResultList(type).setAll(advanceSearch.searchAdvance(
 					type, searchTokenTitle,searchTokenAuthor, 
 					dateRange , searchTokenContent)); 
-			MainControllerSingleton.getMainController().showSearchResult(MainControllerSingleton.getMainController().searchResultToParents(DisplayList.getSearchResultList(type)));
-			MainControllerSingleton.getMainController().reloadView();
+			MainControllerSingleton.getMainController().showSearchResult(
+					MainControllerSingleton.getMainController().searchResultToParents(
+							DisplayList.getSearchResultList(type)
+							)
+					);
 			
 		} catch (ParseException | IOException e) {
 			e.printStackTrace();
 		}
 	}
 	public void searchPress(ActionEvent event) {
-//		if(!indexed) {
-//			try {
-//				Index index = new Index();
-//				index.indexAll();
-//			} catch (IOException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//			indexed = true;
-//		}
+		if(!indexed) {
+			try {
+				Index index = new Index();
+				index.indexAll();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			indexed = true;
+		}
 		switch(option) {
 		case ARTICLES:{
 			Search(Article.class);
+			break;
 		}
 		case FACEBOOK:{
 			Search(Facebook.class);
+			break;
 		}
 		case TWITTER:{
 			Search(Tweet.class);
+			break;
 		}
 		}
 	}
