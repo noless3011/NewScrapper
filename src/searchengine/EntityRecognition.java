@@ -37,19 +37,17 @@ public class EntityRecognition {
 		} catch (JsonIOException | JsonSyntaxException | FileNotFoundException e) {
 			e.printStackTrace();
 		}
-
 		// Xóa tất cả các dấu ngoài lề trừ các ký tự kết thúc câu
-		text = text.replaceAll("[^\\p{L}\\p{N}\\.\\!\\?\\,\\:\\s]", "");
+		text = text.replaceAll("[^a-zA-Z0-9.!? ]", "");
 
 		String[] words = text.split("\\s+");
 		List<String> cleanedWords = new ArrayList<>();
 		for (String word : words) {
-			String cleanedWord = word.toLowerCase();
+			String cleanedWord = word.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
 			if (!stopWords.contains(cleanedWord) && !verbs.contains(cleanedWord)) {
 				cleanedWords.add(word);
 			}
 		}
-
 		return String.join(" ", cleanedWords);
 	}
 
@@ -78,8 +76,7 @@ public class EntityRecognition {
 					currentEntity.setLength(0);
 				}
 				// Đặt lại biến đầu câu
-				isStartOfSentence = word.endsWith(".") || word.endsWith("!") || word.endsWith("?") || word.endsWith(",")
-						|| word.endsWith(":");
+				isStartOfSentence = word.endsWith(".") || word.endsWith("!") || word.endsWith("?");
 				if (isCapitalized) {
 					currentEntity.append(word);
 				}
@@ -91,7 +88,7 @@ public class EntityRecognition {
 			entities.add(currentEntity.toString().trim());
 		}
 		entities = removeSimilarStrings(entities);
-		for (String entity: entities) {
+		for (String entity : entities) {
 			entity = entity.replaceAll("[^A-Za-z0-9]", "");
 		}
 		return entities;
@@ -118,8 +115,8 @@ public class EntityRecognition {
 	private boolean areStringsSimilar(String str1, String str2) {
 		// So sánh hai chuỗi bằng cách loại bỏ dấu cách và dấu câu,
 		// và chuyển đổi tất cả thành chữ hoa hoặc chữ thường để so sánh
-		String cleanStr1 = str1.replaceAll("[\\s\\p{Punct}]", "").toLowerCase();
-		String cleanStr2 = str2.replaceAll("[\\s\\p{Punct}]", "").toLowerCase();
+		String cleanStr1 = str1.replaceAll("[^A-Za-z0-9]", "").toLowerCase();
+		String cleanStr2 = str2.replaceAll("[^A-Za-z0-9]", "").toLowerCase();
 		return cleanStr1.equals(cleanStr2);
 	}
 }

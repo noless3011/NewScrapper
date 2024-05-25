@@ -41,6 +41,14 @@ public class AdvanceSearch {
 			phraseQueryBuilder.add(new Term(field, term));
 		}
 		queryBuilder.add(phraseQueryBuilder.build(), BooleanClause.Occur.MUST);
+
+		for (String term : terms) {
+			FuzzyQuery fuzzyQuery = new FuzzyQuery(new Term(field, term));
+			queryBuilder.add(fuzzyQuery, BooleanClause.Occur.SHOULD);
+		}
+
+		PrefixQuery prefixQuery = new PrefixQuery(new Term(field, value));
+		queryBuilder.add(prefixQuery, BooleanClause.Occur.SHOULD);
 	}
 
 	public <T extends Article> List<T> searchAdvance(Class<T> type, String inputTitle, String inputAuthor,
