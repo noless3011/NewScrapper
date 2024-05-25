@@ -49,6 +49,14 @@ public class Content {
 		}
 	}
 
+	public List<String> getElements() {
+		List<String> getelements = new ArrayList<>();
+		for (Object element : elements) {
+			getelements.add(element.toString());
+		}
+		return getelements;
+	}
+
 	public void RemoveElement(int index) {
 		elements.remove(index);
 	}

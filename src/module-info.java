@@ -1,4 +1,4 @@
-module NewsScrapper {
+module NewScrapper {
 	exports model;
 	exports controller;
 	exports main;
@@ -25,5 +25,4 @@ module NewsScrapper {
 	requires org.slf4j;
 	requires org.apache.opennlp.tools;
 	requires java.base;
-	requires org.apache.lucene.analysis.common;
 }

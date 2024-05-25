@@ -52,7 +52,7 @@ public class DefaultSearch {
 			booleanQueryBuilder.add(mainQuery, BooleanClause.Occur.SHOULD);
 
 			for (String field : fields) {
-				
+
 				FuzzyQuery fuzzyQuery = new FuzzyQuery(new Term(field, queryString));
 				booleanQueryBuilder.add(fuzzyQuery, BooleanClause.Occur.SHOULD);
 
@@ -88,7 +88,7 @@ public class DefaultSearch {
 			booleanQueryBuilder.add(mainQuery, BooleanClause.Occur.SHOULD);
 
 			for (String field : fields) {
-	
+
 				FuzzyQuery fuzzyQuery = new FuzzyQuery(new Term(field, queryString));
 				booleanQueryBuilder.add(fuzzyQuery, BooleanClause.Occur.SHOULD);
 
@@ -162,7 +162,7 @@ public class DefaultSearch {
 
 				FuzzyQuery fuzzyQuery = new FuzzyQuery(new Term(field, queryString));
 				booleanQueryBuilder.add(fuzzyQuery, BooleanClause.Occur.SHOULD);
-				
+
 				PrefixQuery prefixQuery = new PrefixQuery(new Term(field, queryString));
 				booleanQueryBuilder.add(prefixQuery, BooleanClause.Occur.SHOULD);
 			}
@@ -197,10 +197,13 @@ public class DefaultSearch {
 
 	public static void main(String[] args) throws ParseException, IOException, InterruptedException {
 		Index index = new Index();
+		index.indexTweet();
+		index.indexAll();
 		index.indexArticle();
+		index.indexFacebook();
 		DefaultSearch search = new DefaultSearch();
-		List<Article> results = search.searchArticle("blockchain");
-		for (Article result : results) {
+		List<Tweet> results = search.searchTweet("blockchain");
+		for (Tweet result : results) {
 			System.out.println(result);
 		}
 	}

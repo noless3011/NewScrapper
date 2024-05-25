@@ -10,7 +10,6 @@ import java.util.concurrent.Semaphore;
 
 import org.apache.lucene.queryparser.classic.ParseException;
 
-import controller.MainController.TabType;
 import controller.SearchPopupController.Field;
 import controller.SearchPopupController.SearchOption;
 import crawler.Blockchain101Crawler;
@@ -22,7 +21,6 @@ import javafx.animation.Animation;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.application.Platform;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
