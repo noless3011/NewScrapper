@@ -14,71 +14,68 @@ import javafx.stage.Popup;
 public class CrawlerManagerController {
 	@FXML
 	Button addButton;
-	
+
 	@FXML
 	VBox crawlerVBox;
-	
+
 	Popup popup;
-	
-	public void runAllPress(ActionEvent event) throws IOException{
-		for(Node node : crawlerVBox.getChildren()) {
-			CrawlerCardController controller = (CrawlerCardController)node.getUserData();
+
+	public void runAllPress(ActionEvent event) throws IOException {
+		for (Node node : crawlerVBox.getChildren()) {
+			CrawlerCardController controller = (CrawlerCardController) node.getUserData();
 			controller.runCrawler();
 		}
 	}
-	
-	public void addCrawler(ActionEvent event) throws IOException{
+
+	public void addCrawler(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/CrawlerTypeSelector.fxml"));
-		
+
 		try {
 			if (popup == null) {
 				popup = new Popup();
-				
+
 				AnchorPane root = loader.load();
 				CrawlerTypeSelectorController typeController = loader.getController();
-				
+
 				typeController.createButtons(this, crawlerVBox);
 				popup.getContent().add(root);
-				
-				
-				
+
 				addButton.getScene().setOnMouseClicked(e -> {
-		            if (popup == null) return;
+					if (popup == null)
+						return;
 					if (!popup.isShowing()) {
-						
+
 						return;
 					}
-		            Bounds boundsInScreen = root.localToScreen(root.getBoundsInLocal());
-		            if (popup.isShowing() && !boundsInScreen.contains(e.getX(), e.getY())) {
-		            	popup.hide();
-		            }
-		        });
-				
+					Bounds boundsInScreen = root.localToScreen(root.getBoundsInLocal());
+					if (popup.isShowing() && !boundsInScreen.contains(e.getX(), e.getY())) {
+						popup.hide();
+					}
+				});
+
 				popup.setX(addButton.localToScreen(addButton.boundsInLocalProperty().get()).getMinX());
 				popup.setY(addButton.localToScreen(addButton.boundsInLocalProperty().get()).getMaxY());
-                popup.show(addButton.getScene().getWindow());
-            } else {
-                popup.hide();
-                popup = null;
-                return;
-            }
-			
-			
-			
+				popup.show(addButton.getScene().getWindow());
+			} else {
+				popup.hide();
+				popup = null;
+				return;
+			}
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
-	
+
 	public void deleteCrawler(int id) {
 		int nodeIndex = 0;
-		
-		for(Node node : crawlerVBox.getChildren()) {
-			if(node instanceof AnchorPane) {
+
+		for (Node node : crawlerVBox.getChildren()) {
+			if (node instanceof AnchorPane) {
 				Object cardControllerObject = node.getUserData();
-				CrawlerCardController cardController = (CrawlerCardController)cardControllerObject;
-				if(id == cardController.getID()) {
+				CrawlerCardController cardController = (CrawlerCardController) cardControllerObject;
+				if (id == cardController.getID()) {
 					cardController.stopThread();
 					break;
 				}
