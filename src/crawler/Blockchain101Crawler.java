@@ -68,7 +68,8 @@ public class Blockchain101Crawler implements ICrawler<Article>{
 		            // Tiếp tục xử lý các phần tử HTML
 		        	// Get URL
 					String url = element.select("h2 a").attr("href");
-					if(!uniqueArticles.contains(url)){
+					if(uniqueArticles.contains(url)){
+						System.out.println("Skip");
 						continue loop;
 					}
 					// Get title
@@ -118,6 +119,7 @@ public class Blockchain101Crawler implements ICrawler<Article>{
 						articles.add(article);
 						uniqueArticles.add(url);
 						//Update index and page
+						System.out.println(index);
 						index++;
 						callback.updateProgress(index);
 						if (index == amount) break;

@@ -47,7 +47,17 @@ public class NewsCardController {
 		sourceUrl.setText(article.getSourceUrl());
 		titleText.setText(article.getTitle());
 		
-		contentText.setText(article.getContent().toString());
+		// Thêm phần content
+		List<String> contents = article.getContent().getParagraphList();
+		String content = contents.get(0);
+		for (String a : contents){
+			if (!a.isBlank() & a.length() > 200) { 
+				content = a;
+				break;	
+			}
+		}
+		contentText.setText(content);
+		
 		publishedTime.setText("Published at: " + article.getPublishedAt().toString());
 		authorLabel.setText("Author: " + article.getAuthor());
 	}
