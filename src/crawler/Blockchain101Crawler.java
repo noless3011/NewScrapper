@@ -50,23 +50,27 @@ public class Blockchain101Crawler implements ICrawler<Article> {
 	@Override
 	public void crawlList(int amount, ProgressCallback callback) {
 		articles = getListFromJson();
-		HashSet<String> uniqueArticles = new HashSet<String>();
-		for (Article article : articles) {
+		HashSet <String> uniqueArticles = new HashSet<String>();
+		for (Article article: articles) {
 			uniqueArticles.add(article.getSourceUrl());
 		}
 		int page = 1;
 		int index = 0;
 		while (index < amount) {
 			// Crawl, get title author and time of page
-			Document doc = accessPage(page);
-			if (doc != null) {
-				Elements accessOutUrl = doc.select("div[class=pho-blog-part-content]");
-
-				for (Element element : accessOutUrl) {
-					// Tiếp tục xử lý các phần tử HTML
-					// Get URL
+			Document doc = accessPage(page);		    
+		    if (doc != null) {
+		        Elements accessOutUrl = doc.select("div[class=pho-blog-part-content]");
+		        
+		        loop:
+		        for (Element element : accessOutUrl) {
+		            // Tiếp tục xử lý các phần tử HTML
+		        	// Get URL
 					String url = element.select("h2 a").attr("href");
-
+					if(uniqueArticles.contains(url)){
+						System.out.println("Skip");
+						continue loop;
+					}
 					// Get title
 					String title = element.select("h2 a").text();
 					// Get author
@@ -91,30 +95,33 @@ public class Blockchain101Crawler implements ICrawler<Article> {
 						Document document = Jsoup.connect(url).timeout(5000).get();
 						Element accessInUrl = document.select("article").first();
 						Elements getElement = accessInUrl.select("p, h2, h3, picture");
-
+					
 						Content content = new Content();
-						for (Element contentElement : getElement) {
+						boolean pic_number = false;
+						for (Element contentElement: getElement) {
 							String tagName = contentElement.tagName().toLowerCase();
 							if (tagName.equals("picture")) {
-								Image image = new Image(contentElement.select("img").attr("src"));
-								content.AddElement(image);
+								if(!pic_number) {
+									Image image = new Image(contentElement.select("img").attr("src"));
+									content.AddElement(image);
+									pic_number = true;
+								}
+								
 							} else {
 								content.AddElement(contentElement.text() + '\n');
 							}
 						}
-
+					
 						// Create object is a Article
-						if (!uniqueArticles.contains(url)) {
-							Article article = new Article(title, author, content, publishedDateTime, url);
-							article.setTags(tag);
-							articles.add(article);
-							uniqueArticles.add(url);
-							// Update index and page
-							index++;
-//							callback.updateProgress(index);
-							if (index == amount)
-								break;
-						}
+						Article article = new Article(title, author, content, publishedDateTime, url);
+						article.setTags(tag);
+						articles.add(article);
+						uniqueArticles.add(url);
+						//Update index and page
+						System.out.println(index);
+						index++;
+						callback.updateProgress(index);
+						if (index == amount) break;
 					} catch (IOException e) {
 						e.printStackTrace();
 					}

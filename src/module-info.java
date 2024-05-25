@@ -1,12 +1,14 @@
-module NewScrapper {
+module NewsScrapper {
 	exports model;
 	exports controller;
 	exports main;
+	exports searchengine;
 	requires transitive javafx.graphics;
 	opens controller;
+	
 	requires org.jsoup;
 	requires javafx.base;
-	requires javafx.controls;
+	requires transitive javafx.controls;
 	requires javafx.fxml;
 	requires javafx.media;
 	requires javafx.swing;

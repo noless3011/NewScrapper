@@ -1,29 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#openArticle" styleClass="root" stylesheets="@../CSS/NewsCard.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NewsCardController">
    <children>
       <Pane fx:id="newsPane" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="650.0" styleClass="news-pane" stylesheets="@../CSS/NewsCard.css">
          <children>
-            <ImageView fx:id="newsImage" fitHeight="200.0" fitWidth="650.0" pickOnBounds="true" styleClass="image">
-               <image>
-                  <Image url="@../CSS/20221127_085314.jpg" />
-               </image>
-            </ImageView>
-            <Pane prefHeight="200.0" prefWidth="650.0" styleClass="gradient-pane" stylesheets="@../CSS/NewsCard.css" />
-            <Pane prefHeight="200.0" prefWidth="650.0" styleClass="gradient-pane" stylesheets="@../CSS/NewsCard.css" />
-            <Label fx:id="titleText" alignment="TOP_LEFT" layoutX="14.0" layoutY="35.0" prefHeight="105.0" prefWidth="618.0" text="Label" textFill="WHITE" wrapText="true">
-               <font>
-                  <Font size="26.0" />
-               </font>
-            </Label>
-            <Label fx:id="infoText" alignment="TOP_LEFT" layoutX="15.0" layoutY="145.0" prefHeight="48.0" prefWidth="618.0" text="Label" textFill="WHITE" wrapText="true" />
+            <Pane prefHeight="200.0" prefWidth="650.0" styleClass="background" stylesheets="@../CSS/NewsCard.css" />
+            <HBox layoutX="11.0" prefHeight="200.0" prefWidth="629.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="697.0">
+                     <children>
+                        <Label fx:id="sourceUrl" alignment="TOP_LEFT" prefHeight="0.0" prefWidth="639.0" text="https://101blockchains.com/test-nft-smart-contracts/" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="System Italic" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="titleText" alignment="TOP_LEFT" prefHeight="93.0" prefWidth="639.0" text="Know the methods to test NFT Smart Contract, Know the methods to test NFT Smart Contract" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="contentText" alignment="TOP_LEFT" prefHeight="95.0" prefWidth="639.0" text="&quot;The blockchain ecosystem has become one of the notable points of discussion for its impressive potential to induce digital transformation. One of the most important ….." textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <HBox prefHeight="0.0" prefWidth="639.0">
+                           <children>
+                              <Label fx:id="authorLabel" alignment="TOP_LEFT" prefHeight="27.0" prefWidth="310.0" text="Author: Georgia Weston" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="publishedTime" alignment="TOP_LEFT" prefHeight="27.0" prefWidth="301.0" text="Published at: 2024-04-25T00:00:00" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
          </children>
       </Pane>
    </children>

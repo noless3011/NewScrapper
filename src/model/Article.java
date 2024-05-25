@@ -5,24 +5,34 @@ import java.util.Set;
 
 public class Article {
 	private int id;
-	private String title;
-	private String sourceUrl;
-	private String sourceName;
-	private String author;
-	private String tags;
-	protected Content content;
-	private LocalDateTime publishedDate;
-	private Set<String> entity;
+    private String title;
+    private String sourceUrl;
+    private String sourceName;
+    private String author;
+    private String tags;
+    protected Content content;
+    private LocalDateTime publishedDate;
+    private Set <String> entity;
 
-	// Constructor
-	public Article(String title, String author, Content content, LocalDateTime publishedAt, String sourceUrl) {
-		this.title = title;
-		this.author = author;
-		this.content = content;
-		this.publishedDate = publishedAt;
-		this.sourceUrl = sourceUrl;
-		this.id = this.toString().hashCode();
-	}
+    // Constructor
+    public Article(String title, String author, Content content, LocalDateTime publishedAt, String sourceUrl) {
+        this.title = title;
+        this.author = author;
+        this.content = content;
+        this.publishedDate = publishedAt;
+        this.sourceUrl = sourceUrl;
+        this.id = this.toString().hashCode();
+    }
+    
+    public Article(String title, String author, Content content, LocalDateTime publishedAt, String sourceUrl, Set <String> entity) {
+        this.title = title;
+        this.author = author;
+        this.content = content;
+        this.publishedDate = publishedAt;
+        this.sourceUrl = sourceUrl;
+        this.id = this.toString().hashCode();
+        this.entity = entity;
+    }
 
 	public Article(String title, String author, Content content, LocalDateTime publishedAt, String sourceUrl,
 			Set<String> entity) {
@@ -103,6 +113,25 @@ public class Article {
 	public void setTags(String tags) {
 		this.tags = tags;
 	}
+	
+	public void setEntity(Set <String> entity) {
+		this.entity = entity;
+	}
+	
+	public Set <String> getEntity(){
+		return entity;
+	}
+	
+	// toString method for printing article details
+    @Override
+    public String toString() {
+        return "Title: " + title +
+        		"\nContent: " + content.toString() +
+                "\nAuthor: " + author +
+                "\nPublished At: " + publishedDate +
+                "\nSource URL: " + sourceUrl + 
+                "\nEntities: " + entity;
+    }
 
 	public void setEntity(Set<String> entity) {
 		this.entity = entity;

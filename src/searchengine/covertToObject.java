@@ -44,17 +44,8 @@ public class covertToObject {
 		// Lấy nội dung
 		Content incres = new Content();
 		String content = doc.get("content");
-		String[] value = content.split("\\{");
-		String beforeCurlyBrace = value[0];
-		incres.AddElement(beforeCurlyBrace);
-
-		// Lấy ảnh từ doc
-		String[] parts = content.split("\\{url=");
-		for (int i = 1; i < parts.length; i++) {
-			String url = parts[i].split(", description=")[0];
-			Image image = new Image(url);
-			incres.AddElement(image);
-		}
+		incres.AddElement(content);
+		
 		// Lấy ngày tháng năm
 		String publish = doc.get("date");
 		long published = Long.parseLong(publish);
@@ -119,7 +110,8 @@ public class covertToObject {
 		long published = Long.parseLong(publish);
 		LocalDateTime publishAt = DateRange.formatterEpochSecondTotime(published);
 		String sourceUrl = doc.get("url");
-		Content content = restoreContentFromString(doc.get("content"));
+		
+		Content content = new Content(doc.get("content"));
 		List<String> entities = Arrays.asList(doc.getValues("entity"));
 		System.out.println(entities);
 		Set<String> uniqueEntities = new HashSet<>(entities);

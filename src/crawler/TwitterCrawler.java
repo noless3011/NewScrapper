@@ -138,7 +138,7 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 
 		// HashSet để kiểm tra xem tweet đã có trong danh sách chưa để tránh crawl hai
 		// bài giống nhau
-		while (tweetList.size() < amount) {
+		while (index < amount) {
 //		while(!isElementPresent(driver, By.xpath("//span[contains(text(), 'Something went wrong. Try reloading.')]"))) {
 			i++;
 			if (i > 2) {
@@ -158,7 +158,7 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 						.findElements(By.xpath("//div[@class='css-175oi2r r-1iusvr4 r-16y2uox r-1777fci r-kzbkwu']"));
 
 				try {
-
+					loop:
 					for (WebElement tweet : tweets) {
 						// Lấy tên tác giả
 						String author = tweet
@@ -170,6 +170,11 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 						String sourceUrl = tweet
 								.findElement(By.xpath(".//div[@class='css-175oi2r r-18u37iz r-1q142lx']/a"))
 								.getAttribute("href");
+						
+						// Kiểm tra xem nội dung có bị trùng lặp không
+						if (uniqueTweets.contains(sourceUrl)) {
+							continue loop;
+						}
 
 						// Lấy số reply
 						String number_of_comment = tweet.findElement(By.xpath(".//button[@data-testid='reply']"))
@@ -204,20 +209,18 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 								.getAttribute("datetime");
 						DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
 						LocalDateTime publishedAt = LocalDateTime.parse(timeStringFromTwitter, formatter);
+						
 						// Lấy nội dung content
-						// Kiểm tra xem nội dung có bị trùng lặp không
-						if (!uniqueTweets.contains(sourceUrl)) {
-							Content content = crawlTweetContent(tweet);
+						Content content = crawlTweetContent(tweet);
 
-							Tweet test = new Tweet(author, content, publishedAt, sourceUrl, hashtags, number_of_comment,
-									number_of_liked, number_of_view);
-							tweetList.add(test);
-							test.setContent(crawlTweetContent(tweet));
-							System.out.println(index);
-							index++;
-//							callback.updateProgress(index);
-							uniqueTweets.add(sourceUrl);
-						}
+						Tweet test = new Tweet(author, content, publishedAt, sourceUrl, hashtags, number_of_comment,
+							number_of_liked, number_of_view);
+						tweetList.add(test);
+						test.setContent(crawlTweetContent(tweet));
+						System.out.println(index);
+						index++;
+						callback.updateProgress(index);
+						uniqueTweets.add(sourceUrl);
 					}
 
 				} catch (org.openqa.selenium.NoSuchElementException e) {
@@ -268,7 +271,7 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 
 	@Override
 	public void saveToJson(List<Tweet> tweetsList) {
-		try (FileWriter writer = new FileWriter("tweets.json")) {
+		try (FileWriter writer = new FileWriter("Twitter_data.json")) {
 			gson.toJson(tweetList, writer);
 			writer.close();
 		} catch (IOException e) {
@@ -281,7 +284,7 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 
 	public List<Tweet> getListFromJson() {
 		List<Tweet> tweets = null;
-		try (Reader reader = new FileReader("tweets.json")) {
+		try (Reader reader = new FileReader("Twitter_data.json")) {
 			Type listType = new TypeToken<List<Tweet>>() {
 			}.getType();
 			tweets = gson.fromJson(reader, listType);
@@ -292,8 +295,4 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 		}
 	}
 
-	public static void main(String[] args) {
-		TwitterCrawler test = new TwitterCrawler();
-		test.crawlList(10, null);
-	}
 }

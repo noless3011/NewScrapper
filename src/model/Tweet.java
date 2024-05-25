@@ -19,16 +19,16 @@ public class Tweet extends Article {
 		this.number_of_comment = number_of_comment;
 		this.number_of_view = number_of_view;
 	}
-
-	public Tweet(String author, Content content, LocalDateTime publishedAt, String sourceUrl, List<String> hashtags,
-			String number_of_comment, String number_of_liked, String number_of_view, Set<String> entity) {
+	
+	public Tweet(String author, Content content, LocalDateTime publishedAt, String sourceUrl,List<String> hashtags, 
+			String number_of_comment, String number_of_liked, String number_of_view, Set <String> entity) {
 		super(null, author, content, publishedAt, sourceUrl, entity);
 		this.number_of_liked = number_of_liked;
 		this.hashtags = hashtags;
 		this.number_of_comment = number_of_comment;
 		this.number_of_view = number_of_view;
 	}
-
+	
 	public List<String> getHashtags() {
 		return hashtags;
 	}
@@ -61,11 +61,16 @@ public class Tweet extends Article {
 		this.number_of_view = number_of_view;
 	}
 
-	@Override
-	public String toString() {
-		return "Author: " + getAuthor() + "\nContent: " + getContent() + "\nPublished At: " + getPublishedAt()
-				+ "\nSource URL: " + getSourceUrl() + "\nHashTag: " + getHashtags() + "\nNumber of View: "
-				+ getNumber_of_view() + "\nNumber of Liked:" + getNumber_of_liked() + "\nNumber of Comment: "
-				+ getNumber_of_comment() + "\nEntities: " + getEntity();
-	}
+	 @Override
+	    public String toString() {
+	        return "Author: " + getAuthor() +
+	        		"\nContent: " + getContent() +
+	                "\nPublished At: " + getPublishedAt() +
+	                "\nSource URL: " + getSourceUrl() + 
+	                "\nHashTag: " + getHashtags() +
+	        		"\nNumber of View: " + getNumber_of_view() + 
+	        		"\nNumber of Liked:" + getNumber_of_liked() + 
+	        		"\nNumber of Comment: " + getNumber_of_comment() + 
+	        		 "\nEntities: " + getEntity();
+	    }	
 }
