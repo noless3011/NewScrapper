@@ -11,10 +11,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import adapter.ProgressCallback;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
