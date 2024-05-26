@@ -37,8 +37,7 @@ public class Windows extends Application{
             primaryStage.setTitle("JavaFX Application");
             primaryStage.initStyle(StageStyle.UNDECORATED);
             
-            ResizeHelper resizeHelper = new ResizeHelper();
-            resizeHelper.addResizeListener(primaryStage, 800, 500, 10000, 10000);
+            ResizeHelper.addResizeListener(primaryStage, 800, 500, 10000, 10000);
             primaryStage.setHeight(501);
             primaryStage.setWidth(801);
 

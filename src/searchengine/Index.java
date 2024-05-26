@@ -14,6 +14,7 @@ import org.apache.lucene.store.FSDirectory;
 import crawler.Blockchain101Crawler;
 import crawler.CNBCCrawler;
 import crawler.CoindeskCrawler;
+import crawler.CryptonewsCrawler;
 import crawler.FacebookCrawler;
 import crawler.TwitterCrawler;
 import model.Article;
@@ -31,6 +32,7 @@ public class Index {
     private CNBCCrawler cnbccrawler = new CNBCCrawler();
     private Blockchain101Crawler blockchain101crawler = new Blockchain101Crawler();
     private CoindeskCrawler coindeskcrawler = new CoindeskCrawler();
+    private CryptonewsCrawler cryptonewscrawler = new CryptonewsCrawler();
     private AddDocument addDocument = new AddDocument();
     
     public void indexTweet() throws IOException {
@@ -58,7 +60,8 @@ public class Index {
         // Thêm các trường vào index
         List<Article> articles = cnbccrawler.getListFromJson();
         articles.addAll(blockchain101crawler.getListFromJson());
-        // articles.addAll(coindeskcrawler.getListFromJson());
+        articles.addAll(coindeskcrawler.getListFromJson());
+        articles.addAll(cryptonewscrawler.getListFromJson());
         for (Article article : articles) {
         	addDocument.article(writer, article);
         }
@@ -91,6 +94,7 @@ public class Index {
         objectList.addAll(cnbccrawler.getListFromJson());
         objectList.addAll(blockchain101crawler.getListFromJson());
         objectList.addAll(facebookcrawler.getListFromJson());
+        objectList.addAll(cryptonewscrawler.getListFromJson());
         for (Object object : objectList) {
             if (object instanceof Tweet) {
             	addDocument.tweet(writer, (Tweet) object);

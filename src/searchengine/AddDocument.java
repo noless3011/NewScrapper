@@ -13,80 +13,69 @@ import model.Facebook;
 import model.Tweet;
 
 public class AddDocument {
-
 	private EntityRecognition entityrecognition = new EntityRecognition();
+
+	private void addCommonFields(Document doc, String author, String content, long date, String url,
+			List<String> entities) {
+		doc.add(new TextField("author", author, Field.Store.YES));
+		doc.add(new TextField("content", content, Field.Store.YES));
+		doc.add(new TextField("date", Long.toString(date), Field.Store.YES));
+		doc.add(new TextField("url", url, Field.Store.YES));
+
+		for (String entity : entities) {
+			doc.add(new TextField("entity", entity, Field.Store.YES));
+		}
+	}
 
 	public void tweet(IndexWriter writer, Tweet tweet) throws IOException {
 		Document doc = new Document();
+		long date = DateRange.formatterTimeToEpochSecond(tweet.getPublishedAt());
+		List<String> entities = entityrecognition.SimpleEntityRecognition(tweet.getContent().toString());
 
-		doc.add(new TextField("author", tweet.getAuthor(), Field.Store.YES));
-		doc.add(new TextField("content", tweet.getContent().toString(), Field.Store.YES));
+		addCommonFields(doc, tweet.getAuthor(), tweet.getContent().toString(), date, tweet.getSourceUrl(), entities);
+
 		doc.add(new TextField("view", tweet.getNumber_of_view(), Field.Store.YES));
 		doc.add(new TextField("like", tweet.getNumber_of_liked(), Field.Store.YES));
 		doc.add(new TextField("comment", tweet.getNumber_of_comment(), Field.Store.YES));
 
-		long date = DateRange.formatterTimeToEpochSecond(tweet.getPublishedAt());
-		doc.add(new TextField("date", Long.toString(date), Field.Store.YES));
-
-		doc.add(new TextField("url", tweet.getSourceUrl(), Field.Store.YES));
-
-		List<String> hashtags = tweet.getHashtags();
-		for (String hashtag : hashtags) {
+		for (String hashtag : tweet.getHashtags()) {
 			doc.add(new TextField("hashtag", hashtag, Field.Store.YES));
 		}
 
 		doc.add(new TextField("indexType", "Tweet", Field.Store.YES));
-
-		List<String> entities = entityrecognition.SimpleEntityRecognition(tweet.getContent().toString());
-		for (String entity : entities) {
-			doc.add(new TextField("entity", entity, Field.Store.YES));
-		}
 		writer.addDocument(doc);
 	}
 
 	public void article(IndexWriter writer, Article article) throws IOException {
 		Document doc = new Document();
+		long date = DateRange.formatterTimeToEpochSecond(article.getPublishedAt());
+		List<String> entities = entityrecognition.SimpleEntityRecognition(article.getContent().toString());
 
-		doc.add(new TextField("author", article.getAuthor(), Field.Store.YES));
+		addCommonFields(doc, article.getAuthor(), article.getContent().toString(), date, article.getSourceUrl(),
+				entities);
+
 		doc.add(new TextField("title", article.getTitle(), Field.Store.YES));
-
-		List<String> elements = article.getContent().getElements();
-		for (String element : elements) {
+		for (String element : article.getContent().getElements()) {
 			doc.add(new TextField("content", element, Field.Store.YES));
 		}
 
-		long date = DateRange.formatterTimeToEpochSecond(article.getPublishedAt());
-		doc.add(new TextField("date", Long.toString(date), Field.Store.YES));
-
-		doc.add(new TextField("url", article.getSourceUrl(), Field.Store.YES));
 		doc.add(new TextField("indexType", "Article", Field.Store.YES));
-
-		List<String> entities = entityrecognition.SimpleEntityRecognition(article.getContent().toString());
-		for (String entity : entities) {
-			doc.add(new TextField("entity", entity, Field.Store.YES));
-		}
 		writer.addDocument(doc);
 	}
 
 	public void facebook(IndexWriter writer, Facebook facebook) throws IOException {
 		Document doc = new Document();
-		doc.add(new TextField("author", facebook.getAuthor(), Field.Store.YES));
-		doc.add(new TextField("content", facebook.getContent().toString(), Field.Store.YES));
-
 		long date = DateRange.formatterTimeToEpochSecond(facebook.getPublishedAt());
-		doc.add(new TextField("date", Long.toString(date), Field.Store.YES));
+		List<String> entities = entityrecognition.SimpleEntityRecognition(facebook.getContent().toString());
 
-		doc.add(new TextField("url", facebook.getSourceUrl(), Field.Store.YES));
+		addCommonFields(doc, facebook.getAuthor(), facebook.getContent().toString(), date, facebook.getSourceUrl(),
+				entities);
+
 		doc.add(new TextField("comment", facebook.getNumber_of_comment(), Field.Store.YES));
 		doc.add(new TextField("reaction", facebook.getNumber_of_reaction(), Field.Store.YES));
 		doc.add(new TextField("share", facebook.getNumber_of_share(), Field.Store.YES));
 		doc.add(new TextField("urlimg", facebook.getImgUrl(), Field.Store.YES));
 		doc.add(new TextField("indexType", "Facebook", Field.Store.YES));
-
-		List<String> entities = entityrecognition.SimpleEntityRecognition(facebook.getContent().toString());
-		for (String entity : entities) {
-			doc.add(new TextField("entity", entity, Field.Store.YES));
-		}
 		writer.addDocument(doc);
 	}
 

@@ -1,8 +1,5 @@
 package searchengine;
 
-import java.net.MalformedURLException;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -38,7 +35,7 @@ public class covertToObject {
 		return null;
 	}
 
-	public Tweet toTweet(Document doc) {
+	public Tweet toTweet(@SuppressWarnings("exports") Document doc) {
 		String author = doc.get("author");
 
 		// Lấy nội dung
