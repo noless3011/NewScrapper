@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84382b4b-c4f5-4d48-802f-6256ca3f5a19" name="Changes" comment="Merge remote-tracking branch 'origin/truong-branch' into truong-branch&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewScrapper.iml&#10;#&#9;src/module-info.java">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/selenium_java_4_19.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/selenium_server_4_18_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_23_2024_8_48_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_23_2024_8_48_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewScrapper.iml" beforeDir="false" afterPath="$PROJECT_DIR$/NewScrapper.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chromedriver.exe" beforeDir="false" afterPath="$PROJECT_DIR$/chromedriver.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/CNBCCrawler.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/CNBCCrawler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/FacebookCrawler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/FacebookCrawler$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/FacebookCrawler.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/NewScrapper/crawler/FacebookCrawler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/NewScrapper/database/articles.json" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/NewScrapper/database/articles.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/crawler/FacebookCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawler/FacebookCrawler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -164,6 +155,8 @@
       <workItem from="1716281845460" duration="440000" />
       <workItem from="1716620456006" duration="334000" />
       <workItem from="1716682409455" duration="1906000" />
+      <workItem from="1716734488037" duration="56000" />
+      <workItem from="1716735764626" duration="2646000" />
     </task>
     <task id="LOCAL-00001" summary="Merge remote-tracking branch 'origin/truong-branch' into truong-branch&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewScrapper.iml&#10;#&#9;src/module-info.java">
       <option name="closed" value="true" />
@@ -229,7 +222,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716620707935</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Merge remote-tracking branch 'origin/truong-branch' into truong-branch&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewScrapper.iml&#10;#&#9;src/module-info.java">
+      <option name="closed" value="true" />
+      <created>1716734515195</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1716734515195</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

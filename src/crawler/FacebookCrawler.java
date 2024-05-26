@@ -173,7 +173,6 @@ public class FacebookCrawler implements ICrawler<Facebook> {
     	int index = 0;
 		for(WebElement post : posts){
             //Lay link bai viet
-
             String link = null;
             LocalDateTime prettyTime = null;
             List<WebElement> linksList = post.findElements(By.xpath(".//span[@class='x4k7w5x x1h91t0o x1h9r5lt x1jfb8zj xv2umb2 x1beo9mf xaigb6o x12ejxvf x3igimt xarpa2k xedcshv x1lytzrv x1t2pt76 x7ja8zs x1qrby5j']"));
@@ -183,10 +182,12 @@ public class FacebookCrawler implements ICrawler<Facebook> {
                 String s = e.getAttribute("outerHTML");
                 if(!s.contains("a class=\"x1i10hfl xjbqb8w x1ejq31n xd10rxx x1sy0etr x17r0tee x972fbf xcfux6l x1qhh985 xm0m39n x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz x1sur9pj xkrqix3 xi81zsa xo1l8bm"))
                     continue;
+                System.out.println(s);
                 WebElement links = e.findElement(By.xpath(".//a"));
                 link = extractSubstring(links.getAttribute("href"), "?comment");
                 System.out.println(link);
                 //Lay thoi gian
+                System.out.println(links.getText());
                 String time = extractSubstring(links.getText(), "Shared");
                 prettyTime = parseDateTime(time);
             }
@@ -242,8 +243,11 @@ public class FacebookCrawler implements ICrawler<Facebook> {
     //Chinh sua thoi gian
     private LocalDateTime parseDateTime(String input) {
         LocalDateTime dateTime = null;
-
-        if (input.contains("d")) {
+        if(input.contains("w")){
+            int daysAgo = 7*Integer.parseInt(input.split(" ")[0]);
+            dateTime = LocalDateTime.now().minusDays(daysAgo);
+        }
+        else if (input.contains("d")) {
             // Xử lý trường hợp "n d" là n ngày trước
             int daysAgo = Integer.parseInt(input.split(" ")[0]);
             dateTime = LocalDateTime.now().minusDays(daysAgo);
