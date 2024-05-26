@@ -11,6 +11,10 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import adapter.ProgressCallback;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -19,6 +23,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -168,14 +173,24 @@ public class FacebookCrawler implements ICrawler<Facebook> {
     	int index = 0;
 		for(WebElement post : posts){
             //Lay link bai viet
-            WebElement links = post.findElement(By.xpath(".//span[@class='x4k7w5x x1h91t0o x1h9r5lt x1jfb8zj xv2umb2 x1beo9mf xaigb6o x12ejxvf x3igimt xarpa2k xedcshv x1lytzrv x1t2pt76 x7ja8zs x1qrby5j']//a"));
-            String link = extractSubstring(links.getAttribute("href"),"?__cft__");
-            System.out.println(link);
-            //Lay thoi gian
-            if(links.getText().indexOf("Shared") == -1) continue;
-            String time = extractSubstring(links.getText(), "Shared");
-            LocalDateTime prettyTime = parseDateTime(time);
-            System.out.println("1");
+
+            String link = null;
+            LocalDateTime prettyTime = null;
+            List<WebElement> linksList = post.findElements(By.xpath(".//span[@class='x4k7w5x x1h91t0o x1h9r5lt x1jfb8zj xv2umb2 x1beo9mf xaigb6o x12ejxvf x3igimt xarpa2k xedcshv x1lytzrv x1t2pt76 x7ja8zs x1qrby5j']"));
+            int x = linksList.size();
+            System.out.println(linksList.size());
+            for(WebElement e : linksList) {
+                String s = e.getAttribute("outerHTML");
+                if(!s.contains("a class=\"x1i10hfl xjbqb8w x1ejq31n xd10rxx x1sy0etr x17r0tee x972fbf xcfux6l x1qhh985 xm0m39n x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz x1sur9pj xkrqix3 xi81zsa xo1l8bm"))
+                    continue;
+                WebElement links = e.findElement(By.xpath(".//a"));
+                link = extractSubstring(links.getAttribute("href"), "?comment");
+                System.out.println(link);
+                //Lay thoi gian
+                String time = extractSubstring(links.getText(), "Shared");
+                prettyTime = parseDateTime(time);
+            }
+
             //Lay noi dung
             String cnt =post.findElement(By.xpath(".//div[@dir='auto']")).getText();
             Content content = new Content(cnt.replace(" \n "," "));
