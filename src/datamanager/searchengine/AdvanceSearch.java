@@ -22,6 +22,7 @@ import org.apache.lucene.util.BytesRef;
 import model.Facebook;
 import model.Tweet;
 import model.Article;
+import model.DateRange;
 
 public class AdvanceSearch {
 	private static final String ARTICLE_INDEX_DIR = "articles_index";

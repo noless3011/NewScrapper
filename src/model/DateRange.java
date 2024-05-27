@@ -1,4 +1,4 @@
-package datamanager.searchengine;
+package model;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;

@@ -12,6 +12,7 @@ import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.IndexWriter;
 
 import model.Article;
+import model.DateRange;
 import model.Facebook;
 import model.Tweet;
 

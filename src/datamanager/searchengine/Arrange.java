@@ -4,6 +4,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import model.Article;
+import model.DateRange;
 import model.Facebook;
 import model.Tweet;
 

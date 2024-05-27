@@ -18,12 +18,12 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import model.Article;
+import model.DateRange;
 import model.DisplayList;
 import model.Facebook;
 import model.Tweet;
 import datamanager.searchengine.AdvanceSearch;
 import datamanager.searchengine.Arrange.SortOptionArticle;
-import datamanager.searchengine.DateRange;
 import datamanager.searchengine.Index;
 
 

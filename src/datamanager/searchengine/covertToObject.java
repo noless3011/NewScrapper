@@ -15,6 +15,7 @@ import org.apache.lucene.document.Document;
 
 import model.Article;
 import model.Content;
+import model.DateRange;
 import model.Facebook;
 import model.Image;
 import model.Tweet;
