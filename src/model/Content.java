@@ -36,6 +36,15 @@ public class Content {
 		return paragraphs;
 	}
 	
+	public List<String> getElements() {
+		List<String> getelements = new ArrayList<>();
+		for (Object element : elements) {
+			getelements.add(element.toString());
+		}
+		return getelements;
+	}
+
+	
 	public void AddElement(Object element) {
 		if(CheckElementValidity(element)) {
 			elements.add(element);

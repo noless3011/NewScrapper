@@ -14,7 +14,9 @@ import org.apache.lucene.store.FSDirectory;
 import datamanager.crawler.Blockchain101Crawler;
 import datamanager.crawler.CNBCCrawler;
 import datamanager.crawler.CoindeskCrawler;
+import datamanager.crawler.CryptonewsCrawler;
 import datamanager.crawler.FacebookCrawler;
+import datamanager.crawler.TheBlockchainCrawler;
 import datamanager.crawler.TwitterCrawler;
 import model.Article;
 import model.Facebook;
@@ -31,6 +33,8 @@ public class Index {
     private CNBCCrawler cnbccrawler = new CNBCCrawler();
     private Blockchain101Crawler blockchain101crawler = new Blockchain101Crawler();
     private CoindeskCrawler coindeskcrawler = new CoindeskCrawler();
+    private CryptonewsCrawler cryptonewscrawler = new CryptonewsCrawler();
+    private TheBlockchainCrawler theblockchaincrawler = new TheBlockchainCrawler();
     private AddDocument addDocument = new AddDocument();
     
     public void indexTweet() throws IOException {
@@ -58,7 +62,9 @@ public class Index {
         // Thêm các trường vào index
         List<Article> articles = cnbccrawler.getListFromJson();
         articles.addAll(blockchain101crawler.getListFromJson());
-        // articles.addAll(coindeskcrawler.getListFromJson());
+        articles.addAll(coindeskcrawler.getListFromJson());
+        articles.addAll(cryptonewscrawler.getListFromJson());
+        articles.addAll(theblockchaincrawler.getListFromJson());
         for (Article article : articles) {
         	addDocument.article(writer, article);
         }
@@ -89,6 +95,9 @@ public class Index {
         List<Object> objectList = new ArrayList<>();
         objectList.addAll(twittercrawler.getListFromJson());
         objectList.addAll(cnbccrawler.getListFromJson());
+        objectList.addAll(cryptonewscrawler.getListFromJson());
+        objectList.addAll(coindeskcrawler.getListFromJson());
+        objectList.addAll(theblockchaincrawler.getListFromJson());
         objectList.addAll(blockchain101crawler.getListFromJson());
         objectList.addAll(facebookcrawler.getListFromJson());
         for (Object object : objectList) {
