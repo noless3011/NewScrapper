@@ -581,9 +581,14 @@ public class MainController{
         	    	CryptonewsCrawler cryptonewsCrawler = new CryptonewsCrawler();
         	    	CoindeskCrawler coindeskCrawler = new CoindeskCrawler();
         	    	DisplayList.getArticleList().setAll(cryptonewsCrawler.getListFromJson());
+        	    	System.out.println(cryptonewsCrawler.getListFromJson().size());
         	    	DisplayList.getArticleList().addAll(coindeskCrawler.getListFromJson());
+        	    	System.out.println(coindeskCrawler.getListFromJson().size());
         	    	DisplayList.getArticleList().addAll(cnbcCrawler.getListFromJson());
+        	    	System.out.println(cnbcCrawler.getListFromJson().size());
         	    	DisplayList.getArticleList().addAll(blockchain101Crawler.getListFromJson());
+        	    	System.out.println(blockchain101Crawler.getListFromJson().size());
+        	    	System.out.println(DisplayList.getArticleList().size());
         	    	DisplayList.toggleDynamicUpdate(true);
         			break;
         		}

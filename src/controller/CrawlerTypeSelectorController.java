@@ -10,6 +10,7 @@ import datamanager.crawler.CoindeskCrawler;
 import datamanager.crawler.CryptonewsCrawler;
 import datamanager.crawler.FacebookCrawler;
 import datamanager.crawler.ICrawler;
+import datamanager.crawler.TheBlockchainCrawler;
 import datamanager.crawler.TwitterCrawler;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -40,6 +41,7 @@ public class CrawlerTypeSelectorController{
 		crawlerMap.put("Twitter crawler", this::addTwitterCrawler);
 		crawlerMap.put("Cryptonews crawler", this::addCryptonewsCrawler);
 		crawlerMap.put("Coindesk crawler", this::addCoindeskCrawler);
+		crawlerMap.put("TheBlockchain crawler", this::addTheblockchainCrawler);
 		
 		for(String crawler : crawlerMap.keySet()) {
 			Button button = new Button();
@@ -55,6 +57,26 @@ public class CrawlerTypeSelectorController{
 			
 		}
 		
+	}
+	
+	private void addTheblockchainCrawler(ActionEvent event) {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXML/CrawlerCard.fxml"));
+		
+		try {
+			AnchorPane root = loader.load();
+			CrawlerCardController cardController = loader.getController();
+			
+			cardController.setManager(managerController);
+			cardController.setWidth(managerController.crawlersAnchor);
+			String indexString = Integer.toString(CrawlerCardController.counter);
+			cardController.setLabel("Theblockchain crawler");
+			TheBlockchainCrawler crawler = new TheBlockchainCrawler();
+			cardController.setCrawler(crawler);
+			crawlerVBox.getChildren().add(0, root);
+			closeMenu();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	private void addBlockchain101Crawler(ActionEvent event) {

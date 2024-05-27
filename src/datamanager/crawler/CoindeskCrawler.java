@@ -94,7 +94,7 @@ public class CoindeskCrawler implements ICrawler<Article> {
         List<WebElement> elements = mainDriver.findElements(By.cssSelector("div.Box-sc-1hpkeeg-0.fyqwAv"));
         int index = 0;
         int i = 1;
-        while (index < amount) {
+        while (index < amount&& !Thread.currentThread().isInterrupted()) {
         	
         	loop:
             for (WebElement element : elements) {
@@ -147,12 +147,12 @@ public class CoindeskCrawler implements ICrawler<Article> {
         mainDriver.close();
         articleDriver.close();
         System.out.println(articles);
-        saveToJson(articles);
+        saveToJson();
         articles.clear();
     }
 
     @Override
-    public void saveToJson(List<Article> list) {
+    public void saveToJson() {
         Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).setPrettyPrinting().create();
         try (FileWriter writer = new FileWriter("CoinDesk_data.json")) {
             gson.toJson(articles, writer);

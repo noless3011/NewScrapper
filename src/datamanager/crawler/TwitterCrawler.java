@@ -138,7 +138,7 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 
 		// HashSet để kiểm tra xem tweet đã có trong danh sách chưa để tránh crawl hai
 		// bài giống nhau
-		while (index < amount) {
+		while (index < amount&& !Thread.currentThread().isInterrupted()) {
 //		while(!isElementPresent(driver, By.xpath("//span[contains(text(), 'Something went wrong. Try reloading.')]"))) {
 			i++;
 			if (i > 2) {
@@ -238,7 +238,7 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 				continue;
 			}
 		}
-		saveToJson(tweetList);
+		saveToJson();
 
 		driver.quit();
 	}
@@ -270,7 +270,7 @@ public class TwitterCrawler implements ICrawler<Tweet> {
 	// Lưu list gồm các tweet vào file json
 
 	@Override
-	public void saveToJson(List<Tweet> tweetsList) {
+	public void saveToJson() {
 		try (FileWriter writer = new FileWriter("Twitter_data.json")) {
 			gson.toJson(tweetList, writer);
 			writer.close();

@@ -78,7 +78,7 @@ public class CrawlerCardController {
 			
 			@Override
 			protected Void call() throws Exception {
-				crawler.crawlList(amount, progress ->{
+				crawler.crawlList(amount, (progress) ->{
 					updateProgress(progress, amount);
 				});
 				return null;
@@ -106,6 +106,8 @@ public class CrawlerCardController {
 	public void stopThread() {
 		if(thread != null) {
 			thread.interrupt();
+			crawler.saveToJson();
+			
 		}	
 	}
 }

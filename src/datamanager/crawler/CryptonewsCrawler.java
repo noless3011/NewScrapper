@@ -58,7 +58,7 @@ public class CryptonewsCrawler implements ICrawler<Article>{
 		
 		int page = 0;
 		int index = 0;
-		while(index < amount) {
+		while(index < amount && !Thread.currentThread().isInterrupted()) {
 			Document doc = accessPage(page);
 			 if (doc != null) {
 			        Elements accessOutUrl = doc.select("div[class = news-one]");
@@ -107,7 +107,7 @@ public class CryptonewsCrawler implements ICrawler<Article>{
 			    }
 				page++;
 			}
-			saveToJson(articles);
+			saveToJson();
 			 
 		}
 	
@@ -142,10 +142,10 @@ public class CryptonewsCrawler implements ICrawler<Article>{
 
 
 	@Override
-	public void saveToJson(List<Article> list) {
+	public void saveToJson() {
 		Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).setPrettyPrinting().create();
 		try (FileWriter writer = new FileWriter("CryptoNews_data.json")){
-			gson.toJson(list, writer);
+			gson.toJson(articles, writer);
 			writer.close();
 		} catch (IOException e) {
 			e.printStackTrace();

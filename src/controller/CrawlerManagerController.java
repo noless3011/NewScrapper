@@ -70,6 +70,7 @@ public class CrawlerManagerController {
 				CrawlerCardController cardController = (CrawlerCardController)cardControllerObject;
 				if(id == cardController.getID()) {
 					cardController.stopThread();
+					
 					break;
 				}
 				nodeIndex++;

@@ -148,12 +148,12 @@ public class CNBCCrawler implements ICrawler<Article> {
 		}
 		mainDriver.close();
 		articleDriver.close();
-		saveToJson(articles);
+		saveToJson();
 		articles.clear();
 	}
 
 	@Override
-	public void saveToJson(List<Article> list) {
+	public void saveToJson() {
 		Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).setPrettyPrinting().create();
 		try (FileWriter writer = new FileWriter("articles.json")){
 			gson.toJson(articles, writer);

@@ -57,7 +57,7 @@ public class Blockchain101Crawler implements ICrawler<Article>{
 		}
 		int page = 1;
 		int index = 0;
-		while(index < amount){
+		while(index < amount&& !Thread.currentThread().isInterrupted()){
 			// Crawl, get title author and time of page
 			Document doc = accessPage(page);		    
 		    if (doc != null) {
@@ -132,15 +132,15 @@ public class Blockchain101Crawler implements ICrawler<Article>{
 		    }
 			page++;
 		}
-		saveToJson(articles);
+		saveToJson();
 	}
 	
 	
 	@Override
-	public void saveToJson(List<Article> list) {
+	public void saveToJson() {
 		Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).setPrettyPrinting().create();
 		try (FileWriter writer = new FileWriter("Blockchain101_data.json")){
-			gson.toJson(list, writer);
+			gson.toJson(articles, writer);
 			writer.close();
 		} catch (IOException e) {
 			e.printStackTrace();
