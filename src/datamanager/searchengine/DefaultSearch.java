@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
@@ -40,168 +41,58 @@ public class DefaultSearch {
 	}
 
 	public List<Tweet> searchTweet(String queryString) throws ParseException {
-		try {
-			IndexSearcher searcher = new IndexSearcher(
-					DirectoryReader.open(FSDirectory.open(Paths.get(TWEET_INDEX_DIR))));
-			String[] fields = { "content", "author" };
-			MultiFieldQueryParser parser = new MultiFieldQueryParser(fields, analyzer);
-
-			Query mainQuery = parser.parse(queryString);
-
-			BooleanQuery.Builder booleanQueryBuilder = new BooleanQuery.Builder();
-			booleanQueryBuilder.add(mainQuery, BooleanClause.Occur.SHOULD);
-
-			for (String field : fields) {
-				
-				FuzzyQuery fuzzyQuery = new FuzzyQuery(new Term(field, queryString));
-				booleanQueryBuilder.add(fuzzyQuery, BooleanClause.Occur.SHOULD);
-
-				PrefixQuery prefixQuery = new PrefixQuery(new Term(field, queryString));
-				booleanQueryBuilder.add(prefixQuery, BooleanClause.Occur.SHOULD);
-			}
-
-			BooleanQuery combinedQuery = booleanQueryBuilder.build();
-
-			TopDocs topDocs = searcher.search(combinedQuery, Integer.MAX_VALUE);
-			List<Tweet> searchResults = new ArrayList<>();
-			for (ScoreDoc scoreDoc : topDocs.scoreDocs) {
-				Document doc = searcher.doc(scoreDoc.doc);
-				searchResults.add(converter.toTweet(doc));
-			}
-			return searchResults;
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return null;
+	    return search(queryString, TWEET_INDEX_DIR, new String[]{"content", "author"}, doc -> converter.toTweet(doc));
 	}
 
 	public List<Article> searchArticle(String queryString) throws ParseException {
-		try {
-			IndexSearcher searcher = new IndexSearcher(
-					DirectoryReader.open(FSDirectory.open(Paths.get(ARTICLE_INDEX_DIR))));
-			String[] fields = { "content", "author", "title" };
-			MultiFieldQueryParser parser = new MultiFieldQueryParser(fields, analyzer);
-
-			Query mainQuery = parser.parse(queryString);
-
-			BooleanQuery.Builder booleanQueryBuilder = new BooleanQuery.Builder();
-			booleanQueryBuilder.add(mainQuery, BooleanClause.Occur.SHOULD);
-
-			for (String field : fields) {
-	
-				FuzzyQuery fuzzyQuery = new FuzzyQuery(new Term(field, queryString));
-				booleanQueryBuilder.add(fuzzyQuery, BooleanClause.Occur.SHOULD);
-
-				PrefixQuery prefixQuery = new PrefixQuery(new Term(field, queryString));
-				booleanQueryBuilder.add(prefixQuery, BooleanClause.Occur.SHOULD);
-			}
-
-			BooleanQuery combinedQuery = booleanQueryBuilder.build();
-
-			TopDocs topDocs = searcher.search(combinedQuery, Integer.MAX_VALUE);
-			List<Article> searchResults = new ArrayList<>();
-			for (ScoreDoc scoreDoc : topDocs.scoreDocs) {
-				Document doc = searcher.doc(scoreDoc.doc);
-				searchResults.add(converter.toArticle(doc));
-			}
-			return searchResults;
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return null;
+	    return search(queryString, ARTICLE_INDEX_DIR, new String[]{"content", "author", "title"}, doc -> converter.toArticle(doc));
 	}
 
 	public List<Facebook> searchFacebook(String queryString) throws ParseException {
-		try {
-			IndexSearcher searcher = new IndexSearcher(
-					DirectoryReader.open(FSDirectory.open(Paths.get(FACEBOOK_INDEX_DIR))));
-			String[] fields = { "content", "author", "title" };
-			MultiFieldQueryParser parser = new MultiFieldQueryParser(fields, analyzer);
-
-			Query mainQuery = parser.parse(queryString);
-
-			BooleanQuery.Builder booleanQueryBuilder = new BooleanQuery.Builder();
-			booleanQueryBuilder.add(mainQuery, BooleanClause.Occur.SHOULD);
-
-			for (String field : fields) {
-				FuzzyQuery fuzzyQuery = new FuzzyQuery(new Term(field, queryString));
-				booleanQueryBuilder.add(fuzzyQuery, BooleanClause.Occur.SHOULD);
-
-				PrefixQuery prefixQuery = new PrefixQuery(new Term(field, queryString));
-				booleanQueryBuilder.add(prefixQuery, BooleanClause.Occur.SHOULD);
-			}
-
-			BooleanQuery combinedQuery = booleanQueryBuilder.build();
-
-			TopDocs topDocs = searcher.search(combinedQuery, Integer.MAX_VALUE);
-			List<Facebook> searchResults = new ArrayList<>();
-			for (ScoreDoc scoreDoc : topDocs.scoreDocs) {
-				Document doc = searcher.doc(scoreDoc.doc);
-				searchResults.add(converter.toFacebook(doc));
-			}
-			return searchResults;
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return null;
+	    return search(queryString, FACEBOOK_INDEX_DIR, new String[]{"content", "author", "title"}, doc -> converter.toFacebook(doc));
 	}
 
 	public List<Object> searchAll(String queryString) throws ParseException {
-		try {
-			IndexSearcher searcher = new IndexSearcher(
-					DirectoryReader.open(FSDirectory.open(Paths.get(ALL_INDEX_DIR))));
-			String[] fields = { "content", "author", "title" };
-			MultiFieldQueryParser parser = new MultiFieldQueryParser(fields, analyzer);
-
-			Query mainQuery = parser.parse(queryString);
-
-			BooleanQuery.Builder booleanQueryBuilder = new BooleanQuery.Builder();
-			booleanQueryBuilder.add(mainQuery, BooleanClause.Occur.SHOULD);
-
-			for (String field : fields) {
-
-				FuzzyQuery fuzzyQuery = new FuzzyQuery(new Term(field, queryString));
-				booleanQueryBuilder.add(fuzzyQuery, BooleanClause.Occur.SHOULD);
-				
-				PrefixQuery prefixQuery = new PrefixQuery(new Term(field, queryString));
-				booleanQueryBuilder.add(prefixQuery, BooleanClause.Occur.SHOULD);
-			}
-
-			BooleanQuery combinedQuery = booleanQueryBuilder.build();
-
-			TopDocs topDocs = searcher.search(combinedQuery, Integer.MAX_VALUE);
-			List<Object> searchResults = new ArrayList<>();
-			for (ScoreDoc scoreDoc : topDocs.scoreDocs) {
-				Document doc = searcher.doc(scoreDoc.doc);
-				String indexType = doc.get("indexType");
-				switch (indexType) {
-				case "Article":
-					searchResults.add(converter.toArticle(doc));
-					break;
-				case "Facebook":
-					searchResults.add(converter.toFacebook(doc));
-					break;
-				case "Tweet":
-					searchResults.add(converter.toTweet(doc));
-					break;
-				default:
-					break;
-				}
-			}
-			return searchResults;
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return null;
+	    return search(queryString, ALL_INDEX_DIR, new String[]{"content", "author", "title"}, doc -> {
+	        String indexType = doc.get("indexType");
+	        switch (indexType) {
+	            case "Article": return converter.toArticle(doc);
+	            case "Facebook": return converter.toFacebook(doc);
+	            case "Tweet": return converter.toTweet(doc);
+	            default: return null;
+	        }
+	    });
 	}
 
-	public static void main(String[] args) throws ParseException, IOException, InterruptedException {
-		Index index = new Index();
-		index.indexArticle();
-		DefaultSearch search = new DefaultSearch();
-		List<Article> results = search.searchArticle("blockchain");
-		for (Article result : results) {
-			System.out.println(result);
-		}
+	private <T> List<T> search(String queryString, String indexDir, String[] fields, Function<Document, T> converter) throws ParseException {
+	    try {
+	        IndexSearcher searcher = new IndexSearcher(DirectoryReader.open(FSDirectory.open(Paths.get(indexDir))));
+	        MultiFieldQueryParser parser = new MultiFieldQueryParser(fields, analyzer);
+	        Query mainQuery = parser.parse(queryString);
+
+	        BooleanQuery.Builder booleanQueryBuilder = new BooleanQuery.Builder();
+	        booleanQueryBuilder.add(mainQuery, BooleanClause.Occur.SHOULD);
+
+	        for (String field : fields) {
+	            booleanQueryBuilder.add(new FuzzyQuery(new Term(field, queryString)), BooleanClause.Occur.SHOULD);
+	            booleanQueryBuilder.add(new PrefixQuery(new Term(field, queryString)), BooleanClause.Occur.SHOULD);
+	        }
+
+	        BooleanQuery combinedQuery = booleanQueryBuilder.build();
+	        TopDocs topDocs = searcher.search(combinedQuery, Integer.MAX_VALUE);
+
+	        List<T> searchResults = new ArrayList<>();
+	        for (ScoreDoc scoreDoc : topDocs.scoreDocs) {
+	            Document doc = searcher.doc(scoreDoc.doc);
+	            T result = converter.apply(doc);
+	            if (result != null) {
+	                searchResults.add(result);
+	            }
+	        }
+	        return searchResults;
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	    return null;
 	}
 }

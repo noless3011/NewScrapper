@@ -102,7 +102,7 @@ public class CoindeskCrawler implements ICrawler<Article> {
                     List<WebElement> geng = element.findElements(By.cssSelector("a.Box-sc-1hpkeeg-0.hmLHIZ"));
                     WebElement drx = geng.get(1);
                     String url = drx.getAttribute("href");
-                    if (!uniquearticles.contains(url)) {
+                    if (uniquearticles.contains(url)) {
                     	continue loop;
                     }
                     System.out.println(url);

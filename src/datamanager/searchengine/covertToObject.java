@@ -55,10 +55,14 @@ public class covertToObject {
 		String numberOfLiked = doc.get("like");
 		String numberOfView = doc.get("view");
 		String numberOfComment = doc.get("comment");
+		
 		List<String> hashtags = Arrays.asList(doc.getValues("hashtag"));
+		
 		String sourceUrl = doc.get("url");
+		
 		List<String> entities = Arrays.asList(doc.get("entity"));
 		Set<String> uniqueEntities = new HashSet<>(entities);
+		
 		return new Tweet(author, incres, publishAt, sourceUrl, hashtags, numberOfComment, numberOfLiked, numberOfView,
 				uniqueEntities);
 	}
@@ -93,11 +97,14 @@ public class covertToObject {
 
 		String sourceUrl = doc.get("url");
 		String urlImg = doc.get("urlimg");
+		
 		Content content = new Content();
 		String element = doc.get("content");
 		content.AddElement(element);
+		
 		List<String> entities = Arrays.asList(doc.getValues("entity"));
 		Set<String> uniqueEntities = new HashSet<>(entities); // Sử dụng Set để loại bỏ các thực thể trùng lặp
+		
 		return new Facebook(author, content, publishAt, sourceUrl, numberOfReaction, numberOfComment, numberOfShare,
 				urlImg, uniqueEntities);
 
@@ -111,43 +118,22 @@ public class covertToObject {
 		long published = Long.parseLong(publish);
 		LocalDateTime publishAt = DateRange.formatterEpochSecondTotime(published);
 		String sourceUrl = doc.get("url");
-		
-		Content content = new Content(doc.get("content"));
+
+		List<String> elements = Arrays.asList(doc.getValues("content"));
+		Content content = new Content();
+		for (String element: elements) {
+			if(element.contains("url=")) {
+				Image image = new Image(element);
+				content.AddElement(image);
+			} else {
+				content.AddElement(element);
+			}
+		}
+
 		List<String> entities = Arrays.asList(doc.getValues("entity"));
-		System.out.println(entities);
 		Set<String> uniqueEntities = new HashSet<>(entities);
 		return new Article(title, author, content, publishAt, sourceUrl, uniqueEntities);
 
 	}
 
-	private Content restoreContentFromString(String contentString) {
-		Content content = new Content();
-
-		// Phân tách chuỗi thành các đoạn văn bản và URL mô tả
-		String[] parts = contentString.split("\\{url=");
-		if (parts.length == 1) {
-			content.AddElement(contentString);
-			return content;
-		}
-		for (String part : parts) {
-			// Phân tách đoạn thành URL và mô tả
-			String[] subParts = part.split(", description=");
-			// Nếu mảng không có ít nhất 2 phần tử, thì bỏ qua và tiếp tục vòng lặp
-			if (subParts.length < 2) {
-				continue;
-			}
-
-			String url = subParts[0];
-			String description = subParts[1].replace("}", ""); // Xóa ký tự '}' ở cuối
-
-			// Tạo đối tượng Image từ URL và mô tả
-			Image image = new Image(url);
-
-			// Thêm đối tượng Image và đoạn văn bản vào đối tượng Content
-			content.AddElement(image);
-			content.AddElement(description);
-		}
-
-		return content;
-	}
 }
