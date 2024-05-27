@@ -1,4 +1,4 @@
-package crawler;
+package datamanager.crawler;
 
 import adapter.LocalDateTimeAdapter;
 import adapter.ProgressCallback;

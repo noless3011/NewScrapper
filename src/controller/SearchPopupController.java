@@ -21,10 +21,10 @@ import model.Article;
 import model.DisplayList;
 import model.Facebook;
 import model.Tweet;
-import searchengine.AdvanceSearch;
-import searchengine.Arrange.SortOptionArticle;
-import searchengine.DateRange;
-import searchengine.Index;
+import datamanager.searchengine.AdvanceSearch;
+import datamanager.searchengine.Arrange.SortOptionArticle;
+import datamanager.searchengine.DateRange;
+import datamanager.searchengine.Index;
 
 
 

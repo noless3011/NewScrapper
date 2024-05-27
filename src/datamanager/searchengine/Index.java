@@ -1,4 +1,4 @@
-package searchengine;
+package datamanager.searchengine;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -11,11 +11,11 @@ import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 
-import crawler.Blockchain101Crawler;
-import crawler.CNBCCrawler;
-import crawler.CoindeskCrawler;
-import crawler.FacebookCrawler;
-import crawler.TwitterCrawler;
+import datamanager.crawler.Blockchain101Crawler;
+import datamanager.crawler.CNBCCrawler;
+import datamanager.crawler.CoindeskCrawler;
+import datamanager.crawler.FacebookCrawler;
+import datamanager.crawler.TwitterCrawler;
 import model.Article;
 import model.Facebook;
 import model.Tweet;

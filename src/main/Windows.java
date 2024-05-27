@@ -9,9 +9,9 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
-import adapter.ResizeHelper;
 import controller.MainController;
 import controller.MainControllerSingleton;
+import controller.ResizeHelper;
 
 
 public class Windows extends Application{

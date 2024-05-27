@@ -1,4 +1,4 @@
-package searchengine;
+package datamanager.searchengine;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;

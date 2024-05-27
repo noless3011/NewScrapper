@@ -13,12 +13,12 @@ import org.apache.lucene.queryparser.classic.ParseException;
 import controller.MainController.TabType;
 import controller.SearchPopupController.Field;
 import controller.SearchPopupController.SearchOption;
-import crawler.Blockchain101Crawler;
-import crawler.CNBCCrawler;
-import crawler.CoindeskCrawler;
-import crawler.CryptonewsCrawler;
-import crawler.FacebookCrawler;
-import crawler.TwitterCrawler;
+import datamanager.crawler.Blockchain101Crawler;
+import datamanager.crawler.CNBCCrawler;
+import datamanager.crawler.CoindeskCrawler;
+import datamanager.crawler.CryptonewsCrawler;
+import datamanager.crawler.FacebookCrawler;
+import datamanager.crawler.TwitterCrawler;
 import javafx.animation.Animation;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
@@ -49,7 +49,7 @@ import model.Article;
 import model.DisplayList;
 import model.Facebook;
 import model.Tweet;
-import searchengine.DefaultSearch;
+import datamanager.searchengine.DefaultSearch;
 
 public class MainController{
 	

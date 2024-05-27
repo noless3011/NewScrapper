@@ -1,4 +1,4 @@
-package crawler;
+package datamanager.crawler;
 
 import java.io.FileReader;
 import java.io.FileWriter;

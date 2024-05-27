@@ -1,4 +1,4 @@
-package searchengine;
+package datamanager.searchengine;
 
 import java.util.Comparator;
 import java.util.List;

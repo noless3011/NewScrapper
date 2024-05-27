@@ -1,4 +1,4 @@
-package crawler;
+package datamanager.crawler;
 
 import java.util.List;
 

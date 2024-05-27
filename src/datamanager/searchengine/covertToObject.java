@@ -1,4 +1,4 @@
-package searchengine;
+package datamanager.searchengine;
 
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;

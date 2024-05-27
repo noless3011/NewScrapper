@@ -2,7 +2,8 @@ module NewsScrapper {
 	exports model;
 	exports controller;
 	exports main;
-	exports searchengine;
+	exports datamanager.searchengine;
+	exports datamanager.crawler;
 	requires transitive javafx.graphics;
 	opens controller;
 	

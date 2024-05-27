@@ -2,7 +2,7 @@ package controller;
 
 import java.io.IOException;
 
-import crawler.ICrawler;
+import datamanager.crawler.ICrawler;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
