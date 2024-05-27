@@ -15,6 +15,7 @@ import controller.SearchPopupController.Field;
 import controller.SearchPopupController.SearchOption;
 import crawler.Blockchain101Crawler;
 import crawler.CNBCCrawler;
+import crawler.CoindeskCrawler;
 import crawler.CryptonewsCrawler;
 import crawler.FacebookCrawler;
 import crawler.TwitterCrawler;
@@ -578,8 +579,9 @@ public class MainController{
         	    	CNBCCrawler cnbcCrawler = new CNBCCrawler();
         	    	Blockchain101Crawler blockchain101Crawler = new Blockchain101Crawler();
         	    	CryptonewsCrawler cryptonewsCrawler = new CryptonewsCrawler();
-        	    	
+        	    	CoindeskCrawler coindeskCrawler = new CoindeskCrawler();
         	    	DisplayList.getArticleList().setAll(cryptonewsCrawler.getListFromJson());
+        	    	DisplayList.getArticleList().addAll(coindeskCrawler.getListFromJson());
         	    	DisplayList.getArticleList().addAll(cnbcCrawler.getListFromJson());
         	    	DisplayList.getArticleList().addAll(blockchain101Crawler.getListFromJson());
         	    	DisplayList.toggleDynamicUpdate(true);

@@ -1,6 +1,10 @@
 /bin/
 /lib/
 /out/
-.zip
-.exe
-.json
+/tweet_index/
+/facebook_index/
+/articles_index/
+/all_index/
+*.zip
+*.exe
+*.json

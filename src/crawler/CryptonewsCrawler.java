@@ -30,7 +30,6 @@ import model.Content;
 import model.Image;
 
 public class CryptonewsCrawler implements ICrawler<Article>{
-	
 	private static final String WEB_URL = "https://cryptonews.com/news/";
 	private static List <Article> articles = new ArrayList<>();
 	

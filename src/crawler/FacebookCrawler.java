@@ -53,7 +53,7 @@ public class FacebookCrawler implements ICrawler<Facebook> {
                 ngNode.put("id", i);
                 ngNode.put("sourceUrl", post.getSourceUrl());
                 ngNode.put("author", post.getAuthor());
-                ngNode.set("content", mapper.valueToTree(post.getContent().getParagraphList()));
+                ngNode.put("content", post.getContent().toString());
                 
                 ngNode.put("publishedDate", String.valueOf(post.getPublishedAt()));
                 ngNode.put("Reaction",post.getNumber_of_reaction());
@@ -65,7 +65,7 @@ public class FacebookCrawler implements ICrawler<Facebook> {
             }
             ObjectNode root = mapper.createObjectNode();
             root.set("FacebookPost",ngNodes);
-            mapper.writerWithDefaultPrettyPrinter().writeValue(new File("Facebook_data.json"),root);
+            mapper.writerWithDefaultPrettyPrinter().writeValue(new File("facebook.json"),root);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -79,7 +79,7 @@ public class FacebookCrawler implements ICrawler<Facebook> {
         ObjectNode fbObject;
         try {
             fbObject = reader.forType(new TypeReference<ObjectNode>() {
-            }).readValue(new File("Facebook_data.json"));
+            }).readValue(new File("facebook.json"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -87,25 +87,18 @@ public class FacebookCrawler implements ICrawler<Facebook> {
         for(JsonNode node : arrayNode){
             String sourceUrl = node.get("sourceUrl").asText();
             String author = node.get("author").asText();
-            Content content = new Content();
-            JsonNode contentNode = node.get("content");
-            List<String> contentList = mapper.convertValue(contentNode, List.class);
-            for(String element : contentList) {
-            	content.AddElement(element);
-            }
+            Content content = new Content(node.get("content").asText());
             String time = node.get("publishedDate").asText().substring(0,16);
             LocalDateTime prettyTime = parseDateTime(time);
             String like = node.get("Reaction").asText();
             String cmt = node.get("Comment").asText();
             String share = node.get("Share").asText();
-//            if (node.get("imgUrl") != null) {
-//            	String img = node.get("imgUrl").asText();
-//            	articles.add(new Facebook(author,content,prettyTime,sourceUrl,like, cmt, share,img));
-//            } else {
-//            	articles.add(new Facebook(author,content,prettyTime,sourceUrl,like, cmt, share,""));
-//            }
-            String img = node.get("ImgUrl").asText();
-            articles.add(new Facebook(author,content,prettyTime,sourceUrl,like, cmt, share,img));
+            if (node.get("imgUrl") != null) {
+            	String img = node.get("imgUrl").asText();
+            	articles.add(new Facebook(author,content,prettyTime,sourceUrl,like, cmt, share,img));
+            } else {
+            	articles.add(new Facebook(author,content,prettyTime,sourceUrl,like, cmt, share,""));
+            }
         }
         return articles;
 
@@ -266,3 +259,8 @@ public class FacebookCrawler implements ICrawler<Facebook> {
     }
 
 }
+
+
+
+
+
