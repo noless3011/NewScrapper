@@ -1,5 +1,6 @@
 package controller;
 
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.EnumSet;
@@ -24,6 +25,8 @@ import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
@@ -33,6 +36,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.Pagination;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
@@ -49,6 +54,10 @@ import model.Article;
 import model.DisplayList;
 import model.Facebook;
 import model.Tweet;
+import datamanager.searchengine.Arrange.SortOptionArticle;
+import datamanager.searchengine.Arrange.SortOptionFacebook;
+import datamanager.searchengine.Arrange.SortOptionTweet;
+import datamanager.searchengine.Arrange;
 import datamanager.searchengine.DefaultSearch;
 
 public class MainController{
@@ -65,7 +74,7 @@ public class MainController{
 	private Stack<TabType> undoStack = new Stack<TabType>();
 	private Stack<TabType> redoStack = new Stack<TabType>();
 	// Tab đang được hiển thị hiện tai
-	private TabType currentTabState = TabType.TWITTER;
+	private TabType currentTabState = TabType.ARTICLE;
 	
     
 
@@ -149,6 +158,10 @@ public class MainController{
 	
 	//Popup
 	private Popup advanceSearchPopup = new Popup();
+	
+	@FXML
+	private MenuButton sortMenuButton;
+	List<MenuItem> sortItems = new ArrayList<>();
 	
 	// Hàm này để setup phần chia trang
 	public void setupPagination() {
@@ -239,6 +252,62 @@ public class MainController{
 				}
 			  }
 			} );
+		
+	}
+	
+	public void rearrange(SortOptionArticle option) {
+		Arrange arrange = new Arrange();
+		arrange.arrangeArticle(DisplayList.getArticleList(), option, false);
+		LoadViewTask loadViewTask = new LoadViewTask(1, newsPerPage);
+		Thread thread = new Thread(loadViewTask);
+		thread.start();
+	}
+	
+	public void rearrange(SortOptionFacebook option) {
+		Arrange arrange = new Arrange();
+		arrange.arrangeFacebook(DisplayList.getPostList(), option, false);
+		LoadViewTask loadViewTask = new LoadViewTask(1, newsPerPage);
+		Thread thread = new Thread(loadViewTask);
+		thread.start();
+	}
+	
+	public void rearrange(SortOptionTweet option) {
+		Arrange arrange = new Arrange();
+		arrange.arrangeTweet(DisplayList.getTweetList(), option, false);
+		LoadViewTask loadViewTask = new LoadViewTask(1, newsPerPage);
+		Thread thread = new Thread(loadViewTask);
+		thread.start();
+	}
+	
+	public void updateMenuItem() {
+		sortItems.clear();
+		sortMenuButton.getItems().clear();
+		if(currentTabState == TabType.ARTICLE) {
+			for(SortOptionArticle option : SortOptionArticle.values()) {
+				MenuItem temp = new MenuItem(option.name().toLowerCase());
+				temp.setOnAction(e -> rearrange(option));
+				sortItems.add(temp);
+				
+			}
+		}
+		if(currentTabState == TabType.TWITTER) {
+			for(SortOptionTweet option : SortOptionTweet.values()) {
+				MenuItem temp = new MenuItem(option.name().toLowerCase());
+				temp.setOnAction(e -> rearrange(option));
+				sortItems.add(temp);
+			}
+		}
+		if(currentTabState == TabType.FACEBOOK) {
+			for(SortOptionFacebook option : SortOptionFacebook.values()) {
+				MenuItem temp = new MenuItem(option.name().toLowerCase());
+				temp.setOnAction(e -> rearrange(option));
+				sortItems.add(temp);
+			}
+		}
+		for(MenuItem item : sortItems) {
+			sortMenuButton.getItems().add(item);
+		}
+		
 		
 	}
 	
@@ -383,16 +452,19 @@ public class MainController{
 	
 	
 	public void articleTabPress(ActionEvent event) {
-		checkToggle(TabType.ARTICLE);
 		
+		checkToggle(TabType.ARTICLE);
+		updateMenuItem();
 	}
 	
 	public void facebookTabPress(ActionEvent event) {
 		checkToggle(TabType.FACEBOOK);
+		updateMenuItem();
 	}
 	
 	public void twitterTabPress(ActionEvent event) {
 		checkToggle(TabType.TWITTER);
+		updateMenuItem();
 	}
 	
 	public void settingTabPress(ActionEvent event) {
@@ -426,6 +498,7 @@ public class MainController{
 			pagination.setCurrentPageIndex(0);
 			buttonTypeHashMap.get(currentTabState).getStyleClass().set(0, "side-bar-button");
 			buttonTypeHashMap.get(newTabType).getStyleClass().set(0, "side-bar-button-selected");
+			
 		}
 		currentTabState = newTabType;
 		undoStack.push(newTabType);
@@ -623,7 +696,7 @@ public class MainController{
         }
     };
 	
-	
+    
 	public void reload(int index) {
 		playLoadAnimation();
 		contentVBox.getChildren().clear();
